@@ -51,8 +51,6 @@ cat > "$FILE" << EOF
 
 ## 练习与习得
 
-**我的造句**
-
 EOF
 
 echo "Created: $FILE"
