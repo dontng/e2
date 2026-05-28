@@ -13,7 +13,7 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="$REPO_DIR/.auto-review.log"
-POLL_INTERVAL="${POLL_INTERVAL:-14400}"  # 4 hours
+POLL_INTERVAL="${POLL_INTERVAL:-7200}"   # 2 hours
 ONCE_MODE=false
 
 [[ "${1:-}" == "--once" ]] && ONCE_MODE=true
@@ -141,6 +141,10 @@ commit_and_push() {
 
     git commit -m "批改 $basename"
     log "Committed: $basename"
+
+    git pull --rebase origin main 2>&1 | tee -a "$LOG_FILE" || {
+        log "WARNING: rebase pull failed — attempting push anyway"
+    }
 
     if git push origin main 2>&1 | tee -a "$LOG_FILE"; then
         log "Pushed: $basename"

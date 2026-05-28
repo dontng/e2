@@ -52,3 +52,53 @@ bash new-day.sh 0601 36
 git add . && git commit -m "Day XX" && git push
 ```
 
+## 自动批改（auto-review.sh）
+
+`auto-review.sh` 是一个持续运行的后台脚本，自动扫描未批改的文件，调用 Claude 完成批改后 commit 并 push。
+
+**触发条件**：文件的「我的理解和翻译」区块有内容，但「批改」区块为空。
+
+---
+
+### 执行方式
+
+#### 方式一：持续轮询（默认，推荐挂后台使用）
+
+每 2 小时自动扫描一次，遇到 rate limit 自动退避 5 小时。
+
+```bash
+nohup ./auto-review.sh >> .auto-review.log 2>&1 &
+```
+
+后台静默运行，日志追加写入 `.auto-review.log`。
+
+#### 方式二：只跑一次（适合手动触发或测试）
+
+扫描当前所有未批改文件，批改完毕后退出，不进入循环等待。
+
+```bash
+./auto-review.sh --once
+```
+
+#### 方式三：自定义轮询间隔
+
+通过环境变量 `POLL_INTERVAL` 指定间隔秒数，例如改为 1 小时：
+
+```bash
+POLL_INTERVAL=3600 ./auto-review.sh
+```
+
+---
+
+### 查看日志
+
+```bash
+tail -f .auto-review.log
+```
+
+### 停止后台运行
+
+```bash
+pkill -f auto-review.sh
+```
+
