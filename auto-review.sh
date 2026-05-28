@@ -50,10 +50,14 @@ find_uncorrected() {
     done
 }
 
+# Return 0 on success, 1 on general error, 2 on rate limit
 review_file() {
     local file="$1"
     local rel="${file#$REPO_DIR/}"
     log "Reviewing: $rel"
+
+    local tmpout exit_code=0
+    tmpout=$(mktemp)
 
     claude -p "你是这个英语学习项目的批改老师。请批改并完善以下markdown文件。
 
@@ -102,8 +106,22 @@ review_file() {
 直接编辑文件完成任务，不要输出其他内容。" \
         --allowedTools "Read,Edit" \
         --dangerously-skip-permissions \
-        2>&1 | tee -a "$LOG_FILE"
+        > "$tmpout" 2>&1 || exit_code=$?
 
+    cat "$tmpout" | tee -a "$LOG_FILE"
+
+    if [[ $exit_code -ne 0 ]]; then
+        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
+            log "Rate limit reached (exit $exit_code) — will back off"
+            rm -f "$tmpout"
+            return 2
+        fi
+        log "ERROR: claude exited $exit_code for $rel"
+        rm -f "$tmpout"
+        return 1
+    fi
+
+    rm -f "$tmpout"
     log "Review done: $rel"
 }
 
@@ -154,14 +172,30 @@ main() {
                 if [[ -z "$uncorrected" ]]; then
                     log "No uncorrected files found."
                 else
+                    local rate_limited=false
                     while IFS= read -r file; do
                         if git_is_busy; then
                             log "Git became busy mid-cycle — deferring remaining files to next cycle"
                             break
                         fi
-                        review_file "$file"
-                        commit_and_push "$file"
+                        local rc=0
+                        review_file "$file" || rc=$?
+                        if [[ $rc -eq 2 ]]; then
+                            log "Backing off for 5 hours before next attempt"
+                            rate_limited=true
+                            break
+                        elif [[ $rc -eq 0 ]]; then
+                            commit_and_push "$file"
+                        else
+                            log "Skipping commit for $file due to review error"
+                        fi
                     done <<< "$uncorrected"
+
+                    if $rate_limited; then
+                        log "Sleeping 18000s (5 hours) for rate limit recovery..."
+                        sleep 18000
+                        continue
+                    fi
                 fi
             fi
         fi
