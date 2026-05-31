@@ -11,7 +11,7 @@ from datetime import datetime
 
 REPO_DIR     = Path(__file__).parent.parent
 SPELL_DIR    = REPO_DIR / 'wishes' / 'spell'
-PROJECTS_DIR = Path.home() / '.claude' / 'projects' / '-home-djology-engligh2-daily'
+PROJECTS_DIR = Path.home() / '.claude' / 'projects' / '-home-djology-english2-daily'
 
 COMPLETION_MARKERS = [
     '已完成', '已推送', '已提交', '推送完', '全部完成', '任务完成',

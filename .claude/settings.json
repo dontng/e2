@@ -13,7 +13,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /home/djology/engligh2-daily/scripts/auto_wish.py"
+            "command": "python3 /home/djology/english2-daily/scripts/auto_wish.py"
           }
         ]
       }
