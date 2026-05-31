@@ -9,7 +9,7 @@
 - **原句** — 当天英二例句
 - **我的理解和翻译** — 自己的翻译留痕，不修改
 - **批改** — 内联标注错误 + 参考译文
-- **Vocab** — 不熟单词 + vocabulary.com 两段解释
+- **Vocab** — 不熟单词，词根拆解 + 核心意象 + 例句
 - **Phrases** — 词组拆解与语境说明
 - **问答收录** — 讨论中产生的语言问题与解答
 
@@ -36,6 +36,8 @@ bash new-day.sh
 
 ```bash
 bash new-day.sh tomorrow
+# 或简写
+bash new-day.sh tom
 ```
 
 ### 3. 指定日期创建（需手动传入序号）
@@ -64,7 +66,7 @@ git add . && git commit -m "Day XX" && git push
 
 #### 方式一：持续轮询（默认，推荐挂后台使用）
 
-每 2 小时自动扫描一次，遇到 rate limit 自动退避 5 小时。
+每 10 分钟自动扫描一次，遇到 rate limit 自动退避 1 小时。批改完成后立即 commit 并 push，无固定等待。
 
 ```bash
 nohup ./auto-review.sh >> .auto-review.log 2>&1 &
@@ -100,5 +102,32 @@ tail -f .auto-review.log
 
 ```bash
 pkill -f auto-review.sh
+```
+
+---
+
+## 许愿系统（wishes/）
+
+session 被中断（token 耗尽或强制停止）时，Stop hook 自动把当前任务写入 `wishes/spell/`，knight 守护进程负责拾起并续跑。
+
+```
+wishes/
+  spell/      # 待执行的 wish（[pending] → [running] → [done/failed]）
+  phantasm/   # 每次执行的详细日志
+  knight.sh   # 守护进程，轮询 spell/ 并调用 claude -p 执行
+```
+
+### 启动 knight
+
+```bash
+bash wishes/knight.sh >> wishes/knight.log 2>&1 &
+```
+
+用 VS Code 打开项目时会自动启动（`.vscode/tasks.json` 已配置）。
+
+### 查看日志
+
+```bash
+tail -f wishes/knight.log
 ```
 

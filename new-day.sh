@@ -4,7 +4,7 @@ if [ -z "$1" ]; then
   MMDD=$(date +%m%d)
   FULL_DATE=$(date +%Y-%m-%d)
   MONTH=$(date +%B | tr '[:upper:]' '[:lower:]')
-elif [ "$1" = "tomorrow" ]; then
+elif [ "$1" = "tomorrow" ] || [ "$1" = "tom" ]; then
   MMDD=$(date -d tomorrow +%m%d)
   FULL_DATE=$(date -d tomorrow +%Y-%m-%d)
   MONTH=$(date -d tomorrow +%B | tr '[:upper:]' '[:lower:]')

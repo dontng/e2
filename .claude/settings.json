@@ -1,8 +1,22 @@
 {
   "permissions": {
     "allow": [
-      "Read",
-      "Edit"
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /home/djology/engligh2-daily/scripts/auto_wish.py"
+          }
+        ]
+      }
     ]
   }
 }

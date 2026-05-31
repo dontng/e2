@@ -13,7 +13,7 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="$REPO_DIR/.auto-review.log"
-POLL_INTERVAL="${POLL_INTERVAL:-7200}"   # 2 hours
+POLL_INTERVAL="${POLL_INTERVAL:-600}"    # 10 minutes
 ONCE_MODE=false
 
 [[ "${1:-}" == "--once" ]] && ONCE_MODE=true
@@ -185,7 +185,7 @@ main() {
                         local rc=0
                         review_file "$file" || rc=$?
                         if [[ $rc -eq 2 ]]; then
-                            log "Backing off for 5 hours before next attempt"
+                            log "Backing off for 1 hour before next attempt"
                             rate_limited=true
                             break
                         elif [[ $rc -eq 0 ]]; then
@@ -196,8 +196,8 @@ main() {
                     done <<< "$uncorrected"
 
                     if $rate_limited; then
-                        log "Sleeping 18000s (5 hours) for rate limit recovery..."
-                        sleep 18000
+                        log "Sleeping 3600s (1 hour) for rate limit recovery..."
+                        sleep 3600
                         continue
                     fi
                 fi
