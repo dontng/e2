@@ -27,7 +27,10 @@ fi
 DIR="sentence/$MONTH"
 FILE="$DIR/${MMDD}-day${DAY_NUM}.md"
 
-mkdir -p "$DIR"
+FOOL_DIR="fool/$MONTH"
+FOOL_FILE="$FOOL_DIR/${MMDD}-day${DAY_NUM}.md"
+
+mkdir -p "$DIR" "$FOOL_DIR"
 
 if [ -f "$FILE" ]; then
   echo "Already exists: $FILE"
@@ -53,4 +56,12 @@ cat > "$FILE" << EOF
 
 EOF
 
+cat > "$FOOL_FILE" << EOF
+# Day ${DAY_NUM} Fool Sessions · ${FULL_DATE}
+
+source: [sentence/${MONTH}/${MMDD}-day${DAY_NUM}.md](../../sentence/${MONTH}/${MMDD}-day${DAY_NUM}.md)
+
+EOF
+
 echo "Created: $FILE"
+echo "Created: $FOOL_FILE"

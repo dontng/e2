@@ -125,21 +125,111 @@ review_file() {
     log "Review done: $rel"
 }
 
+fool_file() {
+    local file="$1"
+    local fool_path="$2"
+    local rel="${file#$REPO_DIR/}"
+    local fool_rel="${fool_path#$REPO_DIR/}"
+    log "Running fool decomposition: $rel → $fool_rel"
+
+    mkdir -p "$(dirname "$fool_path")"
+
+    local tmpout exit_code=0
+    tmpout=$(mktemp)
+
+    claude -p "你是这个英语学习项目的愚者分析师（The Fool）。请对以下已批改的句子文件执行完整的愚者拆解，将结果写入对应的 fool 文件。
+
+句子文件：$file
+fool 文件：$fool_path
+
+---
+
+收集句子文件中所有英文句子（按顺序）：
+1. ## 原句 — 主句
+2. ## Vocab — 每个词条下的例句（*斜体* bullet points）
+3. ## Vocab — 每个词条的 **造句**
+4. ## Phrases — 每个句式下的例句
+
+跳过中文内容（批改注解、参考译文、核心意象）。不跳过任何英文句子。
+
+对每个句子执行四步拆解：
+
+**Step 1 扫词**：对有分量的词给出词根（一句话建立结构直觉）+ 核心意象（一句中文，不是定义）；简单句可简短处理。
+
+**Step 2 扫小品词和搭配**：对意义超出单词本身的搭配列 2-3 个平行搭配 + 一句中文感受；无值得注意的搭配时一行说明跳过。
+
+**Step 3 扫句式**：1-3 行说清主谓宾在哪、重心在哪、插入语/对比结构/从句；简单句极简。
+
+**Step 4 读句子**：一句流畅的中文翻译。
+
+---
+
+输出格式，按 source 文件分区（## 原句 / ## Vocab · word / ## Phrases · phrase），每句一个条目：
+
+\`\`\`
+### fool-NN
+> <完整引用句子>
+
+**Step 1 扫词**
+...
+
+**Step 2 扫小品词和搭配**
+...
+
+**Step 3 扫句式**
+...
+
+**Step 4 读句子**
+...
+
+---
+\`\`\`
+
+编号 fool-01 / fool-02 … 全文连续，两位补零。
+
+如 fool 文件已有 header，保留 header，在其后写入全部内容。
+如 fool 文件不存在，先写文件头再写内容：
+\`# Day N Fool Sessions · YYYY-MM-DD\n\nsource: [sentence/...](../../$rel)\n\n---\n\`
+
+一次性写完整个文件，不分批。" \
+        --allowedTools "Read,Write,Edit" \
+        --dangerously-skip-permissions \
+        > "$tmpout" 2>&1 || exit_code=$?
+
+    cat "$tmpout" | tee -a "$LOG_FILE"
+
+    if [[ $exit_code -ne 0 ]]; then
+        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
+            log "Rate limit on fool (exit $exit_code) — will back off"
+            rm -f "$tmpout"
+            return 2
+        fi
+        log "ERROR: fool exited $exit_code for $rel"
+        rm -f "$tmpout"
+        return 1
+    fi
+
+    rm -f "$tmpout"
+    log "Fool done: $fool_rel"
+}
+
 commit_and_push() {
     local file="$1"
+    local fool_path="${2:-}"
     local rel="${file#$REPO_DIR/}"
     local basename
     basename=$(basename "$file" .md)
 
     cd "$REPO_DIR"
     git add "$rel"
+    [[ -n "$fool_path" && -f "$fool_path" ]] && git add "${fool_path#$REPO_DIR/}"
 
     if git diff --cached --quiet; then
         log "No changes staged for $basename, skipping commit"
         return
     fi
 
-    git commit -m "批改 $basename"
+    git commit -m "批改+愚者 $basename"
     log "Committed: $basename"
 
     git pull --rebase origin main 2>&1 | tee -a "$LOG_FILE" || {
@@ -189,7 +279,21 @@ main() {
                             rate_limited=true
                             break
                         elif [[ $rc -eq 0 ]]; then
-                            commit_and_push "$file"
+                            local fool_path="${file/\/sentence\//\/fool\/}"
+                            local fool_rc=0
+                            fool_file "$file" "$fool_path" || fool_rc=$?
+                            if [[ $fool_rc -eq 2 ]]; then
+                                log "Rate limit on fool — committing review only, fool deferred"
+                                commit_and_push "$file"
+                                log "Backing off for 1 hour before next attempt"
+                                rate_limited=true
+                                break
+                            elif [[ $fool_rc -eq 0 ]]; then
+                                commit_and_push "$file" "$fool_path"
+                            else
+                                log "Fool failed — committing review only"
+                                commit_and_push "$file"
+                            fi
                         else
                             log "Skipping commit for $file due to review error"
                         fi
