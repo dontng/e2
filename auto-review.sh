@@ -321,6 +321,12 @@ main() {
                     elif (( _now - _last_heartbeat >= _heartbeat_interval )); then
                         log "Online — idle $(( (_now - _last_heartbeat) / 3600 ))h, still polling."
                         _last_heartbeat=$_now
+                        git add "$LOG_FILE"
+                        if ! git diff --cached --quiet; then
+                            git commit -m "log: heartbeat" \
+                                && git push origin main 2>/dev/null \
+                                || log "WARNING: heartbeat log push failed"
+                        fi
                     fi
                 else
                     _idle=false
