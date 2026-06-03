@@ -14,7 +14,7 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="$REPO_DIR/.auto-review.log"
 POLL_INTERVAL="${POLL_INTERVAL:-600}"    # 10 minutes
-LOG_RETAIN_DAYS="${LOG_RETAIN_DAYS:-14}"
+LOG_RETAIN_DAYS="${LOG_RETAIN_DAYS:-7}"
 ONCE_MODE=false
 
 [[ "${1:-}" == "--once" ]] && ONCE_MODE=true
