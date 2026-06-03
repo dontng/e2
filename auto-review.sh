@@ -245,29 +245,21 @@ fool 文件：$fool_path
 }
 
 batch_commit_and_push() {
-    # $@ = list of reviewed sentence file paths (used for commit label only)
-    local -a files=("$@")
     cd "$REPO_DIR"
 
-    # Stage everything Claude may have touched in sentence/ and fool/
-    git add sentence/ fool/
+    git add sentence/ fool/ "$LOG_FILE"
 
     if git diff --cached --quiet; then
         log "No changes staged, skipping commit"
         return
     fi
 
-    # Build label from basenames
-    local -a names=()
-    local f
-    for f in "${files[@]}"; do
-        names+=("$(basename "$f" .md)")
-    done
-    local label="${names[0]}"
-    local name
-    for name in "${names[@]:1}"; do
-        label+=", $name"
-    done
+    # Derive label from fool files actually written — ground truth of what's done
+    local label
+    label=$(git diff --cached --name-only -- fool/ \
+        | xargs -I{} basename {} .md \
+        | paste -sd ', ')
+    [[ -z "$label" ]] && label="batch"
 
     git commit -m "批改+愚者 $label"
     log "Committed: $label"
@@ -295,22 +287,36 @@ main() {
     log "Poll interval: ${POLL_INTERVAL}s"
     log "========================================"
 
+    local _idle=false  # suppress repeated "nothing to do" noise
+
     while true; do
         cd "$REPO_DIR"
 
         if git_is_busy; then
             log "Git is busy (manual operation in progress) — skipping this cycle"
         else
-            log "Pulling latest changes..."
-            if ! git pull origin main 2>&1 | tee -a "$LOG_FILE"; then
+            local pull_out pull_rc=0
+            pull_out=$(git pull origin main 2>&1) || pull_rc=$?
+            if (( pull_rc != 0 )); then
                 log "WARNING: git pull failed — will retry next cycle"
-            else
+                echo "$pull_out" >> "$LOG_FILE"
+            elif ! grep -q 'Already up to date\.' <<< "$pull_out"; then
+                # New commits arrived — log them and wake from idle
+                echo "$pull_out" >> "$LOG_FILE"
+                _idle=false
+            fi
+
+            if (( pull_rc == 0 )); then
                 local uncorrected
                 uncorrected=$(find_uncorrected || true)
 
                 if [[ -z "$uncorrected" ]]; then
-                    log "No uncorrected files found."
+                    if ! $_idle; then
+                        log "No uncorrected files found. Polling every ${POLL_INTERVAL}s."
+                        _idle=true
+                    fi
                 else
+                    _idle=false
                     local rate_limited=false
                     local -a reviewed_files=()
                     while IFS= read -r file; do
@@ -353,11 +359,11 @@ main() {
                     done <<< "$uncorrected"
 
                     if [[ ${#reviewed_files[@]} -gt 0 ]]; then
-                        batch_commit_and_push "${reviewed_files[@]}"
+                        batch_commit_and_push
                     fi
 
                     if $rate_limited; then
-                        log "Sleeping 3600s (1 hour) for rate limit recovery..."
+                        log "Rate limit — backing off 1 hour"
                         sleep 3600
                         continue
                     fi
@@ -370,7 +376,6 @@ main() {
             break
         fi
 
-        log "Sleeping ${POLL_INTERVAL}s..."
         sleep "$POLL_INTERVAL"
     done
 }
