@@ -287,7 +287,9 @@ main() {
     log "Poll interval: ${POLL_INTERVAL}s"
     log "========================================"
 
-    local _idle=false  # suppress repeated "nothing to do" noise
+    local _idle=false
+    local _last_heartbeat=0
+    local _heartbeat_interval=21600  # 6 hours
 
     while true; do
         cd "$REPO_DIR"
@@ -311,9 +313,14 @@ main() {
                 uncorrected=$(find_uncorrected || true)
 
                 if [[ -z "$uncorrected" ]]; then
+                    local _now; _now=$(date +%s)
                     if ! $_idle; then
                         log "No uncorrected files found. Polling every ${POLL_INTERVAL}s."
                         _idle=true
+                        _last_heartbeat=$_now
+                    elif (( _now - _last_heartbeat >= _heartbeat_interval )); then
+                        log "Online — idle $(( (_now - _last_heartbeat) / 3600 ))h, still polling."
+                        _last_heartbeat=$_now
                     fi
                 else
                     _idle=false
