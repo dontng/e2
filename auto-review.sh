@@ -28,23 +28,35 @@ git_is_busy() {
     [[ -f "$REPO_DIR/.git/index.lock" ]] || [[ -f "$REPO_DIR/.git/MERGE_HEAD" ]] || [[ -f "$REPO_DIR/.git/rebase-merge" ]]
 }
 
+# Check a single file: returns 0 if it still needs review, 1 if already done
+needs_review() {
+    local f="$1"
+    local translation correction
+    translation=$(awk '
+        /^## 我的理解和翻译/ { found=1; next }
+        found && /^## /     { exit }
+        found               { print }
+    ' "$f" | grep -v '^[[:space:]]*$' || true)
+
+    correction=$(awk '
+        /^## 批改/      { found=1; next }
+        found && /^## / { exit }
+        found           { print }
+    ' "$f" | grep -v '^[[:space:]]*$' || true)
+
+    [[ -n "$translation" && -z "$correction" ]]
+}
+
+# Check a single fool file: returns 0 if it still needs decomposition
+needs_fool() {
+    local f="$1"
+    ! ( [[ -f "$f" ]] && grep -q '^### fool-' "$f" )
+}
+
 # Find markdown files where 我的理解和翻译 has content but 批改 is empty
 find_uncorrected() {
     find "$REPO_DIR/sentence" -name "*.md" -print0 | while IFS= read -r -d '' f; do
-        local translation correction
-        translation=$(awk '
-            /^## 我的理解和翻译/ { found=1; next }
-            found && /^## /     { exit }
-            found               { print }
-        ' "$f" | grep -v '^[[:space:]]*$' || true)
-
-        correction=$(awk '
-            /^## 批改/      { found=1; next }
-            found && /^## / { exit }
-            found           { print }
-        ' "$f" | grep -v '^[[:space:]]*$' || true)
-
-        if [[ -n "$translation" && -z "$correction" ]]; then
+        if needs_review "$f"; then
             echo "$f"
         fi
     done
@@ -213,37 +225,49 @@ fool 文件：$fool_path
     log "Fool done: $fool_rel"
 }
 
-commit_and_push() {
-    local file="$1"
-    local fool_path="${2:-}"
-    local rel="${file#$REPO_DIR/}"
-    local basename
-    basename=$(basename "$file" .md)
-
+batch_commit_and_push() {
+    # $@ = list of reviewed sentence file paths (used for commit label only)
+    local -a files=("$@")
     cd "$REPO_DIR"
-    git add "$rel"
-    [[ -n "$fool_path" && -f "$fool_path" ]] && git add "${fool_path#$REPO_DIR/}"
+
+    # Stage everything Claude may have touched in sentence/ and fool/
+    git add sentence/ fool/
 
     if git diff --cached --quiet; then
-        log "No changes staged for $basename, skipping commit"
+        log "No changes staged, skipping commit"
         return
     fi
 
-    git commit -m "批改+愚者 $basename"
-    log "Committed: $basename"
+    # Build label from basenames
+    local -a names=()
+    local f
+    for f in "${files[@]}"; do
+        names+=("$(basename "$f" .md)")
+    done
+    local label="${names[0]}"
+    local name
+    for name in "${names[@]:1}"; do
+        label+=", $name"
+    done
+
+    git commit -m "批改+愚者 $label"
+    log "Committed: $label"
 
     git pull --rebase origin main 2>&1 | tee -a "$LOG_FILE" || {
         log "WARNING: rebase pull failed — attempting push anyway"
     }
 
     if git push origin main 2>&1 | tee -a "$LOG_FILE"; then
-        log "Pushed: $basename"
+        log "Pushed: $label"
     else
-        log "ERROR: push failed for $basename — changes committed locally, retry next cycle"
+        log "ERROR: push failed for $label — changes committed locally, retry next cycle"
     fi
 }
 
 main() {
+    exec 9>"$REPO_DIR/.auto-review.lock"
+    flock -n 9 || { log "Another instance already running — exiting."; exit 0; }
+
     log "========================================"
     log "Auto-review agent started"
     log "Repo: $REPO_DIR"
@@ -267,13 +291,18 @@ main() {
                     log "No uncorrected files found."
                 else
                     local rate_limited=false
+                    local -a reviewed_files=()
                     while IFS= read -r file; do
                         if git_is_busy; then
                             log "Git became busy mid-cycle — deferring remaining files to next cycle"
                             break
                         fi
                         local rc=0
-                        review_file "$file" || rc=$?
+                        if needs_review "$file"; then
+                            review_file "$file" || rc=$?
+                        else
+                            log "Already reviewed (side effect): $(basename "$file" .md) — skipping Claude call"
+                        fi
                         if [[ $rc -eq 2 ]]; then
                             log "Backing off for 1 hour before next attempt"
                             rate_limited=true
@@ -281,23 +310,30 @@ main() {
                         elif [[ $rc -eq 0 ]]; then
                             local fool_path="${file/\/sentence\//\/fool\/}"
                             local fool_rc=0
-                            fool_file "$file" "$fool_path" || fool_rc=$?
+                            if needs_fool "$fool_path"; then
+                                fool_file "$file" "$fool_path" || fool_rc=$?
+                            else
+                                log "Already decomposed (side effect): $(basename "$fool_path" .md) — skipping Claude call"
+                            fi
                             if [[ $fool_rc -eq 2 ]]; then
-                                log "Rate limit on fool — committing review only, fool deferred"
-                                commit_and_push "$file"
-                                log "Backing off for 1 hour before next attempt"
+                                log "Rate limit on fool — queuing for batch commit"
+                                reviewed_files+=("$file")
                                 rate_limited=true
                                 break
                             elif [[ $fool_rc -eq 0 ]]; then
-                                commit_and_push "$file" "$fool_path"
+                                reviewed_files+=("$file")
                             else
-                                log "Fool failed — committing review only"
-                                commit_and_push "$file"
+                                log "Fool failed — queuing review-only for batch commit"
+                                reviewed_files+=("$file")
                             fi
                         else
-                            log "Skipping commit for $file due to review error"
+                            log "Skipping $file due to review error"
                         fi
                     done <<< "$uncorrected"
+
+                    if [[ ${#reviewed_files[@]} -gt 0 ]]; then
+                        batch_commit_and_push "${reviewed_files[@]}"
+                    fi
 
                     if $rate_limited; then
                         log "Sleeping 3600s (1 hour) for rate limit recovery..."
