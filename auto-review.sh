@@ -14,6 +14,7 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="$REPO_DIR/.auto-review.log"
 POLL_INTERVAL="${POLL_INTERVAL:-600}"    # 10 minutes
+LOG_RETAIN_DAYS="${LOG_RETAIN_DAYS:-14}"
 ONCE_MODE=false
 
 [[ "${1:-}" == "--once" ]] && ONCE_MODE=true
@@ -21,6 +22,24 @@ ONCE_MODE=false
 log() {
     local msg="[$(date '+%Y-%m-%d %H:%M:%S')] $*"
     echo "$msg" | tee -a "$LOG_FILE"
+}
+
+# Drop log lines with timestamps older than LOG_RETAIN_DAYS
+trim_log() {
+    local log_file="$1"
+    [[ -f "$log_file" ]] || return
+    local cutoff
+    cutoff=$(date -d "${LOG_RETAIN_DAYS} days ago" '+%Y-%m-%d')
+    local start
+    start=$(awk -v c="$cutoff" '
+        match($0, /\[([0-9]{4})[\/\-]([0-9]{2})[\/\-]([0-9]{2})/, a) {
+            if (a[1] "-" a[2] "-" a[3] >= c) { print NR; exit }
+        }
+    ' "$log_file")
+    if [[ -n "$start" && "$start" -gt 1 ]]; then
+        local tmp; tmp=$(mktemp)
+        tail -n +"$start" "$log_file" > "$tmp" && mv "$tmp" "$log_file"
+    fi
 }
 
 # Return non-zero if git is locked by another process (user's manual git op in progress)
@@ -267,6 +286,8 @@ batch_commit_and_push() {
 main() {
     exec 9>"$REPO_DIR/.auto-review.lock"
     flock -n 9 || { log "Another instance already running — exiting."; exit 0; }
+
+    trim_log "$LOG_FILE"
 
     log "========================================"
     log "Auto-review agent started"
