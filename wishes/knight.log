@@ -301,3 +301,24 @@ To github.com:dontng/english2-daily.git
 [2026/06/03 21:50:49] no pending spells — sleeping 600s
 [2026/06/03 22:00:49] git pull failed, will retry
 [2026/06/03 22:00:49] no pending spells — sleeping 600s
+[2026/06/03 22:10:49] git pull failed, will retry
+[2026/06/03 22:10:49] no pending spells — sleeping 600s
+[2026/06/03 22:20:49] git pull failed, will retry
+[2026/06/03 22:20:49] no pending spells — sleeping 600s
+[2026/06/03 22:30:49] git pull failed, will retry
+[2026/06/03 22:30:49] no pending spells — sleeping 600s
+[2026/06/03 22:40:49] git pull failed, will retry
+[2026/06/03 22:40:49] no pending spells — sleeping 600s
+[2026/06/03 22:50:49] git pull failed, will retry
+[2026/06/03 22:50:49] no pending spells — sleeping 600s
+[2026/06/04 23:10:22] knight online  (poll interval 600s)
+[2026/06/04 23:10:22] knight online  (poll interval 600s)
+[2026/06/04 23:10:22] git pull failed on startup
+[2026/06/04 23:10:22] git pull failed on startup
+[2026/06/04 23:10:22] git pull failed, will retry
+[2026/06/04 23:10:22] git pull failed, will retry
+[2026/06/04 23:10:22] no pending spells — polling every 600s
+[2026/06/04 23:10:22] no pending spells — polling every 600s
+[2026/06/04 23:10:25] knight already running (PID 710), exiting
+[2026/06/04 23:10:25] knight already running (PID 710), exiting
+wishes/knight.sh: line 1:   740 Hangup                  sleep "$POLL_INTERVAL"
