@@ -46,6 +46,8 @@ cat > "$FILE" << EOF
 
 ## 批改
 
+## 评分
+
 ## Vocab
 
 ## Phrases
