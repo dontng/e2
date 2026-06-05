@@ -1,27 +1,3 @@
-[2026-05-28 20:52:36] ========================================
-[2026-05-28 20:52:36] Auto-review agent started
-[2026-05-28 20:52:36] Repo: /home/djology/engligh2-daily
-[2026-05-28 20:52:36] Poll interval: 14400s
-[2026-05-28 20:52:36] ========================================
-[2026-05-28 20:52:36] Pulling latest changes...
-From github.com:dontng/engligh2-daily
- * branch            main       -> FETCH_HEAD
-Already up to date.
-[2026-05-28 20:52:41] Reviewing: sentence/may/0529-day40.md
-批改完成。主要错误集中在五处：
-
-1. **curbs** 被误读为"抓取"（实为"约束/限制措施"）
-2. **claims** 在专利语境是"权利要求"，不是日常的"声称"
-3. **about-face** 被逐字拆译成"在脸面上"，实为"大逆转"（军事口令引申义）
-4. **State Street Bank** 是专有名词（道富银行），不能拆译
-5. 末尾分词短语 **approving a patent on...** 被完全误读，应是对判决内容的补充说明
-[2026-05-28 20:55:42] Review done: sentence/may/0529-day40.md
-[2026-05-28 20:55:42] Committed: 0529-day40
-To github.com:dontng/engligh2-daily.git
-   c493d95..b38e4e3  main -> main
-[2026-05-28 20:55:56] Pushed: 0529-day40
-[2026-05-28 20:55:56] Once mode — exiting.
-nohup: ignoring input
 [2026-05-29 02:22:41] ========================================
 [2026-05-29 02:22:41] ========================================
 [2026-05-29 02:22:41] Auto-review agent started
@@ -1821,3 +1797,11 @@ Already up to date.
 [2026-06-03 22:46:53] No uncorrected files found.
 [2026-06-03 22:46:53] Sleeping 600s...
 [2026-06-03 22:46:53] Sleeping 600s...
+nohup: ignoring input
+[2026-06-05 02:42:05] ========================================
+[2026-06-05 02:42:05] Auto-review agent started
+[2026-06-05 02:42:05] Repo: /home/djology/english2-daily
+[2026-06-05 02:42:05] Poll interval: 600s
+[2026-06-05 02:42:05] ========================================
+[2026-06-05 02:42:09] No uncorrected files found. Polling every 600s.
+[2026-06-05 08:44:23] Online — idle 6h, still polling.
