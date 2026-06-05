@@ -66,16 +66,30 @@ needs_review() {
     [[ -n "$translation" && -z "$correction" ]]
 }
 
-# Check a single fool file: returns 0 if it still needs decomposition
+# Returns 0 if fool needs to be (re)generated:
+#   fool missing, has no entries, or sentence was updated after fool was generated
 needs_fool() {
-    local f="$1"
-    ! ( [[ -f "$f" ]] && grep -q '^### fool-' "$f" )
+    local sentence_file="$1"
+    local fool_path="$2"
+    [[ ! -f "$fool_path" ]] && return 0
+    ! grep -q '^### fool-' "$fool_path" && return 0
+    [[ "$sentence_file" -nt "$fool_path" ]]
 }
 
 # Find markdown files where 我的理解和翻译 has content but 批改 is empty
 find_uncorrected() {
     find "$REPO_DIR/sentence" -name "*.md" -print0 | while IFS= read -r -d '' f; do
         if needs_review "$f"; then
+            echo "$f"
+        fi
+    done
+}
+
+# Find corrected sentence files whose fool is missing or stale
+find_fool_missing() {
+    find "$REPO_DIR/sentence" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        local fool_path="${f/\/sentence\//\/fool\/}"
+        if ! needs_review "$f" && needs_fool "$f" "$fool_path"; then
             echo "$f"
         fi
     done
@@ -93,6 +107,8 @@ review_file() {
     claude -p "你是这个英语学习项目的批改老师。请批改并完善以下markdown文件。
 
 文件路径：$file
+
+**约束：只允许编辑 $file 这一个文件，不得读取或修改任何其他 sentence 文件。**
 
 参考风格范例：$REPO_DIR/sentence/may/0528-day39.md
 
@@ -311,6 +327,7 @@ main() {
             if (( pull_rc == 0 )); then
                 local uncorrected
                 uncorrected=$(find_uncorrected || true)
+                local rate_limited=false
 
                 if [[ -z "$uncorrected" ]]; then
                     local _now; _now=$(date +%s)
@@ -330,7 +347,6 @@ main() {
                     fi
                 else
                     _idle=false
-                    local rate_limited=false
                     local -a reviewed_files=()
                     while IFS= read -r file; do
                         if git_is_busy; then
@@ -350,7 +366,7 @@ main() {
                         elif [[ $rc -eq 0 ]]; then
                             local fool_path="${file/\/sentence\//\/fool\/}"
                             local fool_rc=0
-                            if needs_fool "$fool_path"; then
+                            if needs_fool "$file" "$fool_path"; then
                                 fool_file "$file" "$fool_path" || fool_rc=$?
                             else
                                 log "Already decomposed (side effect): $(basename "$fool_path" .md) — skipping Claude call"
@@ -379,6 +395,45 @@ main() {
                         log "Rate limit — backing off 1 hour"
                         sleep 3600
                         continue
+                    fi
+                fi
+
+                # Fool-missing pass: catch corrected files whose fool was skipped or is stale
+                if ! $rate_limited; then
+                    local fool_missing
+                    fool_missing=$(find_fool_missing || true)
+                    if [[ -n "$fool_missing" ]]; then
+                        _idle=false
+                        local -a fool_queued=()
+                        while IFS= read -r file; do
+                            if git_is_busy; then
+                                log "Git became busy — deferring fool-missing to next cycle"
+                                break
+                            fi
+                            local fool_path="${file/\/sentence\//\/fool\/}"
+                            local fool_rc=0
+                            log "Fool-missing: $(basename "$file" .md) — running decomposition"
+                            fool_file "$file" "$fool_path" || fool_rc=$?
+                            if [[ $fool_rc -eq 2 ]]; then
+                                fool_queued+=("$file")
+                                rate_limited=true
+                                break
+                            elif [[ $fool_rc -eq 0 ]]; then
+                                fool_queued+=("$file")
+                            else
+                                log "Fool failed for $(basename "$file" .md) — skipping"
+                            fi
+                        done <<< "$fool_missing"
+
+                        if [[ ${#fool_queued[@]} -gt 0 ]]; then
+                            batch_commit_and_push
+                        fi
+
+                        if $rate_limited; then
+                            log "Rate limit on fool — backing off 1 hour"
+                            sleep 3600
+                            continue
+                        fi
                     fi
                 fi
             fi
