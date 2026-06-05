@@ -1844,3 +1844,12 @@ To github.com:dontng/english2-daily.git
 三处批改：[1] head≠heart 意象错位，[2] "系列"系用户自行添加，[3] "on a dramatic note" 的 note 是基调比喻而非副词修饰。Vocab 收录 bull run、note、dramatic；Phrases 拆解 "end on a note" 和 "with a sale of" 两个结构。
 [2026-06-05 10:10:45] Review done: sentence/june/0605-day46.md
 [2026-06-05 10:10:45] Already decomposed (side effect): 0605-day46 — skipping Claude call
+[2026-06-05 10:10:45] Committed: batch
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-06-05 10:10:45] WARNING: rebase pull failed — attempting push anyway
+To github.com:dontng/english2-daily.git
+   c47dffa..cdd4aae  main -> main
+[2026-06-05 10:10:48] Pushed: batch
+[2026-06-05 10:20:52] No uncorrected files found. Polling every 600s.
+[2026-06-05 16:23:08] Online — idle 6h, still polling.
