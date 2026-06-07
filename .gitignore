@@ -1,0 +1,7 @@
+# runtime lock & flag files
+.auto-review.lock
+.auto-review-processing
+.auto-review-push-pending
+
+# debug logs
+.auto_wish_debug.log
