@@ -13,6 +13,7 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="$REPO_DIR/.auto-review.log"
+PROCESSING_LOCK_FILE="$REPO_DIR/.auto-review-processing"
 POLL_INTERVAL="${POLL_INTERVAL:-600}"    # 10 minutes
 LOG_RETAIN_DAYS="${LOG_RETAIN_DAYS:-7}"
 ONCE_MODE=false
@@ -40,6 +41,18 @@ trim_log() {
         local tmp; tmp=$(mktemp)
         tail -n +"$start" "$log_file" > "$tmp" && mv "$tmp" "$log_file"
     fi
+}
+
+# Processing lock: signals that a correction/fool cycle is actively running.
+# try_push and auto_wish both check this before pushing.
+# The lock file contains the PID of auto-review.sh so stale locks (process dead) are ignored.
+set_processing_lock()   { echo $$ > "$PROCESSING_LOCK_FILE"; }
+clear_processing_lock() { rm -f "$PROCESSING_LOCK_FILE"; }
+processing_locked() {
+    [[ -f "$PROCESSING_LOCK_FILE" ]] || return 1
+    local pid
+    pid=$(cat "$PROCESSING_LOCK_FILE" 2>/dev/null) || return 1
+    [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null
 }
 
 # Return non-zero if git is locked by another process (user's manual git op in progress)
@@ -273,7 +286,8 @@ fool 文件：$fool_path
     log "Fool done: $fool_rel"
 }
 
-batch_commit_and_push() {
+# Commit staged changes without pushing
+batch_commit() {
     cd "$REPO_DIR"
 
     git add sentence/ fool/ "$LOG_FILE"
@@ -292,15 +306,48 @@ batch_commit_and_push() {
 
     git commit -m "批改+愚者 $label"
     log "Committed: $label"
+}
 
+# Push gate: called after clear_processing_lock to verify everything is truly done.
+# Three-stage check:
+#   1. Processing lock still held → files actively being worked on, wait.
+#   2. Uncorrected files remain after unlock → something incomplete, defer.
+#   3. Fool-missing files remain after unlock → fool didn't finish, defer.
+#   All clear → push.
+try_push() {
+    local reason="${1:-}"
+
+    # Stage 1: lock check — correction/fool still running
+    if processing_locked; then
+        local locked_pid; locked_pid=$(cat "$PROCESSING_LOCK_FILE" 2>/dev/null)
+        log "Push deferred${reason:+ [$reason]}: correction/fool in progress (pid $locked_pid) — waiting"
+        return
+    fi
+
+    # Stage 2 & 3: post-unlock verification — confirm both corrections and fool are truly done
+    local uncorrected fool_missing count
+    uncorrected=$(find_uncorrected || true)
+    if [[ -n "$uncorrected" ]]; then
+        count=$(echo "$uncorrected" | wc -l)
+        log "Push deferred${reason:+ [$reason]}: $count uncorrected file(s) still remain after unlock"
+        return
+    fi
+    fool_missing=$(find_fool_missing || true)
+    if [[ -n "$fool_missing" ]]; then
+        count=$(echo "$fool_missing" | wc -l)
+        log "Push deferred${reason:+ [$reason]}: $count fool-missing file(s) still remain after unlock"
+        return
+    fi
+
+    cd "$REPO_DIR"
+    log "Push gate clear${reason:+ [$reason]} — corrections and fool verified complete"
     git pull --rebase origin main 2>&1 | tee -a "$LOG_FILE" || {
         log "WARNING: rebase pull failed — attempting push anyway"
     }
-
     if git push origin main 2>&1 | tee -a "$LOG_FILE"; then
-        log "Pushed: $label"
+        log "Pushed"
     else
-        log "ERROR: push failed for $label — changes committed locally, retry next cycle"
+        log "ERROR: push failed — changes are committed locally, retry next cycle"
     fi
 }
 
@@ -341,6 +388,7 @@ main() {
                 local uncorrected
                 uncorrected=$(find_uncorrected || true)
                 local rate_limited=false
+                local _did_work=false
 
                 if [[ -z "$uncorrected" ]]; then
                     local _now; _now=$(date +%s)
@@ -360,6 +408,8 @@ main() {
                     fi
                 else
                     _idle=false
+                    _did_work=true
+                    set_processing_lock
                     local -a reviewed_files=()
                     while IFS= read -r file; do
                         if git_is_busy; then
@@ -401,7 +451,7 @@ main() {
                     done <<< "$uncorrected"
 
                     if [[ ${#reviewed_files[@]} -gt 0 ]]; then
-                        batch_commit_and_push
+                        batch_commit
                     fi
 
                     if $rate_limited; then
@@ -417,6 +467,8 @@ main() {
                     fool_missing=$(find_fool_missing || true)
                     if [[ -n "$fool_missing" ]]; then
                         _idle=false
+                        _did_work=true
+                        set_processing_lock
                         local -a fool_queued=()
                         while IFS= read -r file; do
                             if git_is_busy; then
@@ -439,7 +491,7 @@ main() {
                         done <<< "$fool_missing"
 
                         if [[ ${#fool_queued[@]} -gt 0 ]]; then
-                            batch_commit_and_push
+                            batch_commit
                         fi
 
                         if $rate_limited; then
@@ -447,6 +499,14 @@ main() {
                             sleep 3600
                             continue
                         fi
+                    fi
+
+                    # Fool-missing pass done (or skipped).
+                    # Always clear the lock here (cleans up stale locks too).
+                    # Then verify corrections AND fool are truly complete before pushing.
+                    clear_processing_lock
+                    if $_did_work; then
+                        try_push "解锁后检验"
                     fi
                 fi
             fi

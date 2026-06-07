@@ -9,9 +9,10 @@ import sys, json, re, subprocess
 from pathlib import Path
 from datetime import datetime
 
-REPO_DIR     = Path(__file__).parent.parent
-SPELL_DIR    = REPO_DIR / 'wishes' / 'spell'
-PROJECTS_DIR = Path.home() / '.claude' / 'projects' / '-home-djology-english2-daily'
+REPO_DIR          = Path(__file__).parent.parent
+SPELL_DIR         = REPO_DIR / 'wishes' / 'spell'
+PROJECTS_DIR      = Path.home() / '.claude' / 'projects' / '-home-djology-english2-daily'
+PROCESSING_LOCK   = REPO_DIR / '.auto-review-processing'
 
 COMPLETION_MARKERS = [
     '已完成', '已推送', '已提交', '推送完', '全部完成', '任务完成',
@@ -86,7 +87,8 @@ def get_next_wish_id(spell_file):
     ids = re.findall(r'^--- (wish-\d+)', spell_file.read_text(encoding='utf-8'), re.MULTILINE)
     if not ids:
         return 'wish-01'
-    return f"wish-{max(int(re.search(r'\d+', w).group()) for w in ids) + 1:02d}"
+    nums = [int(re.search(r'\d+', w).group()) for w in ids]
+    return f"wish-{max(nums) + 1:02d}"
 
 def create_wish(prompt, reason):
     today = datetime.now().strftime('%m%d')
@@ -99,6 +101,18 @@ def create_wish(prompt, reason):
     body = f'{prompt}\n\n（接续上次未完成的工作，从当前文件状态继续。）'
     spell_file.write_text(content + f'\n--- {wish_id} [pending]\n{body}\n', encoding='utf-8')
     return wish_id, spell_file, today
+
+def processing_locked():
+    """Return True if auto-review.sh holds an active processing lock."""
+    if not PROCESSING_LOCK.exists():
+        return False
+    try:
+        pid = int(PROCESSING_LOCK.read_text().strip())
+        import os
+        os.kill(pid, 0)   # raises OSError if process is dead
+        return True
+    except (ValueError, OSError):
+        return False      # stale lock — process is gone
 
 def main():
     try:
@@ -129,6 +143,11 @@ def main():
     cwd = str(REPO_DIR)
     subprocess.run(['git', 'add', str(spell_file)], cwd=cwd)
     subprocess.run(['git', 'commit', '-m', f'wish: {today}/{wish_id} [auto: {reason}]'], cwd=cwd)
+
+    if processing_locked():
+        print('[auto_wish] processing lock held — skipping push (auto-review will push when done)', file=sys.stderr)
+        return
+
     subprocess.run(['git', 'push'], cwd=cwd)
 
     print(f'[auto_wish] {reason} → {today}/{wish_id} created', file=sys.stderr)
