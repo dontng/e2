@@ -1690,3 +1690,23 @@ To github.com:dontng/english2-daily.git
 
 六个 fool 文件均已在之前的 "批改+愚者 batch" 提交中写入完毕，内容覆盖所有英文句子（原句 + Vocab 例句 + 造句 + Phrases 例句），四步拆解格式正确，无缺漏。无需重新写入。
 [2026-06-08 04:03:25] Fool done: fool/june/0603-day44.md
+[2026-06-08 04:03:25] Committed: batch
+[2026-06-08 04:03:25] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 04:13:49] No uncorrected files found. Polling every 600s.
+[2026-06-08 04:13:49] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 04:13:49] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+6 个 fool 文件全部已存在，且内容完整。逐一检查：
+
+| 文件 | 状态 | 条目数 |
+|------|------|--------|
+| `0601-day42.md` | 已完成 | fool-01 ~ fool-28 |
+| `0602-day43.md` | 已完成 | fool-01 ~ fool-18 |
+| `0603-day44.md` | 已完成 | fool-01 ~ fool-18 |
+| `0604-day45.md` | 已完成 | fool-01 ~ fool-18 |
+| `0605-day46.md` | 已完成 | fool-01 ~ fool-17 |
+| `0606-day47.md` | 已完成 | fool-01 ~ fool-19 |
+
+结合 git 历史（最近提交均带 `批改+愚者 batch` 标记），这些文件已由之前的批次处理完毕。无需重写。
+
+如果你发现某个文件内容有误或遗漏，告诉我哪个条目需要修正，我可以针对性地补写。
+[2026-06-08 04:14:38] Fool done: fool/june/0603-day44.md
