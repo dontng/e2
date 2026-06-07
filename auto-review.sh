@@ -14,6 +14,7 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="$REPO_DIR/.auto-review.log"
 PROCESSING_LOCK_FILE="$REPO_DIR/.auto-review-processing"
+PUSH_PENDING_FILE="$REPO_DIR/.auto-review-push-pending"
 POLL_INTERVAL="${POLL_INTERVAL:-600}"    # 10 minutes
 LOG_RETAIN_DAYS="${LOG_RETAIN_DAYS:-7}"
 ONCE_MODE=false
@@ -54,6 +55,12 @@ processing_locked() {
     pid=$(cat "$PROCESSING_LOCK_FILE" 2>/dev/null) || return 1
     [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null
 }
+
+# Push pending flag: set the moment uncorrected/fool-missing files are first detected.
+# This is the "wakeup" signal — try_push stays active across idle cycles until push succeeds.
+mark_push_pending()  { touch "$PUSH_PENDING_FILE"; }
+clear_push_pending() { rm -f "$PUSH_PENDING_FILE"; }
+push_pending()       { [[ -f "$PUSH_PENDING_FILE" ]]; }
 
 # Return non-zero if git is locked by another process (user's manual git op in progress)
 git_is_busy() {
@@ -317,10 +324,13 @@ batch_commit() {
 try_push() {
     local reason="${1:-}"
 
-    # Stage 1: lock check — correction/fool still running
+    # No pending work detected — nothing to push, return immediately.
+    push_pending || return
+
+    # Stage 1: lock check — correction/fool still running, keep waiting
     if processing_locked; then
         local locked_pid; locked_pid=$(cat "$PROCESSING_LOCK_FILE" 2>/dev/null)
-        log "Push deferred${reason:+ [$reason]}: correction/fool in progress (pid $locked_pid) — waiting"
+        log "Push pending${reason:+ [$reason]}: correction/fool in progress (pid $locked_pid) — waiting"
         return
     fi
 
@@ -329,13 +339,13 @@ try_push() {
     uncorrected=$(find_uncorrected || true)
     if [[ -n "$uncorrected" ]]; then
         count=$(echo "$uncorrected" | wc -l)
-        log "Push deferred${reason:+ [$reason]}: $count uncorrected file(s) still remain after unlock"
+        log "Push pending${reason:+ [$reason]}: $count uncorrected file(s) still remain after unlock"
         return
     fi
     fool_missing=$(find_fool_missing || true)
     if [[ -n "$fool_missing" ]]; then
         count=$(echo "$fool_missing" | wc -l)
-        log "Push deferred${reason:+ [$reason]}: $count fool-missing file(s) still remain after unlock"
+        log "Push pending${reason:+ [$reason]}: $count fool-missing file(s) still remain after unlock"
         return
     fi
 
@@ -346,6 +356,7 @@ try_push() {
     }
     if git push origin main 2>&1 | tee -a "$LOG_FILE"; then
         log "Pushed"
+        clear_push_pending
     else
         log "ERROR: push failed — changes are committed locally, retry next cycle"
     fi
@@ -388,7 +399,6 @@ main() {
                 local uncorrected
                 uncorrected=$(find_uncorrected || true)
                 local rate_limited=false
-                local _did_work=false
 
                 if [[ -z "$uncorrected" ]]; then
                     local _now; _now=$(date +%s)
@@ -408,7 +418,7 @@ main() {
                     fi
                 else
                     _idle=false
-                    _did_work=true
+                    mark_push_pending
                     set_processing_lock
                     local -a reviewed_files=()
                     while IFS= read -r file; do
@@ -467,7 +477,7 @@ main() {
                     fool_missing=$(find_fool_missing || true)
                     if [[ -n "$fool_missing" ]]; then
                         _idle=false
-                        _did_work=true
+                        mark_push_pending
                         set_processing_lock
                         local -a fool_queued=()
                         while IFS= read -r file; do
@@ -505,9 +515,7 @@ main() {
                     # Always clear the lock here (cleans up stale locks too).
                     # Then verify corrections AND fool are truly complete before pushing.
                     clear_processing_lock
-                    if $_did_work; then
-                        try_push "解锁后检验"
-                    fi
+                    try_push "解锁后检验"
                 fi
             fi
         fi
