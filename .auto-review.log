@@ -1595,3 +1595,21 @@ To github.com:dontng/english2-daily.git
 
 每个文件的条目数与对应句子文件中的英文句子（原句 + Vocab 例句 + Vocab 造句 + Phrases 例句）完全吻合，四步拆解（扫词 / 扫小品词和搭配 / 扫句式 / 读句子）格式完整。无需任何操作。
 [2026-06-08 02:56:43] Fool done: fool/june/0603-day44.md
+[2026-06-08 02:56:43] Committed: batch
+[2026-06-08 02:56:43] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 03:07:11] No uncorrected files found. Polling every 600s.
+[2026-06-08 03:07:11] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 03:07:11] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+所有 6 个 fool 文件都已完整处理，无需重复写入。以下是各文件的完成情况：
+
+| 文件 | 最后条目 | 状态 |
+|------|---------|------|
+| `0601-day42.md` | fool-28 | ✓ 完整 |
+| `0602-day43.md` | fool-18 | ✓ 完整 |
+| `0603-day44.md` | fool-18 | ✓ 完整 |
+| `0604-day45.md` | fool-18 | ✓ 完整 |
+| `0605-day46.md` | fool-17 | ✓ 完整 |
+| `0606-day47.md` | fool-19 | ✓ 完整 |
+
+各文件的句子来源全部覆盖：原句、每个 Vocab 词条下的例句和造句、Phrases 节下的所有例句均已完成四步拆解（扫词、扫小品词和搭配、扫句式、读句子），编号连续无缺。
+[2026-06-08 03:09:03] Fool done: fool/june/0603-day44.md
