@@ -1633,3 +1633,24 @@ To github.com:dontng/english2-daily.git
 
 如果你希望我**核查某个文件的内容质量**（检查是否有条目缺失或分析有误），或者**重写某一天**，告诉我即可。
 [2026-06-08 03:28:57] Fool done: fool/june/0603-day44.md
+[2026-06-08 03:28:57] Committed: batch
+[2026-06-08 03:28:57] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 03:39:24] No uncorrected files found. Polling every 600s.
+[2026-06-08 03:39:24] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 03:39:24] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+六个 fool 文件已全部存在且内容完整，无需重新写入。逐一核对后确认：
+
+**0601-day42.md** — fool-01 至 fool-28，覆盖原句、Vocab（epidemic / acquaintance / in turn / have little to do with / influential n.）、Phrases（名词性从句作主语 / so affected / who in turn）全部英文句子
+
+**0602-day43.md** — fool-01 至 fool-18，覆盖原句、Vocab（cascade / principal / critical mass）、Phrases（not of A but of B / 破折号插入语）全部英文句子
+
+**0603-day44.md** — fool-01 至 fool-18，覆盖原句、Vocab（fold / overall / reconstruction）、Phrases（名词+不定式 / act without [X]）全部英文句子
+
+**0604-day45.md** — fool-01 至 fool-18，覆盖原句、Vocab（eliminate / land community / essential / functioning）、Phrases（递进平行不定式 / 对比性关系从句）全部英文句子
+
+**0605-day46.md** — fool-01 至 fool-17，覆盖原句、Vocab（bull run / note / dramatic）、Phrases（end on a note / with a sale of）全部英文句子
+
+**0606-day47.md** — fool-01 至 fool-19，覆盖原句、Vocab（lack / demand / interview）、Phrases（not A but B / who was interviewed for）全部英文句子
+
+所有文件已完成，无遗漏句子，无需追加任何内容。
+[2026-06-08 03:40:14] Fool done: fool/june/0603-day44.md
