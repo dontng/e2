@@ -2246,3 +2246,19 @@ You've hit your session limit · resets 12:30pm (Asia/Shanghai)
 - **fool-13**：*turned out to be* 给句子加了"恍然大悟"的语气，不只是描述，而是一个发现
 - **fool-19**：invest [sum] + V-ing 里 finding 不是 and found——两件事不是先后，而是同步的目的关系
 [2026-06-08 13:16:21] Fool done: fool/june/0609-day49.md
+[2026-06-08 13:16:21] Committed: 0609-day49
+[2026-06-08 13:16:21] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 13:16:21] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+所有六个 fool 文件均已包含完整的四步愚者分析：
+
+| 文件 | fool 条目数 |
+|------|------------|
+| 0601-day42.md | 28 |
+| 0602-day43.md | 18 |
+| 0603-day44.md | 18 |
+| 0604-day45.md | 18 |
+| 0605-day46.md | 17 |
+| 0606-day47.md | 19 |
+
+每个文件的 Step 1–4 均已写完，无需重复处理。如果你想核查某一天的具体条目内容，或发现某个条目有问题需要修订，请告诉我。
+[2026-06-08 13:16:57] Fool done: fool/june/0603-day44.md
