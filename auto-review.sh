@@ -104,10 +104,20 @@ find_uncorrected() {
     done
 }
 
+# Find corrected source files that have a score but no probe file yet
+find_probe_missing() {
+    find "$REPO_DIR/source" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        local probe_path="${f/\/source\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+        if ! needs_review "$f" && has_score "$f" && needs_probe "$probe_path"; then
+            echo "$f"
+        fi
+    done
+}
+
 # Find corrected source files whose fool is missing or stale
 find_fool_missing() {
     find "$REPO_DIR/source" -name "*.md" -print0 | while IFS= read -r -d '' f; do
-        local fool_path="${f/\/source\//\/fool\/}"
+        local fool_path="${f/\/source\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
         if ! needs_review "$f" && needs_fool "$f" "$fool_path"; then
             echo "$f"
         fi
@@ -292,101 +302,16 @@ fool 文件：$fool_path
     log "Fool done: $fool_rel"
 }
 
-# Write one console file: nav + full fool content + nav.
-# prev_label/next_label: display stem; prev_url/next_url: actual link target (defaults to stem.md).
-# Leaving a label empty suppresses that side of the nav.
-write_console_file() {
-    local stem="$1" fool_path="$2" prev_label="$3" next_label="$4"
-    local prev_url="${5:-}" next_url="${6:-}"
-    [[ -z "$prev_url" && -n "$prev_label" ]] && prev_url="$prev_label.md"
-    [[ -z "$next_url" && -n "$next_label" ]] && next_url="$next_label.md"
-    local out="$REPO_DIR/console/$stem.md"
-    local nav=""
-    [[ -n "$prev_label" ]] && nav+="← [$prev_label]($prev_url)"
-    [[ -n "$prev_label" && -n "$next_label" ]] && nav+="　　"
-    [[ -n "$next_label" ]] && nav+="[$next_label]($next_url) →"
-    {
-        [[ -n "$nav" ]] && printf '%s\n\n' "$nav"
-        cat "$fool_path"
-        [[ -n "$nav" ]] && printf '\n\n%s\n' "$nav"
-    } > "$out"
-}
-
-# Return sorted list of all fool stems across all subdirs.
-all_fool_stems() {
-    find "$REPO_DIR/fool" -name "*.md" -printf '%f\t%p\n' | sort | cut -f1 | sed 's/\.md$//'
-}
-
-# Maintain a 3-day rolling window in console/.
-# "Today" = most recent fool file locally (not calendar date).
-# Window boundary: oldest entry's ← link points into fool/ (archived).
-CONSOLE_WINDOW=3
-
-create_console_entry() {
-    local fool_path="$1"
-    local stem; stem=$(basename "$fool_path" .md)
-    local console_dir="$REPO_DIR/console"
-    mkdir -p "$console_dir"
-
-    # Current window stems, sorted (exclude today.md)
-    local window=()
-    while IFS= read -r f; do
-        local s; s=$(basename "$f" .md)
-        [[ "$s" != "today" ]] && window+=("$s")
-    done < <(find "$console_dir" -name "*.md" | sort)
-
-    # Prev within window = last stem currently present
-    local prev_stem="${window[-1]:-}"
-
-    # 1. Write new file (← prev in console, no → yet)
-    write_console_file "$stem" "$fool_path" "$prev_stem" ""
-
-    # 2. Update prev to add → link to new stem
-    if [[ -n "$prev_stem" ]]; then
-        local prev_prev="${window[-2]:-}"
-        local prev_fool; prev_fool=$(find "$REPO_DIR/fool" -name "${prev_stem}.md" | head -1)
-        [[ -f "$prev_fool" ]] && write_console_file "$prev_stem" "$prev_fool" "$prev_prev" "$stem"
-    fi
-
-    # 3. Append new stem, evict oldest beyond window
-    window+=("$stem")
-    while [[ ${#window[@]} -gt $CONSOLE_WINDOW ]]; do
-        local evicted="${window[0]}"
-        rm -f "$console_dir/$evicted.md"
-        window=("${window[@]:1}")
-        log "Console: evicted $evicted (beyond ${CONSOLE_WINDOW}-day window)"
-    done
-
-    # 4. Fix oldest entry's ← link: points into fool/ (outside window)
-    local oldest="${window[0]}"
-    local oldest_fool; oldest_fool=$(find "$REPO_DIR/fool" -name "${oldest}.md" | head -1)
-    if [[ -f "$oldest_fool" ]]; then
-        # Find the fool stem immediately before oldest in the full sorted history
-        local prev_of_oldest="" prev_of_oldest_path=""
-        local prev_candidate=""
-        while IFS= read -r candidate; do
-            [[ "$candidate" == "$oldest" ]] && { prev_of_oldest="$prev_candidate"; break; }
-            prev_candidate="$candidate"
-        done < <(all_fool_stems)
-        if [[ -n "$prev_of_oldest" ]]; then
-            prev_of_oldest_path=$(find "$REPO_DIR/fool" -name "${prev_of_oldest}.md" | head -1)
-        fi
-        local next_of_oldest="${window[1]:-}"
-        local prev_url=""
-        [[ -n "$prev_of_oldest_path" ]] && prev_url="../${prev_of_oldest_path#$REPO_DIR/}"
-        write_console_file "$oldest" "$oldest_fool" "$prev_of_oldest" "$next_of_oldest" "$prev_url"
-    fi
-
-    # 5. today.md always points to the newest in window
-    printf '→ [今天 · %s](%s.md)\n' "${window[-1]}" "${window[-1]}" > "$console_dir/today.md"
-    log "Console: $stem  window=[${window[*]}]"
-}
+# shellcheck source=scripts/console.sh
+source "$REPO_DIR/scripts/console.sh"
+# shellcheck source=scripts/probe.sh
+source "$REPO_DIR/scripts/probe.sh"
 
 # Commit staged changes without pushing
 batch_commit() {
     cd "$REPO_DIR"
 
-    git add source/ fool/ console/ "$LOG_FILE"
+    git add source/ fool/ console/ probe/ "$LOG_FILE"
 
     if git diff --cached --quiet; then
         log "No changes staged, skipping commit"
@@ -526,7 +451,12 @@ main() {
                             rate_limited=true
                             break
                         elif [[ $rc -eq 0 ]]; then
-                            local fool_path="${file/\/source\//\/fool\/}"
+                            local probe_path="${file/\/source\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+                            if has_score "$file" && needs_probe "$probe_path"; then
+                                create_probe "$file" "$probe_path"
+                                create_probe_console_entry "$probe_path"
+                            fi
+                            local fool_path="${file/\/source\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
                             local fool_rc=0
                             if needs_fool "$file" "$fool_path"; then
                                 fool_file "$file" "$fool_path" || fool_rc=$?
@@ -561,6 +491,20 @@ main() {
                     fi
                 fi
 
+                # Probe-missing pass: fast bash extraction, no Claude needed
+                if ! $rate_limited; then
+                    local probe_missing
+                    probe_missing=$(find_probe_missing || true)
+                    if [[ -n "$probe_missing" ]]; then
+                        while IFS= read -r file; do
+                            local probe_path="${file/\/source\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+                            create_probe "$file" "$probe_path"
+                            create_probe_console_entry "$probe_path"
+                        done <<< "$probe_missing"
+                        batch_commit
+                    fi
+                fi
+
                 # Fool-missing pass: catch corrected files whose fool was skipped or is stale
                 if ! $rate_limited; then
                     local fool_missing
@@ -575,7 +519,7 @@ main() {
                                 log "Git became busy — deferring fool-missing to next cycle"
                                 break
                             fi
-                            local fool_path="${file/\/source\//\/fool\/}"
+                            local fool_path="${file/\/source\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
                             local fool_rc=0
                             log "Fool-missing: $(basename "$file" .md) — running decomposition"
                             fool_file "$file" "$fool_path" || fool_rc=$?
