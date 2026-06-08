@@ -2536,3 +2536,21 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 内容结构完整（四步拆解均覆盖），编号连续，Phrases 引申例句与 Vocab 造句均已收录。这 6 个文件无缺项，无需任何补写。
 [2026-06-08 18:52:10] Fool done: fool/june/0603-day44.md
+[2026-06-08 18:52:10] Committed: batch
+[2026-06-08 18:52:11] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 19:02:32] No uncorrected files found. Polling every 600s.
+[2026-06-08 19:02:32] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 19:02:32] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+六个 fool 文件都已存在且内容完整，无需重写。以下是各文件的完成状态：
+
+| 文件 | 条目数 | 覆盖范围 |
+|------|--------|----------|
+| `0601-day42.md` | fool-01 ~ fool-28 | 原句 + 5个词条(epidemic/acquaintance/in turn/have little to do with/influential) + 3个句式节 |
+| `0602-day43.md` | fool-01 ~ fool-18 | 原句 + 3个词条(cascade/principal/critical mass) + 2个句式节 |
+| `0603-day44.md` | fool-01 ~ fool-18 | 原句 + 3个词条(fold/overall/reconstruction) + 2个句式节 |
+| `0604-day45.md` | fool-01 ~ fool-18 | 原句 + 4个词条(eliminate/land community/essential/functioning) + 2个句式节 |
+| `0605-day46.md` | fool-01 ~ fool-17 | 原句 + 3个词条(bull run/note/dramatic) + 2个句式节 |
+| `0606-day47.md` | fool-01 ~ fool-19 | 原句 + 3个词条(lack/demand/interview) + 2个句式节 |
+
+每个条目均包含完整的四步拆解（扫词 / 扫小品词和搭配 / 扫句式 / 读句子），句子文件中所有英文句子（原句、词条例句、造句、句式例句）已全部覆盖。如需对某个具体条目调整或补充，可以告诉我。
+[2026-06-08 19:04:28] Fool done: fool/june/0603-day44.md
