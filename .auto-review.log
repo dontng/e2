@@ -2300,3 +2300,29 @@ You've hit your session limit · resets 12:30pm (Asia/Shanghai)
 
 每个条目均包含完整的四步拆解（Step 1–4），分区覆盖了原句、全部 Vocab 词条和所有 Phrases 句式。无需重复写入。
 [2026-06-08 13:39:34] Fool done: fool/june/0603-day44.md
+[2026-06-08 13:39:34] Committed: batch
+[2026-06-08 13:39:34] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+   16ee055..db8c8ea  main       -> origin/main
+Auto-merging wishes/spell/0608.md
+Merge made by the 'ort' strategy.
+ wishes/spell/0607.md |  6 +++---
+ wishes/spell/0608.md | 10 +++++-----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+[2026-06-08 13:49:56] No uncorrected files found. Polling every 600s.
+[2026-06-08 13:49:56] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 13:49:56] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+所有 6 个文件的 fool 分析均已存在且完整：
+
+| 文件 | fool 条目数 |
+|------|------------|
+| 0601-day42.md | 28 |
+| 0602-day43.md | 18 |
+| 0603-day44.md | 18 |
+| 0604-day45.md | 18 |
+| 0605-day46.md | 17 |
+| 0606-day47.md | 19 |
+
+这 6 天的愚者拆解全部已完成，无需重新写入。如果你想对某个具体文件重新生成或补充内容，告诉我即可。
+[2026-06-08 13:50:33] Fool done: fool/june/0603-day44.md
