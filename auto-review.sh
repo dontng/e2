@@ -87,9 +87,9 @@ needs_review() {
 }
 
 # Returns 0 if fool needs to be generated: fool file missing or has no entries.
-# Deliberately does NOT re-trigger on sentence file edits — fool is generated once and kept.
+# Deliberately does NOT re-trigger on source file edits — fool is generated once and kept.
 needs_fool() {
-    local sentence_file="$1"
+    local source_file="$1"
     local fool_path="$2"
     [[ ! -f "$fool_path" ]] && return 0
     ! grep -q '^### fool-' "$fool_path"
@@ -97,17 +97,17 @@ needs_fool() {
 
 # Find markdown files where 我的理解和翻译 has content but 批改 is empty
 find_uncorrected() {
-    find "$REPO_DIR/sentence" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+    find "$REPO_DIR/source" -name "*.md" -print0 | while IFS= read -r -d '' f; do
         if needs_review "$f"; then
             echo "$f"
         fi
     done
 }
 
-# Find corrected sentence files whose fool is missing or stale
+# Find corrected source files whose fool is missing or stale
 find_fool_missing() {
-    find "$REPO_DIR/sentence" -name "*.md" -print0 | while IFS= read -r -d '' f; do
-        local fool_path="${f/\/sentence\//\/fool\/}"
+    find "$REPO_DIR/source" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        local fool_path="${f/\/source\//\/fool\/}"
         if ! needs_review "$f" && needs_fool "$f" "$fool_path"; then
             echo "$f"
         fi
@@ -127,9 +127,9 @@ review_file() {
 
 文件路径：$file
 
-**约束：只允许编辑 $file 这一个文件，不得读取或修改任何其他 sentence 文件。**
+**约束：只允许编辑 $file 这一个文件，不得读取或修改任何其他 source 文件。**
 
-参考风格范例：$REPO_DIR/sentence/may/0528-day39.md
+参考风格范例：$REPO_DIR/source/may/0528-day39.md
 
 ---
 任务说明：
@@ -268,7 +268,7 @@ fool 文件：$fool_path
 
 如 fool 文件已有 header，保留 header，在其后写入全部内容。
 如 fool 文件不存在，先写文件头再写内容：
-\`# Day N Fool Sessions · YYYY-MM-DD\n\nsource: [sentence/...](../../$rel)\n\n---\n\`
+\`# Day N Fool Sessions · YYYY-MM-DD\n\nsource: [source/...](../../$rel)\n\n---\n\`
 
 一次性写完整个文件，不分批。" \
         --allowedTools "Read,Write,Edit" \
@@ -296,7 +296,7 @@ fool 文件：$fool_path
 batch_commit() {
     cd "$REPO_DIR"
 
-    git add sentence/ fool/ "$LOG_FILE"
+    git add source/ fool/ "$LOG_FILE"
 
     if git diff --cached --quiet; then
         log "No changes staged, skipping commit"
@@ -436,7 +436,7 @@ main() {
                             rate_limited=true
                             break
                         elif [[ $rc -eq 0 ]]; then
-                            local fool_path="${file/\/sentence\//\/fool\/}"
+                            local fool_path="${file/\/source\//\/fool\/}"
                             local fool_rc=0
                             if needs_fool "$file" "$fool_path"; then
                                 fool_file "$file" "$fool_path" || fool_rc=$?
@@ -484,7 +484,7 @@ main() {
                                 log "Git became busy — deferring fool-missing to next cycle"
                                 break
                             fi
-                            local fool_path="${file/\/sentence\//\/fool\/}"
+                            local fool_path="${file/\/source\//\/fool\/}"
                             local fool_rc=0
                             log "Fool-missing: $(basename "$file" .md) — running decomposition"
                             fool_file "$file" "$fool_path" || fool_rc=$?
