@@ -86,14 +86,13 @@ needs_review() {
     [[ -n "$translation" && -z "$correction" ]]
 }
 
-# Returns 0 if fool needs to be (re)generated:
-#   fool missing, has no entries, or sentence was updated after fool was generated
+# Returns 0 if fool needs to be generated: fool file missing or has no entries.
+# Deliberately does NOT re-trigger on sentence file edits — fool is generated once and kept.
 needs_fool() {
     local sentence_file="$1"
     local fool_path="$2"
     [[ ! -f "$fool_path" ]] && return 0
-    ! grep -q '^### fool-' "$fool_path" && return 0
-    [[ "$sentence_file" -nt "$fool_path" ]]
+    ! grep -q '^### fool-' "$fool_path"
 }
 
 # Find markdown files where 我的理解和翻译 has content but 批改 is empty
