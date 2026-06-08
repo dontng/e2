@@ -2518,3 +2518,21 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 六个 fool 文件均已涵盖：原句分析、所有 Vocab 词条下的例句及造句、所有 Phrases 节的例句，无缺漏条目，无需写入任何新内容。
 [2026-06-08 18:38:08] Fool done: fool/june/0603-day44.md
+[2026-06-08 18:38:08] Committed: batch
+[2026-06-08 18:38:09] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 18:48:27] No uncorrected files found. Polling every 600s.
+[2026-06-08 18:48:27] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 18:48:27] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+所有 6 个 fool 文件已全部完成，无需重新生成。各文件条目数均与句子文件中英文句子总数吻合：
+
+| 文件 | 条目数 | 验证 |
+|------|--------|------|
+| `0601-day42.md` | 28 | ✓ 1原句 + 19 Vocab + 8 Phrases |
+| `0602-day43.md` | 18 | ✓ 1原句 + 12 Vocab + 5 Phrases |
+| `0603-day44.md` | 18 | ✓ 1原句 + 12 Vocab + 5 Phrases |
+| `0604-day45.md` | 18 | ✓ 1原句 + 15 Vocab + 2 Phrases |
+| `0605-day46.md` | 17 | ✓ 1原句 + 12 Vocab + 4 Phrases |
+| `0606-day47.md` | 19 | ✓ 1原句 + 12 Vocab + 6 Phrases |
+
+内容结构完整（四步拆解均覆盖），编号连续，Phrases 引申例句与 Vocab 造句均已收录。这 6 个文件无缺项，无需任何补写。
+[2026-06-08 18:52:10] Fool done: fool/june/0603-day44.md
