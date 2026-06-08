@@ -292,11 +292,71 @@ fool 文件：$fool_path
     log "Fool done: $fool_rel"
 }
 
+# Write one console file: nav + full fool content + nav.
+# Prev/next are stems (e.g. "0606-day47"), empty string means no link on that side.
+write_console_file() {
+    local stem="$1" fool_path="$2" prev="$3" next="$4"
+    local out="$REPO_DIR/console/$stem.md"
+    local nav=""
+    [[ -n "$prev" ]] && nav+="← [$prev]($prev.md)"
+    [[ -n "$prev" && -n "$next" ]] && nav+="　　"
+    [[ -n "$next" ]] && nav+="[$next]($next.md) →"
+    {
+        [[ -n "$nav" ]] && printf '%s\n\n' "$nav"
+        cat "$fool_path"
+        [[ -n "$nav" ]] && printf '\n\n%s\n' "$nav"
+    } > "$out"
+}
+
+# Create or refresh a console entry after a fool file is written.
+# Also updates the previous entry's "next" link, and refreshes today.md.
+create_console_entry() {
+    local fool_path="$1"
+    local stem; stem=$(basename "$fool_path" .md)
+    local console_dir="$REPO_DIR/console"
+    mkdir -p "$console_dir"
+
+    # Sorted list of existing console stems (excludes today.md)
+    local existing=()
+    while IFS= read -r f; do
+        local s; s=$(basename "$f" .md)
+        [[ "$s" != "today" ]] && existing+=("$s")
+    done < <(find "$console_dir" -name "*.md" | sort)
+
+    # Prev = last existing entry (before this one)
+    local prev_stem=""
+    for s in "${existing[@]}"; do
+        [[ "$s" < "$stem" ]] && prev_stem="$s"
+    done
+
+    # Write new console file
+    write_console_file "$stem" "$fool_path" "$prev_stem" ""
+
+    # Refresh previous entry to add "next" link pointing to new stem
+    if [[ -n "$prev_stem" ]]; then
+        local prev_prev=""
+        for s in "${existing[@]}"; do
+            [[ "$s" < "$prev_stem" ]] && prev_prev="$s"
+        done
+        local prev_fool; prev_fool=$(find "$REPO_DIR/fool" -name "${prev_stem}.md" | head -1)
+        [[ -f "$prev_fool" ]] && write_console_file "$prev_stem" "$prev_fool" "$prev_prev" "$stem"
+    fi
+
+    # Update today.md to point to the most recent console file
+    local latest_stem="$stem"
+    for s in "${existing[@]}"; do
+        [[ "$s" > "$latest_stem" ]] && latest_stem="$s"
+    done
+    printf '→ [今天 · %s](%s.md)\n' "$latest_stem" "$latest_stem" > "$console_dir/today.md"
+
+    log "Console: $stem"
+}
+
 # Commit staged changes without pushing
 batch_commit() {
     cd "$REPO_DIR"
 
-    git add source/ fool/ "$LOG_FILE"
+    git add source/ fool/ console/ "$LOG_FILE"
 
     if git diff --cached --quiet; then
         log "No changes staged, skipping commit"
@@ -449,6 +509,7 @@ main() {
                                 rate_limited=true
                                 break
                             elif [[ $fool_rc -eq 0 ]]; then
+                                create_console_entry "$fool_path"
                                 reviewed_files+=("$file")
                             else
                                 log "Fool failed — queuing review-only for batch commit"
@@ -493,6 +554,7 @@ main() {
                                 rate_limited=true
                                 break
                             elif [[ $fool_rc -eq 0 ]]; then
+                                create_console_entry "$fool_path"
                                 fool_queued+=("$file")
                             else
                                 log "Fool failed for $(basename "$file" .md) — skipping"
