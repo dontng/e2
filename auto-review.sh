@@ -293,14 +293,18 @@ fool 文件：$fool_path
 }
 
 # Write one console file: nav + full fool content + nav.
-# Prev/next are stems (e.g. "0606-day47"), empty string means no link on that side.
+# prev_label/next_label: display stem; prev_url/next_url: actual link target (defaults to stem.md).
+# Leaving a label empty suppresses that side of the nav.
 write_console_file() {
-    local stem="$1" fool_path="$2" prev="$3" next="$4"
+    local stem="$1" fool_path="$2" prev_label="$3" next_label="$4"
+    local prev_url="${5:-}" next_url="${6:-}"
+    [[ -z "$prev_url" && -n "$prev_label" ]] && prev_url="$prev_label.md"
+    [[ -z "$next_url" && -n "$next_label" ]] && next_url="$next_label.md"
     local out="$REPO_DIR/console/$stem.md"
     local nav=""
-    [[ -n "$prev" ]] && nav+="← [$prev]($prev.md)"
-    [[ -n "$prev" && -n "$next" ]] && nav+="　　"
-    [[ -n "$next" ]] && nav+="[$next]($next.md) →"
+    [[ -n "$prev_label" ]] && nav+="← [$prev_label]($prev_url)"
+    [[ -n "$prev_label" && -n "$next_label" ]] && nav+="　　"
+    [[ -n "$next_label" ]] && nav+="[$next_label]($next_url) →"
     {
         [[ -n "$nav" ]] && printf '%s\n\n' "$nav"
         cat "$fool_path"
@@ -308,48 +312,74 @@ write_console_file() {
     } > "$out"
 }
 
-# Create or refresh a console entry after a fool file is written.
-# Also updates the previous entry's "next" link, and refreshes today.md.
+# Return sorted list of all fool stems across all subdirs.
+all_fool_stems() {
+    find "$REPO_DIR/fool" -name "*.md" -printf '%f\t%p\n' | sort | cut -f1 | sed 's/\.md$//'
+}
+
+# Maintain a 3-day rolling window in console/.
+# "Today" = most recent fool file locally (not calendar date).
+# Window boundary: oldest entry's ← link points into fool/ (archived).
+CONSOLE_WINDOW=3
+
 create_console_entry() {
     local fool_path="$1"
     local stem; stem=$(basename "$fool_path" .md)
     local console_dir="$REPO_DIR/console"
     mkdir -p "$console_dir"
 
-    # Sorted list of existing console stems (excludes today.md)
-    local existing=()
+    # Current window stems, sorted (exclude today.md)
+    local window=()
     while IFS= read -r f; do
         local s; s=$(basename "$f" .md)
-        [[ "$s" != "today" ]] && existing+=("$s")
+        [[ "$s" != "today" ]] && window+=("$s")
     done < <(find "$console_dir" -name "*.md" | sort)
 
-    # Prev = last existing entry (before this one)
-    local prev_stem=""
-    for s in "${existing[@]}"; do
-        [[ "$s" < "$stem" ]] && prev_stem="$s"
-    done
+    # Prev within window = last stem currently present
+    local prev_stem="${window[-1]:-}"
 
-    # Write new console file
+    # 1. Write new file (← prev in console, no → yet)
     write_console_file "$stem" "$fool_path" "$prev_stem" ""
 
-    # Refresh previous entry to add "next" link pointing to new stem
+    # 2. Update prev to add → link to new stem
     if [[ -n "$prev_stem" ]]; then
-        local prev_prev=""
-        for s in "${existing[@]}"; do
-            [[ "$s" < "$prev_stem" ]] && prev_prev="$s"
-        done
+        local prev_prev="${window[-2]:-}"
         local prev_fool; prev_fool=$(find "$REPO_DIR/fool" -name "${prev_stem}.md" | head -1)
         [[ -f "$prev_fool" ]] && write_console_file "$prev_stem" "$prev_fool" "$prev_prev" "$stem"
     fi
 
-    # Update today.md to point to the most recent console file
-    local latest_stem="$stem"
-    for s in "${existing[@]}"; do
-        [[ "$s" > "$latest_stem" ]] && latest_stem="$s"
+    # 3. Append new stem, evict oldest beyond window
+    window+=("$stem")
+    while [[ ${#window[@]} -gt $CONSOLE_WINDOW ]]; do
+        local evicted="${window[0]}"
+        rm -f "$console_dir/$evicted.md"
+        window=("${window[@]:1}")
+        log "Console: evicted $evicted (beyond ${CONSOLE_WINDOW}-day window)"
     done
-    printf '→ [今天 · %s](%s.md)\n' "$latest_stem" "$latest_stem" > "$console_dir/today.md"
 
-    log "Console: $stem"
+    # 4. Fix oldest entry's ← link: points into fool/ (outside window)
+    local oldest="${window[0]}"
+    local oldest_fool; oldest_fool=$(find "$REPO_DIR/fool" -name "${oldest}.md" | head -1)
+    if [[ -f "$oldest_fool" ]]; then
+        # Find the fool stem immediately before oldest in the full sorted history
+        local prev_of_oldest="" prev_of_oldest_path=""
+        local prev_candidate=""
+        while IFS= read -r candidate; do
+            [[ "$candidate" == "$oldest" ]] && { prev_of_oldest="$prev_candidate"; break; }
+            prev_candidate="$candidate"
+        done < <(all_fool_stems)
+        if [[ -n "$prev_of_oldest" ]]; then
+            prev_of_oldest_path=$(find "$REPO_DIR/fool" -name "${prev_of_oldest}.md" | head -1)
+        fi
+        local next_of_oldest="${window[1]:-}"
+        local prev_url=""
+        [[ -n "$prev_of_oldest_path" ]] && prev_url="../${prev_of_oldest_path#$REPO_DIR/}"
+        write_console_file "$oldest" "$oldest_fool" "$prev_of_oldest" "$next_of_oldest" "$prev_url"
+    fi
+
+    # 5. today.md always points to the newest in window
+    printf '→ [今天 · %s](%s.md)\n' "${window[-1]}" "${window[-1]}" > "$console_dir/today.md"
+    log "Console: $stem  window=[${window[*]}]"
 }
 
 # Commit staged changes without pushing
