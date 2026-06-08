@@ -1851,3 +1851,23 @@ You've hit your session limit · resets 7:30am (Asia/Shanghai)
 
 每个文件都覆盖了句子文件中的所有英文句子（原句 + Vocab 例句/造句 + Phrases 例句），四步拆解（扫词 / 扫搭配 / 扫句式 / 读句子）均已完成。如果需要对某个文件重新生成或补充修改，告诉我具体要求。
 [2026-06-08 08:07:07] Fool done: fool/june/0603-day44.md
+[2026-06-08 08:07:07] Committed: batch
+[2026-06-08 08:07:07] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 08:17:34] No uncorrected files found. Polling every 600s.
+[2026-06-08 08:17:34] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 08:17:34] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+所有六个 fool 文件已在此前的批次中完整写入，无需重复处理。
+
+**文件状态一览：**
+
+| 文件 | 条目数 | 覆盖内容 |
+|------|--------|---------|
+| 0601-day42.md | 28 | 原句 + epidemic / acquaintance / in turn / have little to do with / influential + 3个Phrases节 |
+| 0602-day43.md | 18 | 原句 + cascade / principal / critical mass + 2个Phrases节 |
+| 0603-day44.md | 18 | 原句 + fold / overall / reconstruction + 2个Phrases节 |
+| 0604-day45.md | 18 | 原句 + eliminate / land community / essential / functioning + 2个Phrases节 |
+| 0605-day46.md | 17 | 原句 + bull run / note / dramatic + 2个Phrases节 |
+| 0606-day47.md | 19 | 原句 + lack / demand / interview + 2个Phrases节 |
+
+每个文件结构完整，四步拆解（扫词 / 扫搭配 / 扫句式 / 读句子）全部到位，最后一个条目正常收尾，未见截断。这六个文件对应的是 git 日志中"批改+愚者 batch"提交，已是完成状态，无需重写。
+[2026-06-08 08:20:51] Fool done: fool/june/0603-day44.md
