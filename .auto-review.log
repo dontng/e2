@@ -2215,3 +2215,34 @@ You've hit your session limit · resets 12:30pm (Asia/Shanghai)
 
 6 个文件的愚者文件均已存在且有实质内容，无需重新写入。如果你想对某个文件补充新的分析条目，或者某个文件的内容有问题需要修订，告诉我具体哪个文件。
 [2026-06-08 12:54:51] Fool done: fool/june/0603-day44.md
+[2026-06-08 12:54:51] Committed: batch
+[2026-06-08 12:54:51] Push pending [解锁后检验]: 1 uncorrected file(s) still remain after unlock
+[2026-06-08 13:05:08] Reviewing: sentence/june/0609-day49.md
+批改完成。主要问题：
+
+- **[1]** `Dr.` = 博士，非"先生"
+- **[2]** `turned to` = 求助于（固定短语），非"转身去"
+- **[3]** 三家公司是复数，非"那家"
+- **[4]** 宝洁（P&G）和高露洁-棕榄是两家不同公司
+- **[5]** `finding` 是动名词表投资用途，非另起一个"发现"
+- **[6]** `cues` 是名词（暗示/线索），非动词被动式
+- **[7]** `routines` = 日常习惯（非"路线"），`introduce` = 引入（非"引导处"）
+
+评分 **2/10**，Vocab 收录 `turn to / subtle / cue / routine`，Phrases 收录三个句式结构。
+[2026-06-08 13:08:16] Review done: sentence/june/0609-day49.md
+[2026-06-08 13:08:16] Running fool decomposition: sentence/june/0609-day49.md → fool/june/0609-day49.md
+完成。共写入 20 个 fool 条目，覆盖：
+
+- **fool-01**：原句（完整长句，破折号插入语 + 双层从句结构）
+- **fool-02 ~ fool-05**：Vocab · turn to（3 例句 + 造句）
+- **fool-06 ~ fool-09**：Vocab · subtle（3 例句 + 造句）
+- **fool-10 ~ fool-13**：Vocab · cue（3 例句 + 造句）
+- **fool-14 ~ fool-17**：Vocab · routine（3 例句 + 造句）
+- **fool-18 ~ fool-20**：Phrases 三个句式（均为原句片段，分析聚焦在句法结构上）
+
+几个值得留意的拆解点：
+- **fool-04**：前置形容词短语 *Desperate for funding*，分析了"原因先出、行动后出"带来的紧迫感
+- **fool-09**：破折号 + but 双重转折，点出 subtle appeal 的本质——不劝买，却让你想要
+- **fool-13**：*turned out to be* 给句子加了"恍然大悟"的语气，不只是描述，而是一个发现
+- **fool-19**：invest [sum] + V-ing 里 finding 不是 and found——两件事不是先后，而是同步的目的关系
+[2026-06-08 13:16:21] Fool done: fool/june/0609-day49.md
