@@ -2169,3 +2169,35 @@ You've hit your session limit · resets 12:30pm (Asia/Shanghai)
 
 所有句子——原句、Vocab 例句与造句、Phrases 引申例句——均已逐条拆解，四步格式完整，编号连续无遗漏。这批分析已存在于 `/home/djology/english2-daily/fool/june/` 中，不需要重新生成。
 [2026-06-08 12:32:45] Fool done: fool/june/0603-day44.md
+[2026-06-08 12:32:45] Committed: batch
+[2026-06-08 12:32:45] Push pending [解锁后检验]: 2 uncorrected file(s) still remain after unlock
+[2026-06-08 12:43:08] Reviewing: sentence/june/0608-day48.md
+批改完成。主要错误点：
+
+1. **crisis → 评论**：与 criticism 混淆，是全句最严重的误译
+2. **image → 图片**：这里是抽象的"场景/形象"，不是实物照片；同时丢失了 best 最高级
+3. **sitting → 坐下**：状态（坐着）vs 动作（坐下）
+4. **held up → 放在面前**：报纸是举起来挡住脸的，构成场景张力的核心姿态
+5. **glares → 看着**：怒视的情绪完全消失
+
+得分 **4/10**，Vocab 收录了 crisis、glare、stereotypical、image 四个词。
+[2026-06-08 12:46:35] Review done: sentence/june/0608-day48.md
+[2026-06-08 12:46:35] Running fool decomposition: sentence/june/0608-day48.md → fool/june/0608-day48.md
+26 个条目写入完成，覆盖全部英文句子：
+
+- **fool-01**：原句（完整长句）
+- **fool-02–05**：Vocab · crisis（3 例句 + 造句）
+- **fool-06–09**：Vocab · glare（3 例句 + 造句）
+- **fool-10–13**：Vocab · stereotypical（3 例句 + 造句）
+- **fool-14–17**：Vocab · image（3 例句 + 造句）
+- **fool-18–20**：Phrases · best + 动词结构
+- **fool-21–24**：Phrases · with+NP+PP 伴随状态
+- **fool-25–26**：Phrases · while 对比 + 悬挂分词
+
+几个值得注意的拆解点：
+
+1. **fool-01**：`held up` 是屏障动作的关键，`at the back of it` 才是愤怒的真正对象，`wanting to talk` 是全句情绪重心——都在 Step 2/3 里单独标出了。
+2. **fool-05**：`What began as...` 的 what-从句作主语在 Step 3 里点明，是原句翻译容易漏掉的结构。
+3. **fool-09**：`silently negotiating` 的正式词感用在孩子挑食上，Step 1 专门点了这个幽默落差。
+4. **fool-17**：`without naming it` 的 without + gerund 否定方式在 Step 2 单独列出，image 的"绕开命名"用法是这个词条的精髓。
+[2026-06-08 12:53:59] Fool done: fool/june/0608-day48.md
