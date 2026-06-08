@@ -1939,3 +1939,21 @@ You've hit your session limit · resets 7:30am (Asia/Shanghai)
 
 六个 fool 文件均已有完整的四步拆解内容，涵盖原句、Vocab 例句与造句、Phrases 示例句。无需写入新内容。
 [2026-06-08 08:55:30] Fool done: fool/june/0603-day44.md
+[2026-06-08 08:55:30] Committed: batch
+[2026-06-08 08:55:30] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 09:05:56] No uncorrected files found. Polling every 600s.
+[2026-06-08 09:05:56] Fool-missing: 0603-day44 — running decomposition
+[2026-06-08 09:05:56] Running fool decomposition: sentence/june/0603-day44.md → fool/june/0603-day44.md
+所有六个 fool 文件均已存在且内容完整，无需重新写入。逐一核对确认：
+
+| 文件 | 状态 | 条目数 |
+|------|------|--------|
+| 0601-day42.md | ✓ 已完成 | fool-01 ~ fool-28 |
+| 0602-day43.md | ✓ 已完成 | fool-01 ~ fool-18 |
+| 0603-day44.md | ✓ 已完成 | fool-01 ~ fool-18 |
+| 0604-day45.md | ✓ 已完成 | fool-01 ~ fool-18 |
+| 0605-day46.md | ✓ 已完成 | fool-01 ~ fool-17 |
+| 0606-day47.md | ✓ 已完成 | fool-01 ~ fool-19 |
+
+每份文件均覆盖了原句、所有 Vocab 词条下的例句与造句、以及 Phrases 例句，四步拆解（扫词 / 小品词搭配 / 句式 / 中文读句）均完整。无需任何追加写入。
+[2026-06-08 09:07:28] Fool done: fool/june/0603-day44.md
