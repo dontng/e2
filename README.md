@@ -1,133 +1,59 @@
-# engligh2-daily
+# english2-daily
 
-英语二每日一句练习，包含翻译留痕、批改标注、词汇解释和问答收录。
+英语二每日一句，翻译 → 自动批改 → 拆解分析。
 
-## 每日文件结构
+---
 
-每个文件包含以下区块：
-
-- **原句** — 当天英二例句
-- **我的理解和翻译** — 自己的翻译留痕，不修改
-- **批改** — 内联标注错误 + 参考译文
-- **Vocab** — 不熟单词，词根拆解 + 核心意象 + 例句
-- **Phrases** — 词组拆解与语境说明
-- **问答收录** — 讨论中产生的语言问题与解答
-
-## 目录结构
+## 从这里开始
 
 ```
-sentence/
-  may/
-    0519-day31.md
-    0520-day32.md
-  june/
-    ...
+console/today.md
 ```
 
-## 每日使用
+打开 `today.md`，两个链接分别进入今天的 fool 解析和 probe 采分卡，用 ← → 在历史之间导航。
 
-### 1. 创建当天文件
+---
+
+## 每日流程
+
+**1. 创建当天文件**
 
 ```bash
 bash new-day.sh
 ```
 
-### 2. 提前创建明天的文件
+创建明天的文件：`bash new-day.sh tomorrow`
 
-```bash
-bash new-day.sh tomorrow
-# 或简写
-bash new-day.sh tom
-```
+**2. 填写翻译，推到 GitHub**
 
-### 3. 指定日期创建（需手动传入序号）
+在 `src/june/MMDD-dayNN.md` 的「我的理解和翻译」填好后 push，后台的 `auto-review.sh` 会自动检测并批改。
 
-```bash
-bash new-day.sh 0601 36
-```
+**3. 看结果**
 
-日期格式为 `MMDD`，序号需要手动指定，避免跳着创建时序号错乱。
-
-### 4. 推送到 GitHub
-
-```bash
-git add . && git commit -m "Day XX" && git push
-```
-
-## 自动批改（auto-review.sh）
-
-`auto-review.sh` 是一个持续运行的后台脚本，自动扫描未批改的文件，调用 Claude 完成批改后 commit 并 push。
-
-**触发条件**：文件的「我的理解和翻译」区块有内容，但「批改」区块为空。
+批改完成后，`auto-review.sh` 自动 commit + push，刷新 GitHub 即可。
 
 ---
 
-### 执行方式
-
-#### 方式一：持续轮询（默认，推荐挂后台使用）
-
-每 10 分钟自动扫描一次，遇到 rate limit 自动退避 1 小时。批改完成后立即 commit 并 push，无固定等待。
+## 自动批改
 
 ```bash
 nohup ./auto-review.sh >> .auto-review.log 2>&1 &
 ```
 
-后台静默运行，日志追加写入 `.auto-review.log`。
-
-#### 方式二：只跑一次（适合手动触发或测试）
-
-扫描当前所有未批改文件，批改完毕后退出，不进入循环等待。
+后台挂起，每 10 分钟扫一次。发现未批改文件时自动：批改 → 生成 fool → 生成 probe → 更新 console → push。
 
 ```bash
-./auto-review.sh --once
-```
-
-#### 方式三：自定义轮询间隔
-
-通过环境变量 `POLL_INTERVAL` 指定间隔秒数，例如改为 1 小时：
-
-```bash
-POLL_INTERVAL=3600 ./auto-review.sh
+tail -f .auto-review.log   # 查看进度
+pkill -f auto-review.sh    # 停止
 ```
 
 ---
 
-### 查看日志
+## 文件层次
 
-```bash
-tail -f .auto-review.log
-```
-
-### 停止后台运行
-
-```bash
-pkill -f auto-review.sh
-```
-
----
-
-## 许愿系统（wishes/）
-
-session 被中断（token 耗尽或强制停止）时，Stop hook 自动把当前任务写入 `wishes/spell/`，knight 守护进程负责拾起并续跑。
-
-```
-wishes/
-  spell/      # 待执行的 wish（[pending] → [running] → [done/failed]）
-  phantasm/   # 每次执行的详细日志
-  knight.sh   # 守护进程，轮询 spell/ 并调用 claude -p 执行
-```
-
-### 启动 knight
-
-```bash
-bash wishes/knight.sh >> wishes/knight.log 2>&1 &
-```
-
-用 VS Code 打开项目时会自动启动（`.vscode/tasks.json` 已配置）。
-
-### 查看日志
-
-```bash
-tail -f wishes/knight.log
-```
-
+| 目录 | 内容 | 说明 |
+|------|------|------|
+| `src/` | 原始句子文件 | 批改结果写回这里 |
+| `fool/` | 愚者解析 | AI 对句子的全量拆解，帮你读懂批改 |
+| `probe/` | 采分卡 | 原句 + 我的翻译 + 评分，留 Q&A 空间给自己追问 |
+| `console/` | 控制台 | 3 天滚动窗口，`today.md` 作入口 |
