@@ -1,6 +1,6 @@
 # Day 35 Fool Sessions · 2026-05-23
 
-source: [sentence/may/0523-day35.md](../../sentence/may/0523-day35.md)
+source: [src/may/0523-day35.md](../../src/may/0523-day35.md)
 
 ---
 

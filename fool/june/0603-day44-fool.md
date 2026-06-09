@@ -1,6 +1,6 @@
 # Day 44 Fool Sessions · 2026-06-03
 
-source: [sentence/june/0603-day44.md](../../sentence/june/0603-day44.md)
+source: [src/june/0603-day44.md](../../src/june/0603-day44.md)
 
 ---
 

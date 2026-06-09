@@ -1,6 +1,6 @@
 # Day 38 Fool Sessions · 2026-05-27
 
-source: [sentence/may/0527-day38.md](../../sentence/may/0527-day38.md)
+source: [src/may/0527-day38.md](../../src/may/0527-day38.md)
 
 ---
 

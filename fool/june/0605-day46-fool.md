@@ -1,6 +1,6 @@
 # Day 46 Fool Sessions · 2026-06-05
 
-source: [sentence/june/0605-day46.md](../../sentence/june/0605-day46.md)
+source: [src/june/0605-day46.md](../../src/june/0605-day46.md)
 
 ---
 

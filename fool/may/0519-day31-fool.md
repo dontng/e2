@@ -1,6 +1,6 @@
 # Day 31 Fool Sessions · 2026-05-19
 
-source: [sentence/may/0519-day31.md](../../sentence/may/0519-day31.md)
+source: [src/may/0519-day31.md](../../src/may/0519-day31.md)
 
 ---
 
