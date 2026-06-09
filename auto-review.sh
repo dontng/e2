@@ -97,7 +97,7 @@ needs_fool() {
 
 # Find markdown files where 我的理解和翻译 has content but 批改 is empty
 find_uncorrected() {
-    find "$REPO_DIR/source" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
         if needs_review "$f"; then
             echo "$f"
         fi
@@ -106,8 +106,8 @@ find_uncorrected() {
 
 # Find corrected source files that have a score but no probe file yet
 find_probe_missing() {
-    find "$REPO_DIR/source" -name "*.md" -print0 | while IFS= read -r -d '' f; do
-        local probe_path="${f/\/source\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        local probe_path="${f/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
         if ! needs_review "$f" && has_score "$f" && needs_probe "$probe_path"; then
             echo "$f"
         fi
@@ -116,8 +116,8 @@ find_probe_missing() {
 
 # Find corrected source files whose fool is missing or stale
 find_fool_missing() {
-    find "$REPO_DIR/source" -name "*.md" -print0 | while IFS= read -r -d '' f; do
-        local fool_path="${f/\/source\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
+    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        local fool_path="${f/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
         if ! needs_review "$f" && needs_fool "$f" "$fool_path"; then
             echo "$f"
         fi
@@ -139,7 +139,7 @@ review_file() {
 
 **约束：只允许编辑 $file 这一个文件，不得读取或修改任何其他 source 文件。**
 
-参考风格范例：$REPO_DIR/source/may/0528-day39.md
+参考风格范例：$REPO_DIR/src/may/0528-day39.md
 
 ---
 任务说明：
@@ -278,7 +278,7 @@ fool 文件：$fool_path
 
 如 fool 文件已有 header，保留 header，在其后写入全部内容。
 如 fool 文件不存在，先写文件头再写内容：
-\`# Day N Fool Sessions · YYYY-MM-DD\n\nsource: [source/...](../../$rel)\n\n---\n\`
+\`# Day N Fool Sessions · YYYY-MM-DD\n\nsource: [src/...](../../$rel)\n\n---\n\`
 
 一次性写完整个文件，不分批。" \
         --allowedTools "Read,Write,Edit" \
@@ -311,7 +311,7 @@ source "$REPO_DIR/scripts/probe.sh"
 batch_commit() {
     cd "$REPO_DIR"
 
-    git add source/ fool/ console/ probe/ "$LOG_FILE"
+    git add src/ fool/ console/ probe/ "$LOG_FILE"
 
     if git diff --cached --quiet; then
         log "No changes staged, skipping commit"
@@ -451,12 +451,12 @@ main() {
                             rate_limited=true
                             break
                         elif [[ $rc -eq 0 ]]; then
-                            local probe_path="${file/\/source\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+                            local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
                             if has_score "$file" && needs_probe "$probe_path"; then
                                 create_probe "$file" "$probe_path"
                                 create_probe_console_entry "$probe_path"
                             fi
-                            local fool_path="${file/\/source\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
+                            local fool_path="${file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
                             local fool_rc=0
                             if needs_fool "$file" "$fool_path"; then
                                 fool_file "$file" "$fool_path" || fool_rc=$?
@@ -497,7 +497,7 @@ main() {
                     probe_missing=$(find_probe_missing || true)
                     if [[ -n "$probe_missing" ]]; then
                         while IFS= read -r file; do
-                            local probe_path="${file/\/source\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+                            local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
                             create_probe "$file" "$probe_path"
                             create_probe_console_entry "$probe_path"
                         done <<< "$probe_missing"
@@ -519,7 +519,7 @@ main() {
                                 log "Git became busy — deferring fool-missing to next cycle"
                                 break
                             fi
-                            local fool_path="${file/\/source\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
+                            local fool_path="${file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
                             local fool_rc=0
                             log "Fool-missing: $(basename "$file" .md) — running decomposition"
                             fool_file "$file" "$fool_path" || fool_rc=$?

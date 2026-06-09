@@ -1,6 +1,6 @@
 # day42 Probe
 
-source: [source/june/0601-day42.md](../../source/june/0601-day42.md)
+source: [src/june/0601-day42.md](../../src/june/0601-day42.md)
 
 ---
 
