@@ -34,7 +34,9 @@ all_probe_stems() {
     find "$REPO_DIR/probe" -name "*-probe.md" -printf '%f\t%p\n' | sort | cut -f1 | sed 's/-probe\.md$//'
 }
 
-# Rewrite today.md with links to the newest fool and probe entries in console/.
+# Rewrite today.md: exam countdown + links to newest fool and probe entries.
+EXAM_DATE="2026-12-18"
+
 update_today_md() {
     local console_dir="$REPO_DIR/console"
     local fool_stem="" probe_stem=""
@@ -43,9 +45,15 @@ update_today_md() {
     [[ -n "$fool_latest" ]] && fool_stem=$(basename "$fool_latest" -fool.md)
     probe_latest=$(find "$console_dir" -name "*-probe.md" | sort | tail -1)
     [[ -n "$probe_latest" ]] && probe_stem=$(basename "$probe_latest" -probe.md)
+
+    local days_left
+    days_left=$(( ($(date -d "$EXAM_DATE" +%s) - $(date -d "$(date '+%Y-%m-%d')" +%s)) / 86400 ))
+    [[ $days_left -lt 0 ]] && days_left=0
+
     {
-        [[ -n "$fool_stem"  ]] && printf '→ [今天 fool · %s](%s-fool.md)\n'   "$fool_stem"  "$fool_stem"
-        [[ -n "$probe_stem" ]] && printf '→ [今天 probe · %s](%s-probe.md)\n' "$probe_stem" "$probe_stem"
+        printf '考试倒计时 %d 天\n\n' "$days_left"
+        [[ -n "$fool_stem"  ]] && printf '→ [今天 fool · %s](%s-fool.md)\n\n'  "$fool_stem"  "$fool_stem"
+        [[ -n "$probe_stem" ]] && printf '→ [今天 probe · %s](%s-probe.md)\n'  "$probe_stem" "$probe_stem"
     } > "$console_dir/today.md"
 }
 
