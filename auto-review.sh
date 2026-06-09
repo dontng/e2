@@ -306,6 +306,8 @@ fool 文件：$fool_path
 source "$REPO_DIR/scripts/console.sh"
 # shellcheck source=scripts/probe.sh
 source "$REPO_DIR/scripts/probe.sh"
+# shellcheck source=scripts/nav.sh
+source "$REPO_DIR/scripts/nav.sh"
 
 # Commit staged changes without pushing
 batch_commit() {
@@ -454,6 +456,7 @@ main() {
                             local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
                             if has_score "$file" && needs_probe "$probe_path"; then
                                 create_probe "$file" "$probe_path"
+                                add_probe_nav "$probe_path"
                                 create_probe_console_entry "$probe_path"
                             fi
                             local fool_path="${file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
@@ -469,6 +472,7 @@ main() {
                                 rate_limited=true
                                 break
                             elif [[ $fool_rc -eq 0 ]]; then
+                                add_fool_nav "$fool_path"
                                 create_console_entry "$fool_path"
                                 reviewed_files+=("$file")
                             else
@@ -499,6 +503,7 @@ main() {
                         while IFS= read -r file; do
                             local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
                             create_probe "$file" "$probe_path"
+                            add_probe_nav "$probe_path"
                             create_probe_console_entry "$probe_path"
                         done <<< "$probe_missing"
                         batch_commit
@@ -528,6 +533,7 @@ main() {
                                 rate_limited=true
                                 break
                             elif [[ $fool_rc -eq 0 ]]; then
+                                add_fool_nav "$fool_path"
                                 create_console_entry "$fool_path"
                                 fool_queued+=("$file")
                             else

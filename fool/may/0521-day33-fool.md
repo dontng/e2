@@ -1,3 +1,5 @@
+← [0520-day32](0520-day32-fool.md)　　[0522-day34](0522-day34-fool.md) →
+
 # Day 33 Fool Sessions · 2026-05-21
 
 source: [src/may/0521-day33.md](../../src/may/0521-day33.md)
@@ -219,3 +221,9 @@ according to = 据……称，新闻引用来源的标准介词短语。chief op
 据 Identigene 首席运营官 Doug Fogg 称
 
 ---
+
+
+
+
+
+← [0520-day32](0520-day32-fool.md)　　[0522-day34](0522-day34-fool.md) →

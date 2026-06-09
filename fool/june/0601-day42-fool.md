@@ -1,3 +1,5 @@
+← [0530-day41](../may/0530-day41-fool.md)　　[0602-day43](0602-day43-fool.md) →
+
 # Day 42 Fool Sessions · 2026-06-01
 
 source: [src/june/0601-day42.md](../../src/june/0601-day42.md)
@@ -627,3 +629,9 @@ source: [src/june/0601-day42.md](../../src/june/0601-day42.md)
 每个人影响自己认识的人，那些人又必须依次影响各自认识的人，如此下去。
 
 ---
+
+
+
+
+
+← [0530-day41](../may/0530-day41-fool.md)　　[0602-day43](0602-day43-fool.md) →

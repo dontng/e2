@@ -1,3 +1,5 @@
+← [0521-day33](0521-day33-fool.md)　　[0523-day35](0523-day35-fool.md) →
+
 # Day 34 Fool Sessions · 2026-05-22
 
 source: [src/may/0522-day34.md](../../src/may/0522-day34.md)
@@ -302,3 +304,9 @@ priorities 复数：最高的那批优先事项，one of 保留"之一"，说明
 "教育应当是推动贫困国家快速经济发展的重中之重"这一惯常看法是错的。
 
 ---
+
+
+
+
+
+← [0521-day33](0521-day33-fool.md)　　[0523-day35](0523-day35-fool.md) →

@@ -1,3 +1,5 @@
+← [0604-day45](0604-day45-fool.md)　　[0606-day47](0606-day47-fool.md) →
+
 # Day 46 Fool Sessions · 2026-06-05
 
 source: [src/june/0605-day46.md](../../src/june/0605-day46.md)
@@ -329,3 +331,9 @@ bull run 同 fool-01；century（百年）、art-market（艺术品交易市场�
 这段休战期以一份在日内瓦签署的停火协议宣告终结。
 
 ---
+
+
+
+
+
+← [0604-day45](0604-day45-fool.md)　　[0606-day47](0606-day47-fool.md) →

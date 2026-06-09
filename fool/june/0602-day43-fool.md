@@ -1,3 +1,5 @@
+← [0601-day42](0601-day42-fool.md)　　[0603-day44](0603-day44-fool.md) →
+
 # Day 43 Fool Sessions · 2026-06-02
 
 source: [src/june/0602-day43.md](../../src/june/0602-day43.md)
@@ -510,3 +512,9 @@ em-dash 夹住插入语：*originally designed as a pesticide*（过去分词短
 **Step 4 读句子**
 
 这种化合物——最初被设计用作杀虫剂——结果被发现对人体毒性极强。
+
+
+
+
+
+← [0601-day42](0601-day42-fool.md)　　[0603-day44](0603-day44-fool.md) →

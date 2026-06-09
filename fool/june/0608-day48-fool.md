@@ -1,3 +1,5 @@
+← [0606-day47](0606-day47-fool.md)　　[0609-day49](0609-day49-fool.md) →
+
 # Day 48 Fool Sessions · 2026-06-08
 
 source: [src/june/0608-day48.md](../../src/june/0608-day48.md)
@@ -539,3 +541,9 @@ but 连接两个分词短语，情绪落点在 not knowing how——想道歉，
 他沉默地坐在那里，想要道歉，却不知从何说起。
 
 ---
+
+
+
+
+
+← [0606-day47](0606-day47-fool.md)　　[0609-day49](0609-day49-fool.md) →

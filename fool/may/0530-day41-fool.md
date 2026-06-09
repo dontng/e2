@@ -1,3 +1,5 @@
+← [0529-day40](0529-day40-fool.md)　　[0601-day42](../june/0601-day42-fool.md) →
+
 # Day 41 Fool Sessions · 2026-05-30
 
 source: [src/may/0530-day41.md](../../src/may/0530-day41.md)
@@ -425,3 +427,9 @@ one issue = 一个问题（one of + 复数被省略，是整体评估的一个�
 它希望评估的一个问题是，是否应当"重新审视"其在州街银行案中作出的裁决。
 
 ---
+
+
+
+
+
+← [0529-day40](0529-day40-fool.md)　　[0601-day42](../june/0601-day42-fool.md) →

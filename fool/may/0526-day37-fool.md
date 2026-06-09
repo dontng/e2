@@ -1,3 +1,5 @@
+← [0525-day36](0525-day36-fool.md)　　[0527-day38](0527-day38-fool.md) →
+
 # Day 37 Fool Sessions · 2026-05-26
 
 source: [src/may/0526-day37.md](../../src/may/0526-day37.md)
@@ -515,3 +517,9 @@ but 对比：His stated motive was philanthropy（表面动机）vs. critics sus
 可以说，任何社会机构的价值衡量标准，在于其扩大和改善经验的效果。
 
 ---
+
+
+
+
+
+← [0525-day36](0525-day36-fool.md)　　[0527-day38](0527-day38-fool.md) →

@@ -1,3 +1,5 @@
+← [0605-day46](0605-day46-fool.md)　　[0608-day48](0608-day48-fool.md) →
+
 # Day 47 Fool Sessions · 2026-06-06
 
 source: [src/june/0606-day47.md](../../src/june/0606-day47.md)
@@ -387,3 +389,9 @@ Almost everyone 作主语；who was interviewed for this special report 是限�
 
 **Step 4 读句子**
 为这个项目接受调查的所有人都来自同一座城市。
+
+
+
+
+
+← [0605-day46](0605-day46-fool.md)　　[0608-day48](0608-day48-fool.md) →

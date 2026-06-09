@@ -1,3 +1,5 @@
+[0519-day31](0519-day31-fool.md) →
+
 # Day 30 Fool Sessions · 2026-05-18
 
 source: [src/may/0518-day30.md](../../src/may/0518-day30.md)
@@ -370,3 +372,9 @@ idea 与 charge 同属"抽象名词 + that 同位语从句"结构框架。
 知识来自经验这一观点
 
 ---
+
+
+
+
+
+[0519-day31](0519-day31-fool.md) →

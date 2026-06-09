@@ -1,3 +1,5 @@
+← [0522-day34](0522-day34-fool.md)　　[0525-day36](0525-day36-fool.md) →
+
 # Day 35 Fool Sessions · 2026-05-23
 
 source: [src/may/0523-day35.md](../../src/may/0523-day35.md)
@@ -435,3 +437,9 @@ meet + 标准名词 = 达到/符合（这条线）；best-practice = 最佳实�
 持续达到最佳实践劳动生产率标准
 
 ---
+
+
+
+
+
+← [0522-day34](0522-day34-fool.md)　　[0525-day36](0525-day36-fool.md) →

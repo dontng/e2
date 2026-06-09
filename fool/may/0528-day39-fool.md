@@ -1,3 +1,5 @@
+← [0527-day38](0527-day38-fool.md)　　[0529-day40](0529-day40-fool.md) →
+
 # Day 39 Fool Sessions · 2026-05-28
 
 source: [src/may/0528-day39.md](../../src/may/0528-day39.md)
@@ -523,3 +525,9 @@ at a time + when 关系副词从句，描述那个年代的两个特征：1. new
 在那个新闻用纸极其廉价、时髦的艺术评论被视为其所刊登之出版物点缀的年代
 
 ---
+
+
+
+
+
+← [0527-day38](0527-day38-fool.md)　　[0529-day40](0529-day40-fool.md) →

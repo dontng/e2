@@ -1,3 +1,5 @@
+← [0602-day43](0602-day43-fool.md)　　[0604-day45](0604-day45-fool.md) →
+
 # Day 44 Fool Sessions · 2026-06-03
 
 source: [src/june/0603-day44.md](../../src/june/0603-day44.md)
@@ -379,3 +381,9 @@ when 引导时间从句，主句省略（省略号）；主语 = it（指 IASB�
 它不愿在缺乏整体规划的情况下行动。
 
 ---
+
+
+
+
+
+← [0602-day43](0602-day43-fool.md)　　[0604-day45](0604-day45-fool.md) →

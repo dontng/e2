@@ -1,3 +1,5 @@
+← [0526-day37](0526-day37-fool.md)　　[0528-day39](0528-day39-fool.md) →
+
 # Day 38 Fool Sessions · 2026-05-27
 
 source: [src/may/0527-day38.md](../../src/may/0527-day38.md)
@@ -294,3 +296,9 @@ a time + when 关系副词从句：描述那个时代的特征，when 不是"当
 那个高质量艺术评论曾能在大多数大城市报纸上找到的年代
 
 ---
+
+
+
+
+
+← [0526-day37](0526-day37-fool.md)　　[0528-day39](0528-day39-fool.md) →

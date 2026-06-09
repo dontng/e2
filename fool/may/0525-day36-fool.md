@@ -1,3 +1,5 @@
+← [0523-day35](0523-day35-fool.md)　　[0526-day37](0526-day37-fool.md) →
+
 # Day 36 Fool Sessions · 2026-05-25
 
 source: [src/may/0525-day36.md](../../src/may/0525-day36.md)
@@ -448,3 +450,9 @@ may not neglect = 不可忽视（may not 是禁止义，不是可能性），imp
 我们不可忽视的重要议题
 
 ---
+
+
+
+
+
+← [0523-day35](0523-day35-fool.md)　　[0526-day37](0526-day37-fool.md) →

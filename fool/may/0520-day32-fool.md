@@ -1,3 +1,5 @@
+← [0519-day31](0519-day31-fool.md)　　[0521-day33](0521-day33-fool.md) →
+
 # Day 32 Fool Sessions · 2026-05-20
 
 source: [src/may/0520-day32.md](../../src/may/0520-day32.md)
@@ -126,3 +128,9 @@ become + 形容词：进入某种状态，creative 是进入的状态，不需�
 越有创造力
 
 ---
+
+
+
+
+
+← [0519-day31](0519-day31-fool.md)　　[0521-day33](0521-day33-fool.md) →

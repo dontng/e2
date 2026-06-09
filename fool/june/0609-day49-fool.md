@@ -1,3 +1,5 @@
+← [0608-day48](0608-day48-fool.md)
+
 # Day 49 Fool Sessions · 2026-06-09
 
 source: [src/june/0609-day49.md](../../src/june/0609-day49.md)
@@ -475,3 +477,7 @@ finding 不等于 and found——投资的目的与投资本身同步，不是�
 ……消费者生活中那些细微的行为暗示——企业可以借此引入新的日常习惯。
 
 ---
+
+
+
+← [0608-day48](0608-day48-fool.md)

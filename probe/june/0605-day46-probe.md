@@ -1,3 +1,5 @@
+← [0604-day45](0604-day45-probe.md)　　[0606-day47](0606-day47-probe.md) →
+
 # day46 Probe
 
 source: [src/june/0605-day46.md](../../src/june/0605-day46.md)
@@ -30,3 +32,9 @@ source: [src/june/0605-day46.md](../../src/june/0605-day46.md)
 
 ## Q&A
 
+
+
+
+
+
+← [0604-day45](0604-day45-probe.md)　　[0606-day47](0606-day47-probe.md) →
