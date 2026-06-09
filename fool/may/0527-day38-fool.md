@@ -1,4 +1,4 @@
-← [0526-day37](0526-day37-fool.md)　　[0528-day39](0528-day39-fool.md) →
+« [0526-day37](0526-day37-fool.md)　　[0528-day39](0528-day39-fool.md) »
 
 # Day 38 Fool Sessions · 2026-05-27
 
@@ -301,4 +301,4 @@ a time + when 关系副词从句：描述那个时代的特征，when 不是"当
 
 
 
-← [0526-day37](0526-day37-fool.md)　　[0528-day39](0528-day39-fool.md) →
+« [0526-day37](0526-day37-fool.md)　　[0528-day39](0528-day39-fool.md) »

@@ -1,4 +1,4 @@
-← [0604-day45](0604-day45-fool.md)　　[0606-day47](0606-day47-fool.md) →
+« [0604-day45](0604-day45-fool.md)　　[0606-day47](0606-day47-fool.md) »
 
 # Day 46 Fool Sessions · 2026-06-05
 
@@ -336,4 +336,4 @@ bull run 同 fool-01；century（百年）、art-market（艺术品交易市场�
 
 
 
-← [0604-day45](0604-day45-fool.md)　　[0606-day47](0606-day47-fool.md) →
+« [0604-day45](0604-day45-fool.md)　　[0606-day47](0606-day47-fool.md) »

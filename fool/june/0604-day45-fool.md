@@ -1,4 +1,4 @@
-← [0603-day44](0603-day44-fool.md)　　[0605-day46](0605-day46-fool.md) →
+« [0603-day44](0603-day44-fool.md)　　[0605-day46](0605-day46-fool.md) »
 
 # Day 45 Fool Sessions · 2026-06-04
 
@@ -390,4 +390,4 @@ Leopold argued（主谓）/ that [宾语从句]：ethics（从句主）must expa
 
 
 
-← [0603-day44](0603-day44-fool.md)　　[0605-day46](0605-day46-fool.md) →
+« [0603-day44](0603-day44-fool.md)　　[0605-day46](0605-day46-fool.md) »

@@ -1,4 +1,4 @@
-← [0602-day43](0602-day43-probe.md)　　[0604-day45](0604-day45-probe.md) →
+« [0602-day43](0602-day43-probe.md)　　[0604-day45](0604-day45-probe.md) »
 
 # day44 Probe
 
@@ -36,4 +36,4 @@ iasb组织表示，本不愿在没有全部的计划下行动，但当在今年�
 
 
 
-← [0602-day43](0602-day43-probe.md)　　[0604-day45](0604-day45-probe.md) →
+« [0602-day43](0602-day43-probe.md)　　[0604-day45](0604-day45-probe.md) »

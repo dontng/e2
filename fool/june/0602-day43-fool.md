@@ -1,4 +1,4 @@
-← [0601-day42](0601-day42-fool.md)　　[0603-day44](0603-day44-fool.md) →
+« [0601-day42](0601-day42-fool.md)　　[0603-day44](0603-day44-fool.md) »
 
 # Day 43 Fool Sessions · 2026-06-02
 
@@ -517,4 +517,4 @@ em-dash 夹住插入语：*originally designed as a pesticide*（过去分词短
 
 
 
-← [0601-day42](0601-day42-fool.md)　　[0603-day44](0603-day44-fool.md) →
+« [0601-day42](0601-day42-fool.md)　　[0603-day44](0603-day44-fool.md) »

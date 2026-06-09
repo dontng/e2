@@ -1,4 +1,4 @@
-← [0525-day36](0525-day36-fool.md)　　[0527-day38](0527-day38-fool.md) →
+« [0525-day36](0525-day36-fool.md)　　[0527-day38](0527-day38-fool.md) »
 
 # Day 37 Fool Sessions · 2026-05-26
 
@@ -522,4 +522,4 @@ but 对比：His stated motive was philanthropy（表面动机）vs. critics sus
 
 
 
-← [0525-day36](0525-day36-fool.md)　　[0527-day38](0527-day38-fool.md) →
+« [0525-day36](0525-day36-fool.md)　　[0527-day38](0527-day38-fool.md) »

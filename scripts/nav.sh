@@ -20,7 +20,7 @@ _nav_rel() {
 _strip_nav() {
     local file="$1"
     local tmp; tmp=$(mktemp)
-    if head -1 "$file" | grep -q '[←→]'; then
+    if head -1 "$file" | grep -q '[«»←→]'; then
         tail -n +3 "$file" | head -n -2 > "$tmp"
     else
         cp "$file" "$tmp"
@@ -45,9 +45,9 @@ _apply_nav() {
 _build_nav() {
     local prev_stem="$1" next_stem="$2" prev_url="$3" next_url="$4"
     local nav=""
-    [[ -n "$prev_stem" ]] && nav+="← [$prev_stem]($prev_url)"
+    [[ -n "$prev_stem" ]] && nav+="« [$prev_stem]($prev_url)"
     [[ -n "$prev_stem" && -n "$next_stem" ]] && nav+="　　"
-    [[ -n "$next_stem" ]] && nav+="[$next_stem]($next_url) →"
+    [[ -n "$next_stem" ]] && nav+="[$next_stem]($next_url) »"
     echo "$nav"
 }
 

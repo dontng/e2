@@ -14,9 +14,9 @@ write_console_file() {
     [[ -z "$next_url" && -n "$next_label" ]] && next_url="$next_label-${type}.md"
     local out="$REPO_DIR/console/$stem-${type}.md"
     local nav=""
-    [[ -n "$prev_label" ]] && nav+="← [$prev_label]($prev_url)"
+    [[ -n "$prev_label" ]] && nav+="« [$prev_label]($prev_url)"
     [[ -n "$prev_label" && -n "$next_label" ]] && nav+="　　"
-    [[ -n "$next_label" ]] && nav+="[$next_label]($next_url) →"
+    [[ -n "$next_label" ]] && nav+="[$next_label]($next_url) »"
     {
         [[ -n "$nav" ]] && printf '%s\n\n' "$nav"
         cat "$content_path"
@@ -46,14 +46,9 @@ update_today_md() {
     probe_latest=$(find "$console_dir" -name "*-probe.md" | sort | tail -1)
     [[ -n "$probe_latest" ]] && probe_stem=$(basename "$probe_latest" -probe.md)
 
-    local days_left
-    days_left=$(( ($(date -d "$EXAM_DATE" +%s) - $(date -d "$(date '+%Y-%m-%d')" +%s)) / 86400 ))
-    [[ $days_left -lt 0 ]] && days_left=0
-
     {
-        printf '考试倒计时 %d 天\n\n' "$days_left"
-        [[ -n "$fool_stem"  ]] && printf '→ [今天 fool · %s](%s-fool.md)\n\n'  "$fool_stem"  "$fool_stem"
-        [[ -n "$probe_stem" ]] && printf '→ [今天 probe · %s](%s-probe.md)\n'  "$probe_stem" "$probe_stem"
+        [[ -n "$fool_stem"  ]] && printf '» [今天 fool · %s](%s-fool.md)\n\n'  "$fool_stem"  "$fool_stem"
+        [[ -n "$probe_stem" ]] && printf '» [今天 probe · %s](%s-probe.md)\n'  "$probe_stem" "$probe_stem"
     } > "$console_dir/today.md"
 }
 

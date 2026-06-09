@@ -1,4 +1,4 @@
-← [0520-day32](0520-day32-fool.md)　　[0522-day34](0522-day34-fool.md) →
+« [0520-day32](0520-day32-fool.md)　　[0522-day34](0522-day34-fool.md) »
 
 # Day 33 Fool Sessions · 2026-05-21
 
@@ -226,4 +226,4 @@ according to = 据……称，新闻引用来源的标准介词短语。chief op
 
 
 
-← [0520-day32](0520-day32-fool.md)　　[0522-day34](0522-day34-fool.md) →
+« [0520-day32](0520-day32-fool.md)　　[0522-day34](0522-day34-fool.md) »

@@ -1,4 +1,4 @@
-← [0518-day30](0518-day30-fool.md)　　[0520-day32](0520-day32-fool.md) →
+« [0518-day30](0518-day30-fool.md)　　[0520-day32](0520-day32-fool.md) »
 
 # Day 31 Fool Sessions · 2026-05-19
 
@@ -285,4 +285,4 @@ She + is known for + 名词短语。简单主谓宾结构。
 
 
 
-← [0518-day30](0518-day30-fool.md)　　[0520-day32](0520-day32-fool.md) →
+« [0518-day30](0518-day30-fool.md)　　[0520-day32](0520-day32-fool.md) »

@@ -1,4 +1,4 @@
-← [0602-day43](0602-day43-fool.md)　　[0604-day45](0604-day45-fool.md) →
+« [0602-day43](0602-day43-fool.md)　　[0604-day45](0604-day45-fool.md) »
 
 # Day 44 Fool Sessions · 2026-06-03
 
@@ -386,4 +386,4 @@ when 引导时间从句，主句省略（省略号）；主语 = it（指 IASB�
 
 
 
-← [0602-day43](0602-day43-fool.md)　　[0604-day45](0604-day45-fool.md) →
+« [0602-day43](0602-day43-fool.md)　　[0604-day45](0604-day45-fool.md) »

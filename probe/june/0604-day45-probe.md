@@ -1,4 +1,4 @@
-← [0603-day44](0603-day44-probe.md)　　[0605-day46](0605-day46-probe.md) →
+« [0603-day44](0603-day44-probe.md)　　[0605-day46](0605-day46-probe.md) »
 
 # day45 Probe
 
@@ -36,4 +36,4 @@ source: [src/june/0604-day45.md](../../src/june/0604-day45.md)
 
 
 
-← [0603-day44](0603-day44-probe.md)　　[0605-day46](0605-day46-probe.md) →
+« [0603-day44](0603-day44-probe.md)　　[0605-day46](0605-day46-probe.md) »

@@ -1,4 +1,4 @@
-← [0523-day35](0523-day35-fool.md)　　[0526-day37](0526-day37-fool.md) →
+« [0523-day35](0523-day35-fool.md)　　[0526-day37](0526-day37-fool.md) »
 
 # Day 36 Fool Sessions · 2026-05-25
 
@@ -455,4 +455,4 @@ may not neglect = 不可忽视（may not 是禁止义，不是可能性），imp
 
 
 
-← [0523-day35](0523-day35-fool.md)　　[0526-day37](0526-day37-fool.md) →
+« [0523-day35](0523-day35-fool.md)　　[0526-day37](0526-day37-fool.md) »

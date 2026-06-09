@@ -1,4 +1,4 @@
-← [0605-day46](../probe/june/0605-day46-probe.md)　　[0608-day48](0608-day48-probe.md) →
+« [0605-day46](../probe/june/0605-day46-probe.md)　　[0608-day48](0608-day48-probe.md) »
 
 # day47 Probe
 
@@ -34,4 +34,4 @@ source: [source/june/0606-day47.md](../../source/june/0606-day47.md)
 
 
 
-← [0605-day46](../probe/june/0605-day46-probe.md)　　[0608-day48](0608-day48-probe.md) →
+« [0605-day46](../probe/june/0605-day46-probe.md)　　[0608-day48](0608-day48-probe.md) »

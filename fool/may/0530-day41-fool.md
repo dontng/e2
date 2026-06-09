@@ -1,4 +1,4 @@
-← [0529-day40](0529-day40-fool.md)　　[0601-day42](../june/0601-day42-fool.md) →
+« [0529-day40](0529-day40-fool.md)　　[0601-day42](../june/0601-day42-fool.md) »
 
 # Day 41 Fool Sessions · 2026-05-30
 
@@ -432,4 +432,4 @@ one issue = 一个问题（one of + 复数被省略，是整体评估的一个�
 
 
 
-← [0529-day40](0529-day40-fool.md)　　[0601-day42](../june/0601-day42-fool.md) →
+« [0529-day40](0529-day40-fool.md)　　[0601-day42](../june/0601-day42-fool.md) »

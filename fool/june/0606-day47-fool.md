@@ -1,4 +1,4 @@
-← [0605-day46](0605-day46-fool.md)　　[0608-day48](0608-day48-fool.md) →
+« [0605-day46](0605-day46-fool.md)　　[0608-day48](0608-day48-fool.md) »
 
 # Day 47 Fool Sessions · 2026-06-06
 
@@ -394,4 +394,4 @@ Almost everyone 作主语；who was interviewed for this special report 是限�
 
 
 
-← [0605-day46](0605-day46-fool.md)　　[0608-day48](0608-day48-fool.md) →
+« [0605-day46](0605-day46-fool.md)　　[0608-day48](0608-day48-fool.md) »

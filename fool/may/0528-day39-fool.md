@@ -1,4 +1,4 @@
-← [0527-day38](0527-day38-fool.md)　　[0529-day40](0529-day40-fool.md) →
+« [0527-day38](0527-day38-fool.md)　　[0529-day40](0529-day40-fool.md) »
 
 # Day 39 Fool Sessions · 2026-05-28
 
@@ -530,4 +530,4 @@ at a time + when 关系副词从句，描述那个年代的两个特征：1. new
 
 
 
-← [0527-day38](0527-day38-fool.md)　　[0529-day40](0529-day40-fool.md) →
+« [0527-day38](0527-day38-fool.md)　　[0529-day40](0529-day40-fool.md) »

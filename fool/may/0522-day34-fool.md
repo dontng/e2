@@ -1,4 +1,4 @@
-← [0521-day33](0521-day33-fool.md)　　[0523-day35](0523-day35-fool.md) →
+« [0521-day33](0521-day33-fool.md)　　[0523-day35](0523-day35-fool.md) »
 
 # Day 34 Fool Sessions · 2026-05-22
 
@@ -309,4 +309,4 @@ priorities 复数：最高的那批优先事项，one of 保留"之一"，说明
 
 
 
-← [0521-day33](0521-day33-fool.md)　　[0523-day35](0523-day35-fool.md) →
+« [0521-day33](0521-day33-fool.md)　　[0523-day35](0523-day35-fool.md) »

@@ -1,4 +1,4 @@
-← [0530-day41](../may/0530-day41-fool.md)　　[0602-day43](0602-day43-fool.md) →
+« [0530-day41](../may/0530-day41-fool.md)　　[0602-day43](0602-day43-fool.md) »
 
 # Day 42 Fool Sessions · 2026-06-01
 
@@ -634,4 +634,4 @@ source: [src/june/0601-day42.md](../../src/june/0601-day42.md)
 
 
 
-← [0530-day41](../may/0530-day41-fool.md)　　[0602-day43](0602-day43-fool.md) →
+« [0530-day41](../may/0530-day41-fool.md)　　[0602-day43](0602-day43-fool.md) »

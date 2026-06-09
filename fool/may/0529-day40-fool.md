@@ -1,4 +1,4 @@
-← [0528-day39](0528-day39-fool.md)　　[0530-day41](0530-day41-fool.md) →
+« [0528-day39](0528-day39-fool.md)　　[0530-day41](0530-day41-fool.md) »
 
 # Day 40 Fool Sessions · 2026-05-29
 
@@ -465,4 +465,4 @@ because 引导原因从句：it was the Federal Circuit itself that introduced s
 
 
 
-← [0528-day39](0528-day39-fool.md)　　[0530-day41](0530-day41-fool.md) →
+« [0528-day39](0528-day39-fool.md)　　[0530-day41](0530-day41-fool.md) »
