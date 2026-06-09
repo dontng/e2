@@ -2,7 +2,7 @@
 
 # Day 47 Fool Sessions · 2026-06-06
 
-source: [sentence/june/0606-day47.md](../../sentence/june/0606-day47.md)
+source: [src/june/0606-day47.md](../../src/june/0606-day47.md)
 
 ---
 
