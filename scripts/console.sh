@@ -17,11 +17,13 @@ write_console_file() {
     [[ -n "$prev_label" ]] && nav+="« [$prev_label]($prev_url)"
     [[ -n "$prev_label" && -n "$next_label" ]] && nav+="　　"
     [[ -n "$next_label" ]] && nav+="[$next_label]($next_url) »"
+    local stripped; stripped=$(_strip_nav "$content_path")
     {
         [[ -n "$nav" ]] && printf '%s\n\n' "$nav"
-        cat "$content_path"
+        cat "$stripped"
         [[ -n "$nav" ]] && printf '\n\n%s\n' "$nav"
     } > "$out"
+    rm -f "$stripped"
 }
 
 # Sorted list of all fool stems across all subdirs.

@@ -1,5 +1,3 @@
-« [0609-day49](0609-day49-fool.md)　　[0610-day50](0610-day50-fool.md) »
-
 « [0610-day50](0610-day50-fool.md)
 
 # Day 51 Fool Sessions · 2026-06-11
@@ -405,7 +403,5 @@ prohibit 核心意象：权威主体正式颁布禁令，对象是某种行为�
 ---
 
 
+
 « [0610-day50](0610-day50-fool.md)
-
-
-« [0609-day49](0609-day49-fool.md)　　[0610-day50](0610-day50-fool.md) »
