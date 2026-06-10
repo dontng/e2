@@ -56,110 +56,62 @@ update_today_md() {
     } > "$console_dir/today.md"
 }
 
-# Maintain a 3-day rolling window of fool files in console/.
-create_console_entry() {
-    local fool_path="$1"
-    local stem; stem=$(basename "$fool_path" -fool.md)
+# Shared implementation for the 3-day rolling console window.
+_create_console_entry() {
+    local type="$1" source_path="$2"
+    local suffix="-${type}.md"
+    local stem; stem=$(basename "$source_path" "$suffix")
     local console_dir="$REPO_DIR/console"
+    local source_dir="$REPO_DIR/$type"
     mkdir -p "$console_dir"
 
     local window=()
     while IFS= read -r f; do
-        window+=("$(basename "$f" -fool.md)")
-    done < <(find "$console_dir" -name "*-fool.md" | sort)
+        window+=("$(basename "$f" "$suffix")")
+    done < <(find "$console_dir" -name "*${suffix}" | sort)
 
     local prev_stem=""
     [[ ${#window[@]} -gt 0 ]] && prev_stem="${window[-1]}"
 
-    write_console_file "$stem" "$fool_path" "$prev_stem" ""
+    write_console_file "$stem" "$source_path" "$prev_stem" "" "" "" "$type"
 
     if [[ -n "$prev_stem" ]]; then
         local prev_prev=""
         [[ ${#window[@]} -ge 2 ]] && prev_prev="${window[-2]}"
-        local prev_fool; prev_fool=$(find "$REPO_DIR/fool" -name "${prev_stem}-fool.md" | head -1)
-        [[ -f "$prev_fool" ]] && write_console_file "$prev_stem" "$prev_fool" "$prev_prev" "$stem"
+        local prev_source; prev_source=$(find "$source_dir" -name "${prev_stem}${suffix}" | head -1)
+        [[ -f "$prev_source" ]] && write_console_file "$prev_stem" "$prev_source" "$prev_prev" "$stem" "" "" "$type"
     fi
 
     window+=("$stem")
     while [[ ${#window[@]} -gt $CONSOLE_WINDOW ]]; do
         local evicted="${window[0]}"
-        rm -f "$console_dir/$evicted-fool.md"
+        rm -f "$console_dir/$evicted${suffix}"
         window=("${window[@]:1}")
-        log "Console: evicted fool $evicted"
+        log "Console: evicted $type $evicted"
     done
 
     local oldest="${window[0]}"
-    local oldest_fool; oldest_fool=$(find "$REPO_DIR/fool" -name "${oldest}-fool.md" | head -1)
-    if [[ -f "$oldest_fool" ]]; then
-        local prev_of_oldest="" prev_of_oldest_path=""
-        local prev_candidate=""
+    local oldest_source; oldest_source=$(find "$source_dir" -name "${oldest}${suffix}" | head -1)
+    if [[ -f "$oldest_source" ]]; then
+        local prev_of_oldest="" prev_of_oldest_path="" prev_candidate=""
+        local all_stems_fn="all_${type}_stems"
         while IFS= read -r candidate; do
             [[ "$candidate" == "$oldest" ]] && { prev_of_oldest="$prev_candidate"; break; }
             prev_candidate="$candidate"
-        done < <(all_fool_stems)
+        done < <("$all_stems_fn")
         if [[ -n "$prev_of_oldest" ]]; then
-            prev_of_oldest_path=$(find "$REPO_DIR/fool" -name "${prev_of_oldest}-fool.md" | head -1)
+            prev_of_oldest_path=$(find "$source_dir" -name "${prev_of_oldest}${suffix}" | head -1)
         fi
         local next_of_oldest="${window[1]:-}"
         local prev_url=""
         [[ -n "$prev_of_oldest_path" ]] && prev_url="../${prev_of_oldest_path#$REPO_DIR/}"
-        write_console_file "$oldest" "$oldest_fool" "$prev_of_oldest" "$next_of_oldest" "$prev_url"
+        write_console_file "$oldest" "$oldest_source" "$prev_of_oldest" "$next_of_oldest" "$prev_url" "" "$type"
     fi
 
     update_today_md
-    log "Console fool: $stem  window=[${window[*]}]"
+    log "Console $type: $stem  window=[${window[*]}]"
 }
 
-# Maintain a 3-day rolling window of probe files in console/.
-create_probe_console_entry() {
-    local probe_path="$1"
-    local stem; stem=$(basename "$probe_path" -probe.md)
-    local console_dir="$REPO_DIR/console"
-    mkdir -p "$console_dir"
-
-    local window=()
-    while IFS= read -r f; do
-        window+=("$(basename "$f" -probe.md)")
-    done < <(find "$console_dir" -name "*-probe.md" | sort)
-
-    local prev_stem=""
-    [[ ${#window[@]} -gt 0 ]] && prev_stem="${window[-1]}"
-
-    write_console_file "$stem" "$probe_path" "$prev_stem" "" "" "" "probe"
-
-    if [[ -n "$prev_stem" ]]; then
-        local prev_prev=""
-        [[ ${#window[@]} -ge 2 ]] && prev_prev="${window[-2]}"
-        local prev_probe; prev_probe=$(find "$REPO_DIR/probe" -name "${prev_stem}-probe.md" | head -1)
-        [[ -f "$prev_probe" ]] && write_console_file "$prev_stem" "$prev_probe" "$prev_prev" "$stem" "" "" "probe"
-    fi
-
-    window+=("$stem")
-    while [[ ${#window[@]} -gt $CONSOLE_WINDOW ]]; do
-        local evicted="${window[0]}"
-        rm -f "$console_dir/$evicted-probe.md"
-        window=("${window[@]:1}")
-        log "Console: evicted probe $evicted"
-    done
-
-    local oldest="${window[0]}"
-    local oldest_probe; oldest_probe=$(find "$REPO_DIR/probe" -name "${oldest}-probe.md" | head -1)
-    if [[ -f "$oldest_probe" ]]; then
-        local prev_of_oldest="" prev_of_oldest_path=""
-        local prev_candidate=""
-        while IFS= read -r candidate; do
-            [[ "$candidate" == "$oldest" ]] && { prev_of_oldest="$prev_candidate"; break; }
-            prev_candidate="$candidate"
-        done < <(all_probe_stems)
-        if [[ -n "$prev_of_oldest" ]]; then
-            prev_of_oldest_path=$(find "$REPO_DIR/probe" -name "${prev_of_oldest}-probe.md" | head -1)
-        fi
-        local next_of_oldest="${window[1]:-}"
-        local prev_url=""
-        [[ -n "$prev_of_oldest_path" ]] && prev_url="../${prev_of_oldest_path#$REPO_DIR/}"
-        write_console_file "$oldest" "$oldest_probe" "$prev_of_oldest" "$next_of_oldest" "$prev_url" "" "probe"
-    fi
-
-    update_today_md
-    log "Console probe: $stem  window=[${window[*]}]"
-}
+# Maintain a 3-day rolling window of fool/probe files in console/.
+create_console_entry()       { _create_console_entry "fool"  "$1"; }
+create_probe_console_entry() { _create_console_entry "probe" "$1"; }
