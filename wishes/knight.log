@@ -33,3 +33,5 @@ wishes/knight.sh: line 1: 23832 Hangup                  git push
 [2026/06/11 02:10:45] startup: 0610/wish-01 [running→pending] (stale from previous session)
 [2026/06/11 02:10:48] git pull failed, will retry
 [2026/06/11 02:10:49] 0610 / wish-01 → running
+[2026/06/11 02:13:16] 0610 / wish-01 → [done]
+[2026/06/11 02:13:16] 0611 / wish-01 → running
