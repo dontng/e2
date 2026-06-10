@@ -1167,3 +1167,30 @@ To github.com:dontng/english2-daily.git
    9f8be72..bde97c1  main -> main
 [2026-06-10 21:40:43] Pushed
 [2026-06-10 21:40:43] Once mode — exiting.
+[2026-06-11 02:10:44] ========================================
+[2026-06-11 02:10:44] ========================================
+[2026-06-11 02:10:44] Auto-review agent started
+[2026-06-11 02:10:44] Auto-review agent started
+[2026-06-11 02:10:44] Repo: /home/djology/english2-daily
+[2026-06-11 02:10:44] Repo: /home/djology/english2-daily
+[2026-06-11 02:10:44] Poll interval: 600s
+[2026-06-11 02:10:44] Poll interval: 600s
+[2026-06-11 02:10:44] ========================================
+[2026-06-11 02:10:44] ========================================
+[2026-06-11 02:10:48] WARNING: git pull failed — will retry next cycle
+[2026-06-11 02:10:48] WARNING: git pull failed — will retry next cycle
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+warning: fetch updated the current branch head.
+fast-forwarding your working tree from
+commit 7670178cafc2d9d1c41be52beeafd9739217e174.
+error: Your local changes to the following files would be overwritten by merge:
+	wishes/spell/0610.md
+Please commit your changes or stash them before you merge.
+Aborting
+fatal: Cannot fast-forward your working tree.
+After making sure that you saved anything precious from
+$ git diff 7670178cafc2d9d1c41be52beeafd9739217e174
+output, run
+$ git reset --hard
+to recover.
