@@ -2,7 +2,7 @@
 
 # day50 Probe
 
-source: [src/june/0610-day50.md](../../src/june/0610-day50.md)
+source: [probe/june/0610-day50-probe.md](../probe/june/0610-day50-probe.md)
 
 ---
 

@@ -16,12 +16,20 @@ _nav_rel() {
 }
 
 # Return temp file with nav lines stripped from $1.
-# Nav line = first line if it contains ← or →; same for last line.
+# Checks top and bottom independently: a nav line contains «»←→.
 _strip_nav() {
     local file="$1"
     local tmp; tmp=$(mktemp)
-    if head -1 "$file" | grep -q '[«»←→]'; then
+    local strip_top=0 strip_bottom=0
+    head -1 "$file" | grep -q '[«»←→]' && strip_top=1
+    tail -1 "$file" | grep -q '[«»←→]' && strip_bottom=1
+
+    if [[ $strip_top -eq 1 && $strip_bottom -eq 1 ]]; then
         tail -n +3 "$file" | head -n -2 > "$tmp"
+    elif [[ $strip_top -eq 1 ]]; then
+        tail -n +3 "$file" > "$tmp"
+    elif [[ $strip_bottom -eq 1 ]]; then
+        head -n -2 "$file" > "$tmp"
     else
         cp "$file" "$tmp"
     fi

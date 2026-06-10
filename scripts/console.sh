@@ -18,6 +18,8 @@ write_console_file() {
     [[ -n "$prev_label" && -n "$next_label" ]] && nav+="　　"
     [[ -n "$next_label" ]] && nav+="[$next_label]($next_url) »"
     local stripped; stripped=$(_strip_nav "$content_path")
+    local rel_src="${content_path#$REPO_DIR/}"
+    sed -i "s|^source: .*|source: [$rel_src](../$rel_src)|" "$stripped"
     {
         [[ -n "$nav" ]] && printf '%s\n\n' "$nav"
         cat "$stripped"

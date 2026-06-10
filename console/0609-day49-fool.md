@@ -2,7 +2,7 @@
 
 # Day 49 Fool Sessions · 2026-06-09
 
-source: [src/june/0609-day49.md](../../src/june/0609-day49.md)
+source: [fool/june/0609-day49-fool.md](../fool/june/0609-day49-fool.md)
 
 ---
 

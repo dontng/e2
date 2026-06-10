@@ -2,7 +2,7 @@
 
 # day51 Probe
 
-source: [src/june/0611-day51.md](../../src/june/0611-day51.md)
+source: [probe/june/0611-day51-probe.md](../probe/june/0611-day51-probe.md)
 
 ---
 
