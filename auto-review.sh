@@ -35,7 +35,7 @@ trim_log() {
     local start
     start=$(awk -v c="$cutoff" '
         match($0, /\[([0-9]{4})[\/\-]([0-9]{2})[\/\-]([0-9]{2})/, a) {
-            if (a[1] "-" a[2] "-" a[3] >= c) { print NR; exit }
+            if (a[1] "-" a[2] "-" a[3] > c) { print NR; exit }
         }
     ' "$log_file")
     if [[ -n "$start" && "$start" -gt 1 ]]; then
@@ -425,6 +425,7 @@ main() {
                     elif (( _now - _last_heartbeat >= _heartbeat_interval )); then
                         log "Online — idle $(( (_now - _last_heartbeat) / 3600 ))h, still polling."
                         _last_heartbeat=$_now
+                        trim_log "$LOG_FILE"
                         update_today_md
                         git add "$LOG_FILE" console/today.md
                         if ! git diff --cached --quiet; then
