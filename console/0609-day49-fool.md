@@ -1,6 +1,6 @@
-« [0608-day48](0608-day48-fool.md)　　[0611-day51](0611-day51-fool.md) »
+« [0608-day48](../fool/june/0608-day48-fool.md)　　[0611-day51](0611-day51-fool.md) »
 
-« [0608-day48](0608-day48-fool.md)
+« [0608-day48](0608-day48-fool.md)　　[0610-day50](0610-day50-fool.md) »
 
 # Day 49 Fool Sessions · 2026-06-09
 
@@ -482,7 +482,8 @@ finding 不等于 and found——投资的目的与投资本身同步，不是�
 
 
 
-« [0608-day48](0608-day48-fool.md)
+
+« [0608-day48](0608-day48-fool.md)　　[0610-day50](0610-day50-fool.md) »
 
 
-« [0608-day48](0608-day48-fool.md)　　[0611-day51](0611-day51-fool.md) »
+« [0608-day48](../fool/june/0608-day48-fool.md)　　[0611-day51](0611-day51-fool.md) »
