@@ -2,6 +2,22 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "AutoReview: Start",
+      "type": "shell",
+      "command": "bash auto-review.sh >> .auto-review.log 2>&1",
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Knight: Start",
       "type": "shell",
       "command": "bash wishes/knight.sh >> wishes/knight.log 2>&1",
