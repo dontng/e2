@@ -16,23 +16,18 @@ _nav_rel() {
 }
 
 # Return temp file with nav lines stripped from $1.
-# Checks top and bottom independently: a nav line contains «»←→.
+# Loops until neither the first nor the last line contains «»←→,
+# so stacked duplicates from repeated writes are all removed.
 _strip_nav() {
     local file="$1"
     local tmp; tmp=$(mktemp)
-    local strip_top=0 strip_bottom=0
-    head -1 "$file" | grep -q '[«»←→]' && strip_top=1
-    tail -1 "$file" | grep -q '[«»←→]' && strip_bottom=1
-
-    if [[ $strip_top -eq 1 && $strip_bottom -eq 1 ]]; then
-        tail -n +3 "$file" | head -n -2 > "$tmp"
-    elif [[ $strip_top -eq 1 ]]; then
-        tail -n +3 "$file" > "$tmp"
-    elif [[ $strip_bottom -eq 1 ]]; then
-        head -n -2 "$file" > "$tmp"
-    else
-        cp "$file" "$tmp"
-    fi
+    cp "$file" "$tmp"
+    while head -1 "$tmp" | grep -q '[«»←→]'; do
+        tail -n +3 "$tmp" > "${tmp}.new" && mv "${tmp}.new" "$tmp"
+    done
+    while tail -1 "$tmp" | grep -q '[«»←→]'; do
+        head -n -2 "$tmp" > "${tmp}.new" && mv "${tmp}.new" "$tmp"
+    done
     echo "$tmp"
 }
 
