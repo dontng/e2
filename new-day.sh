@@ -20,15 +20,15 @@ fi
 if [ -n "$2" ]; then
   DAY_NUM=$2
 else
-  LAST=$(find sentence -name "*.md" | grep -oP 'day\K[0-9]+' | sort -n | tail -1)
+  LAST=$(find src -name "*.md" | grep -oP 'day\K[0-9]+' | sort -n | tail -1)
   DAY_NUM=$(( ${LAST:-0} + 1 ))
 fi
 
-DIR="sentence/$MONTH"
+DIR="src/$MONTH"
 FILE="$DIR/${MMDD}-day${DAY_NUM}.md"
 
 FOOL_DIR="fool/$MONTH"
-FOOL_FILE="$FOOL_DIR/${MMDD}-day${DAY_NUM}.md"
+FOOL_FILE="$FOOL_DIR/${MMDD}-day${DAY_NUM}-fool.md"
 
 mkdir -p "$DIR" "$FOOL_DIR"
 
@@ -61,7 +61,7 @@ EOF
 cat > "$FOOL_FILE" << EOF
 # Day ${DAY_NUM} Fool Sessions · ${FULL_DATE}
 
-source: [sentence/${MONTH}/${MMDD}-day${DAY_NUM}.md](../../sentence/${MONTH}/${MMDD}-day${DAY_NUM}.md)
+source: [src/${MONTH}/${MMDD}-day${DAY_NUM}.md](../../src/${MONTH}/${MMDD}-day${DAY_NUM}.md)
 
 EOF
 
