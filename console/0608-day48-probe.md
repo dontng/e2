@@ -1,8 +1,10 @@
+« [0606-day47](../probe/june/0606-day47-probe.md)　　[0609-day49](0609-day49-probe.md) »
+
 « [0606-day47](0606-day47-probe.md)　　[0609-day49](0609-day49-probe.md) »
 
 # day48 Probe
 
-source: [source/june/0608-day48.md](../../source/june/0608-day48.md)
+source: [src/june/0608-day48.md](../../src/june/0608-day48.md)
 
 ---
 
@@ -34,4 +36,10 @@ source: [source/june/0608-day48.md](../../source/june/0608-day48.md)
 
 
 
+
+
+
 « [0606-day47](0606-day47-probe.md)　　[0609-day49](0609-day49-probe.md) »
+
+
+« [0606-day47](../probe/june/0606-day47-probe.md)　　[0609-day49](0609-day49-probe.md) »

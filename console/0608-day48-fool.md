@@ -1,3 +1,5 @@
+« [0606-day47](../fool/june/0606-day47-fool.md)　　[0609-day49](0609-day49-fool.md) »
+
 « [0606-day47](0606-day47-fool.md)　　[0609-day49](0609-day49-fool.md) »
 
 # Day 48 Fool Sessions · 2026-06-08
@@ -543,4 +545,10 @@ but 连接两个分词短语，情绪落点在 not knowing how——想道歉，
 ---
 
 
+
+
+
 « [0606-day47](0606-day47-fool.md)　　[0609-day49](0609-day49-fool.md) »
+
+
+« [0606-day47](../fool/june/0606-day47-fool.md)　　[0609-day49](0609-day49-fool.md) »

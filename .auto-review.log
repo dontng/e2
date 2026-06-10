@@ -2554,3 +2554,60 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 每个条目均包含完整的四步拆解（扫词 / 扫小品词和搭配 / 扫句式 / 读句子），句子文件中所有英文句子（原句、词条例句、造句、句式例句）已全部覆盖。如需对某个具体条目调整或补充，可以告诉我。
 [2026-06-08 19:04:28] Fool done: fool/june/0603-day44.md
+[2026-06-08 19:04:28] Committed: batch
+[2026-06-08 19:04:28] Push pending [解锁后检验]: 6 fool-missing file(s) still remain after unlock
+[2026-06-08 19:08:58] Another instance already running — exiting.
+[2026-06-08 19:08:58] Another instance already running — exiting.
+[2026-06-08 21:10:59] ========================================
+[2026-06-08 21:10:59] ========================================
+[2026-06-08 21:10:59] Auto-review agent started
+[2026-06-08 21:10:59] Auto-review agent started
+[2026-06-08 21:10:59] Repo: /home/djology/english2-daily
+[2026-06-08 21:10:59] Repo: /home/djology/english2-daily
+[2026-06-08 21:10:59] Poll interval: 600s
+[2026-06-08 21:10:59] Poll interval: 600s
+[2026-06-08 21:10:59] ========================================
+[2026-06-08 21:10:59] ========================================
+[2026-06-08 21:11:16] No uncorrected files found. Polling every 600s.
+[2026-06-08 21:11:16] No uncorrected files found. Polling every 600s.
+[2026-06-08 21:11:16] Push gate clear [解锁后检验] — corrections and fool verified complete
+[2026-06-08 21:11:16] Push gate clear [解锁后检验] — corrections and fool verified complete
+error: cannot pull with rebase: You have unstaged changes.
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+error: please commit or stash them.
+[2026-06-08 21:11:16] WARNING: rebase pull failed — attempting push anyway
+[2026-06-08 21:11:16] WARNING: rebase pull failed — attempting push anyway
+Everything up-to-date
+Everything up-to-date
+[2026-06-08 21:11:24] Pushed
+[2026-06-08 21:11:24] Pushed
+[2026-06-10 21:19:44] ========================================
+[2026-06-10 21:19:44] Auto-review agent started
+[2026-06-10 21:19:44] Repo: /home/djology/english2-daily
+[2026-06-10 21:19:44] Poll interval: 600s
+[2026-06-10 21:19:44] ========================================
+[2026-06-10 21:19:48] Reviewing: src/june/0611-day51.md
+批改完成。本次主要问题：用户只译出了开头"尽管美国的最高法院"便停笔，后半句全部缺失，得分 1/10。收录了 4 个词汇（prohibit、blue-ribbon、jury selection、way around）和 3 个句式结构（as early as、provide a way around、the practice of doing sth.）。
+[2026-06-10 21:22:44] Review done: src/june/0611-day51.md
+[2026-06-10 21:22:44] Probe: probe/june/0611-day51-probe.md
+[2026-06-10 21:22:44] Nav probe: 0611-day51
+[2026-06-10 21:22:44] Console: evicted probe 0606-day47
+[2026-06-10 21:22:44] Console probe: 0611-day51  window=[0608-day48 0609-day49 0611-day51]
+[2026-06-10 21:22:44] Running fool decomposition: src/june/0611-day51.md → fool/june/0611-day51-fool.md
+完成。写入了 **fool-01 至 fool-20** 共 20 个条目，覆盖：
+
+- **fool-01**：原句（完整长句，让步结构 + 讽刺对比）
+- **fool-02–05**：Vocab · prohibit（3 例句 + 造句）
+- **fool-06–09**：Vocab · blue-ribbon（3 例句 + 造句）
+- **fool-10–13**：Vocab · jury selection（3 例句 + 造句）
+- **fool-14–17**：Vocab · way around（3 例句 + 造句）
+- **fool-18**：Phrases · as early as
+- **fool-19**：Phrases · provide a convenient way around
+- **fool-20**：Phrases · the practice of
+
+这句话最值得反复看的是 fool-01 的 Step 3（Although 让步 + convenient 的讽刺重心）和 fool-13 的嵌套从句结构（hinge on who sat in the box）。
+[2026-06-10 21:26:52] Fool done: fool/june/0611-day51-fool.md
+[2026-06-10 21:26:52] Nav fool: 0611-day51
+[2026-06-10 21:26:52] Console: evicted fool 0606-day47
+[2026-06-10 21:26:52] Console fool: 0611-day51  window=[0608-day48 0609-day49 0611-day51]

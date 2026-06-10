@@ -1,8 +1,10 @@
-« [0608-day48](0608-day48-probe.md)
+« [0608-day48](0608-day48-probe.md)　　[0611-day51](0611-day51-probe.md) »
+
+« [0608-day48](0608-day48-probe.md)　　[0611-day51](0611-day51-probe.md) »
 
 # day49 Probe
 
-source: [source/june/0609-day49.md](../../source/june/0609-day49.md)
+source: [src/june/0609-day49.md](../../src/june/0609-day49.md)
 
 ---
 
@@ -34,4 +36,9 @@ Curtis先生转身去的那家公司，P&G 高露洁，联合利华，投资了�
 
 
 
-« [0608-day48](0608-day48-probe.md)
+
+
+« [0608-day48](0608-day48-probe.md)　　[0611-day51](0611-day51-probe.md) »
+
+
+« [0608-day48](0608-day48-probe.md)　　[0611-day51](0611-day51-probe.md) »
