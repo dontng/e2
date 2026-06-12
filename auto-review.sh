@@ -23,8 +23,10 @@ ONCE_MODE=false
 
 # stdout may already be LOG_FILE (nohup ... >> .auto-review.log 2>&1) —
 # in that case tee-ing to the file again would write every line twice.
+# Must inspect /proc/$$/fd/1 (the script's stdout), not /proc/self/fd/1:
+# inside $(...) fd 1 is the capture pipe and would never match.
 stdout_is_log() {
-    [[ "$(readlink -f /proc/self/fd/1 2>/dev/null)" == "$(readlink -f "$LOG_FILE")" ]]
+    [[ "$(readlink -f /proc/$$/fd/1 2>/dev/null)" == "$(readlink -f "$LOG_FILE")" ]]
 }
 
 log() {
@@ -94,6 +96,12 @@ needs_review() {
     [[ -n "$translation" && -z "$correction" ]]
 }
 
+# Returns 0 if 批改 section has content — the file has been corrected.
+# Guards fool generation: a freshly created (empty) day file must not be decomposed.
+has_correction() {
+    awk '/^## 批改/{f=1;next} f&&/^## /{exit} f' "$1" | grep -q '[^[:space:]]'
+}
+
 # Returns 0 if fool needs to be generated: fool file missing or has no entries.
 # Deliberately does NOT re-trigger on source file edits — fool is generated once and kept.
 needs_fool() {
@@ -154,7 +162,7 @@ find_redo_pending() {
 find_fool_missing() {
     find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
         local fool_path="${f/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
-        if ! needs_review "$f" && needs_fool "$f" "$fool_path"; then
+        if ! needs_review "$f" && has_correction "$f" && needs_fool "$f" "$fool_path"; then
             echo "$f"
         fi
     done
@@ -457,7 +465,7 @@ try_push() {
 
     cd "$REPO_DIR"
     log "Push gate clear${reason:+ [$reason]} — corrections and fool verified complete"
-    git pull --rebase origin main 2>&1 | tee_log || {
+    git pull --rebase --autostash origin main 2>&1 | tee_log || {
         log "WARNING: rebase pull failed — attempting push anyway"
     }
     if git push origin main 2>&1 | tee_log; then
