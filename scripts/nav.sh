@@ -59,7 +59,7 @@ _build_nav() {
 _add_nav() {
     local type="$1" file_path="$2"
     [[ "$file_path" != /* ]] && file_path="$REPO_DIR/$file_path"
-    [[ -f "$file_path" ]] || return
+    [[ -f "$file_path" ]] || return 0
 
     local suffix="-${type}.md"
     local stem; stem=$(basename "$file_path" "$suffix")

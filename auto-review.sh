@@ -39,7 +39,7 @@ tee_log() { if stdout_is_log; then cat; else tee -a "$LOG_FILE"; fi; }
 # Drop log lines with timestamps older than LOG_RETAIN_DAYS
 trim_log() {
     local log_file="$1"
-    [[ -f "$log_file" ]] || return
+    [[ -f "$log_file" ]] || return 0
     local cutoff
     cutoff=$(date -d "${LOG_RETAIN_DAYS} days ago" '+%Y-%m-%d')
     local start
@@ -439,7 +439,7 @@ try_push() {
     local reason="${1:-}"
 
     # No pending work detected — nothing to push, return immediately.
-    push_pending || return
+    push_pending || return 0
 
     # Stage 1: lock check — correction/fool still running, keep waiting
     if processing_locked; then
