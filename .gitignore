@@ -5,3 +5,6 @@
 
 # debug logs
 .auto_wish_debug.log
+
+# python bytecode
+scripts/__pycache__/

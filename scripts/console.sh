@@ -41,53 +41,6 @@ all_probe_stems() {
 # Rewrite today.md: exam countdown + links to newest fool and probe entries.
 EXAM_DATE="2026-12-18"
 
-# Regenerate console/scores.md: first-translation trend + redo comparison table.
-update_scores_md() {
-    python3 - "$REPO_DIR" "$EXAM_DATE" <<'PYEOF'
-import sys, re, datetime
-from pathlib import Path
-
-repo = Path(sys.argv[1])
-exam = datetime.date.fromisoformat(sys.argv[2])
-days_left = (exam - datetime.date.today()).days
-
-entries = {}   # day -> {'mmdd', 'score'}
-redos = {}     # day -> [(redo_mmdd, score, trend)]
-
-for f in sorted(repo.glob('src/*/*.md')):
-    m = re.search(r'(\d{4})-day(\d+)\.md$', f.name)
-    if not m:
-        continue
-    mmdd, day = m.group(1), int(m.group(2))
-    text = f.read_text(encoding='utf-8')
-    score = None
-    sec = re.search(r'^## 评分\s*\n(.*?)(?=^## |\Z)', text, re.M | re.S)
-    if sec:
-        s = re.search(r'\*\*([\d.]+)\s*/\s*10\*\*', sec.group(1))
-        if s:
-            score = s.group(1)
-    entries[day] = {'mmdd': mmdd, 'score': score}
-    for rb in re.finditer(r'^### 重译 day(\d+)[^\n]*\n(.*?)(?=^### |\Z)', text, re.M | re.S):
-        rs = re.search(r'\*\*复习评分：([\d.]+)\s*/\s*10\*\*([^\n]*)', rb.group(2))
-        if rs:
-            tail = rs.group(2)
-            trend = next((a for a in '↑→↓' if a in tail), '')
-            redos.setdefault(int(rb.group(1)), []).append((mmdd, rs.group(1), trend))
-
-lines = [f'# 评分总览 · 距考试 {days_left} 天', '']
-recent = [e['score'] for _, e in sorted(entries.items()) if e['score']][-14:]
-if recent:
-    lines += ['近 14 次首译：`' + '  '.join(recent) + '`', '']
-lines += ['| Day | 日期 | 首译 | 重译 |', '|----:|------|-----:|------|']
-for day in sorted(entries, reverse=True):
-    e = entries[day]
-    redo_cell = ' · '.join(f'{s}{t}（{m[:2]}/{m[2:]}）' for m, s, t in redos.get(day, [])) or '—'
-    lines.append(f"| {day} | {e['mmdd'][:2]}/{e['mmdd'][2:]} | {e['score'] or '—'} | {redo_cell} |")
-
-(repo / 'console' / 'scores.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
-PYEOF
-}
-
 update_today_md() {
     local console_dir="$REPO_DIR/console"
     local fool_stem="" probe_stem=""
@@ -97,15 +50,19 @@ update_today_md() {
     probe_latest=$(find "$console_dir" -name "*-probe.md" | sort | tail -1)
     [[ -n "$probe_latest" ]] && probe_stem=$(basename "$probe_latest" -probe.md)
 
-    update_scores_md
+    # scores.py rewrites console/scores.md and hands back the sparkline summary —
+    # one scan of src/ feeds both files.
+    local spark="" avg="" n=""
+    IFS=$'\t' read -r spark avg n < <(python3 "$REPO_DIR/scripts/scores.py" "$REPO_DIR" "$EXAM_DATE") || true
 
     local days_left
     days_left=$(( ($(date -d "$EXAM_DATE" +%s) - $(date -d "$(date +%F)" +%s)) / 86400 ))
 
     {
-        printf '# 距考试还有 %s 天\n\n' "$days_left"
-        [[ -n "$fool_stem"  ]] && printf '» [今天 fool · %s](%s-fool.md)\n\n'  "$fool_stem"  "$fool_stem"
-        [[ -n "$probe_stem" ]] && printf '» [今天 probe · %s](%s-probe.md)\n\n'  "$probe_stem" "$probe_stem"
+        printf '# 距考试 %s 天\n\n' "$days_left"
+        [[ -n "$spark" ]] && printf '`%s` 近 %s 次首译 · 均分 %s\n\n---\n\n' "$spark" "$n" "$avg"
+        [[ -n "$fool_stem"  ]] && printf '» [今日 fool · %s](%s-fool.md)\n\n'  "$fool_stem"  "$fool_stem"
+        [[ -n "$probe_stem" ]] && printf '» [今日 probe · %s](%s-probe.md)\n\n'  "$probe_stem" "$probe_stem"
         printf '» [评分总览 · 复习记录](scores.md)\n'
     } > "$console_dir/today.md"
 }

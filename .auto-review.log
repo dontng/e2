@@ -1158,3 +1158,45 @@ to recover.
 [2026-06-12 02:03:53] Poll interval: 600s
 [2026-06-12 02:03:53] ========================================
 [2026-06-12 02:03:56] No uncorrected files found. Polling every 600s.
+[2026-06-12 19:29:19] ========================================
+[2026-06-12 19:29:19] ========================================
+[2026-06-12 19:29:19] Auto-review agent started
+[2026-06-12 19:29:19] Auto-review agent started
+[2026-06-12 19:29:19] Repo: /home/djology/english2-daily
+[2026-06-12 19:29:19] Repo: /home/djology/english2-daily
+[2026-06-12 19:29:19] Poll interval: 600s
+[2026-06-12 19:29:19] Poll interval: 600s
+[2026-06-12 19:29:19] ========================================
+[2026-06-12 19:29:19] ========================================
+[2026-06-12 19:29:23] No uncorrected files found. Polling every 600s.
+[2026-06-12 19:29:23] No uncorrected files found. Polling every 600s.
+[2026-06-12 19:29:23] Fool-missing: 0612-day52 — running decomposition
+[2026-06-12 19:29:23] Fool-missing: 0612-day52 — running decomposition
+[2026-06-12 19:29:23] Running fool decomposition: src/june/0612-day52.md → fool/june/0612-day52-fool.md
+[2026-06-12 19:29:23] Running fool decomposition: src/june/0612-day52.md → fool/june/0612-day52-fool.md
+[2026-06-12 19:29:56] Another instance already running — exiting.
+[2026-06-12 19:30:51] ========================================
+[2026-06-12 19:30:51] Auto-review agent started
+[2026-06-12 19:30:51] Repo: /home/djology/english2-daily
+[2026-06-12 19:30:51] Poll interval: 600s
+[2026-06-12 19:30:51] ========================================
+[2026-06-12 19:30:55] No uncorrected files found. Polling every 600s.
+[2026-06-12 19:30:55] Push gate clear [解锁后检验] — corrections and fool verified complete
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-06-12 19:30:55] WARNING: rebase pull failed — attempting push anyway
+Everything up-to-date
+[2026-06-12 19:30:59] Pushed
+[2026-06-12 19:31:55] Another instance already running — exiting.
+[2026-06-12 19:32:39] ========================================
+[2026-06-12 19:32:39] Auto-review agent started
+[2026-06-12 19:32:39] Repo: /home/djology/english2-daily
+[2026-06-12 19:32:39] Poll interval: 600s
+[2026-06-12 19:32:39] ========================================
+[2026-06-12 19:32:43] No uncorrected files found. Polling every 600s.
+[2026-06-12 19:34:02] ========================================
+[2026-06-12 19:34:02] Auto-review agent started
+[2026-06-12 19:34:02] Repo: /home/djology/english2-daily
+[2026-06-12 19:34:02] Poll interval: 600s
+[2026-06-12 19:34:02] ========================================
+[2026-06-12 19:34:07] No uncorrected files found. Polling every 600s.

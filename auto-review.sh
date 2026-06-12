@@ -130,24 +130,17 @@ find_probe_missing() {
     done
 }
 
-# Returns 0 if 复习区 has at least one block with 我的重译 filled but 复习批改 empty
+# Returns 0 if 复习区 has at least one block with 我的重译 filled but 复习批改 empty.
+# Logic lives in scripts/review.py — single owner of 复习区 parsing.
 needs_redo() {
-    local f="$1"
-    grep -q '^## 复习区' "$f" || return 1
-    python3 - "$f" <<'PYEOF'
-import sys, re
-text = open(sys.argv[1], encoding='utf-8').read()
-m = re.search(r'^## 复习区\s*\n(.*)', text, re.M | re.S)
-if not m:
-    sys.exit(1)
-for block in re.split(r'^### ', m.group(1), flags=re.M)[1:]:
-    redo = re.search(r'\*\*我的重译：\*\*\n(.*?)\*\*复习批改：\*\*', block, re.S)
-    graded = re.search(r'\*\*复习批改：\*\*\n(.*?)(?:<!-- review-meta|\Z)', block, re.S)
-    if redo and redo.group(1).strip() and graded is not None and not graded.group(1).strip():
-        sys.exit(0)
-sys.exit(1)
-PYEOF
+    python3 "$REPO_DIR/scripts/review.py" pending "$1"
 }
+
+# Claude-call guard: remember the file hash after a failed (or yieldless) attempt
+# and skip re-invoking Claude until the file actually changes — no token burn loops.
+declare -A _FAILED_HASH
+guard_hit()  { [[ "${_FAILED_HASH[$1:$2]:-}" == "$(md5sum "$2" | awk '{print $1}')" ]]; }
+guard_mark() { _FAILED_HASH[$1:$2]=$(md5sum "$2" | awk '{print $1}'); }
 
 # Find files with ungraded 复习区 retranslations (main correction must already be done)
 find_redo_pending() {
@@ -543,8 +536,12 @@ main() {
                             break
                         fi
                         local rc=0
-                        if needs_review "$file"; then
+                        if guard_hit review "$file"; then
+                            log "Guard: $(basename "$file" .md) unchanged since failed review — skipping Claude call"
+                            continue
+                        elif needs_review "$file"; then
                             review_file "$file" || rc=$?
+                            [[ $rc -eq 1 ]] && guard_mark review "$file"
                         else
                             log "Already reviewed (side effect): $(basename "$file" .md) — skipping Claude call"
                         fi
@@ -563,6 +560,7 @@ main() {
                             local fool_rc=0
                             if needs_fool "$file" "$fool_path"; then
                                 fool_file "$file" "$fool_path" || fool_rc=$?
+                                [[ $fool_rc -eq 1 ]] && guard_mark fool "$file"
                             else
                                 log "Already decomposed (side effect): $(basename "$fool_path" .md) — skipping Claude call"
                             fi
@@ -624,13 +622,26 @@ main() {
                                 log "Git became busy — deferring redo grading to next cycle"
                                 break
                             fi
+                            if guard_hit redo "$file"; then
+                                log "Guard: $(basename "$file" .md) unchanged since last redo attempt — skipping Claude call"
+                                continue
+                            fi
                             local redo_rc=0
                             redo_review_file "$file" || redo_rc=$?
                             if [[ $redo_rc -eq 2 ]]; then
                                 rate_limited=true
                                 break
                             elif [[ $redo_rc -eq 0 ]]; then
-                                redo_done=true
+                                if needs_redo "$file"; then
+                                    # Claude exited 0 but the section is still empty —
+                                    # don't loop on it; retry only after the file changes.
+                                    guard_mark redo "$file"
+                                    log "Redo grading yielded no output for $(basename "$file" .md) — guarded"
+                                else
+                                    redo_done=true
+                                fi
+                            else
+                                guard_mark redo "$file"
                             fi
                         done <<< "$redo_pending"
                         if $redo_done; then
@@ -659,6 +670,10 @@ main() {
                                 log "Git became busy — deferring fool-missing to next cycle"
                                 break
                             fi
+                            if guard_hit fool "$file"; then
+                                log "Guard: $(basename "$file" .md) unchanged since failed fool — skipping Claude call"
+                                continue
+                            fi
                             local fool_path="${file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
                             local fool_rc=0
                             log "Fool-missing: $(basename "$file" .md) — running decomposition"
@@ -672,7 +687,8 @@ main() {
                                 create_console_entry "$fool_path"
                                 fool_queued+=("$file")
                             else
-                                log "Fool failed for $(basename "$file" .md) — skipping"
+                                guard_mark fool "$file"
+                                log "Fool failed for $(basename "$file" .md) — guarded until file changes"
                             fi
                         done <<< "$fool_missing"
 
