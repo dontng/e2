@@ -21,10 +21,18 @@ ONCE_MODE=false
 
 [[ "${1:-}" == "--once" ]] && ONCE_MODE=true
 
+# stdout may already be LOG_FILE (nohup ... >> .auto-review.log 2>&1) —
+# in that case tee-ing to the file again would write every line twice.
+stdout_is_log() {
+    [[ "$(readlink -f /proc/self/fd/1 2>/dev/null)" == "$(readlink -f "$LOG_FILE")" ]]
+}
+
 log() {
     local msg="[$(date '+%Y-%m-%d %H:%M:%S')] $*"
-    echo "$msg" | tee -a "$LOG_FILE"
+    if stdout_is_log; then echo "$msg"; else echo "$msg" | tee -a "$LOG_FILE"; fi
 }
+
+tee_log() { if stdout_is_log; then cat; else tee -a "$LOG_FILE"; fi; }
 
 # Drop log lines with timestamps older than LOG_RETAIN_DAYS
 trim_log() {
@@ -226,7 +234,7 @@ review_file() {
         --dangerously-skip-permissions \
         > "$tmpout" 2>&1 || exit_code=$?
 
-    cat "$tmpout" | tee -a "$LOG_FILE"
+    cat "$tmpout" | tee_log
 
     if [[ $exit_code -ne 0 ]]; then
         if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
@@ -314,7 +322,7 @@ fool 文件：$fool_path
         --dangerously-skip-permissions \
         > "$tmpout" 2>&1 || exit_code=$?
 
-    cat "$tmpout" | tee -a "$LOG_FILE"
+    cat "$tmpout" | tee_log
 
     if [[ $exit_code -ne 0 ]]; then
         if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
@@ -364,7 +372,7 @@ redo_review_file() {
         --dangerously-skip-permissions \
         > "$tmpout" 2>&1 || exit_code=$?
 
-    cat "$tmpout" | tee -a "$LOG_FILE"
+    cat "$tmpout" | tee_log
 
     if [[ $exit_code -ne 0 ]]; then
         if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
@@ -449,10 +457,10 @@ try_push() {
 
     cd "$REPO_DIR"
     log "Push gate clear${reason:+ [$reason]} — corrections and fool verified complete"
-    git pull --rebase origin main 2>&1 | tee -a "$LOG_FILE" || {
+    git pull --rebase origin main 2>&1 | tee_log || {
         log "WARNING: rebase pull failed — attempting push anyway"
     }
-    if git push origin main 2>&1 | tee -a "$LOG_FILE"; then
+    if git push origin main 2>&1 | tee_log; then
         log "Pushed"
         clear_push_pending
     else
