@@ -590,7 +590,7 @@ main() {
 
                     if $rate_limited; then
                         log "Rate limit — backing off 1 hour"
-                        sleep 3600
+                        sleep 3600 9<&-
                         continue
                     fi
                 fi
@@ -639,7 +639,7 @@ main() {
                         fi
                         if $rate_limited; then
                             log "Rate limit on redo — backing off 1 hour"
-                            sleep 3600
+                            sleep 3600 9<&-
                             continue
                         fi
                     fi
@@ -682,7 +682,7 @@ main() {
 
                         if $rate_limited; then
                             log "Rate limit on fool — backing off 1 hour"
-                            sleep 3600
+                            sleep 3600 9<&-
                             continue
                         fi
                     fi
@@ -701,7 +701,7 @@ main() {
             break
         fi
 
-        sleep "$POLL_INTERVAL"
+        sleep "$POLL_INTERVAL" 9<&-
     done
 }
 
