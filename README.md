@@ -6,40 +6,25 @@
 
 ## 从这里开始
 
-```
-console/today.md
+```bash
+bash studio.sh
 ```
 
-打开 `today.md`：考试倒计时 + 今天的 fool 解析和 probe 采分卡 + [评分总览](console/scores.md)，用 ← → 在历史之间导航。
+浏览器自动打开本地交互台：贴原句、写翻译、做重译、看批改和走势，全部在一页完成。保存后 auto-review 会在 15 秒内被唤醒接手批改。
+
+不在电脑前时，GitHub 上的轻量入口是 `console/today.md`（倒计时 + 今日 fool/probe + [评分总览](console/scores.md)），用 ← → 在历史之间导航。
 
 ---
 
-## 每日流程
+## 每日流程（studio 一页完成）
 
-**1. 创建当天文件**
+1. **开启今天** — 页面上点「开启 day N」（或 `bash new-day.sh`），复习区自动注入
+2. **贴原句 → 写翻译 → 保存** — auto-review 15 秒内接手，批改完页面直接显示评分和讲解
+3. **复习区盲译** — 3 次前和 7 次前的句子（每句一生两遇），不看旧答案直接重译；批改只指出仍存在的错误，并对比首译得分（↑ → ↓）
 
-```bash
-bash new-day.sh
-```
+首译得分和参考译文藏在 HTML 注释里，GitHub 渲染和 studio 页面都不剧透。所有分数汇总在 [console/scores.md](console/scores.md) 和 studio 的走势图。
 
-创建明天的文件：`bash new-day.sh tomorrow`
-
-**2. 填写翻译，推到 GitHub**
-
-在 `src/june/MMDD-dayNN.md` 的「我的理解和翻译」填好后 push，后台的 `auto-review.sh` 会自动检测并批改。
-
-**3. 看结果**
-
-批改完成后，`auto-review.sh` 自动 commit + push，刷新 GitHub 即可。
-
-**4. 复习区（每天的核心增益）**
-
-`new-day.sh` 会在当天文件末尾注入「## 复习区」：3 次前和 7 次前的句子，**不带答案**，直接盲译重做。每个句子一生中会被复习两次。
-
-- 在「**我的重译：**」下写完重译，push
-- `auto-review.sh` 检测到后自动批改：只指出仍存在的错误，并对比首译得分（↑提升 / →持平 / ↓下降）
-- 首译得分和参考译文藏在 HTML 注释里，GitHub 渲染时不可见，不会剧透
-- 所有首译/重译分数汇总在 [console/scores.md](console/scores.md)，趋势一眼可见
+不用 studio 时，直接编辑 `src/` 下的 markdown 后 push，效果完全相同——studio 只是更顺手的皮，数据始终是这些纯文本文件。
 
 ---
 

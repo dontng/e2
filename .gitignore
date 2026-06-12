@@ -8,3 +8,4 @@
 
 # python bytecode
 scripts/__pycache__/
+.auto-review-wake

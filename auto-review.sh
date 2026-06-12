@@ -72,6 +72,23 @@ mark_push_pending()  { touch "$PUSH_PENDING_FILE"; }
 clear_push_pending() { rm -f "$PUSH_PENDING_FILE"; }
 push_pending()       { [[ -f "$PUSH_PENDING_FILE" ]]; }
 
+# Interruptible sleep: studio touches WAKE_FILE after a save, cutting the wait
+# from a full poll interval down to ≤15s.
+WAKE_FILE="$REPO_DIR/.auto-review-wake"
+poll_sleep() {
+    local remaining="$1" step=15
+    while (( remaining > 0 )); do
+        if [[ -f "$WAKE_FILE" ]]; then
+            rm -f "$WAKE_FILE"
+            log "Wake signal — scanning immediately"
+            return 0
+        fi
+        sleep "$(( remaining < step ? remaining : step ))" 9<&-
+        remaining=$(( remaining - step ))
+    done
+    return 0
+}
+
 # Return non-zero if git is locked by another process (user's manual git op in progress)
 git_is_busy() {
     [[ -f "$REPO_DIR/.git/index.lock" ]] || [[ -f "$REPO_DIR/.git/MERGE_HEAD" ]] || [[ -f "$REPO_DIR/.git/rebase-merge" ]]
@@ -717,7 +734,7 @@ main() {
             break
         fi
 
-        sleep "$POLL_INTERVAL" 9<&-
+        poll_sleep "$POLL_INTERVAL"
     done
 }
 
