@@ -114,6 +114,34 @@ find_probe_missing() {
     done
 }
 
+# Returns 0 if 复习区 has at least one block with 我的重译 filled but 复习批改 empty
+needs_redo() {
+    local f="$1"
+    grep -q '^## 复习区' "$f" || return 1
+    python3 - "$f" <<'PYEOF'
+import sys, re
+text = open(sys.argv[1], encoding='utf-8').read()
+m = re.search(r'^## 复习区\s*\n(.*)', text, re.M | re.S)
+if not m:
+    sys.exit(1)
+for block in re.split(r'^### ', m.group(1), flags=re.M)[1:]:
+    redo = re.search(r'\*\*我的重译：\*\*\n(.*?)\*\*复习批改：\*\*', block, re.S)
+    graded = re.search(r'\*\*复习批改：\*\*\n(.*?)(?:<!-- review-meta|\Z)', block, re.S)
+    if redo and redo.group(1).strip() and graded is not None and not graded.group(1).strip():
+        sys.exit(0)
+sys.exit(1)
+PYEOF
+}
+
+# Find files with ungraded 复习区 retranslations (main correction must already be done)
+find_redo_pending() {
+    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        if ! needs_review "$f" && needs_redo "$f"; then
+            echo "$f"
+        fi
+    done
+}
+
 # Find corrected source files whose fool is missing or stale
 find_fool_missing() {
     find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
@@ -189,6 +217,7 @@ review_file() {
 
 注意：
 - 「## 问答收录」和「## 练习与习得」保持空白，不要填写
+- 「## 复习区」整个 section 不要动（由复习批改流程单独处理）
 - 其余已有内容不得改动
 - 风格与参考范例保持一致
 
@@ -239,7 +268,7 @@ fool 文件：$fool_path
 3. ## Vocab — 每个词条的 **造句**
 4. ## Phrases — 每个句式下的例句
 
-跳过中文内容（批改注解、参考译文、核心意象）。不跳过任何英文句子。
+跳过中文内容（批改注解、参考译文、核心意象）。跳过「## 复习区」整个 section（里面是旧句子的重译练习，已在当初的 fool 文件中拆解过）。除此之外不跳过任何英文句子。
 
 对每个句子执行四步拆解：
 
@@ -302,6 +331,56 @@ fool 文件：$fool_path
     log "Fool done: $fool_rel"
 }
 
+# Grade filled 复习区 retranslations. Return 0 on success, 1 on error, 2 on rate limit.
+redo_review_file() {
+    local file="$1"
+    local rel="${file#$REPO_DIR/}"
+    log "Grading 复习区: $rel"
+
+    local tmpout exit_code=0
+    tmpout=$(mktemp)
+
+    claude -p "你是这个英语学习项目的复习批改老师。只处理文件中「## 复习区」部分。
+
+文件路径：$file
+
+**约束：只允许编辑这一个文件，且只能在「## 复习区」内「**复习批改：**」的空白处写入内容。其余一切内容（包括 <!-- review-meta --> 注释本身）不得改动、不得删除。**
+
+任务说明：
+
+1. 找到「## 复习区」下每个「### 重译」块中「**我的重译：**」已填写、「**复习批改：**」为空的条目
+
+2. 对照该块引用的英文原句批改这次重译，在「**复习批改：**」下方写入：
+   - 只指出仍然存在的错误，逐条简短说明（每条一行，最多5条）；重译质量好就用一两句肯定，并点出最出彩的处理
+   - 块尾 <!-- review-meta --> 注释里有首译得分（first=X/10）和参考译文，作对比依据
+   - 最后一行固定格式：**复习评分：X / 10**（首译 Y / 10，↑提升 / →持平 / ↓下降）
+   - 评分口径与首译一致：按采分点 ✓=1 / △=0.5 / ✗=0 估算，换算到10分制，步幅0.5
+   - 若 first=—（首译无评分），最后一行写：**复习评分：X / 10**（首译未评分）
+
+3. 「我的重译」为空的块跳过；「复习批改」已有内容的块跳过
+
+直接编辑文件完成任务，不要输出其他内容。" \
+        --allowedTools "Read,Edit" \
+        --dangerously-skip-permissions \
+        > "$tmpout" 2>&1 || exit_code=$?
+
+    cat "$tmpout" | tee -a "$LOG_FILE"
+
+    if [[ $exit_code -ne 0 ]]; then
+        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
+            log "Rate limit on redo (exit $exit_code) — will back off"
+            rm -f "$tmpout"
+            return 2
+        fi
+        log "ERROR: redo grading exited $exit_code for $rel"
+        rm -f "$tmpout"
+        return 1
+    fi
+
+    rm -f "$tmpout"
+    log "复习区 graded: $rel"
+}
+
 # shellcheck source=scripts/console.sh
 source "$REPO_DIR/scripts/console.sh"
 # shellcheck source=scripts/probe.sh
@@ -323,6 +402,9 @@ batch_commit() {
     # Derive label from fool files actually written — ground truth of what's done
     local label
     label=$(git diff --cached --name-only -- fool/ \
+        | xargs -I{} basename {} .md \
+        | paste -sd ', ')
+    [[ -z "$label" ]] && label=$(git diff --cached --name-only -- src/ \
         | xargs -I{} basename {} .md \
         | paste -sd ', ')
     [[ -z "$label" ]] && label="batch"
@@ -427,7 +509,7 @@ main() {
                         _last_heartbeat=$_now
                         trim_log "$LOG_FILE"
                         update_today_md
-                        git add "$LOG_FILE" console/today.md
+                        git add "$LOG_FILE" console/
                         if ! git diff --cached --quiet; then
                             git commit -m "log: heartbeat" \
                                 && git push origin main 2>/dev/null \
@@ -509,6 +591,41 @@ main() {
                             create_probe_console_entry "$probe_path"
                         done <<< "$probe_missing"
                         batch_commit
+                    fi
+                fi
+
+                # Redo pass: grade 复习区 retranslations the user has filled in
+                if ! $rate_limited; then
+                    local redo_pending
+                    redo_pending=$(find_redo_pending || true)
+                    if [[ -n "$redo_pending" ]]; then
+                        _idle=false
+                        mark_push_pending
+                        set_processing_lock
+                        local redo_done=false
+                        while IFS= read -r file; do
+                            if git_is_busy; then
+                                log "Git became busy — deferring redo grading to next cycle"
+                                break
+                            fi
+                            local redo_rc=0
+                            redo_review_file "$file" || redo_rc=$?
+                            if [[ $redo_rc -eq 2 ]]; then
+                                rate_limited=true
+                                break
+                            elif [[ $redo_rc -eq 0 ]]; then
+                                redo_done=true
+                            fi
+                        done <<< "$redo_pending"
+                        if $redo_done; then
+                            update_today_md
+                            batch_commit
+                        fi
+                        if $rate_limited; then
+                            log "Rate limit on redo — backing off 1 hour"
+                            sleep 3600
+                            continue
+                        fi
                     fi
                 fi
 

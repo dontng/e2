@@ -14,7 +14,26 @@ LOCK_FILE="/tmp/knight-english.lock"
 
 cd "$REPO_DIR"
 
-log() { echo "[$(date '+%Y/%m/%d %H:%M:%S')] $*" | tee -a "$LOG_FILE" >&2; }
+# If stderr is already redirected into LOG_FILE (nohup ... >> knight.log 2>&1),
+# skip the file append so each line is written only once.
+log() {
+    local msg="[$(date '+%Y/%m/%d %H:%M:%S')] $*"
+    if [[ "$(readlink -f /proc/self/fd/2 2>/dev/null)" == "$(readlink -f "$LOG_FILE")" ]]; then
+        echo "$msg" >&2
+    else
+        echo "$msg" | tee -a "$LOG_FILE" >&2
+    fi
+}
+
+# Logs (knight.log, .auto-review.log) are tracked but constantly appended to,
+# which makes a plain rebase pull refuse with "unstaged changes" — autostash fixes that.
+safe_pull() {
+    local out
+    if ! out=$(git pull --rebase --autostash 2>&1); then
+        log "git pull failed: $(echo "$out" | tail -1)"
+        return 1
+    fi
+}
 
 trim_log() {
     local log_file="$1"
@@ -313,7 +332,7 @@ main() {
     log "knight online  (poll interval ${POLL_INTERVAL}s)"
     mkdir -p "$SPELL_DIR" "$PHANTASM_DIR"
 
-    git pull --rebase 2>/dev/null || log "git pull failed on startup"
+    safe_pull || log "continuing despite failed startup pull"
     reset_stale_running
 
     local _idle=false
@@ -321,7 +340,7 @@ main() {
     local _heartbeat_interval=21600  # 6 hours
 
     while true; do
-        git pull --rebase 2>/dev/null || log "git pull failed, will retry"
+        safe_pull || log "will retry next cycle"
 
         recover_failed_wishes
 

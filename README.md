@@ -10,7 +10,7 @@
 console/today.md
 ```
 
-打开 `today.md`，两个链接分别进入今天的 fool 解析和 probe 采分卡，用 ← → 在历史之间导航。
+打开 `today.md`：考试倒计时 + 今天的 fool 解析和 probe 采分卡 + [评分总览](console/scores.md)，用 ← → 在历史之间导航。
 
 ---
 
@@ -31,6 +31,15 @@ bash new-day.sh
 **3. 看结果**
 
 批改完成后，`auto-review.sh` 自动 commit + push，刷新 GitHub 即可。
+
+**4. 复习区（每天的核心增益）**
+
+`new-day.sh` 会在当天文件末尾注入「## 复习区」：3 次前和 7 次前的句子，**不带答案**，直接盲译重做。每个句子一生中会被复习两次。
+
+- 在「**我的重译：**」下写完重译，push
+- `auto-review.sh` 检测到后自动批改：只指出仍存在的错误，并对比首译得分（↑提升 / →持平 / ↓下降）
+- 首译得分和参考译文藏在 HTML 注释里，GitHub 渲染时不可见，不会剧透
+- 所有首译/重译分数汇总在 [console/scores.md](console/scores.md)，趋势一眼可见
 
 ---
 

@@ -1,59 +1,3 @@
-[2026-06-05 02:42:05] ========================================
-[2026-06-05 02:42:05] Auto-review agent started
-[2026-06-05 02:42:05] Repo: /home/djology/english2-daily
-[2026-06-05 02:42:05] Poll interval: 600s
-[2026-06-05 02:42:05] ========================================
-[2026-06-05 02:42:09] No uncorrected files found. Polling every 600s.
-[2026-06-05 08:44:23] Online — idle 6h, still polling.
-From github.com:dontng/english2-daily
- * branch            main       -> FETCH_HEAD
-   ee58dda..66a93ae  main       -> origin/main
-Updating ee58dda..66a93ae
-Fast-forward
- fool/june/0605-day46.md     |  4 ++++
- fool/june/0606-day47.md     |  4 ++++
- sentence/june/0605-day46.md | 20 ++++++++++++++++++++
- sentence/june/0606-day47.md | 20 ++++++++++++++++++++
- 4 files changed, 48 insertions(+)
- create mode 100644 fool/june/0605-day46.md
- create mode 100644 fool/june/0606-day47.md
- create mode 100644 sentence/june/0605-day46.md
- create mode 100644 sentence/june/0606-day47.md
-[2026-06-05 09:54:53] Reviewing: sentence/june/0605-day46.md
-批改完成。主要发现两处错误：
-
-1. **"被这次特别报道受访"** — "for" 在这里表示目的而非施动者，且"受访"本身已含被动义，"被"字冗余。应为"为这次专题报道接受采访的"。
-
-2. **"没有需求……没有好的作品"** — 原文是 "a lack of"（不足/匮乏），语气比"没有"（完全不存在）要轻。原句的逻辑是需求是存在的，只是好作品供给不足。
-
-填写了 Vocab（lack / demand / interview）和 Phrases（not A but B 平行结构 / interviewed for 目的性从句）两个部分。
-[2026-06-05 09:57:05] Review done: sentence/june/0605-day46.md
-[2026-06-05 09:57:05] Running fool decomposition: sentence/june/0605-day46.md → fool/june/0605-day46.md
-写完。fool-01 是本文件唯一的英文句子（Vocab 和 Phrases 均无内容）。
-
-这句话的核心张力在于：主谓极简（"bull run … ended"），却用三层状语层层渲染这个"终点"的质感；插入语 *Beautiful Inside My Head Forever* 放在历史性崩溃的语境里，构成隐性讽刺——永恒之美，恰在此刻戛然而止。
-[2026-06-05 09:58:04] Fool done: fool/june/0605-day46.md
-[2026-06-05 09:58:04] Committed: 0605-day46
-error: cannot pull with rebase: You have unstaged changes.
-error: please commit or stash them.
-[2026-06-05 09:58:04] WARNING: rebase pull failed — attempting push anyway
-To github.com:dontng/english2-daily.git
-   66a93ae..c47dffa  main -> main
-[2026-06-05 09:58:07] Pushed: 0605-day46
-[2026-06-05 10:08:11] Reviewing: sentence/june/0605-day46.md
-三处批改：[1] head≠heart 意象错位，[2] "系列"系用户自行添加，[3] "on a dramatic note" 的 note 是基调比喻而非副词修饰。Vocab 收录 bull run、note、dramatic；Phrases 拆解 "end on a note" 和 "with a sale of" 两个结构。
-[2026-06-05 10:10:45] Review done: sentence/june/0605-day46.md
-[2026-06-05 10:10:45] Already decomposed (side effect): 0605-day46 — skipping Claude call
-[2026-06-05 10:10:45] Committed: batch
-error: cannot pull with rebase: You have unstaged changes.
-error: please commit or stash them.
-[2026-06-05 10:10:45] WARNING: rebase pull failed — attempting push anyway
-To github.com:dontng/english2-daily.git
-   c47dffa..cdd4aae  main -> main
-[2026-06-05 10:10:48] Pushed: batch
-[2026-06-05 10:20:52] No uncorrected files found. Polling every 600s.
-[2026-06-05 16:23:08] Online — idle 6h, still polling.
-[2026-06-05 22:27:29] Online — idle 6h, still polling.
 [2026-06-06 04:32:08] Online — idle 6h, still polling.
 [2026-06-06 10:33:05] Online — idle 6h, still polling.
 [2026-06-06 16:35:37] Online — idle 6h, still polling.
@@ -1194,3 +1138,23 @@ $ git diff 7670178cafc2d9d1c41be52beeafd9739217e174
 output, run
 $ git reset --hard
 to recover.
+[2026-06-11 02:21:54] No uncorrected files found. Polling every 600s.
+[2026-06-11 02:21:54] No uncorrected files found. Polling every 600s.
+[2026-06-11 23:58:49] ========================================
+[2026-06-11 23:58:49] ========================================
+[2026-06-11 23:58:49] Auto-review agent started
+[2026-06-11 23:58:49] Auto-review agent started
+[2026-06-11 23:58:49] Repo: /home/djology/english2-daily
+[2026-06-11 23:58:49] Repo: /home/djology/english2-daily
+[2026-06-11 23:58:49] Poll interval: 600s
+[2026-06-11 23:58:49] Poll interval: 600s
+[2026-06-11 23:58:49] ========================================
+[2026-06-11 23:58:49] ========================================
+[2026-06-11 23:58:52] Another instance already running — exiting.
+[2026-06-11 23:58:52] Another instance already running — exiting.
+[2026-06-12 02:03:53] ========================================
+[2026-06-12 02:03:53] Auto-review agent started
+[2026-06-12 02:03:53] Repo: /home/djology/english2-daily
+[2026-06-12 02:03:53] Poll interval: 600s
+[2026-06-12 02:03:53] ========================================
+[2026-06-12 02:03:56] No uncorrected files found. Polling every 600s.

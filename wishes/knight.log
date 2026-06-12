@@ -145,3 +145,15 @@ wishes/knight.sh: line 1: 23832 Hangup                  git push
 [2026/06/11 20:33:15] git pull failed, will retry
 [2026/06/11 20:43:53] git pull failed, will retry
 [2026/06/11 20:43:53] online — idle 6h, still polling
+[2026/06/11 20:54:57] git pull failed, will retry
+[2026/06/11 23:58:49] knight online  (poll interval 600s)
+[2026/06/11 23:58:49] knight online  (poll interval 600s)
+[2026/06/11 23:58:49] git pull failed on startup
+[2026/06/11 23:58:49] git pull failed on startup
+[2026/06/11 23:58:49] git pull failed, will retry
+[2026/06/11 23:58:49] git pull failed, will retry
+[2026/06/11 23:58:50] no pending spells — polling every 600s
+[2026/06/11 23:58:50] no pending spells — polling every 600s
+[2026/06/11 23:58:52] knight already running (PID 697), exiting
+[2026/06/11 23:58:52] knight already running (PID 697), exiting
+wishes/knight.sh: line 1:   782 Hangup                  sleep "$POLL_INTERVAL"
