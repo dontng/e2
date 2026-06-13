@@ -4,13 +4,21 @@
 usage:  studio.py [repo_dir] [port]        （由根目录 studio.sh 启动）
 
 仅标准库，只绑定 127.0.0.1。界面在 scripts/studio.html。
-保存动作写回 src/ 的 markdown 并 touch 唤醒文件，auto-review 在 ≤15s 内接手。
+
+双模式（自动判断，零配置）：
+  本地模式 — 本机跑着 auto-review（Dell）：保存写回 markdown 并 touch
+            唤醒文件，daemon ≤15s 接手。
+  远程模式 — 本机没有 daemon（公司笔记本）：保存后自动 commit + push 到
+            GitHub，Dell 在下个轮询 pull 到后处理；页面每 60s 自动 pull，
+            批改结果推回来后自动显示。
 """
 import sys
 import os
 import re
 import json
+import time
 import datetime
+import threading
 import subprocess
 from pathlib import Path
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
@@ -24,6 +32,10 @@ REPO = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SCRIPTS.parent
 PORT = int(sys.argv[2]) if len(sys.argv) > 2 else 8787
 WAKE = REPO / '.auto-review-wake'
 PAGE = SCRIPTS / 'studio.html'
+PULL_INTERVAL = 60          # 远程模式下自动 pull 的最小间隔（秒）
+
+_git_lock = threading.Lock()
+_last_pull = 0.0
 
 
 def exam_date() -> datetime.date:
@@ -32,20 +44,22 @@ def exam_date() -> datetime.date:
     return datetime.date.fromisoformat(m.group(1))
 
 
+def git(*args, timeout=40):
+    return subprocess.run(['git', *args], cwd=REPO,
+                          capture_output=True, text=True, timeout=timeout)
+
+
 def github_base() -> str:
-    try:
-        url = subprocess.run(['git', 'config', 'remote.origin.url'],
-                             cwd=REPO, capture_output=True, text=True).stdout.strip()
-        m = re.search(r'github\.com[:/](.+?)(?:\.git)?$', url)
-        return f'https://github.com/{m.group(1)}/blob/main/' if m else ''
-    except OSError:
-        return ''
+    m = re.search(r'github\.com[:/](.+?)(?:\.git)?$',
+                  git('config', 'remote.origin.url').stdout.strip())
+    return f'https://github.com/{m.group(1)}/blob/main/' if m else ''
 
 
 GH = github_base()
 
 
 def proc_alive(needle: str) -> bool:
+    """非 Linux（无 /proc）一律返回 False → 自然落入远程模式。"""
     me = str(os.getpid())
     for p in Path('/proc').glob('[0-9]*'):
         if p.name == me:
@@ -59,12 +73,54 @@ def proc_alive(needle: str) -> bool:
     return False
 
 
+def local_daemon() -> bool:
+    return proc_alive('auto-review.sh')
+
+
+# ── git 同步（仅远程模式使用） ────────────────────────────────────────────────
+
+def pull(force=False) -> str:
+    """限频 pull；返回错误信息（成功为空串）。"""
+    global _last_pull
+    with _git_lock:
+        if not force and time.time() - _last_pull < PULL_INTERVAL:
+            return ''
+        _last_pull = time.time()
+        r = git('pull', '--rebase', '--autostash', 'origin', 'main')
+        if r.returncode != 0:
+            tail = (r.stderr or r.stdout).strip().splitlines()
+            return tail[-1] if tail else 'pull 失败'
+        return ''
+
+
+def commit_push(paths: list, msg: str) -> dict:
+    with _git_lock:
+        git('add', *paths)
+        if git('diff', '--cached', '--quiet').returncode == 0:
+            return {'ok': True, 'msg': '没有需要同步的变化'}
+        r = git('commit', '-m', msg)
+        if r.returncode != 0:
+            return {'ok': False, 'msg': 'commit 失败：' + r.stderr.strip()[-120:]}
+        git('pull', '--rebase', '--autostash', 'origin', 'main')
+        r = git('push', 'origin', 'main')
+        if r.returncode != 0:
+            tail = r.stderr.strip().splitlines()
+            return {'ok': False,
+                    'msg': 'push 失败（已存在本地，可稍后同步）：' + (tail[-1] if tail else '')}
+        return {'ok': True, 'msg': '已推送 GitHub，Dell 将在下个轮询接手'}
+
+
+# ── 状态 ──────────────────────────────────────────────────────────────────────
+
 def find_day_file(mmdd: str):
     hits = sorted(REPO.glob(f'src/*/{mmdd}-day*.md'))
     return hits[0] if hits else None
 
 
 def get_state() -> dict:
+    mode = 'local' if local_daemon() else 'remote'
+    pull_err = pull() if mode == 'remote' else ''
+
     today = datetime.date.today()
     mmdd = today.strftime('%m%d')
     f = find_day_file(mmdd)
@@ -94,9 +150,6 @@ def get_state() -> dict:
             'score': review.section(text, '评分'),
         }
         blocks = review.parse_blocks(text)
-        for b in blocks:                      # 盲译：未批改前不暴露任何答案信息
-            if not b['feedback']:
-                b.pop('first', None)
 
     scored = [(d, e) for d, e in sorted(entries.items()) if e['score']]
     rows = []
@@ -109,25 +162,25 @@ def get_state() -> dict:
 
     log_tail = []
     log_file = REPO / '.auto-review.log'
-    if log_file.exists():
+    if mode == 'local' and log_file.exists():
         log_tail = log_file.read_text(encoding='utf-8', errors='ignore').splitlines()[-5:]
 
     return {
+        'mode': mode,
+        'pull_err': pull_err,
         'days_left': (exam_date() - today).days,
         'today': t,
         'redo_blocks': blocks,
         'chart': [{'day': d, 'score': float(e['score'])} for d, e in scored[-14:]],
         'rows': rows,
         'total': len(entries),
-        'daemon': {'auto_review': proc_alive('auto-review.sh'),
+        'daemon': {'auto_review': mode == 'local',
                    'knight': proc_alive('knight.sh')},
         'log_tail': log_tail,
     }
 
 
-def wake():
-    WAKE.touch()
-
+# ── 动作 ──────────────────────────────────────────────────────────────────────
 
 def do_save(payload: dict) -> dict:
     f = find_day_file(datetime.date.today().strftime('%m%d'))
@@ -151,20 +204,43 @@ def do_save(payload: dict) -> dict:
     else:
         return {'ok': False, 'msg': f'未知类型 {kind}'}
 
-    if ok:
-        wake()
-    return {'ok': ok, 'msg': '已保存，批改将在片刻后出现' if ok else '写入失败'}
+    if not ok:
+        return {'ok': False, 'msg': '写入失败'}
+
+    if local_daemon():
+        WAKE.touch()
+        return {'ok': True, 'msg': '已保存，批改将在片刻后出现'}
+    day = payload.get('day') or f.name
+    return commit_push([str(f.relative_to(REPO))], f'studio: {kind} · {day}')
 
 
 def do_new_day(payload: dict) -> dict:
     arg = ['tomorrow'] if payload.get('when') == 'tomorrow' else []
     r = subprocess.run(['bash', 'new-day.sh', *arg], cwd=REPO,
                        capture_output=True, text=True)
-    return {'ok': r.returncode == 0, 'msg': (r.stdout + r.stderr).strip()}
+    if r.returncode != 0:
+        return {'ok': False, 'msg': (r.stdout + r.stderr).strip()[-160:]}
+    if not local_daemon():
+        return commit_push(['src/', 'fool/'], 'studio: new day')
+    return {'ok': True, 'msg': (r.stdout).strip()[-160:]}
+
+
+def do_sync(_: dict) -> dict:
+    """远程模式手动同步：先把本地未推的整理出去，再强制 pull。"""
+    res = commit_push(['src/'], 'studio: sync')
+    err = pull(force=True)
+    if err:
+        return {'ok': False, 'msg': f'pull 失败：{err}'}
+    return {'ok': True, 'msg': res['msg'] if res['msg'] != '没有需要同步的变化' else '已同步'}
+
+
+def do_scan(_: dict) -> dict:
+    WAKE.touch()
+    return {'ok': True, 'msg': '已通知 auto-review 立即扫描'}
 
 
 def do_daemon_start(_: dict) -> dict:
-    if proc_alive('auto-review.sh'):
+    if local_daemon():
         return {'ok': True, 'msg': 'auto-review 已在运行'}
     subprocess.Popen('nohup ./auto-review.sh >> .auto-review.log 2>&1 &',
                      shell=True, cwd=REPO)
@@ -174,8 +250,9 @@ def do_daemon_start(_: dict) -> dict:
 ACTIONS = {
     '/api/save': do_save,
     '/api/new-day': do_new_day,
+    '/api/scan': do_scan,
+    '/api/sync': do_sync,
     '/api/daemon-start': do_daemon_start,
-    '/api/scan': lambda _: (wake(), {'ok': True, 'msg': '已通知 auto-review 立即扫描'})[1],
 }
 
 
@@ -218,7 +295,8 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     server = ThreadingHTTPServer(('127.0.0.1', PORT), Handler)
-    print(f'studio → http://127.0.0.1:{PORT}   (Ctrl-C 退出)')
+    mode = '本地模式（daemon 在本机）' if local_daemon() else '远程模式（经 GitHub 同步）'
+    print(f'studio → http://127.0.0.1:{PORT}   {mode}   (Ctrl-C 退出)')
     try:
         server.serve_forever()
     except KeyboardInterrupt:

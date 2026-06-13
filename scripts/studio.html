@@ -153,18 +153,13 @@ footer { margin-top: 80px; text-align: center; font-size: 11px;
 
   <section>
     <div class="stitle"><h2>工具箱</h2><small>本地能做什么</small></div>
-    <div class="tools">
-      <div class="status"><span class="dot" id="dot-ar"></span>auto-review</div>
-      <div class="status"><span class="dot" id="dot-kn"></span>knight</div>
-      <button class="quiet" onclick="post('/api/scan')">立即扫描</button>
-      <button class="quiet" onclick="post('/api/new-day',{when:'tomorrow'})">备好明天</button>
-      <button class="quiet" id="btn-start-ar" onclick="post('/api/daemon-start')" style="display:none">启动 auto-review</button>
-    </div>
+    <div class="tools" id="tools"></div>
     <div class="cheat">
       <code>bash studio.sh</code> 打开本页 ─ 写译、重译、看批改都在这里<br>
       <code>bash new-day.sh</code> 建当天文件（自动注入复习区，本页保存原句即可）<br>
       <code>console/today.md</code> · <code>console/scores.md</code> GitHub 上的轻量入口<br>
-      保存后 auto-review 会在 15 秒内被唤醒：批改 → fool 拆解 → probe 卡 → 自动 push
+      <b>本机有 daemon</b>（Dell）：保存 → 15 秒内本机批改 → 自动 push<br>
+      <b>本机没有</b>（公司笔记本）：保存 → 自动 commit+push → Dell 轮询接手 → 页面每分钟自动拉回结果
     </div>
     <div id="log" style="margin-top:18px"></div>
   </section>
@@ -175,6 +170,7 @@ footer { margin-top: 80px; text-align: center; font-size: 11px;
 
 <script>
 let prev = '';
+let MODE = 'local';
 
 const $ = id => document.getElementById(id);
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -257,7 +253,9 @@ function renderToday(s) {
     body = `<div class="en">${esc(t.sentence.replace(/^>\s?/gm, ''))}</div>`;
     if (t.translation) {
       body += saveBox('translation', t.translation, '', { hint: '已保存，可继续修改 · 批改完成前有效' });
-      body += `<div class="waiting"><span class="pulse"></span>auto-review 批改中，完成后这里直接显示结果</div>`;
+      body += `<div class="waiting"><span class="pulse"></span>${MODE === 'remote'
+        ? '已推送 GitHub · Dell 接手后结果自动出现（页面每分钟同步）'
+        : 'auto-review 批改中，完成后这里直接显示结果'}</div>`;
     } else {
       body += saveBox('translation', '', '写下你的理解和翻译…');
     }
@@ -286,7 +284,8 @@ function renderRedo(s) {
             <div class="md">${md(b.feedback)}</div>`;
     } else if (b.redo) {
       h += saveBox('redo', b.redo, '', { day: b.day, hint: '已保存，可继续修改' })
-         + `<div class="waiting"><span class="pulse"></span>复习批改中…</div>`;
+         + `<div class="waiting"><span class="pulse"></span>${MODE === 'remote'
+           ? '已推送 · 等待 Dell 复习批改…' : '复习批改中…'}</div>`;
     } else {
       h += saveBox('redo', '', '不看旧答案，直接重译…', { day: b.day });
     }
@@ -326,12 +325,28 @@ function renderTable(s) {
   $('score-table').innerHTML = h;
 }
 
+function renderTools(s) {
+  let h = '';
+  if (s.mode === 'local') {
+    h += `<div class="status"><span class="dot ${s.daemon.auto_review ? 'on' : ''}"></span>auto-review</div>
+          <div class="status"><span class="dot ${s.daemon.knight ? 'on' : ''}"></span>knight</div>
+          <button class="quiet" onclick="post('/api/scan')">立即扫描</button>`;
+    if (!s.daemon.auto_review)
+      h += `<button class="quiet" onclick="post('/api/daemon-start')">启动 auto-review</button>`;
+  } else {
+    h += `<div class="status"><span class="dot on"></span>远程模式 · 经 GitHub 与 Dell 同步</div>
+          <button class="quiet" onclick="post('/api/sync')">立即同步</button>`;
+    if (s.pull_err)
+      h += `<div class="status" style="color:var(--akane)">同步异常：${esc(s.pull_err)}</div>`;
+  }
+  h += `<button class="quiet" onclick="post('/api/new-day',{when:'tomorrow'})">备好明天</button>`;
+  $('tools').innerHTML = h;
+}
+
 function render(s) {
+  MODE = s.mode;
   $('days-left').textContent = s.days_left;
-  renderToday(s); renderRedo(s); renderChart(s); renderTable(s);
-  $('dot-ar').classList.toggle('on', s.daemon.auto_review);
-  $('dot-kn').classList.toggle('on', s.daemon.knight);
-  $('btn-start-ar').style.display = s.daemon.auto_review ? 'none' : '';
+  renderToday(s); renderRedo(s); renderChart(s); renderTable(s); renderTools(s);
   $('log').innerHTML = (s.log_tail || []).map(l => `<div class="logline">${esc(l)}</div>`).join('');
 }
 

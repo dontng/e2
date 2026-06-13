@@ -28,6 +28,21 @@ bash studio.sh
 
 ---
 
+## 在公司笔记本上用
+
+`bash studio.sh` 在哪台机器上跑，行为会自动适配，无需配置。
+
+**判断依据**：studio 启动时扫描本机进程，有没有 `auto-review.sh` 在跑。
+
+| 场景 | 模式 | 保存后做什么 |
+|------|------|-------------|
+| Dell（跑着 auto-review） | 本地模式 | 写 markdown → touch 唤醒文件，daemon ≤15s 接手批改 |
+| 公司笔记本（没有 daemon） | 远程模式 | 写 markdown → commit + push 到 GitHub，Dell pull 到后处理 |
+
+远程模式下 studio 不调用 Claude，不执行批改，只做 git 操作。批改、fool、probe 全在 Dell 上完成，推回 GitHub 后页面每 60 秒自动 pull，结果直接出现——早上公司贴句子写翻译，晚上回家打开已有结果。
+
+---
+
 ## 自动批改
 
 ```bash
