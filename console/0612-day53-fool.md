@@ -1,8 +1,8 @@
-« [0612-day52](0612-day52-fool.md)　　[0613-day54](0613-day54-fool.md) »
+« [0615-day55](0615-day55-fool.md)
 
 # Day 53 Fool Sessions · 2026-06-12
 
-source: [src/june/0612-day53.md](../../src/june/0612-day53.md)
+source: [fool/june/0612-day53-fool.md](../fool/june/0612-day53-fool.md)
 
 ---
 
@@ -364,4 +364,5 @@ X-oriented + 名词：复合形容词作定语，直接修饰后续名词；X �
 ---
 
 
-« [0612-day52](0612-day52-fool.md)　　[0613-day54](0613-day54-fool.md) »
+
+« [0615-day55](0615-day55-fool.md)

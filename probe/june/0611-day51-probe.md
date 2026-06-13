@@ -1,4 +1,4 @@
-« [0610-day50](0610-day50-probe.md)　　[0613-day54](0613-day54-probe.md) »
+« [0610-day50](0610-day50-probe.md)　　[0612-day53](0612-day53-probe.md) »
 
 # day51 Probe
 
@@ -36,4 +36,5 @@ source: [src/june/0611-day51.md](../../src/june/0611-day51.md)
 
 
 
-« [0610-day50](0610-day50-probe.md)　　[0613-day54](0613-day54-probe.md) »
+
+« [0610-day50](0610-day50-probe.md)　　[0612-day53](0612-day53-probe.md) »
