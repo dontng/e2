@@ -1332,3 +1332,10 @@ To github.com:dontng/english2-daily.git
 [2026-06-13 12:11:47] Pushed
 [2026-06-13 12:21:50] No uncorrected files found. Polling every 600s.
 [2026-06-13 18:24:49] Online — idle 6h, still polling.
+[2026-06-13 23:40:08] ========================================
+[2026-06-13 23:40:08] Auto-review agent started
+[2026-06-13 23:40:08] Repo: /home/djology/english2-daily
+[2026-06-13 23:40:08] Poll interval: 600s
+[2026-06-13 23:40:08] ========================================
+[2026-06-13 23:40:12] No uncorrected files found. Polling every 600s.
+[2026-06-14 05:46:50] Online — idle 6h, still polling.
