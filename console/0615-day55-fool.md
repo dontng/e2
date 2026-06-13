@@ -1,8 +1,8 @@
-« [0613-day54](0613-day54-fool.md)
+« [0611-day51](0611-day51-fool.md)
 
 # Day 55 Fool Sessions · 2026-06-15
 
-source: [src/june/0615-day55.md](../../src/june/0615-day55.md)
+source: [fool/june/0615-day55-fool.md](../fool/june/0615-day55-fool.md)
 
 ---
 
@@ -328,4 +328,5 @@ source: [src/june/0615-day55.md](../../src/june/0615-day55.md)
 ---
 
 
-« [0613-day54](0613-day54-fool.md)
+
+« [0611-day51](0611-day51-fool.md)

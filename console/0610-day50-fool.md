@@ -1,4 +1,4 @@
-« [0609-day49](0609-day49-fool.md)　　[0611-day51](0611-day51-fool.md) »
+« [0609-day49](../fool/june/0609-day49-fool.md)　　[0611-day51](0611-day51-fool.md) »
 
 # Day 50 Fool Sessions · 2026-06-10
 
@@ -568,4 +568,4 @@ regard as 结构标准形态：Many Americans（主）+ regard（谓）+ the jur
 
 
 
-« [0609-day49](0609-day49-fool.md)　　[0611-day51](0611-day51-fool.md) »
+« [0609-day49](../fool/june/0609-day49-fool.md)　　[0611-day51](0611-day51-fool.md) »

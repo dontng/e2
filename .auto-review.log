@@ -1211,3 +1211,55 @@ Everything up-to-date
 [2026-06-12 20:01:13] Wake signal — scanning immediately
 [2026-06-13 02:06:43] Online — idle 6h, still polling.
 [2026-06-13 08:09:28] Online — idle 6h, still polling.
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+Updating a83abad..ca7ae2e
+Fast-forward
+ wishes/spell/0613.md | 5 +++++
+ 1 file changed, 5 insertions(+)
+[2026-06-13 10:50:46] No uncorrected files found. Polling every 600s.
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+Updating ca7ae2e..f82663d
+Fast-forward
+ fool/june/0612-day53-fool.md |  4 ++++
+ fool/june/0613-day54-fool.md |  4 ++++
+ fool/june/0615-day55-fool.md |  4 ++++
+ src/june/0612-day53.md       | 51 ++++++++++++++++++++++++++++++++++++++++++++
+ src/june/0613-day54.md       | 51 ++++++++++++++++++++++++++++++++++++++++++++
+ src/june/0615-day55.md       | 51 ++++++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 165 insertions(+)
+ create mode 100644 fool/june/0612-day53-fool.md
+ create mode 100644 fool/june/0613-day54-fool.md
+ create mode 100644 fool/june/0615-day55-fool.md
+ create mode 100644 src/june/0612-day53.md
+ create mode 100644 src/june/0613-day54.md
+ create mode 100644 src/june/0615-day55.md
+[2026-06-13 11:31:05] Reviewing: src/june/0615-day55.md
+批改完成。主要问题：
+
+1. **"financial crisis" → 资金危机**：应为"金融危机"，后者指宏观系统性危机，前者指企业/个人资金链断裂
+2. **"has made it more acceptable to"**：最大失分点，用户完全丢失了 `make it + adj + to do` 的形式宾语结构，把 acceptable（被接受）误读成了"容易发生"
+3. **"between jobs"**：固定委婉表达，= 暂时待业，不是字面的"在有工作……之间"
+4. **"to leave a bad one"**：方向对了，但挂在错误的句子骨架里
+
+评分：**2.5 / 10**
+[2026-06-13 11:32:53] Review done: src/june/0615-day55.md
+[2026-06-13 11:32:53] Probe: probe/june/0615-day55-probe.md
+[2026-06-13 11:32:53] Nav probe: 0615-day55
+[2026-06-13 11:32:53] Console: evicted probe 0609-day49
+[2026-06-13 11:32:53] Console probe: 0615-day55  window=[0610-day50 0611-day51 0615-day55]
+[2026-06-13 11:32:53] Running fool decomposition: src/june/0615-day55.md → fool/june/0615-day55-fool.md
+完成。共拆解 **16 条**句子，写入 `fool/june/0615-day55-fool.md`，已 commit + push。
+
+条目分布：
+- fool-01：## 原句（1条）
+- fool-02~05：Vocab · acceptable（3 bullet + 1 造句）
+- fool-06~08：Vocab · between jobs（2 bullet + 1 造句）
+- fool-09~12：Vocab · financial（3 bullet + 1 造句）
+- fool-13~16：Phrases · make it + adj + to do（1 引用例句 + 3 引申用法）
+- Phrases · between jobs 无完整句子，跳过
+[2026-06-13 11:36:31] Fool done: fool/june/0615-day55-fool.md
+[2026-06-13 11:36:31] Nav fool: 0615-day55
+[2026-06-13 11:36:31] Console: evicted fool 0609-day49
+[2026-06-13 11:36:31] Console fool: 0615-day55  window=[0610-day50 0611-day51 0615-day55]
