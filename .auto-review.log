@@ -1263,3 +1263,33 @@ Fast-forward
 [2026-06-13 11:36:31] Nav fool: 0615-day55
 [2026-06-13 11:36:31] Console: evicted fool 0609-day49
 [2026-06-13 11:36:31] Console fool: 0615-day55  window=[0610-day50 0611-day51 0615-day55]
+[2026-06-13 11:36:32] Committed: 0613-day54-fool,0615-day55-fool
+[2026-06-13 11:36:33] Push pending [解锁后检验]: 2 uncorrected file(s) still remain after unlock
+[2026-06-13 11:46:36] Reviewing: src/june/0613-day54.md
+批改完成。主要问题：
+
+1. **`public` 词性**：用户把名词（公众）误读为形容词（公开的）
+2. **`compete for` 结构消失**：核心动词 compete 和介词 for 的"争夺"含义全丢，变成了"改善/完善"
+3. **`opera houses`**：漏掉 opera，house 缩为"房间"
+4. **`dance troupes`**：troupe（演出团体）完全误读为"节奏"
+5. **`recorded performances`**：方向接近但语义偏了
+
+评分 **2/10**——句子主干结构和多个关键名词均未命中。
+[2026-06-13 11:49:44] Review done: src/june/0613-day54.md
+[2026-06-13 11:49:44] Probe: probe/june/0613-day54-probe.md
+[2026-06-13 11:49:44] Nav probe: 0613-day54
+[2026-06-13 11:49:44] Console: evicted probe 0610-day50
+[2026-06-13 11:49:45] Console probe: 0613-day54  window=[0611-day51 0615-day55 0613-day54]
+[2026-06-13 11:49:45] Running fool decomposition: src/june/0613-day54.md → fool/june/0613-day54-fool.md
+完成。共拆解 16 条（fool-01 到 fool-16），已 commit + push：
+
+- **fool-01**：原句主句（完整长难句，三步都有内容）
+- **fool-02 ~ 05**：Vocab · public 四条例句／造句
+- **fool-06 ~ 08**：Vocab · troupe 两条例句＋造句
+- **fool-09 ~ 11**：Vocab · instrumentalist 两条例句＋造句
+- **fool-12 ~ 14**：Vocab · recorded 两条例句＋造句
+- **fool-15 ~ 16**：Phrases 两个句式各一条例句（均为原句截段）
+[2026-06-13 11:52:37] Fool done: fool/june/0613-day54-fool.md
+[2026-06-13 11:52:37] Nav fool: 0613-day54
+[2026-06-13 11:52:37] Console: evicted fool 0610-day50
+[2026-06-13 11:52:37] Console fool: 0613-day54  window=[0611-day51 0615-day55 0613-day54]
