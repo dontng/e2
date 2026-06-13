@@ -55,7 +55,7 @@ trim_log() {
 }
 
 # Processing lock: signals that a correction/fool cycle is actively running.
-# try_push and auto_wish both check this before pushing.
+# try_push checks this before pushing.
 # The lock file contains the PID of auto-review.sh so stale locks (process dead) are ignored.
 set_processing_lock()   { echo $$ > "$PROCESSING_LOCK_FILE"; }
 clear_processing_lock() { rm -f "$PROCESSING_LOCK_FILE"; }

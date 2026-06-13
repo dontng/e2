@@ -174,8 +174,7 @@ def get_state() -> dict:
         'chart': [{'day': d, 'score': float(e['score'])} for d, e in scored[-14:]],
         'rows': rows,
         'total': len(entries),
-        'daemon': {'auto_review': mode == 'local',
-                   'knight': proc_alive('knight.sh')},
+        'daemon': {'auto_review': mode == 'local'},
         'log_tail': log_tail,
     }
 

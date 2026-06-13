@@ -329,7 +329,6 @@ function renderTools(s) {
   let h = '';
   if (s.mode === 'local') {
     h += `<div class="status"><span class="dot ${s.daemon.auto_review ? 'on' : ''}"></span>auto-review</div>
-          <div class="status"><span class="dot ${s.daemon.knight ? 'on' : ''}"></span>knight</div>
           <button class="quiet" onclick="post('/api/scan')">立即扫描</button>`;
     if (!s.daemon.auto_review)
       h += `<button class="quiet" onclick="post('/api/daemon-start')">启动 auto-review</button>`;
