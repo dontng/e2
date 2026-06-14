@@ -3,9 +3,6 @@
 .auto-review-processing
 .auto-review-push-pending
 
-# debug logs
-.auto_wish_debug.log
-
 # python bytecode
 scripts/__pycache__/
 .auto-review-wake
