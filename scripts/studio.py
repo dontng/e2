@@ -117,6 +117,26 @@ def find_day_file(mmdd: str):
     return hits[0] if hits else None
 
 
+def heatmap_cells(entries: dict, today: datetime.date) -> dict:
+    """把每条 entry 的 mmdd 还原成真实日期 → {iso: score}。
+    年份按「今年；若月日晚于今天则归去年」推断，对应最近一年的日历窗口。
+    已练但未批改记 0.0，前端渲染成最浅一档（看得出坚持，区别于深浅分档）。"""
+    cells = {}
+    for e in entries.values():
+        mmdd = e['mmdd']
+        try:
+            dt = datetime.date(today.year, int(mmdd[:2]), int(mmdd[2:]))
+        except ValueError:
+            continue
+        if dt > today:
+            try:
+                dt = dt.replace(year=today.year - 1)
+            except ValueError:
+                continue
+        cells[dt.isoformat()] = float(e['score']) if e['score'] else 0.0
+    return cells
+
+
 def get_state() -> dict:
     mode = 'local' if local_daemon() else 'remote'
     pull_err = pull() if mode == 'remote' else ''
@@ -151,7 +171,6 @@ def get_state() -> dict:
         }
         blocks = review.parse_blocks(text)
 
-    scored = [(d, e) for d, e in sorted(entries.items()) if e['score']]
     rows = []
     for day in sorted(entries, reverse=True)[:10]:
         e = entries[day]
@@ -171,7 +190,8 @@ def get_state() -> dict:
         'days_left': (exam_date() - today).days,
         'today': t,
         'redo_blocks': blocks,
-        'chart': [{'day': d, 'score': float(e['score'])} for d, e in scored[-14:]],
+        'today_iso': today.isoformat(),
+        'heatmap': heatmap_cells(entries, today),
         'rows': rows,
         'total': len(entries),
         'daemon': {'auto_review': mode == 'local'},

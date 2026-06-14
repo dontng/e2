@@ -97,11 +97,20 @@ button:disabled { opacity: .4; pointer-events: none; }
 .redo-head .tag { font-family: Georgia, serif; font-size: 13px; color: var(--sub); letter-spacing: .12em; }
 .done-mark { font-size: 12px; color: var(--moss); letter-spacing: .2em; }
 
-#chart { margin-top: 6px; }
-.bar { fill: #cdc4b0; transition: fill .3s; }
-.bar.hi { fill: var(--moss); }
-.bar.lo { fill: var(--akane); opacity: .75; }
-.axis-label { font-family: Georgia, serif; font-size: 10px; fill: var(--sub); }
+#heat { margin-top: 6px; }
+#heat svg { display: block; }
+.hm-d { rx: 2px; }
+.hm-n { fill: #ebe4d6; }            /* 没练 */
+.hm-0 { fill: #d6e2cb; }            /* 练了未批改 */
+.hm-1 { fill: #bcd3ab; }
+.hm-2 { fill: #94b884; }
+.hm-3 { fill: #6f9963; }
+.hm-4 { fill: var(--moss); }
+.hm-d.today { stroke: var(--akane); stroke-width: 1.4px; }
+.hm-label { font-family: Georgia, serif; font-size: 9px; fill: var(--sub); }
+.hm-legend { display: flex; align-items: center; justify-content: flex-end;
+             gap: 5px; margin-top: 8px; font-size: 11px; color: var(--sub); }
+.hm-legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
 
 table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13.5px; }
 th { font-weight: 400; font-size: 11px; color: var(--sub); letter-spacing: .25em;
@@ -146,8 +155,8 @@ footer { margin-top: 80px; text-align: center; font-size: 11px;
   <section id="sec-redo"></section>
 
   <section>
-    <div class="stitle"><h2>走势</h2><small id="chart-sub"></small></div>
-    <div id="chart"></div>
+    <div class="stitle"><h2>坚持</h2><small id="chart-sub"></small></div>
+    <div id="heat"></div>
     <table id="score-table"></table>
   </section>
 
@@ -294,21 +303,65 @@ function renderRedo(s) {
   el.innerHTML = h;
 }
 
-function renderChart(s) {
-  const data = s.chart || [];
-  $('chart-sub').textContent = data.length ? `近 ${data.length} 次首译 · 共 ${s.total} 句` : '';
-  if (!data.length) { $('chart').innerHTML = ''; return; }
-  const W = 588, H = 96, gap = 6;
-  const bw = Math.min(34, (W - gap * (data.length - 1)) / data.length);
-  let bars = '';
-  data.forEach((d, i) => {
-    const h = Math.max(3, d.score / 10 * (H - 24));
-    const x = i * (bw + gap), y = H - 14 - h;
-    const cls = d.score >= 6 ? 'hi' : d.score <= 2 ? 'lo' : '';
-    bars += `<rect class="bar ${cls}" x="${x}" y="${y}" width="${bw}" height="${h}" rx="2"></rect>
-             <text class="axis-label" x="${x + bw / 2}" y="${H}" text-anchor="middle">${d.day}</text>`;
-  });
-  $('chart').innerHTML = `<svg width="100%" viewBox="0 0 ${W} ${H + 4}">${bars}</svg>`;
+const fmtIso = dt => dt.getFullYear() + '-' +
+  String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0');
+const hmLevel = sc => sc > 7 ? 4 : sc > 5 ? 3 : sc > 3 ? 2 : sc > 0 ? 1 : 0;
+const MONTHS = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+
+function renderHeatmap(s) {
+  const cells = s.heatmap || {};
+  const todayIso = s.today_iso;
+  const today = new Date(todayIso + 'T00:00:00');
+  const isos = Object.keys(cells).sort();
+
+  // 起点：第一条记录，但至少展示约 18 周保持画面平衡，最多回溯 52 周（最近一年）
+  let start = new Date(today); start.setDate(start.getDate() - 7 * 17);
+  if (isos.length) {
+    const first = new Date(isos[0] + 'T00:00:00');
+    if (first < start) start = first;
+  }
+  const cap = new Date(today); cap.setDate(cap.getDate() - 7 * 52);
+  if (start < cap) start = cap;
+  start.setDate(start.getDate() - start.getDay());      // 回退到周日
+
+  // 连续天数（从今天往回数有练习的日子）
+  let streak = 0;
+  for (let d = new Date(today); ; d.setDate(d.getDate() - 1)) {
+    if (cells[fmtIso(d)] !== undefined) streak++; else break;
+  }
+  $('chart-sub').textContent = `共 ${s.total} 句` + (streak ? ` · 连续 ${streak} 天` : '');
+
+  const CELL = 12, GAP = 3, STEP = CELL + GAP, TOP = 14, LEFT = 22;
+  let rects = '', months = '';
+  let wi = 0, lastMonth = -1;
+  for (let d = new Date(start); d <= today; wi++) {
+    const x = LEFT + wi * STEP;
+    if (d.getMonth() !== lastMonth) {             // 该列首日跨入新月份 → 月份标签
+      lastMonth = d.getMonth();
+      months += `<text class="hm-label" x="${x}" y="9">${MONTHS[lastMonth]}</text>`;
+    }
+    for (let di = 0; di < 7; di++) {
+      if (d <= today) {
+        const iso = fmtIso(d);
+        const sc = cells[iso];
+        const cls = sc === undefined ? 'hm-n' : 'hm-' + hmLevel(sc);
+        const here = iso === todayIso ? ' today' : '';
+        const tip = sc === undefined ? iso + ' · 未练'
+          : iso + (sc > 0 ? ` · ${sc} 分` : ' · 待批改');
+        rects += `<rect class="hm-d ${cls}${here}" x="${x}" y="${TOP + di * STEP}" `
+               + `width="${CELL}" height="${CELL}"><title>${tip}</title></rect>`;
+      }
+      d.setDate(d.getDate() + 1);
+    }
+  }
+  const W = LEFT + wi * STEP, H = TOP + 7 * STEP;
+  const wd = [['一', 1], ['三', 3], ['五', 5]].map(([t, r]) =>
+    `<text class="hm-label" x="0" y="${TOP + r * STEP + 9}">${t}</text>`).join('');
+  $('heat').innerHTML = `<svg width="100%" viewBox="0 0 ${W} ${H}" `
+    + `preserveAspectRatio="xMinYMin meet">${months}${wd}${rects}</svg>`
+    + `<div class="hm-legend">少 <i class="hm-n" style="background:#ebe4d6"></i>`
+    + `<i style="background:#bcd3ab"></i><i style="background:#94b884"></i>`
+    + `<i style="background:#6f9963"></i><i style="background:#5e7a58"></i> 多</div>`;
 }
 
 function renderTable(s) {
@@ -345,7 +398,7 @@ function renderTools(s) {
 function render(s) {
   MODE = s.mode;
   $('days-left').textContent = s.days_left;
-  renderToday(s); renderRedo(s); renderChart(s); renderTable(s); renderTools(s);
+  renderToday(s); renderRedo(s); renderHeatmap(s); renderTable(s); renderTools(s);
   $('log').innerHTML = (s.log_tail || []).map(l => `<div class="logline">${esc(l)}</div>`).join('');
 }
 
