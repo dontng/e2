@@ -16,7 +16,8 @@ bash studio.sh        # 打开浏览器交互台，写译 / 重译 / 看批改�
 
 | 脚本 | 职能 | 怎么触发 |
 |------|------|----------|
-| `studio.sh` | 启动本地交互台：拉起 `scripts/studio.py`（绑定 `127.0.0.1:8787`）并自动打开浏览器。`PORT=9000 bash studio.sh` 可换端口。 | 手动，日常入口 |
+| `studio.sh` | 启动**句子**交互台：拉起 `scripts/studio.py`（绑定 `127.0.0.1:8787`）并自动打开浏览器。`PORT=9000 bash studio.sh` 可换端口。 | 手动，日常入口 |
+| `word.sh` | 启动**单词**复习台：拉起 `scripts/word.py`（绑定 `127.0.0.1:8788`）并自动打开浏览器。与句子台互不干扰，`PORT=9001 bash word.sh` 可换端口。 | 手动，复习入口 |
 | `new-day.sh` | 创建当天的 `src/<月>/<mmdd>-dayN.md`，自动注入「复习区」（盲译重做的句子）。`bash new-day.sh tomorrow` 预建明天；`bash new-day.sh 0625` 指定日期。 | 手动 / 网页「开启 day / 备好明天」按钮 |
 | `auto-review.sh` | **批改 daemon**，常驻在家里那台 Dell。轮询仓库找未批改的翻译 → 调 Claude 批改 → 生成评分/讲解、刷新 console 与 probe → commit & push。默认 10 分钟轮询；`--once` 扫一次即退。 | Dell 上常驻；VS Code `folderOpen` task 也会拉起 |
 
@@ -24,8 +25,11 @@ bash studio.sh        # 打开浏览器交互台，写译 / 重译 / 看批改�
 
 | 文件 | 职能 |
 |------|------|
-| `studio.py` | 交互台后端。纯标准库 HTTP server，渲染 `studio.html`、提供 `/api/*`。详见第二节。 |
-| `studio.html` | 交互台前端单页（HTML+CSS+JS 一体）。详见第二节。 |
+| `studio.py` | 句子交互台后端。纯标准库 HTTP server，渲染 `studio.html`、提供 `/api/*`。详见第二节。 |
+| `studio.html` | 句子交互台前端单页（HTML+CSS+JS 一体）。详见第二节。 |
+| `word.py` | 单词复习台后端。复用 `vocab.py` 聚合词库，按「读式再曝光」调度，状态存 `data/vocab.json`（本机本地、不入 git）。详见第三节。 |
+| `word.html` | 单词复习台前端单页。详见第三节。 |
+| `vocab.py` | 单词库的唯一归属。解析全仓 `## Vocab` 卡片 → `collect_vocab(repo)` 返回 [{word, pos, gloss, day, sentences:[{en,zh}]}]，按词面去重、合并复现句子。中文全部取自既有 markdown（例句 `（…）`= 句子中文，核心意象首句 = 词义）。 |
 | `review.py` | day 文件与复习区的解析/写入单一职责模块。CLI：`review.py inject <file> <day>` 注入复习区；`review.py pending <file>` 判断是否有待批改重译。库函数 `section / set_section / parse_blocks / fill_redo` 被 studio.py、scores.py 复用。复习注入规则：每句一生恰好被复习两次（第 3 次前、第 7 次前），盲译不带答案，参考译文藏在 HTML 注释里渲染不可见、批改可读。 |
 | `scores.py` | 评分数据的唯一归属。CLI `scores.py <repo> <exam_date>` 重生成 `console/scores.md` 并输出 today.md 摘要行。库函数 `collect(repo)` 返回所有天的首译/重译分数，喂给 studio 的走势图与表格。 |
 | `console.sh` | 被 `auto-review.sh` source。维护 3 天滚动的 console 窗口文件（带上一篇/下一篇导航的轻量入口）。 |
@@ -95,3 +99,21 @@ bash studio.sh        # 打开浏览器交互台，写译 / 重译 / 看批改�
 | `POST /api/daemon-start` | 本地启动 auto-review daemon |
 
 > 单人本地工具，只绑 `127.0.0.1`，出错直接把信息回给页面 toast，不做鉴权。
+
+---
+
+## 三、单词复习台（`bash word.sh` 叫醒的页面）
+
+刻意克制的第二个页面，**只做一件事**：把词连同它的句子端上来读。与句子台分开、互不混。
+
+**复习模型——只读不评。** 不发音、没有「认识/生」按钮、没有图表/搜索/词网浏览。主题是「只要学就当不会」：永不自评是否学会，只管反复见、反复读。
+
+**怎么用：**
+1. 一次只给**一屏**（≤8 词，每词连同 2–3 句例句）；一天可来很多次。
+2. 对着英文**口译/口读**过一遍整屏（词义和句子的中文都被**胶带**遮住）。
+3. 读完点胶带揭开中文（或「揭开整屏」一次性掀开），自己对一眼理解对没对——不点按钮、不记分。
+4. 点「又来一屏」：当前这屏算读过、排到以后再现，下一屏换新词；读空了就提示待会儿再来。
+
+**调度（无自评驱动）：** 每个词被端上读过一次，按 `INTERVALS`（1/2/4/7/12/20/30/45/60 天）渐宽地排到下次再现，**永不毕业**——保证每个学过的词都反复回来，不怕「见一次就到考场才再见」。状态存 `data/vocab.json`（每机一份、不入 git）。
+
+**接口（word.py）：** `GET /api/screen` 取一屏待复习词；`POST /api/done {keys}` 标记这屏读过、推后到期并返回下一屏。词库解析全在 `vocab.py`，word.py 不另写解析。
