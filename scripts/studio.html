@@ -33,17 +33,16 @@ main { min-width: 0; }
 h1 { font-family: "Hiragino Mincho ProN", "Noto Serif CJK SC", "Source Han Serif SC", serif;
      font-size: 22px; font-weight: 600; letter-spacing: .14em; margin-top: 4px; }
 .navlink { margin-top: 8px; }
-.dday { margin: 26px 0 4px; padding-top: 22px; border-top: 1px solid var(--line);
+.dday { margin: 22px 0 2px; padding-top: 20px; border-top: 1px solid var(--line);
         font-family: Georgia, serif; line-height: 1; }
-.dday b { font-size: 52px; font-weight: 600; color: var(--akane); letter-spacing: -.02em; }
-.dday i { font-style: normal; font-size: 13px; color: var(--akane); margin-left: 5px; }
-.dday em { display: block; font-style: normal; margin-top: 9px;
+.dday b { font-size: 36px; font-weight: 600; color: var(--akane); }
+.dday i { font-style: normal; font-size: 12px; color: var(--akane); margin-left: 4px; }
+.dday em { display: block; font-style: normal; margin-top: 8px;
            font-family: inherit; font-size: 11px; color: var(--sub); letter-spacing: .3em; }
 
 section { margin-top: 48px; }
 main > section:first-child { margin-top: 2px; }
-aside > section { margin-top: 34px; }
-.meta-foot { margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--line); }
+aside > section { margin-top: 32px; }
 .stitle { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
 .stitle::before { content: ""; align-self: center; width: 3px; height: 15px; background: var(--akane); }
 .stitle h2 { font-family: "Hiragino Mincho ProN", "Noto Serif CJK SC", serif;
@@ -131,18 +130,13 @@ td.num { font-family: Georgia, serif; }
 .up { color: var(--moss); } .down { color: var(--akane); }
 .dash { color: #c8c0b0; }
 
-.tools { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-.tools button { width: 100%; text-align: center; }
-.status { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--sub); }
-@media (max-width: 820px) { .tools { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 14px; }
-  .tools button { width: auto; } }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: #c8c0b0; }
-.dot.on { background: var(--moss); }
-.cheat { margin-top: 22px; font-size: 13px; color: var(--sub); line-height: 2.3; }
-.cheat code { background: var(--paper); border: 1px solid var(--line); border-radius: 3px;
-              padding: 1px 8px; font-size: 12.5px; color: #6a6356; }
-.logline { font-family: ui-monospace, monospace; font-size: 11.5px; color: #b3aa99;
-           white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.scores { margin-top: 14px; }
+.scores summary { cursor: pointer; list-style: none; font-size: 11px; letter-spacing: .2em;
+                  color: var(--sub); padding: 4px 0; user-select: none; }
+.scores summary::-webkit-details-marker { display: none; }
+.scores summary::before { content: "▸ "; color: #c8c0b0; }
+.scores[open] summary::before { content: "▾ "; }
+.scores summary:hover { color: var(--ink); }
 #toast { position: fixed; left: 50%; bottom: 36px; transform: translateX(-50%) translateY(80px);
          background: var(--ink); color: var(--paper); font-size: 13.5px; letter-spacing: .1em;
          padding: 10px 28px; border-radius: 4px; opacity: 0; transition: all .35s; }
@@ -164,28 +158,17 @@ footer { margin-top: 80px; text-align: center; font-size: 11px;
     <h1>每日一句</h1>
     <a class="navlink" href="http://127.0.0.1:8788">单词 ↗</a>
     <div class="dday"><b id="days-left">—</b><i>天</i><em>距考试</em></div>
-    <div class="tools" id="tools"></div>
+
+    <section>
+      <div class="stitle"><h2>坚持</h2><small id="chart-sub"></small></div>
+      <div id="heat"></div>
+      <details class="scores"><summary>得分明细</summary><table id="score-table"></table></details>
+    </section>
   </aside>
 
   <main>
     <section id="sec-today"></section>
     <section id="sec-redo"></section>
-
-    <section>
-      <div class="stitle"><h2>坚持</h2><small id="chart-sub"></small></div>
-      <div id="heat"></div>
-      <table id="score-table"></table>
-    </section>
-
-    <div class="meta-foot">
-      <div class="cheat">
-        <code>bash studio.sh</code> 本页 · <code>bash word.sh</code> 单词页 · <code>bash new-day.sh</code> 建当天文件<br>
-        <code>console/today.md</code> · <code>console/scores.md</code> GitHub 轻量入口<br>
-        <b>有 daemon</b>（Dell）：保存 → 15 秒内本机批改并 push　|　<b>无</b>（公司机）：保存 → push → Dell 接手 → 页面每分钟拉回
-      </div>
-      <div id="log" style="margin-top:14px"></div>
-    </div>
-
     <footer>静水流深 · 不积跬步无以至千里</footer>
   </main>
 </div>
@@ -321,6 +304,7 @@ const fmtIso = dt => dt.getFullYear() + '-' +
   String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0');
 const hmLevel = sc => sc > 7 ? 4 : sc > 5 ? 3 : sc > 3 ? 2 : sc > 0 ? 1 : 0;
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const HEAT_START = '2026-03-01';      // 热力图起点（备考起点，不展示更早）
 
 function renderHeatmap(s) {
   const cells = s.heatmap || {};
@@ -328,14 +312,12 @@ function renderHeatmap(s) {
   const today = new Date(todayIso + 'T00:00:00');
   const isos = Object.keys(cells).sort();
 
-  // 起点：第一条记录，但至少展示约 18 周保持画面平衡，最多回溯 52 周（最近一年）
-  let start = new Date(today); start.setDate(start.getDate() - 7 * 17);
+  // 起点：固定为备考起点（今年三月），不回溯去年；若有更早数据则从数据起。
+  let start = new Date(HEAT_START + 'T00:00:00');
   if (isos.length) {
     const first = new Date(isos[0] + 'T00:00:00');
     if (first < start) start = first;
   }
-  const cap = new Date(today); cap.setDate(cap.getDate() - 7 * 52);
-  if (start < cap) start = cap;
   start.setDate(start.getDate() - start.getDay());      // 回退到周日
 
   // 连续天数（从今天往回数有练习的日子）
@@ -391,28 +373,10 @@ function renderTable(s) {
   $('score-table').innerHTML = h;
 }
 
-function renderTools(s) {
-  let h = '';
-  if (s.mode === 'local') {
-    h += `<div class="status"><span class="dot ${s.daemon.auto_review ? 'on' : ''}"></span>auto-review</div>
-          <button class="quiet" onclick="post('/api/scan')">立即扫描</button>`;
-    if (!s.daemon.auto_review)
-      h += `<button class="quiet" onclick="post('/api/daemon-start')">启动 auto-review</button>`;
-  } else {
-    h += `<div class="status"><span class="dot on"></span>远程模式 · 经 GitHub 与 Dell 同步</div>
-          <button class="quiet" onclick="post('/api/sync')">立即同步</button>`;
-    if (s.pull_err)
-      h += `<div class="status" style="color:var(--akane)">同步异常：${esc(s.pull_err)}</div>`;
-  }
-  h += `<button class="quiet" onclick="post('/api/new-day',{when:'tomorrow'})">备好明天</button>`;
-  $('tools').innerHTML = h;
-}
-
 function render(s) {
   MODE = s.mode;
   $('days-left').textContent = s.days_left;
-  renderToday(s); renderRedo(s); renderHeatmap(s); renderTable(s); renderTools(s);
-  $('log').innerHTML = (s.log_tail || []).map(l => `<div class="logline">${esc(l)}</div>`).join('');
+  renderToday(s); renderRedo(s); renderHeatmap(s); renderTable(s);
 }
 
 async function refresh() {
