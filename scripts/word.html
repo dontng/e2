@@ -58,6 +58,9 @@ button.quiet:hover { background: none; border-color: var(--sub); color: var(--in
 .hint { margin-left: auto; font-size: 12.5px; color: var(--sub); }
 .done { text-align: center; padding: 60px 0; color: var(--sub); font-size: 15px; line-height: 2.2; }
 .done b { color: var(--moss); }
+.navlink { display: inline-block; margin-top: 7px; font-size: 12px; letter-spacing: .18em;
+  color: var(--moss); text-decoration: none; border-bottom: 1px solid var(--line); }
+.navlink:hover { border-color: var(--moss); }
 footer { margin-top: 50px; text-align: center; font-size: 11px;
   color: #c4bcab; letter-spacing: .35em; }
 </style>
@@ -65,7 +68,8 @@ footer { margin-top: 50px; text-align: center; font-size: 11px;
 <body>
 <div class="wrap">
   <header>
-    <div><div class="kicker">SIGHT · TRANSLATE</div><h1>单词</h1></div>
+    <div><div class="kicker">SIGHT · TRANSLATE</div><h1>单词</h1>
+      <a class="navlink" href="http://127.0.0.1:8787">句子 ↗</a></div>
     <div class="count" id="count">—</div>
   </header>
 
