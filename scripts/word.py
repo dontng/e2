@@ -24,7 +24,7 @@ PORT = int(sys.argv[2]) if len(sys.argv) > 2 else 8788
 PAGE = SCRIPTS / 'word.html'
 STATE = REPO / 'data' / 'vocab.json'
 
-SCREEN = 8                                  # 一屏几个词
+SCREEN = 10                                 # 一屏几个词
 INTERVALS = [1, 2, 4, 7, 12, 20, 30, 45, 60]   # 第 n 次读过后，隔几天再现
 
 

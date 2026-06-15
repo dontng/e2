@@ -24,13 +24,19 @@ def _vocab_section(text: str) -> str:
 
 
 def _gloss(card: str) -> str:
-    """取核心意象首句作词义，去 markdown、截到第一个句读、限长。"""
+    """取核心意象作词义：跳过"……这里是"之类的铺垫直取义项，截到第一个句读，
+    仅对过长者收尾省略（不强行精简短义）。"""
     m = _IMAGE.search(card)
     if not m:
         return ''
     s = _BOLD.sub(r'\1', m.group(1)).strip().strip('"“”')
-    s = re.split(r'[。；—\n]', s, 1)[0].strip().strip('"“”')
-    return s[:38] + '…' if len(s) > 40 else s
+    for mark in ('这里是', '这里指', '这里取', '这里强调'):
+        i = s.find(mark)
+        if i != -1:
+            s = s[i + len(mark):]
+            break
+    s = re.split(r'[。；—\n]', s, 1)[0].strip().strip('，,"“” ')
+    return s[:44] + '…' if len(s) > 46 else s
 
 
 def collect_vocab(repo: Path) -> list:
