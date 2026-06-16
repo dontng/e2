@@ -83,7 +83,7 @@ poll_sleep() {
             log "Wake signal — scanning immediately"
             return 0
         fi
-        sleep "$(( remaining < step ? remaining : step ))" 9<&-
+        sleep "$(( remaining < step ? remaining : step ))"
         remaining=$(( remaining - step ))
     done
     return 0
@@ -487,8 +487,28 @@ try_push() {
 }
 
 main() {
-    exec 9>"$REPO_DIR/.auto-review.lock"
-    flock -n 9 || { log "Another instance already running — exiting."; exit 0; }
+    # Single-instance lock — re-exec under flock(1) with --close (-o).
+    #
+    # The old design (exec 9>LOCK; flock -n 9) held the lock on fd 9 *inside*
+    # this shell, and bash leaks fd 9 into every child it spawns. A long-running
+    # child that outlives us — typically an orphaned `claude -p` run — then keeps
+    # the advisory lock held forever. The poller process is gone (pgrep finds
+    # nothing), yet every future start sees "Another instance already running"
+    # because the orphan still owns the fd. The scattered `sleep … 9<&-` hacks
+    # were spot-fixes for exactly this leak, only ever applied to the sleeps.
+    #
+    # flock -o closes the lock fd *before* exec'ing the command, so neither this
+    # script nor any of its descendants (claude/git/python) ever inherit it. The
+    # lock lives solely in the flock(1) parent, which dies with the daemon and
+    # releases it — the orphan-holds-lock class of bug is gone. -E 142 gives a
+    # distinct exit code so a lock conflict is told apart from a daemon crash.
+    if [[ -z "${_AR_FLOCKED:-}" ]]; then
+        local rc=0
+        # || rc=$? keeps set -e from aborting on flock's nonzero (conflict) exit.
+        _AR_FLOCKED=1 flock -n -o -E 142 "$REPO_DIR/.auto-review.lock" "$0" "$@" || rc=$?
+        (( rc == 142 )) && { log "Another instance already running — exiting."; exit 0; }
+        exit "$rc"
+    fi
 
     trim_log "$LOG_FILE"
 
@@ -605,7 +625,7 @@ main() {
 
                     if $rate_limited; then
                         log "Rate limit — backing off 1 hour"
-                        sleep 3600 9<&-
+                        sleep 3600
                         continue
                     fi
                 fi
@@ -667,7 +687,7 @@ main() {
                         fi
                         if $rate_limited; then
                             log "Rate limit on redo — backing off 1 hour"
-                            sleep 3600 9<&-
+                            sleep 3600
                             continue
                         fi
                     fi
@@ -715,7 +735,7 @@ main() {
 
                         if $rate_limited; then
                             log "Rate limit on fool — backing off 1 hour"
-                            sleep 3600 9<&-
+                            sleep 3600
                             continue
                         fi
                     fi
