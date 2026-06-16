@@ -137,6 +137,22 @@ def heatmap_cells(entries: dict, today: datetime.date) -> dict:
     return cells
 
 
+def read_doc(kind: str) -> str:
+    """读取今天的 fool / probe markdown 原文，供右栏内联展示。文件不在返回空串。"""
+    today = datetime.date.today()
+    f = find_day_file(today.strftime('%m%d'))
+    if not f or kind not in ('fool', 'probe'):
+        return ''
+    doc = REPO / kind / f.parent.name / f'{f.name[:-3]}-{kind}.md'
+    if not doc.exists():
+        return ''
+    # 剥掉顶部导航行（« 上一篇 / 下一篇 »）和 source 行，右栏只看正文
+    lines = doc.read_text(encoding='utf-8').splitlines()
+    body = [l for l in lines
+            if not l.startswith('«') and not l.startswith('source:')]
+    return '\n'.join(body).strip()
+
+
 def get_state() -> dict:
     mode = 'local' if local_daemon() else 'remote'
     pull_err = pull() if mode == 'remote' else ''
@@ -162,8 +178,8 @@ def get_state() -> dict:
             'day': int(re.search(r'-day(\d+)\.md$', f.name).group(1)),
             'rel': rel,
             'gh': GH + rel if GH else '',
-            'gh_fool': GH + fool_rel if GH and (REPO / fool_rel).exists() else '',
-            'gh_probe': GH + probe_rel if GH and (REPO / probe_rel).exists() else '',
+            'has_fool': (REPO / fool_rel).exists(),
+            'has_probe': (REPO / probe_rel).exists(),
             'sentence': review.section(text, '原句'),
             'translation': review.section(text, '我的理解和翻译'),
             'correction': review.section(text, '批改'),
@@ -290,6 +306,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/api/state':
             return self._json(get_state())
+        if self.path in ('/api/fool', '/api/probe'):
+            return self._json({'md': read_doc(self.path.rsplit('/', 1)[1])})
         if self.path in ('/', '/index.html'):
             body = PAGE.read_bytes()
             self.send_response(200)

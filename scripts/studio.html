@@ -138,6 +138,14 @@ td.num { font-family: Georgia, serif; }
 .ghlink { font-size: 12px; color: var(--sub); text-decoration: none; letter-spacing: .15em;
           border-bottom: 1px solid var(--line); }
 .ghlink:hover { color: var(--ai); border-color: var(--ai); }
+button.doc-btn { background: none; border: none; border-bottom: 1px solid var(--line);
+                 padding: 0; cursor: pointer; font: inherit; font-size: 12px; }
+.doc-panel:not(:empty) { margin-top: 16px; padding: 16px 18px; border: 1px solid var(--line);
+                         border-radius: 4px; background: rgba(0,0,0,.012);
+                         max-height: 70vh; overflow-y: auto; }
+.doc-panel h3 { font-size: 15px; margin: 18px 0 8px; }
+.doc-panel h4 { font-size: 13.5px; color: var(--sub); margin: 14px 0 6px; letter-spacing: .04em; }
+.doc-panel hr { border: none; border-top: 1px solid var(--line); margin: 16px 0; }
 .navlink { display: inline-block; margin-top: 7px; font-size: 12px; letter-spacing: .18em;
            color: var(--ai); text-decoration: none; border-bottom: 1px solid var(--line); }
 .navlink:hover { border-color: var(--ai); }
@@ -182,12 +190,30 @@ function md(src) {
   h = h.replace(/```([\s\S]*?)```/g, (_, c) => '<pre>' + c.trim() + '</pre>');
   h = h.replace(/`([^`\n]+)`/g, '<code>$1</code>');
   h = h.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+  h = h.replace(/^#{2,} (.*)$/gm, '<h4>$1</h4>');
+  h = h.replace(/^# (.*)$/gm, '<h3>$1</h3>');
+  h = h.replace(/^---+$/gm, '<hr>');
   h = h.replace(/^&gt; ?(.*)$/gm, '<blockquote>$1</blockquote>');
   h = h.replace(/^[-•] (.*)$/gm, '<li>$1</li>');
   h = h.replace(/(<li>[\s\S]*?<\/li>)(?=\n(?!<li>)|$)/g, '<ul>$1</ul>');
   return h.split(/\n{2,}/).map(p =>
-    /^<(pre|blockquote|ul)/.test(p.trim()) ? p : '<p>' + p.replace(/\n/g, '<br>') + '</p>'
+    /^<(pre|blockquote|ul|h3|h4|hr)/.test(p.trim()) ? p : '<p>' + p.replace(/\n/g, '<br>') + '</p>'
   ).join('');
+}
+
+function toggleDoc(kind) {
+  const p = $('doc-panel');
+  if (!p) return;
+  if (p.dataset.kind === kind) {          // 再点一次同一个 → 收起
+    p.innerHTML = ''; p.dataset.kind = '';
+    return;
+  }
+  p.dataset.kind = kind;
+  p.innerHTML = '<span class="hint">载入中…</span>';
+  fetch('/api/' + kind).then(r => r.json()).then(d => {
+    if (p.dataset.kind !== kind) return;  // 期间已切换/收起
+    p.innerHTML = d.md ? md(d.md) : '<span class="hint">还没有内容</span>';
+  });
 }
 
 function toast(msg) {
@@ -245,8 +271,8 @@ function renderToday(s) {
   let body = '';
   const links = [
     t.gh ? `<a class="ghlink" href="${t.gh}" target="_blank">SRC</a>` : '',
-    t.gh_fool ? `<a class="ghlink" href="${t.gh_fool}" target="_blank">FOOL</a>` : '',
-    t.gh_probe ? `<a class="ghlink" href="${t.gh_probe}" target="_blank">PROBE</a>` : '',
+    t.has_fool ? `<button class="ghlink doc-btn" onclick="toggleDoc('fool')">FOOL</button>` : '',
+    t.has_probe ? `<button class="ghlink doc-btn" onclick="toggleDoc('probe')">PROBE</button>` : '',
   ].filter(Boolean).join('　');
 
   if (!t.sentence) {
@@ -266,7 +292,8 @@ function renderToday(s) {
          + `<div class="mine"><label>我的翻译</label>${esc(t.translation)}</div>`
          + scoreBig(t.score)
          + `<div class="md">${md(t.correction)}</div>`
-         + (links ? `<div class="row" style="justify-content:flex-start">${links}</div>` : '');
+         + (links ? `<div class="row" style="justify-content:flex-start">${links}</div>` : '')
+         + `<div id="doc-panel" class="md doc-panel"></div>`;
   }
   el.innerHTML = title + body;
 }
