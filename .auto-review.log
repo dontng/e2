@@ -287,3 +287,12 @@ To github.com:dontng/english2-daily.git
 [2026-06-17 01:09:41] Nav fool: 0617-day56
 [2026-06-17 01:09:41] Console: evicted fool 0613-day53
 [2026-06-17 01:09:41] Console fool: 0617-day56  window=[0615-day54 0616-day55 0617-day56]
+[2026-06-17 01:09:41] Committed: 0616-day55-fool,0617-day56-fool
+[2026-06-17 01:09:42] Push gate clear [解锁后检验] — corrections and fool verified complete
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+To github.com:dontng/english2-daily.git
+   3225dc1..ff5afd9  main -> main
+[2026-06-17 01:09:53] Pushed
+[2026-06-17 01:20:40] No uncorrected files found. Polling every 600s.
+[2026-06-17 07:23:31] Online — idle 6h, still polling.
