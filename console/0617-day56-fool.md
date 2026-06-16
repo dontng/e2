@@ -2,7 +2,7 @@
 
 # Day 56 Fool Sessions · 2026-06-17
 
-source: [src/june/0617-day56.md](../../src/june/0617-day56.md)
+source: [fool/june/0617-day56-fool.md](../fool/june/0617-day56-fool.md)
 
 ---
 
@@ -491,6 +491,7 @@ the very things 作主语，关系从句 that ... dampen our moods 限定，谓�
 那些在当下让我们情绪低落的事。
 
 ---
+
 
 
 « [0616-day55](0616-day55-fool.md)
