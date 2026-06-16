@@ -35,8 +35,12 @@ FOOL_FILE="$FOOL_DIR/${MMDD}-day${DAY_NUM}-fool.md"
 
 mkdir -p "$DIR" "$FOOL_DIR"
 
-if [ -f "$FILE" ]; then
-  echo "Already exists: $FILE"
+# 当天去重：按日期(MMDD)判断，而非完整文件名。
+# DAY_NUM 取“现有最大 day + 1”会自增，若仍用 $FILE 判重，
+# 同一天第二次运行会换一个 day 号绕过检查，造成同日期双 day（见 0612 事故）。
+EXISTING=$(find "$DIR" -name "${MMDD}-day*.md" 2>/dev/null | head -1)
+if [ -n "$EXISTING" ]; then
+  echo "Already exists for ${MMDD}: $EXISTING"
   exit 1
 fi
 

@@ -1,8 +1,8 @@
-« [0615-day55](0615-day55-probe.md)
+« [0615-day54](0615-day54-probe.md)
 
-# day56 Probe
+# day55 Probe
 
-source: [src/june/0616-day56.md](../../src/june/0616-day56.md)
+source: [src/june/0616-day55.md](../../src/june/0616-day55.md)
 
 ---
 
@@ -34,4 +34,4 @@ source: [src/june/0616-day56.md](../../src/june/0616-day56.md)
 
 
 
-« [0615-day55](0615-day55-probe.md)
+« [0615-day54](0615-day54-probe.md)

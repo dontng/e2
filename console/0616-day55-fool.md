@@ -1,8 +1,8 @@
-« [0615-day55](0615-day55-fool.md)
+« [0615-day54](0615-day54-fool.md)
 
-# Day 56 Fool Sessions · 2026-06-16
+# Day 55 Fool Sessions · 2026-06-16
 
-source: [src/june/0616-day56.md](../../src/june/0616-day56.md)
+source: [fool/june/0616-day55-fool.md](../fool/june/0616-day55-fool.md)
 
 ---
 
@@ -478,4 +478,4 @@ so well-orchestrated that... 是 so...that 结果状语从句，从句主干 eac
 
 
 
-« [0615-day55](0615-day55-fool.md)
+« [0615-day54](0615-day54-fool.md)

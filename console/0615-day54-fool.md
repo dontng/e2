@@ -1,8 +1,8 @@
-« [0613-day54](0613-day54-fool.md)　　[0616-day56](0616-day56-fool.md) »
+« [0613-day53](0613-day53-fool.md)　　[0616-day55](0616-day55-fool.md) »
 
-# Day 55 Fool Sessions · 2026-06-15
+# Day 54 Fool Sessions · 2026-06-15
 
-source: [fool/june/0615-day55-fool.md](../fool/june/0615-day55-fool.md)
+source: [fool/june/0615-day54-fool.md](../fool/june/0615-day54-fool.md)
 
 ---
 
@@ -330,4 +330,4 @@ source: [fool/june/0615-day55-fool.md](../fool/june/0615-day55-fool.md)
 
 
 
-« [0613-day54](0613-day54-fool.md)　　[0616-day56](0616-day56-fool.md) »
+« [0613-day53](0613-day53-fool.md)　　[0616-day55](0616-day55-fool.md) »

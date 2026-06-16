@@ -1,8 +1,8 @@
-« [0612-day53](../fool/june/0612-day53-fool.md)　　[0615-day55](0615-day55-fool.md) »
+« [0612-day52](0612-day52-fool.md)　　[0615-day54](0615-day54-fool.md) »
 
-# Day 54 Fool Sessions · 2026-06-13
+# Day 53 Fool Sessions · 2026-06-13
 
-source: [fool/june/0613-day54-fool.md](../fool/june/0613-day54-fool.md)
+source: [src/june/0613-day53.md](../../src/june/0613-day53.md)
 
 ---
 
@@ -331,5 +331,4 @@ not only with A...but also with B 是完整的并列扩展结构；A 组是四�
 ---
 
 
-
-« [0612-day53](../fool/june/0612-day53-fool.md)　　[0615-day55](0615-day55-fool.md) »
+« [0612-day52](0612-day52-fool.md)　　[0615-day54](0615-day54-fool.md) »
