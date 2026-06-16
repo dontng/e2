@@ -90,6 +90,8 @@ button:disabled { opacity: .4; pointer-events: none; }
                  font-family: Georgia, serif; margin: .6em 0; }
 .md ul { padding-left: 1.3em; margin: .5em 0; }
 .md b { color: #2c2a25; }
+.score-detail ul { margin: .3em 0; }
+.score-detail li { margin: .6em 0; }
 
 .scorebig { display: flex; align-items: baseline; gap: 8px; margin-top: 18px;
             font-family: Georgia, serif; }
@@ -140,15 +142,32 @@ td.num { font-family: Georgia, serif; }
 .ghlink:hover { color: var(--ai); border-color: var(--ai); }
 button.doc-btn { background: none; border: none; border-bottom: 1px solid var(--line);
                  padding: 0; cursor: pointer; font: inherit; font-size: 12px; }
-.doc-panel:not(:empty) { margin-top: 16px; padding: 16px 18px; border: 1px solid var(--line);
-                         border-radius: 4px; background: rgba(0,0,0,.012);
-                         max-height: 70vh; overflow-y: auto; }
-.doc-panel h3 { font-size: 15px; margin: 18px 0 8px; }
-.doc-panel h4 { font-size: 13.5px; color: var(--sub); margin: 14px 0 6px; letter-spacing: .04em; }
-.doc-panel hr { border: none; border-top: 1px solid var(--line); margin: 16px 0; }
+#sec-doc .stitle button.doc-btn { margin-left: auto; }
+.md h3 { font-size: 15px; margin: 20px 0 8px; }
+.md h4 { font-size: 13.5px; color: var(--sub); margin: 15px 0 6px; letter-spacing: .04em; }
+.md hr { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 .navlink { display: inline-block; margin-top: 7px; font-size: 12px; letter-spacing: .18em;
            color: var(--ai); text-decoration: none; border-bottom: 1px solid var(--line); }
 .navlink:hover { border-color: var(--ai); }
+
+/* 翻日导航：右栏顶部一左一右的手绘大箭头，sticky 悬浮、滚动时浮在正文之上不被遮 */
+#day-nav { position: sticky; top: 4px; z-index: 30; display: flex;
+           justify-content: space-between; align-items: center;
+           height: 50px; margin: -6px -10px 2px; pointer-events: none; }
+#day-nav[hidden] { display: none; }
+.dayarrow { pointer-events: auto; width: 54px; height: 54px; padding: 0; border: none;
+            cursor: pointer; color: var(--sub); display: grid; place-items: center;
+            border-radius: 50%; background: radial-gradient(circle,
+              rgba(246,243,236,.94) 58%, rgba(246,243,236,0) 74%);
+            transition: transform .15s cubic-bezier(.34,1.56,.64,1), color .2s, opacity .15s; }
+.dayarrow svg { width: 48px; height: 48px; display: block; overflow: visible;
+                filter: url(#sketch); transition: transform .15s ease; }
+.dayarrow:hover { color: var(--akane); }
+.dayarrow.left:hover svg  { transform: translateX(-3px) scale(1.05); }
+.dayarrow.right:hover svg { transform: translateX(3px) scale(1.05); }
+.dayarrow.press { transform: scale(.72) translateY(3px); opacity: .5;
+                  color: var(--akane); transition-duration: .08s; }
+.dayarrow.gone { visibility: hidden; pointer-events: none; }
 footer { margin-top: 80px; text-align: center; font-size: 11px;
          color: #c4bcab; letter-spacing: .4em; }
 </style>
@@ -171,12 +190,22 @@ footer { margin-top: 80px; text-align: center; font-size: 11px;
   </aside>
 
   <main>
+    <div id="day-nav" hidden></div>
     <section id="sec-today"></section>
     <section id="sec-redo"></section>
+    <section id="sec-doc" hidden></section>
     <footer>静水流深 · 不积跬步无以至千里</footer>
   </main>
 </div>
 <div id="toast"></div>
+
+<!-- 手绘抖动滤镜：把规整的箭头描边扰成铅笔手绘的味道 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="sketch">
+    <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</defs></svg>
 
 <script>
 let prev = '';
@@ -201,20 +230,116 @@ function md(src) {
   ).join('');
 }
 
-function toggleDoc(kind) {
-  const p = $('doc-panel');
-  if (!p) return;
-  if (p.dataset.kind === kind) {          // 再点一次同一个 → 收起
-    p.innerHTML = ''; p.dataset.kind = '';
-    return;
-  }
-  p.dataset.kind = kind;
-  p.innerHTML = '<span class="hint">载入中…</span>';
-  fetch('/api/' + kind).then(r => r.json()).then(d => {
-    if (p.dataset.kind !== kind) return;  // 期间已切换/收起
-    p.innerHTML = d.md ? md(d.md) : '<span class="hint">还没有内容</span>';
+let docView = null;     // null=日卡视图 | 'fool' | 'probe'
+let docStem = '';       // 当前 doc 所属的天（返回时回到这天）
+let curDay  = null;     // null=今日(可编辑) | stem=正在翻阅的历史某天(只读)
+let lastState = null;   // 最近一次 /api/state
+let TODAY_STEM = '';    // 今天的 stem
+
+// 把右栏三段的显隐切到某种视图
+function showOnly(which) {   // 'day' | 'doc'
+  $('sec-doc').hidden   = which !== 'doc';
+  $('sec-today').hidden = which === 'doc';
+  $('sec-redo').hidden  = which === 'doc';
+}
+
+// —— 手绘翻日箭头 ——
+const ARROW = {
+  left:  '<path d="M40 16 C 30 26,22 31,17 36 C 22 41,30 46,40 56"/><path d="M18 36 C 32 35,46 36,57 35.5"/>',
+  right: '<path d="M32 16 C 42 26,50 31,55 36 C 50 41,42 46,32 56"/><path d="M54 36 C 40 35,26 36,15 35.5"/>',
+};
+function arrowBtn(dir, stem) {
+  return `<button class="dayarrow ${dir} ${stem ? '' : 'gone'}" aria-label="${dir === 'left' ? '前一天' : '后一天'}"`
+       + ` onclick="navDay('${stem}', this)"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor"`
+       + ` stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">${ARROW[dir]}</svg></button>`;
+}
+// 顶部一左一右；缺的一侧隐藏但保留位置，另一侧仍贴边。doc 视图里整条不显示。
+function renderDayNav(prevStem, nextStem) {
+  const el = $('day-nav');
+  if (docView) { el.hidden = true; return; }
+  el.hidden = false;
+  el.innerHTML = arrowBtn('left', prevStem || '') + arrowBtn('right', nextStem || '');
+}
+
+function navDay(stem, btn) {
+  if (!stem) return;
+  btn.classList.add('press');                  // 下沉反馈
+  setTimeout(() => { btn.classList.remove('press'); gotoDay(stem); }, 160);
+}
+// 切到某天：今天→回到可编辑今日卡；其它→拉取只读历史卡。
+function gotoDay(stem) {
+  docView = null;
+  if (!stem || stem === TODAY_STEM) { curDay = null; if (lastState) render(lastState); return; }
+  curDay = stem;
+  fetch('/api/day?d=' + encodeURIComponent(stem)).then(r => r.json()).then(d => {
+    if (curDay !== stem || docView) return;     // 期间又切走了
+    renderDayView(d);
   });
 }
+
+// fool/probe/SRC 入口（今日卡与历史卡共用）
+function docLinks(t) {
+  return [
+    t.gh ? `<a class="ghlink" href="${t.gh}" target="_blank">SRC</a>` : '',
+    t.has_fool ? `<button class="ghlink doc-btn" onclick="showDoc('fool','${t.stem}')">FOOL</button>` : '',
+    t.has_probe ? `<button class="ghlink doc-btn" onclick="showDoc('probe','${t.stem}')">PROBE</button>` : '',
+  ].filter(Boolean).join('　');
+}
+
+// 只读渲染历史某天整张卡（原句/我的翻译/评分/批改 + 入口）+ 该天复习块。
+function renderDayView(d) {
+  showOnly('day');
+  renderDayNav(d.prev, d.next);
+  const el = $('sec-today');
+  if (!d.exists) { el.innerHTML = '<div class="hint">没有这一天</div>'; $('sec-redo').innerHTML = ''; return; }
+  const title = `<div class="stitle"><h2>${d.is_today ? '今日' : '回顾'}</h2>`
+              + `<small>day ${d.day} · ${d.mmdd.slice(0,2)}/${d.mmdd.slice(2)}</small></div>`;
+  let body = `<div class="en">${esc((d.sentence || '').replace(/^>\s?/gm, ''))}</div>`;
+  if (d.translation) body += `<div class="mine"><label>我的翻译</label>${esc(d.translation)}</div>`;
+  if (d.correction) body += scoreBig(d.score) + refBox(d.correction);
+  else body += '<div class="hint" style="margin-top:14px">这天还没有批改</div>';
+  const links = docLinks(d);
+  if (links) body += `<div class="row" style="justify-content:flex-start">${links}</div>`;
+  el.innerHTML = title + body;
+  renderRedoView(d.redo_blocks || []);
+}
+
+// 历史天的复习块：只读
+function renderRedoView(blocks) {
+  const el = $('sec-redo');
+  if (!blocks.length) { el.innerHTML = ''; return; }
+  let h = `<div class="stitle"><h2>复习</h2><small>当日盲译重做</small></div>`;
+  for (const b of blocks) {
+    h += `<div class="redo-card"><div class="redo-head"><span class="tag">day ${b.day} · ${b.date}</span>
+          ${b.feedback ? '<span class="done-mark">済</span>' : ''}</div>
+          <div class="en">${esc(b.sentence.replace(/^>\s?/gm, ''))}</div>`;
+    if (b.redo) h += `<div class="mine"><label>我的重译</label>${esc(b.redo)}</div>`;
+    if (b.feedback) h += `<div class="md">${md(b.feedback)}</div>`;
+    if (!b.redo && !b.feedback) h += '<div class="hint">未重译</div>';
+    h += `</div>`;
+  }
+  el.innerHTML = h;
+}
+
+// 整个右栏切到某天的 fool/probe 正文；顶部「← 返回」回到来时那天。
+function showDoc(kind, stem) {
+  docView = kind; docStem = stem || TODAY_STEM;
+  showOnly('doc');
+  renderDayNav();                       // doc 视图隐藏翻日箭头
+  const sec = $('sec-doc');
+  sec.innerHTML = docHead(kind) + '<div class="hint">载入中…</div>';
+  fetch('/api/' + kind + (stem ? '?d=' + encodeURIComponent(stem) : '')).then(r => r.json()).then(d => {
+    if (docView !== kind) return;        // 期间已返回/切换
+    sec.innerHTML = docHead(kind) + (d.md
+      ? `<div class="md">${md(d.md)}</div>`
+      : '<div class="hint">这天没有内容</div>');
+  });
+}
+function docHead(kind) {
+  return `<div class="stitle"><h2>${kind === 'fool' ? '愚者 Fool' : '探针 Probe'}</h2>`
+       + `<button class="ghlink doc-btn" onclick="backDoc()">← 返回</button></div>`;
+}
+function backDoc() { docView = null; gotoDay(docStem); }
 
 function toast(msg) {
   const t = $('toast');
@@ -250,9 +375,15 @@ function scoreBig(scoreText) {
   const m = scoreText.match(/\*\*([\d.]+)\s*\/\s*10\*\*/);
   if (!m) return '';
   const v = parseFloat(m[1]);
-  const rest = scoreText.replace(/\*\*[\d.]+\s*\/\s*10\*\*/, '').trim();
+  const rest = scoreText.replace(/\*\*[\d.]+\s*\/\s*10\*\*/, '').replace(/用户/g, '你').trim();
   return `<div class="scorebig ${v >= 6 ? 'good' : ''}"><b>${m[1]}</b><span>/ 10</span></div>`
-       + (rest ? `<div class="md">${md(rest)}</div>` : '');
+       + (rest ? `<div class="md score-detail">${md(rest)}</div>` : '');
+}
+
+// 从「## 批改」块里只取参考译文（逐条解释与采分点重复，不再展示整块批改）。
+function refBox(correction) {
+  const m = correction.match(/\*\*参考译文[：:]*\*\*[：:]*\s*(.+)/);
+  return m ? `<div class="mine ref"><label>参考译文</label>${esc(m[1].trim())}</div>` : '';
 }
 
 function renderToday(s) {
@@ -269,11 +400,7 @@ function renderToday(s) {
     return;
   }
   let body = '';
-  const links = [
-    t.gh ? `<a class="ghlink" href="${t.gh}" target="_blank">SRC</a>` : '',
-    t.has_fool ? `<button class="ghlink doc-btn" onclick="toggleDoc('fool')">FOOL</button>` : '',
-    t.has_probe ? `<button class="ghlink doc-btn" onclick="toggleDoc('probe')">PROBE</button>` : '',
-  ].filter(Boolean).join('　');
+  const links = docLinks(t);
 
   if (!t.sentence) {
     body = saveBox('sentence', '', '把田静今天的原句贴进来…');
@@ -291,9 +418,8 @@ function renderToday(s) {
     body = `<div class="en">${esc(t.sentence.replace(/^>\s?/gm, ''))}</div>`
          + `<div class="mine"><label>我的翻译</label>${esc(t.translation)}</div>`
          + scoreBig(t.score)
-         + `<div class="md">${md(t.correction)}</div>`
-         + (links ? `<div class="row" style="justify-content:flex-start">${links}</div>` : '')
-         + `<div id="doc-panel" class="md doc-panel"></div>`;
+         + refBox(t.correction)
+         + (links ? `<div class="row" style="justify-content:flex-start">${links}</div>` : '');
   }
   el.innerHTML = title + body;
 }
@@ -392,21 +518,36 @@ function renderTable(s) {
 }
 
 function render(s) {
-  MODE = s.mode;
+  MODE = s.mode; lastState = s;
+  TODAY_STEM = (s.today && s.today.stem) || '';
   $('days-left').textContent = s.days_left;
-  renderToday(s); renderRedo(s); renderHeatmap(s); renderTable(s);
+  renderHeatmap(s); renderTable(s);            // 侧栏始终跟随最新状态
+  if (docView) { showOnly('doc'); renderDayNav(); return; }   // 正在看 fool/probe，不打断
+  if (curDay)  { return; }                     // 正在翻阅历史某天，主栏交给 day_view，不覆盖
+  showOnly('day');                             // 今日可编辑视图
+  renderToday(s); renderRedo(s);
+  renderDayNav(s.today.prev, s.today.next);
 }
 
 async function refresh() {
   const r = await fetch('/api/state');
   const s = await r.json();
   const sig = JSON.stringify(s);
-  if (sig === prev) return;
+  if (sig === prev) { lastState = s; return; }
   if (document.activeElement && document.activeElement.tagName === 'TEXTAREA'
       && document.activeElement.value.trim()) return;   // 正在打字，不打断
   prev = sig;
   render(s);
 }
+
+// 键盘左右键 = 点击对应箭头（复用下沉动效）；打字、看 doc 时不响应
+document.addEventListener('keydown', e => {
+  if (docView) return;
+  const ae = document.activeElement;
+  if (ae && (ae.tagName === 'TEXTAREA' || ae.tagName === 'INPUT')) return;
+  if (e.key === 'ArrowLeft')  $('day-nav').querySelector('.dayarrow.left:not(.gone)')?.click();
+  if (e.key === 'ArrowRight') $('day-nav').querySelector('.dayarrow.right:not(.gone)')?.click();
+});
 
 refresh();
 setInterval(refresh, 8000);

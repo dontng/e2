@@ -21,6 +21,7 @@ import datetime
 import threading
 import subprocess
 from pathlib import Path
+from urllib.parse import urlparse, parse_qs
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 
 SCRIPTS = Path(__file__).resolve().parent
@@ -137,20 +138,73 @@ def heatmap_cells(entries: dict, today: datetime.date) -> dict:
     return cells
 
 
-def read_doc(kind: str) -> str:
-    """读取今天的 fool / probe markdown 原文，供右栏内联展示。文件不在返回空串。"""
-    today = datetime.date.today()
-    f = find_day_file(today.strftime('%m%d'))
-    if not f or kind not in ('fool', 'probe'):
+def read_doc(kind: str, stem: str = '') -> str:
+    """读取某天的 fool / probe markdown 正文。stem 为空则取今天；文件不在返回空串。
+    stem 形如 '0616-day56'。"""
+    if kind not in ('fool', 'probe'):
         return ''
-    doc = REPO / kind / f.parent.name / f'{f.name[:-3]}-{kind}.md'
-    if not doc.exists():
+    if stem:
+        doc = next(REPO.glob(f'{kind}/*/{stem}-{kind}.md'), None)
+    else:
+        f = find_day_file(datetime.date.today().strftime('%m%d'))
+        doc = (REPO / kind / f.parent.name / f'{f.name[:-3]}-{kind}.md') if f else None
+    if not doc or not doc.exists():
         return ''
     # 剥掉顶部导航行（« 上一篇 / 下一篇 »）和 source 行，右栏只看正文
     lines = doc.read_text(encoding='utf-8').splitlines()
     body = [l for l in lines
             if not l.startswith('«') and not l.startswith('source:')]
     return '\n'.join(body).strip()
+
+
+def all_day_stems() -> list:
+    """所有 src 天文件的 stem（形如 '0616-day56'），按文件名排序≈时间顺序。"""
+    return [f.name[:-3] for f in sorted(REPO.glob('src/*/*-day*.md'), key=lambda p: p.name)]
+
+
+def day_nav(stem: str, stems: list = None) -> tuple:
+    """在所有天文件中给出 (前一天, 后一天) 的 stem；越界为 ''。"""
+    stems = stems if stems is not None else all_day_stems()
+    if stem not in stems:
+        return '', ''
+    i = stems.index(stem)
+    return (stems[i - 1] if i > 0 else '', stems[i + 1] if i < len(stems) - 1 else '')
+
+
+def day_card(f: Path) -> dict:
+    """单个天文件 → 卡片数据（原句/翻译/批改/评分 + fool/probe 是否存在 + 复习块）。
+    get_state 的今日卡与 day_view 的历史卡共用，避免两处重复。"""
+    text = f.read_text(encoding='utf-8')
+    rel = str(f.relative_to(REPO))
+    stem = f.name[:-3]
+    fool_rel = f'fool/{f.parent.name}/{stem}-fool.md'
+    probe_rel = f'probe/{f.parent.name}/{stem}-probe.md'
+    return {
+        'exists': True,
+        'stem': stem,
+        'mmdd': stem[:4],
+        'day': int(re.search(r'-day(\d+)$', stem).group(1)),
+        'rel': rel,
+        'gh': GH + rel if GH else '',
+        'has_fool': (REPO / fool_rel).exists(),
+        'has_probe': (REPO / probe_rel).exists(),
+        'sentence': review.section(text, '原句'),
+        'translation': review.section(text, '我的理解和翻译'),
+        'correction': review.section(text, '批改'),
+        'score': review.section(text, '评分'),
+    }
+
+
+def day_view(stem: str) -> dict:
+    """供右栏翻阅任意一天：完整卡片 + 复习块 + 前后导航。只读。"""
+    f = next((p for p in sorted(REPO.glob('src/*/*-day*.md')) if p.name[:-3] == stem), None)
+    if not f:
+        return {'exists': False}
+    d = day_card(f)
+    d['is_today'] = d['mmdd'] == datetime.date.today().strftime('%m%d')
+    d['redo_blocks'] = review.parse_blocks(f.read_text(encoding='utf-8'))
+    d['prev'], d['next'] = day_nav(stem)
+    return d
 
 
 def get_state() -> dict:
@@ -165,27 +219,18 @@ def get_state() -> dict:
     entries, redos = data['entries'], data['redos']
     next_day = max(entries, default=0) + 1
 
+    stems = all_day_stems()
     t = {'exists': False, 'mmdd': mmdd, 'next_day': next_day}
     blocks = []
     if f:
-        text = f.read_text(encoding='utf-8')
-        rel = str(f.relative_to(REPO))
-        stem = f.name[:-3]
-        fool_rel = f'fool/{f.parent.name}/{stem}-fool.md'
-        probe_rel = f'probe/{f.parent.name}/{stem}-probe.md'
-        t = {
-            'exists': True, 'mmdd': mmdd, 'next_day': next_day,
-            'day': int(re.search(r'-day(\d+)\.md$', f.name).group(1)),
-            'rel': rel,
-            'gh': GH + rel if GH else '',
-            'has_fool': (REPO / fool_rel).exists(),
-            'has_probe': (REPO / probe_rel).exists(),
-            'sentence': review.section(text, '原句'),
-            'translation': review.section(text, '我的理解和翻译'),
-            'correction': review.section(text, '批改'),
-            'score': review.section(text, '评分'),
-        }
-        blocks = review.parse_blocks(text)
+        t = day_card(f)
+        t['next_day'] = next_day
+        t['prev'], t['next'] = day_nav(t['stem'], stems)
+        blocks = review.parse_blocks(f.read_text(encoding='utf-8'))
+    else:
+        # 今天还没建文件：左箭头退回到现存最新一天，仍可翻阅历史
+        t['prev'] = stems[-1] if stems else ''
+        t['next'] = ''
 
     rows = []
     for day in sorted(entries, reverse=True)[:10]:
@@ -304,11 +349,15 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        if self.path == '/api/state':
+        u = urlparse(self.path)
+        q = parse_qs(u.query)
+        if u.path == '/api/state':
             return self._json(get_state())
-        if self.path in ('/api/fool', '/api/probe'):
-            return self._json({'md': read_doc(self.path.rsplit('/', 1)[1])})
-        if self.path in ('/', '/index.html'):
+        if u.path == '/api/day':
+            return self._json(day_view(q.get('d', [''])[0]))
+        if u.path in ('/api/fool', '/api/probe'):
+            return self._json({'md': read_doc(u.path.rsplit('/', 1)[1], q.get('d', [''])[0])})
+        if u.path in ('/', '/index.html'):
             body = PAGE.read_bytes()
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
