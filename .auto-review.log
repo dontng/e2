@@ -296,3 +296,18 @@ To github.com:dontng/english2-daily.git
 [2026-06-17 01:09:53] Pushed
 [2026-06-17 01:20:40] No uncorrected files found. Polling every 600s.
 [2026-06-17 07:23:31] Online — idle 6h, still polling.
+[2026-06-17 08:45:15] ========================================
+[2026-06-17 08:45:15] Auto-review agent started
+[2026-06-17 08:45:15] Repo: /home/djology/english2-daily
+[2026-06-17 08:45:15] Poll interval: 600s
+[2026-06-17 08:45:15] ========================================
+[2026-06-17 08:45:18] No uncorrected files found. Polling every 600s.
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+Updating 877fb6a..6b4bb57
+Fast-forward
+ .auto_wish_debug.log | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100644 .auto_wish_debug.log
+[2026-06-17 09:51:04] No uncorrected files found. Polling every 600s.
+[2026-06-17 15:51:58] Online — idle 6h, still polling.
