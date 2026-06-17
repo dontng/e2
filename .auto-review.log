@@ -1,44 +1,3 @@
-[2026-06-11 02:10:44] ========================================
-[2026-06-11 02:10:44] ========================================
-[2026-06-11 02:10:44] Auto-review agent started
-[2026-06-11 02:10:44] Auto-review agent started
-[2026-06-11 02:10:44] Repo: /home/djology/english2-daily
-[2026-06-11 02:10:44] Repo: /home/djology/english2-daily
-[2026-06-11 02:10:44] Poll interval: 600s
-[2026-06-11 02:10:44] Poll interval: 600s
-[2026-06-11 02:10:44] ========================================
-[2026-06-11 02:10:44] ========================================
-[2026-06-11 02:10:48] WARNING: git pull failed — will retry next cycle
-[2026-06-11 02:10:48] WARNING: git pull failed — will retry next cycle
-From github.com:dontng/english2-daily
- * branch            main       -> FETCH_HEAD
-warning: fetch updated the current branch head.
-fast-forwarding your working tree from
-commit 7670178cafc2d9d1c41be52beeafd9739217e174.
-error: Your local changes to the following files would be overwritten by merge:
-	wishes/spell/0610.md
-Please commit your changes or stash them before you merge.
-Aborting
-fatal: Cannot fast-forward your working tree.
-After making sure that you saved anything precious from
-$ git diff 7670178cafc2d9d1c41be52beeafd9739217e174
-output, run
-$ git reset --hard
-to recover.
-[2026-06-11 02:21:54] No uncorrected files found. Polling every 600s.
-[2026-06-11 02:21:54] No uncorrected files found. Polling every 600s.
-[2026-06-11 23:58:49] ========================================
-[2026-06-11 23:58:49] ========================================
-[2026-06-11 23:58:49] Auto-review agent started
-[2026-06-11 23:58:49] Auto-review agent started
-[2026-06-11 23:58:49] Repo: /home/djology/english2-daily
-[2026-06-11 23:58:49] Repo: /home/djology/english2-daily
-[2026-06-11 23:58:49] Poll interval: 600s
-[2026-06-11 23:58:49] Poll interval: 600s
-[2026-06-11 23:58:49] ========================================
-[2026-06-11 23:58:49] ========================================
-[2026-06-11 23:58:52] Another instance already running — exiting.
-[2026-06-11 23:58:52] Another instance already running — exiting.
 [2026-06-12 02:03:53] ========================================
 [2026-06-12 02:03:53] Auto-review agent started
 [2026-06-12 02:03:53] Repo: /home/djology/english2-daily
@@ -314,3 +273,12 @@ Fast-forward
 [main 6a3ca89] log: heartbeat
  1 file changed, 15 insertions(+)
 [2026-06-17 21:52:27] Online — idle 6h, still polling.
+[main bcd7da0] log: heartbeat
+ 1 file changed, 3 insertions(+)
+[2026-06-17 22:12:50] ========================================
+[2026-06-17 22:12:50] Auto-review agent started
+[2026-06-17 22:12:50] Repo: /home/djology/english2-daily
+[2026-06-17 22:12:50] Poll interval: 600s
+[2026-06-17 22:12:50] ========================================
+[2026-06-17 22:12:54] No uncorrected files found. Polling every 600s.
+[2026-06-18 04:15:06] Online — idle 6h, still polling.
