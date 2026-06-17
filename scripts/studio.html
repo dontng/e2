@@ -165,6 +165,7 @@ button.doc-btn { background: none; border: none; border-bottom: 1px solid var(--
 .dayarrow:hover { color: var(--akane); }
 .dayarrow.left:hover svg  { transform: translateX(-4px) scale(1.06); }
 .dayarrow.right:hover svg { transform: translateX(4px) scale(1.06); }
+.dayarrow.back:hover svg  { transform: translateX(-4px) scale(1.06); }
 .dayarrow.press { transform: scale(.74) translateY(4px); opacity: .5;
                   color: var(--akane); transition-duration: .08s; }
 .dayarrow.gone { visibility: hidden; pointer-events: none; }
@@ -244,30 +245,44 @@ function showOnly(which) {   // 'day' | 'doc'
   $('sec-redo').hidden  = which === 'doc';
 }
 
-// —— 手绘翻日箭头：箭头头 + 双横杠箭身（⇐ / ⇒），过 #sketch 滤镜抖成手绘味 ——
+// —— 手绘图标：翻日双横杠箭头（⇐ / ⇒）+ 返回钩形箭头（↩），都过 #sketch 滤镜抖成手绘味 ——
 const ARROW = {
   left:  '<path d="M37 10 C 26 21,18 28,13 33 C 18 38,26 45,37 55"/>'
        + '<path d="M16 28 C 38 27,58 27,78 26"/><path d="M16 38 C 38 39,58 39,78 39"/>',
   right: '<path d="M51 10 C 62 21,70 28,75 33 C 70 38,62 45,51 55"/>'
        + '<path d="M72 28 C 50 27,30 27,10 26"/><path d="M72 38 C 50 39,30 39,10 39"/>',
+  back:  '<path d="M31 26 C 24 31,18 37,15 42 C 18 47,24 52,31 57"/>'
+       + '<path d="M16 42 C 40 42,63 45,66 27 C 68 16,60 11,49 12"/>',
 };
-function arrowBtn(dir, stem) {
-  return `<button class="dayarrow ${dir} ${stem ? '' : 'gone'}" aria-label="${dir === 'left' ? '前一天' : '后一天'}"`
-       + ` onclick="navDay('${stem}', this)"><svg viewBox="0 0 88 64" fill="none" stroke="currentColor"`
-       + ` stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">${ARROW[dir]}</svg></button>`;
+// 统一的手绘 svg 外壳；缺目标(stem 空/无 onclick)时隐藏但占位
+function sketchBtn(cls, label, onclick, paths, gone) {
+  return `<button class="dayarrow ${cls} ${gone ? 'gone' : ''}" aria-label="${label}" onclick="${onclick}">`
+       + `<svg viewBox="0 0 88 64" fill="none" stroke="currentColor" stroke-width="3.6"`
+       + ` stroke-linecap="round" stroke-linejoin="round">${paths}</svg></button>`;
 }
-// 顶部一左一右；缺的一侧隐藏但保留位置，另一侧仍贴边。doc 视图里整条不显示。
+function arrowBtn(dir, stem) {
+  return sketchBtn(dir, dir === 'left' ? '前一天' : '后一天', `navDay('${stem}', this)`, ARROW[dir], !stem);
+}
+function backBtn() {
+  return sketchBtn('back', '返回', 'navBack(this)', ARROW.back, false);
+}
+// 顶部悬浮导航：日卡视图=一左一右翻日箭头；doc 视图=左上角返回钩。
 function renderDayNav(prevStem, nextStem) {
   const el = $('day-nav');
-  if (docView) { el.hidden = true; return; }
   el.hidden = false;
-  el.innerHTML = arrowBtn('left', prevStem || '') + arrowBtn('right', nextStem || '');
+  el.innerHTML = docView
+    ? backBtn()
+    : arrowBtn('left', prevStem || '') + arrowBtn('right', nextStem || '');
 }
 
 function navDay(stem, btn) {
   if (!stem) return;
   btn.classList.add('press');                  // 下沉反馈
   setTimeout(() => { btn.classList.remove('press'); gotoDay(stem); }, 160);
+}
+function navBack(btn) {
+  btn.classList.add('press');                  // 下沉反馈
+  setTimeout(() => { btn.classList.remove('press'); backDoc(); }, 160);
 }
 // 切到某天：今天→回到可编辑今日卡；其它→拉取只读历史卡。
 function gotoDay(stem) {
@@ -324,11 +339,11 @@ function renderRedoView(blocks) {
   el.innerHTML = h;
 }
 
-// 整个右栏切到某天的 fool/probe 正文；顶部「← 返回」回到来时那天。
+// 整个右栏切到某天的 fool/probe 正文；左上角悬浮手绘返回钩回到来时那天。
 function showDoc(kind, stem) {
   docView = kind; docStem = stem || TODAY_STEM;
   showOnly('doc');
-  renderDayNav();                       // doc 视图隐藏翻日箭头
+  renderDayNav();                       // docView 已置位 → 渲染悬浮返回钩
   const sec = $('sec-doc');
   sec.innerHTML = docHead(kind) + '<div class="hint">载入中…</div>';
   fetch('/api/' + kind + (stem ? '?d=' + encodeURIComponent(stem) : '')).then(r => r.json()).then(d => {
@@ -339,8 +354,7 @@ function showDoc(kind, stem) {
   });
 }
 function docHead(kind) {
-  return `<div class="stitle"><h2>${kind === 'fool' ? '愚者 Fool' : '探针 Probe'}</h2>`
-       + `<button class="ghlink doc-btn" onclick="backDoc()">← 返回</button></div>`;
+  return `<div class="stitle"><h2>${kind === 'fool' ? '愚者 Fool' : '探针 Probe'}</h2></div>`;
 }
 function backDoc() { docView = null; gotoDay(docStem); }
 
