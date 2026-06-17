@@ -225,6 +225,7 @@ function md(src) {
   h = h.replace(/^&gt; ?(.*)$/gm, '<blockquote>$1</blockquote>');
   h = h.replace(/^[-•] (.*)$/gm, '<li>$1</li>');
   h = h.replace(/(<li>[\s\S]*?<\/li>)(?=\n(?!<li>)|$)/g, '<ul>$1</ul>');
+  h = h.replace(/\n*(<\/?(?:ul|li)>)\n*/g, '$1');   // 去掉列表标签周边换行，避免段落处理塞入 <br>
   return h.split(/\n{2,}/).map(p =>
     /^<(pre|blockquote|ul|h3|h4|hr)/.test(p.trim()) ? p : '<p>' + p.replace(/\n/g, '<br>') + '</p>'
   ).join('');
