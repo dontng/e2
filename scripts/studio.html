@@ -153,19 +153,19 @@ button.doc-btn { background: none; border: none; border-bottom: 1px solid var(--
 /* 翻日导航：右栏顶部一左一右的手绘大箭头，sticky 悬浮、滚动时浮在正文之上不被遮 */
 #day-nav { position: sticky; top: 4px; z-index: 30; display: flex;
            justify-content: space-between; align-items: center;
-           height: 50px; margin: -6px -10px 2px; pointer-events: none; }
+           height: 60px; margin: -8px -14px 4px; pointer-events: none; }
 #day-nav[hidden] { display: none; }
-.dayarrow { pointer-events: auto; width: 54px; height: 54px; padding: 0; border: none;
-            cursor: pointer; color: var(--sub); display: grid; place-items: center;
-            border-radius: 50%; background: radial-gradient(circle,
-              rgba(246,243,236,.94) 58%, rgba(246,243,236,0) 74%);
+.dayarrow { pointer-events: auto; width: 86px; height: 64px; padding: 0; border: none;
+            cursor: pointer; color: var(--ink); display: grid; place-items: center;
+            border-radius: 40px; background: radial-gradient(ellipse 60% 70% at center,
+              rgba(246,243,236,.96) 55%, rgba(246,243,236,0) 78%);
             transition: transform .15s cubic-bezier(.34,1.56,.64,1), color .2s, opacity .15s; }
-.dayarrow svg { width: 48px; height: 48px; display: block; overflow: visible;
+.dayarrow svg { width: 78px; height: 57px; display: block; overflow: visible;
                 filter: url(#sketch); transition: transform .15s ease; }
 .dayarrow:hover { color: var(--akane); }
-.dayarrow.left:hover svg  { transform: translateX(-3px) scale(1.05); }
-.dayarrow.right:hover svg { transform: translateX(3px) scale(1.05); }
-.dayarrow.press { transform: scale(.72) translateY(3px); opacity: .5;
+.dayarrow.left:hover svg  { transform: translateX(-4px) scale(1.06); }
+.dayarrow.right:hover svg { transform: translateX(4px) scale(1.06); }
+.dayarrow.press { transform: scale(.74) translateY(4px); opacity: .5;
                   color: var(--akane); transition-duration: .08s; }
 .dayarrow.gone { visibility: hidden; pointer-events: none; }
 footer { margin-top: 80px; text-align: center; font-size: 11px;
@@ -244,15 +244,17 @@ function showOnly(which) {   // 'day' | 'doc'
   $('sec-redo').hidden  = which === 'doc';
 }
 
-// —— 手绘翻日箭头 ——
+// —— 手绘翻日箭头：箭头头 + 双横杠箭身（⇐ / ⇒），过 #sketch 滤镜抖成手绘味 ——
 const ARROW = {
-  left:  '<path d="M40 16 C 30 26,22 31,17 36 C 22 41,30 46,40 56"/><path d="M18 36 C 32 35,46 36,57 35.5"/>',
-  right: '<path d="M32 16 C 42 26,50 31,55 36 C 50 41,42 46,32 56"/><path d="M54 36 C 40 35,26 36,15 35.5"/>',
+  left:  '<path d="M37 10 C 26 21,18 28,13 33 C 18 38,26 45,37 55"/>'
+       + '<path d="M16 28 C 38 27,58 27,78 26"/><path d="M16 38 C 38 39,58 39,78 39"/>',
+  right: '<path d="M51 10 C 62 21,70 28,75 33 C 70 38,62 45,51 55"/>'
+       + '<path d="M72 28 C 50 27,30 27,10 26"/><path d="M72 38 C 50 39,30 39,10 39"/>',
 };
 function arrowBtn(dir, stem) {
   return `<button class="dayarrow ${dir} ${stem ? '' : 'gone'}" aria-label="${dir === 'left' ? '前一天' : '后一天'}"`
-       + ` onclick="navDay('${stem}', this)"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor"`
-       + ` stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">${ARROW[dir]}</svg></button>`;
+       + ` onclick="navDay('${stem}', this)"><svg viewBox="0 0 88 64" fill="none" stroke="currentColor"`
+       + ` stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">${ARROW[dir]}</svg></button>`;
 }
 // 顶部一左一右；缺的一侧隐藏但保留位置，另一侧仍贴边。doc 视图里整条不显示。
 function renderDayNav(prevStem, nextStem) {
