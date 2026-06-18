@@ -9,3 +9,6 @@ scripts/__pycache__/
 
 # 单词复习本地状态（每机一份，不同步）
 data/vocab.json
+
+# 深色模式偏好（每机一份，不同步）
+data/theme

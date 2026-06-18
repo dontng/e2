@@ -23,8 +23,24 @@ REPO = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SCRIPTS.parent
 PORT = int(sys.argv[2]) if len(sys.argv) > 2 else 8788
 PAGE = SCRIPTS / 'word.html'
 STATE = REPO / 'data' / 'vocab.json'
+THEME = REPO / 'data' / 'theme'             # 与句子台共享的明暗偏好
 
 SCREEN = 10                                 # 一屏几个词
+
+
+def read_theme() -> str:
+    try:
+        v = THEME.read_text(encoding='utf-8').strip()
+        return v if v in ('dark', 'light') else 'auto'
+    except OSError:
+        return 'auto'
+
+
+def write_theme(v: str):
+    if v not in ('dark', 'light'):
+        return
+    THEME.parent.mkdir(parents=True, exist_ok=True)
+    THEME.write_text(v, encoding='utf-8')
 INTERVALS = [1, 2, 4, 7, 12, 20, 30, 45, 60]   # 第 n 次读过后，隔几天再现
 
 
@@ -53,7 +69,8 @@ def screen() -> dict:
     pending.sort(key=lambda w: (state.get(w['word'].lower(), {}).get('seen', 0),
                                 state.get(w['word'].lower(), {}).get('due', ''),
                                 w['day']))
-    return {'words': pending[:SCREEN], 'remaining': len(pending), 'total': len(lib)}
+    return {'words': pending[:SCREEN], 'remaining': len(pending), 'total': len(lib),
+            'theme': read_theme()}
 
 
 def mark_done(keys: list) -> dict:
@@ -96,10 +113,13 @@ class Handler(BaseHTTPRequestHandler):
         self._json({'msg': 'not found'}, 404)
 
     def do_POST(self):
-        if self.path != '/api/done':
+        if self.path not in ('/api/done', '/api/theme'):
             return self._json({'msg': 'not found'}, 404)
         length = int(self.headers.get('Content-Length') or 0)
         payload = json.loads(self.rfile.read(length) or b'{}')
+        if self.path == '/api/theme':
+            write_theme(payload.get('theme', ''))
+            return self._json({'ok': True, 'theme': read_theme()})
         self._json(mark_done(payload.get('keys', [])))
 
 

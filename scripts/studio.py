@@ -33,6 +33,23 @@ REPO = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SCRIPTS.parent
 PORT = int(sys.argv[2]) if len(sys.argv) > 2 else 8787
 WAKE = REPO / '.auto-review-wake'
 PAGE = SCRIPTS / 'studio.html'
+THEME = REPO / 'data' / 'theme'     # 'dark' / 'light'；每机本地，不入 git。两页共享
+
+
+def read_theme() -> str:
+    """返回 'dark' / 'light'；未设置返回 'auto'（前端跟随系统）。"""
+    try:
+        v = THEME.read_text(encoding='utf-8').strip()
+        return v if v in ('dark', 'light') else 'auto'
+    except OSError:
+        return 'auto'
+
+
+def write_theme(v: str):
+    if v not in ('dark', 'light'):
+        return
+    THEME.parent.mkdir(parents=True, exist_ok=True)
+    THEME.write_text(v, encoding='utf-8')
 PULL_INTERVAL = 60          # 远程模式下自动 pull 的最小间隔（秒）
 
 _git_lock = threading.Lock()
@@ -247,6 +264,7 @@ def get_state() -> dict:
 
     return {
         'mode': mode,
+        'theme': read_theme(),
         'pull_err': pull_err,
         'days_left': (exam_date() - today).days,
         'today': t,
@@ -327,12 +345,18 @@ def do_daemon_start(_: dict) -> dict:
     return {'ok': True, 'msg': 'auto-review 已启动'}
 
 
+def do_theme(payload: dict) -> dict:
+    write_theme(payload.get('theme', ''))
+    return {'ok': True, 'theme': read_theme()}
+
+
 ACTIONS = {
     '/api/save': do_save,
     '/api/new-day': do_new_day,
     '/api/scan': do_scan,
     '/api/sync': do_sync,
     '/api/daemon-start': do_daemon_start,
+    '/api/theme': do_theme,
 }
 
 
