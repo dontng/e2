@@ -2,7 +2,7 @@
 
 # Day 57 Fool Sessions · 2026-06-18
 
-source: [src/june/0618-day57.md](../../src/june/0618-day57.md)
+source: [fool/june/0618-day57-fool.md](../fool/june/0618-day57-fool.md)
 
 ---
 
@@ -523,6 +523,7 @@ message=论调、说法。that=同位语从句引子(不充当成分)。
 "孩子是世上唯一最重要的东西"这一论调。
 
 ---
+
 
 
 « [0617-day56](0617-day56-fool.md)

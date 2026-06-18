@@ -1,4 +1,4 @@
-« [0616-day55](0616-day55-fool.md)
+« [0616-day55](0616-day55-fool.md)　　[0618-day57](0618-day57-fool.md) »
 
 # Day 56 Fool Sessions · 2026-06-17
 
@@ -494,4 +494,5 @@ the very things 作主语，关系从句 that ... dampen our moods 限定，谓�
 
 
 
-« [0616-day55](0616-day55-fool.md)
+
+« [0616-day55](0616-day55-fool.md)　　[0618-day57](0618-day57-fool.md) »
