@@ -335,3 +335,29 @@ Fast-forward
 [2026-06-18 16:15:35] Nav fool: 0618-day57
 [2026-06-18 16:15:35] Console: evicted fool 0615-day54
 [2026-06-18 16:15:35] Console fool: 0618-day57  window=[0616-day55 0617-day56 0618-day57]
+[main 50dd822] 批改+愚者 0617-day56-fool,0618-day57-fool
+ 15 files changed, 671 insertions(+), 391 deletions(-)
+ delete mode 100644 console/0615-day54-fool.md
+ delete mode 100644 console/0615-day54-probe.md
+ create mode 100644 console/0618-day57-fool.md
+ create mode 100644 console/0618-day57-probe.md
+ create mode 100644 probe/june/0618-day57-probe.md
+[2026-06-18 16:15:35] Committed: 0617-day56-fool,0618-day57-fool
+[2026-06-18 16:15:37] Push gate clear [解锁后检验] — corrections and fool verified complete
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+To github.com:dontng/english2-daily.git
+   ae50b13..50dd822  main -> main
+[2026-06-18 16:15:44] Pushed
+[2026-06-18 16:25:49] No uncorrected files found. Polling every 600s.
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+   50dd822..cf387ab  main       -> origin/main
+Updating 50dd822..cf387ab
+Fast-forward
+ src/june/0618-day57.md | 1 +
+ 1 file changed, 1 insertion(+)
+[2026-06-18 17:06:08] No uncorrected files found. Polling every 600s.
+[2026-06-18 17:06:09] Grading 复习区: src/june/0618-day57.md
+已批改 day54（首译 2.5 → 重译 6.5，↑提升）。day50 重译为空，跳过。
+[2026-06-18 17:06:42] 复习区 graded: src/june/0618-day57.md
