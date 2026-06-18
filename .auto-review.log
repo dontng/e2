@@ -282,3 +282,16 @@ Fast-forward
 [2026-06-17 22:12:50] ========================================
 [2026-06-17 22:12:54] No uncorrected files found. Polling every 600s.
 [2026-06-18 04:15:06] Online — idle 6h, still polling.
+[2026-06-18 08:32:21] ========================================
+[2026-06-18 08:32:21] Auto-review agent started
+[2026-06-18 08:32:21] Repo: /home/djology/english2-daily
+[2026-06-18 08:32:21] Poll interval: 600s
+[2026-06-18 08:32:21] ========================================
+[2026-06-18 08:32:25] No uncorrected files found. Polling every 600s.
+[2026-06-18 08:45:48] ========================================
+[2026-06-18 08:45:48] Auto-review agent started
+[2026-06-18 08:45:48] Repo: /home/djology/english2-daily
+[2026-06-18 08:45:48] Poll interval: 600s
+[2026-06-18 08:45:48] ========================================
+[2026-06-18 08:45:52] No uncorrected files found. Polling every 600s.
+[2026-06-18 14:48:46] Online — idle 6h, still polling.
