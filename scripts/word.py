@@ -102,6 +102,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/api/screen':
             return self._json(screen())
+        if self.path == '/api/theme':
+            return self._json({'theme': read_theme()})
         if self.path in ('/', '/index.html'):
             body = PAGE.read_bytes()
             self.send_response(200)

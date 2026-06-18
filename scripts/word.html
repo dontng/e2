@@ -195,6 +195,18 @@ async function next() {
 }
 
 load();
+
+// 跨页主题实时同步：每 4 秒轮询后端，与句子台保持一致
+let _lastTheme = '';
+setInterval(async () => {
+  try {
+    const { theme } = await (await fetch('/api/theme')).json();
+    if (theme && theme !== 'auto' && theme !== _lastTheme) {
+      _lastTheme = theme;
+      applyTheme(theme, false);
+    }
+  } catch (e) {}
+}, 4000);
 </script>
 </body>
 </html>
