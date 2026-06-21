@@ -1,147 +1,3 @@
-[2026-06-13 02:06:43] Online — idle 6h, still polling.
-[2026-06-13 08:09:28] Online — idle 6h, still polling.
-From github.com:dontng/english2-daily
- * branch            main       -> FETCH_HEAD
-Updating a83abad..ca7ae2e
-Fast-forward
- wishes/spell/0613.md | 5 +++++
- 1 file changed, 5 insertions(+)
-[2026-06-13 10:50:46] No uncorrected files found. Polling every 600s.
-From github.com:dontng/english2-daily
- * branch            main       -> FETCH_HEAD
-Updating ca7ae2e..f82663d
-Fast-forward
- fool/june/0612-day53-fool.md |  4 ++++
- fool/june/0613-day54-fool.md |  4 ++++
- fool/june/0615-day55-fool.md |  4 ++++
- src/june/0612-day53.md       | 51 ++++++++++++++++++++++++++++++++++++++++++++
- src/june/0613-day54.md       | 51 ++++++++++++++++++++++++++++++++++++++++++++
- src/june/0615-day55.md       | 51 ++++++++++++++++++++++++++++++++++++++++++++
- 6 files changed, 165 insertions(+)
- create mode 100644 fool/june/0612-day53-fool.md
- create mode 100644 fool/june/0613-day54-fool.md
- create mode 100644 fool/june/0615-day55-fool.md
- create mode 100644 src/june/0612-day53.md
- create mode 100644 src/june/0613-day54.md
- create mode 100644 src/june/0615-day55.md
-[2026-06-13 11:31:05] Reviewing: src/june/0615-day55.md
-批改完成。主要问题：
-
-1. **"financial crisis" → 资金危机**：应为"金融危机"，后者指宏观系统性危机，前者指企业/个人资金链断裂
-2. **"has made it more acceptable to"**：最大失分点，用户完全丢失了 `make it + adj + to do` 的形式宾语结构，把 acceptable（被接受）误读成了"容易发生"
-3. **"between jobs"**：固定委婉表达，= 暂时待业，不是字面的"在有工作……之间"
-4. **"to leave a bad one"**：方向对了，但挂在错误的句子骨架里
-
-评分：**2.5 / 10**
-[2026-06-13 11:32:53] Review done: src/june/0615-day55.md
-[2026-06-13 11:32:53] Probe: probe/june/0615-day55-probe.md
-[2026-06-13 11:32:53] Nav probe: 0615-day55
-[2026-06-13 11:32:53] Console: evicted probe 0609-day49
-[2026-06-13 11:32:53] Console probe: 0615-day55  window=[0610-day50 0611-day51 0615-day55]
-[2026-06-13 11:32:53] Running fool decomposition: src/june/0615-day55.md → fool/june/0615-day55-fool.md
-完成。共拆解 **16 条**句子，写入 `fool/june/0615-day55-fool.md`，已 commit + push。
-
-条目分布：
-- fool-01：## 原句（1条）
-- fool-02~05：Vocab · acceptable（3 bullet + 1 造句）
-- fool-06~08：Vocab · between jobs（2 bullet + 1 造句）
-- fool-09~12：Vocab · financial（3 bullet + 1 造句）
-- fool-13~16：Phrases · make it + adj + to do（1 引用例句 + 3 引申用法）
-- Phrases · between jobs 无完整句子，跳过
-[2026-06-13 11:36:31] Fool done: fool/june/0615-day55-fool.md
-[2026-06-13 11:36:31] Nav fool: 0615-day55
-[2026-06-13 11:36:31] Console: evicted fool 0609-day49
-[2026-06-13 11:36:31] Console fool: 0615-day55  window=[0610-day50 0611-day51 0615-day55]
-[2026-06-13 11:36:32] Committed: 0613-day54-fool,0615-day55-fool
-[2026-06-13 11:36:33] Push pending [解锁后检验]: 2 uncorrected file(s) still remain after unlock
-[2026-06-13 11:46:36] Reviewing: src/june/0613-day54.md
-批改完成。主要问题：
-
-1. **`public` 词性**：用户把名词（公众）误读为形容词（公开的）
-2. **`compete for` 结构消失**：核心动词 compete 和介词 for 的"争夺"含义全丢，变成了"改善/完善"
-3. **`opera houses`**：漏掉 opera，house 缩为"房间"
-4. **`dance troupes`**：troupe（演出团体）完全误读为"节奏"
-5. **`recorded performances`**：方向接近但语义偏了
-
-评分 **2/10**——句子主干结构和多个关键名词均未命中。
-[2026-06-13 11:49:44] Review done: src/june/0613-day54.md
-[2026-06-13 11:49:44] Probe: probe/june/0613-day54-probe.md
-[2026-06-13 11:49:44] Nav probe: 0613-day54
-[2026-06-13 11:49:44] Console: evicted probe 0610-day50
-[2026-06-13 11:49:45] Console probe: 0613-day54  window=[0611-day51 0615-day55 0613-day54]
-[2026-06-13 11:49:45] Running fool decomposition: src/june/0613-day54.md → fool/june/0613-day54-fool.md
-完成。共拆解 16 条（fool-01 到 fool-16），已 commit + push：
-
-- **fool-01**：原句主句（完整长难句，三步都有内容）
-- **fool-02 ~ 05**：Vocab · public 四条例句／造句
-- **fool-06 ~ 08**：Vocab · troupe 两条例句＋造句
-- **fool-09 ~ 11**：Vocab · instrumentalist 两条例句＋造句
-- **fool-12 ~ 14**：Vocab · recorded 两条例句＋造句
-- **fool-15 ~ 16**：Phrases 两个句式各一条例句（均为原句截段）
-[2026-06-13 11:52:37] Fool done: fool/june/0613-day54-fool.md
-[2026-06-13 11:52:37] Nav fool: 0613-day54
-[2026-06-13 11:52:37] Console: evicted fool 0610-day50
-[2026-06-13 11:52:37] Console fool: 0613-day54  window=[0611-day51 0615-day55 0613-day54]
-[2026-06-13 11:52:37] Committed: 0612-day53-fool,0613-day54-fool
-[2026-06-13 11:52:38] Push pending [解锁后检验]: 1 uncorrected file(s) still remain after unlock
-[2026-06-13 12:02:42] Reviewing: src/june/0612-day53.md
-批改完成。主要发现：
-
-- **[2] unsustainability** 被完全漏译，这是原句的核心主题词（难以为继的状态）
-- **[3] sustainability-oriented** 误译为"可靠导向"，sustainability ≠ reliable，是"可持续性"这个专业概念
-- **[1][4]** endure 和 expressed through 方向对但力度/含义有偏差
-
-评分 **4/10**，失分主要集中在两个关键词的误译。
-[2026-06-13 12:05:10] Review done: src/june/0612-day53.md
-[2026-06-13 12:05:10] Probe: probe/june/0612-day53-probe.md
-[2026-06-13 12:05:10] Nav probe: 0612-day53
-[2026-06-13 12:05:10] Console: evicted probe 0611-day51
-[2026-06-13 12:05:10] Console probe: 0612-day53  window=[0613-day54 0615-day55 0612-day53]
-[2026-06-13 12:05:10] Running fool decomposition: src/june/0612-day53.md → fool/june/0612-day53-fool.md
-`0612-day53-fool.md` 写入完成，共 18 条（fool-01 ~ fool-18），已推送。
-
-分区结构：
-- **fool-01**：原句完整拆解（完成式动名词主语 + 形式宾语 it + that 从句因果结构）
-- **fool-02~05**：Vocab · endure（2 个碎片/例句 + 造句，重点拆 dur 词根、endure through、come through）
-- **fool-06~08**：Vocab · unsustainability（2 例句 + 造句，重点拆 period of X、em dash 插入语、catch up with）
-- **fool-09~11**：Vocab · sustainability-oriented（2 例句 + 造句，重点拆 shift to、em dash 转折对比）
-- **fool-12~14**：Phrases · Having done X made it clear that Y（原句 + 2 引申，展示句型的精简/完整两端）
-- **fool-15~17**：Phrases · must be expressed through（原句 + 2 引申，重点拆 through vs. by、rather than 对比）
-- **fool-18**：Phrases · -oriented（三个名词短语合并处理）
-[2026-06-13 12:11:37] Fool done: fool/june/0612-day53-fool.md
-[2026-06-13 12:11:37] Nav fool: 0612-day53
-[2026-06-13 12:11:37] Console: evicted fool 0611-day51
-[2026-06-13 12:11:37] Console fool: 0612-day53  window=[0613-day54 0615-day55 0612-day53]
-[2026-06-13 12:11:38] Committed: 0612-day52-fool,0612-day53-fool
-[2026-06-13 12:11:39] Push gate clear [解锁后检验] — corrections and fool verified complete
-From github.com:dontng/english2-daily
- * branch            main       -> FETCH_HEAD
-To github.com:dontng/english2-daily.git
-   e6e86b2..16f393c  main -> main
-[2026-06-13 12:11:47] Pushed
-[2026-06-13 12:21:50] No uncorrected files found. Polling every 600s.
-[2026-06-13 18:24:49] Online — idle 6h, still polling.
-[2026-06-13 23:40:08] ========================================
-[2026-06-13 23:40:08] Auto-review agent started
-[2026-06-13 23:40:08] Repo: /home/djology/english2-daily
-[2026-06-13 23:40:08] Poll interval: 600s
-[2026-06-13 23:40:08] ========================================
-[2026-06-13 23:40:12] No uncorrected files found. Polling every 600s.
-[2026-06-14 05:46:50] Online — idle 6h, still polling.
-[main 151a517] log: heartbeat
- 3 files changed, 9 insertions(+), 2 deletions(-)
-[2026-06-14 11:51:20] Online — idle 6h, still polling.
-[main 9d2be91] log: heartbeat
- 1 file changed, 3 insertions(+)
-[2026-06-14 17:57:07] Online — idle 6h, still polling.
-[main 2f819eb] log: heartbeat
- 1 file changed, 3 insertions(+)
-[2026-06-14 23:46:58] ========================================
-[2026-06-14 23:46:58] Auto-review agent started
-[2026-06-14 23:46:58] Repo: /home/djology/english2-daily
-[2026-06-14 23:46:58] Poll interval: 600s
-[2026-06-14 23:46:58] ========================================
-[2026-06-14 23:47:01] Another instance already running — exiting.
 [2026-06-16 23:06:17] ========================================
 [2026-06-16 23:06:17] Auto-review agent started
 [2026-06-16 23:06:17] Repo: /home/djology/english2-daily
@@ -313,3 +169,15 @@ To github.com:dontng/english2-daily.git
 [2026-06-19 11:35:59] Online — idle 6h, still polling.
 [2026-06-19 17:42:48] Online — idle 6h, still polling.
 [2026-06-19 23:50:02] Online — idle 6h, still polling.
+flock: failed to execute auto-review.sh: No such file or directory
+flock: failed to execute auto-review.sh: No such file or directory
+flock: failed to execute auto-review.sh: No such file or directory
+flock: failed to execute auto-review.sh: No such file or directory
+flock: failed to execute auto-review.sh: No such file or directory
+[2026-06-21 12:18:02] ========================================
+[2026-06-21 12:18:02] Auto-review agent started
+[2026-06-21 12:18:02] Repo: /home/djology/english2-daily
+[2026-06-21 12:18:02] Poll interval: 600s
+[2026-06-21 12:18:02] ========================================
+[2026-06-21 12:18:06] No uncorrected files found. Polling every 600s.
+[2026-06-21 18:22:34] Online — idle 6h, still polling.
