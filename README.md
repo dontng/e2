@@ -62,7 +62,7 @@ pkill -f auto-review.sh    # 停止
 
 | 目录 | 内容 | 说明 |
 |------|------|------|
-| `src/` | 原始句子文件 | 批改结果写回这里 |
-| `fool/` | 愚者解析 | AI 对句子的全量拆解，帮你读懂批改 |
+| `src/` | 原始句子文件 | 批改结果写回这里；质量契约见 [`src/STANDARDS.md`](src/STANDARDS.md) |
+| `fool/` | 愚者解析 | AI 对句子的全量拆解，帮你读懂批改；契约见 [`fool/STANDARDS.md`](fool/STANDARDS.md) |
 | `probe/` | 采分卡 | 原句 + 我的翻译 + 评分，留 Q&A 空间给自己追问 |
 | `console/` | 控制台 | 3 天滚动窗口，`today.md` 作入口 |
