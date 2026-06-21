@@ -1,13 +1,17 @@
 #!/bin/bash
-# auto-review.sh — Autonomous English correction agent
+# auto-review.sh — Autonomous English correction agent (Dell WSL2 daemon)
 #
-# Polls the repo for uncorrected translation files, runs Claude review, pushes results.
-# Designed to run as a persistent background process on the home Dell machine.
+# Polls repo (default 10 min), git pull, runs Cursor Agent for each pending day:
+#   批改 src → fool 拆解 → probe 内功诊断（仅田静每日一句）
+# Push only after all three are verified complete.
 #
 # Usage:
-#   ./auto-review.sh                      # default 4-hour poll
-#   POLL_INTERVAL=3600 ./auto-review.sh   # custom interval (seconds)
-#   ./auto-review.sh --once               # scan once and exit (useful for testing)
+#   ./auto-review.sh                      # default 10-minute poll
+#   POLL_INTERVAL=600 ./auto-review.sh    # explicit interval (seconds)
+#   ./auto-review.sh --once               # scan once and exit
+#
+# Requires: Cursor CLI (`agent`), CURSOR_API_KEY or `agent login`
+# Model: AGENT_MODEL (default sonnet-4.6 = Claude 4.6 Sonnet)
 
 set -euo pipefail
 
@@ -18,6 +22,11 @@ PUSH_PENDING_FILE="$REPO_DIR/.auto-review-push-pending"
 POLL_INTERVAL="${POLL_INTERVAL:-600}"    # 10 minutes
 LOG_RETAIN_DAYS="${LOG_RETAIN_DAYS:-7}"
 ONCE_MODE=false
+
+# Cursor Agent CLI — pinned model; override on Dell: AGENT_MODEL=... ./auto-review.sh
+# List account models: agent models
+AGENT_BIN="${AGENT_BIN:-agent}"
+AGENT_MODEL="${AGENT_MODEL:-sonnet-4.6}"
 
 [[ "${1:-}" == "--once" ]] && ONCE_MODE=true
 
@@ -35,6 +44,44 @@ log() {
 }
 
 tee_log() { if stdout_is_log; then cat; else tee -a "$LOG_FILE"; fi; }
+
+# shellcheck source=scripts/console.sh
+source "$REPO_DIR/scripts/console.sh"
+# shellcheck source=scripts/nav.sh
+source "$REPO_DIR/scripts/nav.sh"
+# shellcheck source=scripts/probe.sh
+source "$REPO_DIR/scripts/probe.sh"
+
+agent_rate_limited() {
+    grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$1"
+}
+
+# Run Cursor Agent headless. Return 0 success, 1 error, 2 rate limit.
+run_agent() {
+    local prompt="$1"
+    if ! command -v "$AGENT_BIN" &>/dev/null; then
+        log "ERROR: $AGENT_BIN not found — install: curl https://cursor.com/install -fsS | bash"
+        return 1
+    fi
+    local tmpout exit_code=0
+    tmpout=$(mktemp)
+    log "Agent model: $AGENT_MODEL"
+    "$AGENT_BIN" -p --force --trust --workspace "$REPO_DIR" --model "$AGENT_MODEL" \
+        "$prompt" > "$tmpout" 2>&1 || exit_code=$?
+    cat "$tmpout" | tee_log
+    if [[ $exit_code -ne 0 ]]; then
+        if agent_rate_limited "$tmpout"; then
+            log "Rate limit (exit $exit_code) — will back off"
+            rm -f "$tmpout"
+            return 2
+        fi
+        log "ERROR: agent exited $exit_code"
+        rm -f "$tmpout"
+        return 1
+    fi
+    rm -f "$tmpout"
+    return 0
+}
 
 # Drop log lines with timestamps older than LOG_RETAIN_DAYS
 trim_log() {
@@ -137,21 +184,54 @@ find_uncorrected() {
     done
 }
 
-# Find corrected source files that have a score but no probe file yet
-find_probe_missing() {
+# Find day files needing any step of the pipeline (批改 / fool / probe)
+find_pipeline_pending() {
     find "$REPO_DIR/src" -name "*-day*.md" -print0 | while IFS= read -r -d '' f; do
-        local probe_path="${f/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
-        if ! needs_review "$f" && has_score "$f" && needs_probe "$probe_path"; then
+        day_paths "$f"
+        if needs_review "$f"; then
+            echo "$f"
+        elif has_correction "$f" && needs_fool "$f" "$FOOL_PATH"; then
+            echo "$f"
+        elif has_correction "$f" && has_score "$f" && ! probe_complete "$PROBE_PATH"; then
             echo "$f"
         fi
     done
 }
 
-# Find probe files that need AI diagnosis (待诊断 or legacy Q&A layout)
+# Find corrected days whose probe is still incomplete (push gate)
+find_probe_incomplete() {
+    find "$REPO_DIR/src" -name "*-day*.md" -print0 | while IFS= read -r -d '' f; do
+        day_paths "$f"
+        if ! needs_review "$f" && has_correction "$f" && has_score "$f" && ! probe_complete "$PROBE_PATH"; then
+            echo "$f"
+        fi
+    done
+}
+
+# Find probe files that need legacy migration (Q&A / 待诊断)
 find_probe_needs_diagnose() {
     find "$REPO_DIR/src" -name "*-day*.md" -print0 | while IFS= read -r -d '' f; do
-        local probe_path="${f/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
-        if ! needs_review "$f" && has_score "$f" && needs_probe_diagnose "$probe_path"; then
+        day_paths "$f"
+        if ! needs_review "$f" && has_score "$f" && needs_probe_diagnose "$PROBE_PATH"; then
+            echo "$f"
+        fi
+    done
+}
+
+# Find files with ungraded 复习区 retranslations (main correction must already be done)
+find_redo_pending() {
+    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        if ! needs_review "$f" && needs_redo "$f"; then
+            echo "$f"
+        fi
+    done
+}
+
+# Find corrected source files whose fool is missing (push gate / catch-up)
+find_fool_missing() {
+    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+        day_paths "$f"
+        if ! needs_review "$f" && has_correction "$f" && needs_fool "$f" "$FOOL_PATH"; then
             echo "$f"
         fi
     done
@@ -163,257 +243,60 @@ needs_redo() {
     python3 "$REPO_DIR/scripts/review.py" pending "$1"
 }
 
-# Claude-call guard: remember the file hash after a failed (or yieldless) attempt
-# and skip re-invoking Claude until the file actually changes — no token burn loops.
+# Agent-call guard: skip re-invoke until file changes
 declare -A _FAILED_HASH
 guard_hit()  { [[ "${_FAILED_HASH[$1:$2]:-}" == "$(md5sum "$2" | awk '{print $1}')" ]]; }
 guard_mark() { _FAILED_HASH[$1:$2]=$(md5sum "$2" | awk '{print $1}'); }
 
-# Find files with ungraded 复习区 retranslations (main correction must already be done)
-find_redo_pending() {
-    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
-        if ! needs_review "$f" && needs_redo "$f"; then
-            echo "$f"
-        fi
-    done
+day_pipeline_verified() {
+    local f="$1"
+    day_paths "$f"
+    has_correction "$f" && has_score "$f" \
+        && ! needs_fool "$f" "$FOOL_PATH" \
+        && probe_complete "$PROBE_PATH"
 }
 
-# Find corrected source files whose fool is missing or stale
-find_fool_missing() {
-    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
-        local fool_path="${f/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
-        if ! needs_review "$f" && has_correction "$f" && needs_fool "$f" "$fool_path"; then
-            echo "$f"
-        fi
-    done
-}
+# shellcheck source=scripts/day-pipeline-prompt.sh
+source "$REPO_DIR/scripts/day-pipeline-prompt.sh"
 
-# Return 0 on success, 1 on general error, 2 on rate limit
-review_file() {
+# Unified 批改 → fool → probe. Return 0 success, 1 error, 2 rate limit.
+process_day_file() {
     local file="$1"
-    local rel="${file#$REPO_DIR/}"
-    log "Reviewing: $rel"
-
-    local tmpout exit_code=0
-    tmpout=$(mktemp)
-
-    claude -p "你是这个英语学习项目的批改老师。请批改并完善以下markdown文件。
-
-**标尺全文（生成前须 Read，与下文冲突以标尺为准）：$REPO_DIR/src/STANDARDS.md**
-
-【项目立意 — 所有产出必须服务于此】
-学员备考考研英语二（四战），卷面目标从约39分提升到65分以上。
-每日一句翻译是探针：根据译文暴露的理解缺口，生成个性化学习任务（Vocab / Phrases），
-例句提供英二难度的阅读训练素材；学员把「查字典」的过程前移到批改解析。
-产出优先：过程纠错、考纲搭配、可迁移的读句能力 > 百科式堆砌。
-
-【学员档位 — 固定标尺，不引用仓库内任何历史文件】
-首译稳定约 3.5–4.5/10（英二卷面约 35–45 分档）。读句高频卡点：多义词、介词方向、主干找错、语义极性搞反、长句读半截。
-所有讲解深度按此档位写，不随当天分数浮动，不参照某篇旧批改。
-
-文件路径：$file
-
-**约束：只允许编辑 $file 这一个文件，不得读取或修改任何其他 source 文件。**
-
-【批改语气】耐心、具体；每条 [n] 说清「读句哪一步断了」；参考译文流畅书面。
-
----
-任务说明：
-
-1. 读取「## 原句」和「## 我的理解和翻译」
-
-2. 填写「## 批改」：
-   - 代码块包裹用户译文，误处标 [1] [2] [3]...（标在词组后面）
-   - 逐条解释：聚焦「读句时哪一步断了、为什么这个理解是错的」，不只给答案
-   - 末尾 **参考译文：**（流畅自然的中文）
-
-3. 填写「## 评分」：
-   - 按英二翻译阅卷标准，从原句提取 4-5 个采分点（重要词汇、关键结构、特殊表达）
-   - 对照用户译文：✓ 完全命中 / △ 部分命中 / ✗ 未命中
-   - △ 或 ✗ 写：用户写了什么 → 差在哪
-   - 计分：✓=1，△=0.5，✗=0；总分=得分/总点数×10，步幅0.5，不取整
-   - 格式：
-   \`\`\`
-   **X / 10**
-
-   采分点（N点）：
-   - ✓/△/✗ [采分点] → [若△或✗：用户译文 · 差距一句话]
-   \`\`\`
-
-4. 填写「## Vocab」：
-   - 收录：本次译文暴露的**所有**需讲解词/搭配（译错、译漏、译偏优先）；不凑数，不遗漏关键错词
-   - 每个需讲解词条配 **3 条例句**（不从原句截取）；用心造句，句长/从句层数贴近原句（±20%），英二真题语感
-   - 三例句默认分工（分工标签写在「例句意图」里，便于后续网页筛选与迭代）：
-     ① 扣原句 — 同骨架重演该词在原句中的位置与搭配
-     ② 考纲迁移 — 英二常见场景中的活句
-     ③ 防坑 — 针对本次 [n] 或采分点 ✗，拆本次具体误译
-   - 词条格式：
-   \`\`\`
-   ### word *(词性)* · [🔊](https://www.merriam-webster.com/dictionary/word)
-
-   **词根**：一句话建立结构感（短语词条可省略）
-
-   **核心意象**：中文锚定核心意象，一两句话，不是罗列释义
-
-   - *例句1* （简短中文提示）
-     **例句意图：** 扣原句 — （一句话说明本句如何服务原句）
-   - *例句2* （简短中文提示）
-     **例句意图：** 考纲迁移 — …
-   - *例句3* （简短中文提示）
-     **例句意图：** 防坑 — 针对[n]/✗…（点明要拆的幻觉）
-   \`\`\`
-   - 词性：*(n.)* *(v.)* *(adj.)* *(adv.)* *(prep.)* *(phrase)*
-   - 发音链接必加，URL 用连字符拼写
-   - **不要写「造句」** — 三例句已覆盖产出要求
-
-5. 填写「## Phrases」：
-   - 收录：本次译文暴露的**所有**关键句式/习惯用法块（与 Vocab 同级，不设数量折扣）
-   - 每个短语块**恰好 3 条例句**，规则与 Vocab 相同（①扣原句 ②考纲迁移 ③防坑），禁止从原句截取
-   - 格式：
-   \`\`\`
-   ### 结构名（中文提示）
-
-   **讲解**：逻辑说明 + 原句引用（> blockquote）
-
-   - *例句1* （简短中文）
-     **例句意图：** 扣原句 — …
-   - *例句2* （简短中文）
-     **例句意图：** 考纲迁移 — …
-   - *例句3* （简短中文）
-     **例句意图：** 防坑 — 针对[n]/✗…
-   \`\`\`
-
-注意：
-- 「## 问答收录」和「## 练习与习得」保持空白（疑点由学员手写进 probe，不由你生成）
-- 「## 复习区」不要动
-- 其余已有内容不得改动
-
-直接编辑文件完成任务，不要输出其他内容。" \
-        --allowedTools "Read,Edit" \
-        --dangerously-skip-permissions \
-        > "$tmpout" 2>&1 || exit_code=$?
-
-    cat "$tmpout" | tee_log
-
-    if [[ $exit_code -ne 0 ]]; then
-        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
-            log "Rate limit reached (exit $exit_code) — will back off"
-            rm -f "$tmpout"
-            return 2
-        fi
-        log "ERROR: claude exited $exit_code for $rel"
-        rm -f "$tmpout"
-        return 1
+    day_paths "$file"
+    local rel="$DAY_REL"
+    mkdir -p "$(dirname "$FOOL_PATH")" "$(dirname "$PROBE_PATH")"
+    log "Day pipeline: $rel → 批改·fool·probe"
+    local prompt
+    prompt=$(build_day_pipeline_prompt "$file" "$FOOL_PATH" "$PROBE_PATH")
+    local rc=0
+    run_agent "$prompt" || rc=$?
+    [[ $rc -ne 0 ]] && return "$rc"
+    if day_pipeline_verified "$file"; then
+        log "Pipeline verified: $rel"
+        return 0
     fi
-
-    rm -f "$tmpout"
-    log "Review done: $rel"
+    log "ERROR: pipeline incomplete after agent for $rel"
+    return 1
 }
 
-fool_file() {
-    local file="$1"
-    local fool_path="$2"
-    local rel="${file#$REPO_DIR/}"
-    local fool_rel="${fool_path#$REPO_DIR/}"
-    log "Running fool decomposition: $rel → $fool_rel"
-
-    mkdir -p "$(dirname "$fool_path")"
-
-    local tmpout exit_code=0
-    tmpout=$(mktemp)
-
-    claude -p "你是这个英语学习项目的愚者分析师（The Fool）。请对已批改句子文件执行愚者拆解，写入 fool 文件。
-
-**标尺全文（生成前须 Read，与下文冲突以标尺为准）：$REPO_DIR/fool/STANDARDS.md**
-
-【项目立意】
-批改中的英二例句学员单独读仍会懵；fool 把每一句拆到他能吸收的程度，读完等于完成当日阅读训练量。
-
-句子文件：$file
-fool 文件：$fool_path
-
-【讲解降维标尺 — 全文固定，不引用仓库内任何历史 fool/probe/src 文件，不随当天分数浮动】
-
-目标读者（恒定画像）：
-- 英二卷面约 35–45 分档；首译稳定 3.5–4.5/10
-- 认识不少考纲词形，但多义词、介词、嵌套从句、语义极性仍常误读
-- 需要「把英二句拆成能跟上的步骤」，不是百科或论文
-
-英文（blockquote 内）：
-- 与 source 完全一致，不改写、不替换、不降级英文难度
-
-中文讲解（每条 fool 条目 Step1–4 合计）：
-- 总篇幅 ≤ 12 行中文；越靠后的条目与靠前条目同等密度，禁止后段缩略
-- 语气：像同事面对面讲，不用「综上所述」「简而言之」
-- 术语（定语从句、非限定等）出现时必须同一行用白话落地
-
-Step 1 扫词：实义词最多各 2 行（词根仅当有助于辨析形近/反义时写一行，否则只写核心意象）
-
-Step 2 扫小品词和搭配：只分析 blockquote 内已有英文；1–2 组搭配 + 中文感受；**禁止新增任何英文例句**
-- 若「例句意图」含防坑：必须一行写「首译典型错读：…；本句纠偏：…」
-
-Step 3 扫句式：3–5 行；用「谁对谁 / 挂在谁身上 / 逗号后是补充」；禁止连续堆语法术语
-
-Step 4 读句子：两层 — **直读**（口语、短句，像转述给朋友）+ **考场**（书面译法，1 句；极简单句可省考场层）
-
----
-
-收集英文句子（按顺序，不跳过）：
-1. ## 原句
-2. ## Vocab — 每个词条下 3 条 *斜体* 例句（不含造句；新版已无造句字段）
-3. ## Phrases — 每个短语块下 3 条 *斜体* 例句
-
-跳过：中文批注、参考译文、核心意象、例句意图行。跳过「## 复习区」。
-
-对每个句子执行上述四步拆解。
-
-输出格式，按 source 分区（## 原句 / ## Vocab · word / ## Phrases · phrase）：
-
-\`\`\`
-### fool-NN [扣原句|迁移|防坑]
-> <完整引用句子，与 source 一致>
-
-**Step 1 扫词**
-...
-
-**Step 2 扫小品词和搭配**
-...
-
-**Step 3 扫句式**
-...
-
-**Step 4 读句子**
-直读：…
-考场：…
-
----
-\`\`\`
-
-标题中的 [扣原句|迁移|防坑] 与 source 的「例句意图」一致。编号 fool-01 起，两位补零，全文连续。
-
-如 fool 文件已有 header，保留 header 后写入；否则先写：
-\`# Day N Fool Sessions · YYYY-MM-DD\n\nsource: [src/...](../../$rel)\n\n---\n\`
-
-一次性写完整个文件。" \
-        --allowedTools "Read,Write,Edit" \
-        --dangerously-skip-permissions \
-        > "$tmpout" 2>&1 || exit_code=$?
-
-    cat "$tmpout" | tee_log
-
-    if [[ $exit_code -ne 0 ]]; then
-        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
-            log "Rate limit on fool (exit $exit_code) — will back off"
-            rm -f "$tmpout"
-            return 2
-        fi
-        log "ERROR: fool exited $exit_code for $rel"
-        rm -f "$tmpout"
-        return 1
+# Legacy probe only (Q&A → 新格式). Return 0 success, 1 error, 2 rate limit.
+probe_migrate_file() {
+    local source_file="$1"
+    local probe_path="$2"
+    local rel="${source_file#$REPO_DIR/}"
+    log "Probe migrate: $rel"
+    mkdir -p "$(dirname "$probe_path")"
+    local prompt
+    prompt=$(build_probe_migrate_prompt "$source_file" "$probe_path")
+    local rc=0
+    run_agent "$prompt" || rc=$?
+    [[ $rc -ne 0 ]] && return "$rc"
+    if probe_complete "$probe_path"; then
+        log "Probe migrate verified: ${probe_path#$REPO_DIR/}"
+        return 0
     fi
-
-    rm -f "$tmpout"
-    log "Fool done: $fool_rel"
+    log "ERROR: probe migrate incomplete for $rel"
+    return 1
 }
 
 # Grade filled 复习区 retranslations. Return 0 on success, 1 on error, 2 on rate limit.
@@ -421,152 +304,21 @@ redo_review_file() {
     local file="$1"
     local rel="${file#$REPO_DIR/}"
     log "Grading 复习区: $rel"
+    run_agent "你是复习批改老师。只处理「## 复习区」。
 
-    local tmpout exit_code=0
-    tmpout=$(mktemp)
+Read：$REPO_DIR/src/STANDARDS.md §9
+文件：$file
 
-    claude -p "你是这个英语学习项目的复习批改老师。只处理「## 复习区」。
+约束：只在「**复习批改：**」空白处写入；其余不得改动（含 <!-- review-meta -->）。
 
-**标尺全文（生成前须 Read）：$REPO_DIR/src/STANDARDS.md §9 复习区**
+找到「**我的重译：**」已填、「**复习批改：**」为空的块，写入：
+- **过程对比**（2-3 行）
+- 仍存错误（最多 5 条）或肯定
+- 末行：**复习评分：X / 10**（首译 Y / 10，↑/→/↓）
 
-【项目立意】
-间隔重译是在检验「读句过程」是否内化，不只是改字面对错。
-
-文件路径：$file
-
-**约束：只允许在「## 复习区」内「**复习批改：**」空白处写入；其余不得改动（含 <!-- review-meta -->）。**
-
-1. 找到「**我的重译：**」已填、「**复习批改：**」为空的块
-
-2. 在「**复习批改：**」下写入：
-   - **过程对比**（2-3 行）：对照 <!-- review-meta --> 中首译情况，写「已修复的过程问题」与「仍存在的卡点」（主干/介词/极性/半句放弃等）
-   - 仍存在的错误：每条一行，最多 5 条；质量好则肯定并点出最出彩处理
-   - 最后一行：**复习评分：X / 10**（首译 Y / 10，↑/→/↓）
-   - 评分：采分点 ✓=1 / △=0.5 / ✗=0，换算 10 分制，步幅 0.5
-   - first=— 时写：**复习评分：X / 10**（首译未评分）
-
-3. 空块或已批改块跳过
-
-直接编辑文件，不要输出其他内容。" \
-        --allowedTools "Read,Edit" \
-        --dangerously-skip-permissions \
-        > "$tmpout" 2>&1 || exit_code=$?
-
-    cat "$tmpout" | tee_log
-
-    if [[ $exit_code -ne 0 ]]; then
-        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
-            log "Rate limit on redo (exit $exit_code) — will back off"
-            rm -f "$tmpout"
-            return 2
-        fi
-        log "ERROR: redo grading exited $exit_code for $rel"
-        rm -f "$tmpout"
-        return 1
-    fi
-
-    rm -f "$tmpout"
-    log "复习区 graded: $rel"
+直接编辑文件，不要输出其他内容。"
 }
 
-# Diagnose today's 内功/招式 triggers into probe. Return 0 on success, 1 on error, 2 on rate limit.
-probe_diagnose_file() {
-    local source_file="$1"
-    local probe_path="$2"
-    local rel="${source_file#$REPO_DIR/}"
-    local probe_rel="${probe_path#$REPO_DIR/}"
-    local fool_path="${source_file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
-    log "Probe diagnose: $rel → $probe_rel"
-
-    local tmpout exit_code=0
-    tmpout=$(mktemp)
-
-    claude -p "你是 probe 诊断师。任务：根据今日翻译与批改，把「内功/招式」印证写入 probe 文件。
-
-**标尺（生成前须 Read）：**
-- $REPO_DIR/probe/STANDARDS.md
-- $REPO_DIR/probe/internal-skills.md
-
-source：$source_file
-probe：$probe_path
-fool（若存在，只读）：$fool_path
-
-【立意】
-学员备考英二四战，目标 65+（争取 70+）。probe 完成 Q&A 没做成的事：
-把跨句、跨对话里 Gemini 已诊断出的底层别扭（内功 Gxx）与可练直觉（招式 Pxx）落实到每一天，
-让提分变成可观察台阶，而不是开盲盒。
-
-【核心任务 — 替学员说他说不出口的话】
-学员常只觉得「这个词译错了」，说不清是方向、画面、气口、形近、主被动哪一层断了。
-你要从 ✗/△ 与批改反推**过程断点**，用「你可能以为…其实…」替他说清别扭从哪来。
-这不是贴语法标签，是把 Gemini 长期共识里的**内功**落到今天这一句上。
-
-诊断顺序（internal-skills 条目不够用时仍用感受语言描述，但优先对照已有 Gxx/Pxx）：
-1. 表面错词背后：形近？画面空？方向反？介词跟谁？
-2. 读句过程：有没有盲译到底、气口断、长句半途放弃？
-3. 语境层：字典义项与场景打架了吗（G01）？术语想不起来时身体在干嘛（G02）？
-
-【可完成性 — 由你组织成学员做得到的样子】
-- 今日带走 = 写**下一句**前 3 秒能做的**一个**动作（身体感/检查点）；禁止「多练」「扩大词汇量」
-- 提分台阶 = 当前①–⑤站位 + **一个**可观察的下一习惯（如「连续 3 句先方向检」），不预测考场运气
-- 内功/招式：触发了就标编号；优先呼应 internal-skills 里**印证中**的条目；明显新类仍标最接近的 G/P 并一句说明
-
-【学员固定档位】首译稳定约 3.5–4.5/10；讲解不引用仓库内任何历史 probe/fool 作样板。
-
-**约束：**
-- 只允许编辑 $probe_path
-- 可 Read source、fool、internal-skills、STANDARDS；不得修改它们
-- 保留文件头、source 行、## 原句 / ## 我的翻译 / ## 评分 的裁切内容（可微调今日刺痛所用的引用，但不要删节）
-- 删除 legacy 的 ## Q&A section（若存在）
-- 填写以下 section，禁止留「待诊断」，禁止生成问答题、禁止要求用户粘贴 Gemini：
-
-## 今日刺痛
-2–4 条感受语言。至少 1 条写「表面是某词错，其实是……过程断了」（从 ✗/△ 与批改来，不用语法术语堆砌）。
-
-## 内功印证
-列表，每条格式：
-- **Gxx 名称** — 今天怎么表现的（一句，含「你可能以为…」）→ 去读 internal-skills 哪条
-
-## 招式印证
-列表，每条格式：
-- **Pxx 名称** — 今天与哪处误译/ fool 例句相关（一句）→ 明天译前怎么做
-
-## 提分台阶
-当前台阶（①–⑤见 STANDARDS）、今日分数、距下一台阶还差**哪一个习惯**（具体、可观察，一句到三句）。
-
-## 今日带走
-**一句**考场可执行直觉（今天最该记住的身体感/检查点），不用术语。
-
-直接编辑 probe 文件，不要输出其他内容。" \
-        --allowedTools "Read,Edit" \
-        --dangerously-skip-permissions \
-        > "$tmpout" 2>&1 || exit_code=$?
-
-    cat "$tmpout" | tee_log
-
-    if [[ $exit_code -ne 0 ]]; then
-        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
-            log "Rate limit on probe diagnose (exit $exit_code) — will back off"
-            rm -f "$tmpout"
-            return 2
-        fi
-        log "ERROR: probe diagnose exited $exit_code for $rel"
-        rm -f "$tmpout"
-        return 1
-    fi
-
-    rm -f "$tmpout"
-    log "Probe diagnose done: $probe_rel"
-}
-
-# shellcheck source=scripts/console.sh
-source "$REPO_DIR/scripts/console.sh"
-# shellcheck source=scripts/probe.sh
-source "$REPO_DIR/scripts/probe.sh"
-# shellcheck source=scripts/nav.sh
-source "$REPO_DIR/scripts/nav.sh"
-
-# Commit staged changes without pushing
 batch_commit() {
     cd "$REPO_DIR"
 
@@ -595,42 +347,46 @@ batch_commit() {
     log "Committed: $label"
 }
 
-# Push gate: called after clear_processing_lock to verify everything is truly done.
-# Three-stage check:
-#   1. Processing lock still held → files actively being worked on, wait.
-#   2. Uncorrected files remain after unlock → something incomplete, defer.
-#   3. Fool-missing files remain after unlock → fool didn't finish, defer.
-#   All clear → push.
+# Push gate: push only when 批改 + fool + probe are all verified complete.
 try_push() {
     local reason="${1:-}"
 
-    # No pending work detected — nothing to push, return immediately.
     push_pending || return 0
 
-    # Stage 1: lock check — correction/fool still running, keep waiting
     if processing_locked; then
         local locked_pid; locked_pid=$(cat "$PROCESSING_LOCK_FILE" 2>/dev/null)
-        log "Push pending${reason:+ [$reason]}: correction/fool in progress (pid $locked_pid) — waiting"
+        log "Push pending${reason:+ [$reason]}: pipeline in progress (pid $locked_pid) — waiting"
         return
     fi
 
-    # Stage 2 & 3: post-unlock verification — confirm both corrections and fool are truly done
-    local uncorrected fool_missing count
+    local uncorrected fool_missing probe_incomplete pipeline_left count
     uncorrected=$(find_uncorrected || true)
     if [[ -n "$uncorrected" ]]; then
         count=$(echo "$uncorrected" | wc -l)
-        log "Push pending${reason:+ [$reason]}: $count uncorrected file(s) still remain after unlock"
+        log "Push pending${reason:+ [$reason]}: $count uncorrected file(s) remain"
         return
     fi
     fool_missing=$(find_fool_missing || true)
     if [[ -n "$fool_missing" ]]; then
         count=$(echo "$fool_missing" | wc -l)
-        log "Push pending${reason:+ [$reason]}: $count fool-missing file(s) still remain after unlock"
+        log "Push pending${reason:+ [$reason]}: $count fool-missing file(s) remain"
+        return
+    fi
+    probe_incomplete=$(find_probe_incomplete || true)
+    if [[ -n "$probe_incomplete" ]]; then
+        count=$(echo "$probe_incomplete" | wc -l)
+        log "Push pending${reason:+ [$reason]}: $count probe-incomplete file(s) remain"
+        return
+    fi
+    pipeline_left=$(find_pipeline_pending || true)
+    if [[ -n "$pipeline_left" ]]; then
+        count=$(echo "$pipeline_left" | wc -l)
+        log "Push pending${reason:+ [$reason]}: $count pipeline-pending file(s) remain"
         return
     fi
 
     cd "$REPO_DIR"
-    log "Push gate clear${reason:+ [$reason]} — corrections and fool verified complete"
+    log "Push gate clear${reason:+ [$reason]} — 批改·fool·probe verified"
     git pull --rebase --autostash origin main 2>&1 | tee_log || {
         log "WARNING: rebase pull failed — attempting push anyway"
     }
@@ -671,7 +427,7 @@ main() {
     log "========================================"
     log "Auto-review agent started"
     log "Repo: $REPO_DIR"
-    log "Poll interval: ${POLL_INTERVAL}s"
+    log "Agent: $AGENT_BIN · model: $AGENT_MODEL"
     log "========================================"
 
     local _idle=false
@@ -696,14 +452,14 @@ main() {
             fi
 
             if (( pull_rc == 0 )); then
-                local uncorrected
-                uncorrected=$(find_uncorrected || true)
+                local pipeline_pending probe_migrate_list
+                pipeline_pending=$(find_pipeline_pending || true)
                 local rate_limited=false
 
-                if [[ -z "$uncorrected" ]]; then
+                if [[ -z "$pipeline_pending" ]]; then
                     local _now; _now=$(date +%s)
                     if ! $_idle; then
-                        log "No uncorrected files found. Polling every ${POLL_INTERVAL}s."
+                        log "No pipeline-pending files. Polling every ${POLL_INTERVAL}s."
                         _idle=true
                         _last_heartbeat=$_now
                     elif (( _now - _last_heartbeat >= _heartbeat_interval )); then
@@ -722,127 +478,84 @@ main() {
                     _idle=false
                     mark_push_pending
                     set_processing_lock
-                    local -a reviewed_files=()
+                    local -a done_files=()
                     while IFS= read -r file; do
                         if git_is_busy; then
-                            log "Git became busy mid-cycle — deferring remaining files to next cycle"
+                            log "Git busy — deferring pipeline to next cycle"
                             break
                         fi
-                        local rc=0
-                        if guard_hit review "$file"; then
-                            log "Guard: $(basename "$file" .md) unchanged since failed review — skipping Claude call"
+                        if guard_hit pipeline "$file"; then
+                            log "Guard: $(basename "$file" .md) unchanged since failed pipeline — skipping"
                             continue
-                        elif needs_review "$file"; then
-                            review_file "$file" || rc=$?
-                            [[ $rc -eq 1 ]] && guard_mark review "$file"
-                        else
-                            log "Already reviewed (side effect): $(basename "$file" .md) — skipping Claude call"
                         fi
+                        local rc=0
+                        process_day_file "$file" || rc=$?
                         if [[ $rc -eq 2 ]]; then
-                            log "Backing off for 1 hour before next attempt"
                             rate_limited=true
                             break
                         elif [[ $rc -eq 0 ]]; then
-                            local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
-                            if has_score "$file" && needs_probe "$probe_path"; then
-                                create_probe "$file" "$probe_path"
-                                add_probe_nav "$probe_path"
-                                create_probe_console_entry "$probe_path"
-                            fi
-                            if has_score "$file" && [[ -f "$probe_path" ]] && needs_probe_diagnose "$probe_path"; then
-                                local probe_rc=0
-                                if guard_hit probe "$probe_path"; then
-                                    log "Guard: probe diagnose unchanged — skipping"
-                                else
-                                    probe_diagnose_file "$file" "$probe_path" || probe_rc=$?
-                                    [[ $probe_rc -eq 1 ]] && guard_mark probe "$probe_path"
-                                fi
-                                if [[ $probe_rc -eq 2 ]]; then
-                                    rate_limited=true
-                                    break
-                                fi
-                            fi
-                            local fool_path="${file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
-                            local fool_rc=0
-                            if needs_fool "$file" "$fool_path"; then
-                                fool_file "$file" "$fool_path" || fool_rc=$?
-                                [[ $fool_rc -eq 1 ]] && guard_mark fool "$file"
-                            else
-                                log "Already decomposed (side effect): $(basename "$fool_path" .md) — skipping Claude call"
-                            fi
-                            if [[ $fool_rc -eq 2 ]]; then
-                                log "Rate limit on fool — queuing for batch commit"
-                                reviewed_files+=("$file")
-                                rate_limited=true
-                                break
-                            elif [[ $fool_rc -eq 0 ]]; then
-                                add_fool_nav "$fool_path"
-                                create_console_entry "$fool_path"
-                                reviewed_files+=("$file")
-                            else
-                                log "Fool failed — queuing review-only for batch commit"
-                                reviewed_files+=("$file")
-                            fi
+                            day_paths "$file"
+                            add_fool_nav "$FOOL_PATH"
+                            create_console_entry "$FOOL_PATH"
+                            add_probe_nav "$PROBE_PATH"
+                            create_probe_console_entry "$PROBE_PATH"
+                            done_files+=("$file")
                         else
-                            log "Skipping $file due to review error"
+                            guard_mark pipeline "$file"
+                            log "Pipeline failed for $(basename "$file" .md) — guarded"
                         fi
-                    done <<< "$uncorrected"
+                    done <<< "$pipeline_pending"
 
-                    if [[ ${#reviewed_files[@]} -gt 0 ]]; then
+                    if [[ ${#done_files[@]} -gt 0 ]]; then
+                        update_today_md
                         batch_commit
                     fi
 
                     if $rate_limited; then
                         log "Rate limit — backing off 1 hour"
+                        clear_processing_lock
                         sleep 3600
                         continue
                     fi
+                    clear_processing_lock
                 fi
 
-                # Probe pass: scaffold (bash) + diagnose (Claude)
+                # Legacy probe migrate (Q&A → 新格式)
                 if ! $rate_limited; then
-                    local probe_missing probe_diagnose_list
-                    probe_missing=$(find_probe_missing || true)
-                    if [[ -n "$probe_missing" ]]; then
-                        while IFS= read -r file; do
-                            local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
-                            create_probe "$file" "$probe_path"
-                            add_probe_nav "$probe_path"
-                            create_probe_console_entry "$probe_path"
-                        done <<< "$probe_missing"
-                        batch_commit
-                    fi
-                    probe_diagnose_list=$(find_probe_needs_diagnose || true)
-                    if [[ -n "$probe_diagnose_list" ]]; then
+                    probe_migrate_list=$(find_probe_needs_diagnose || true)
+                    if [[ -n "$probe_migrate_list" ]]; then
                         _idle=false
                         mark_push_pending
                         set_processing_lock
-                        local probe_diag_done=false
+                        local migrate_done=false
                         while IFS= read -r file; do
                             if git_is_busy; then break; fi
-                            local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
-                            if guard_hit probe "$probe_path"; then
-                                log "Guard: probe diagnose $(basename "$probe_path") — skipping"
+                            day_paths "$file"
+                            if guard_hit probe "$PROBE_PATH"; then
                                 continue
                             fi
-                            local pd_rc=0
-                            probe_diagnose_file "$file" "$probe_path" || pd_rc=$?
-                            [[ $pd_rc -eq 1 ]] && guard_mark probe "$probe_path"
-                            if [[ $pd_rc -eq 2 ]]; then
+                            local pm_rc=0
+                            probe_migrate_file "$file" "$PROBE_PATH" || pm_rc=$?
+                            [[ $pm_rc -eq 1 ]] && guard_mark probe "$PROBE_PATH"
+                            if [[ $pm_rc -eq 2 ]]; then
                                 rate_limited=true
                                 break
-                            elif [[ $pd_rc -eq 0 ]]; then
-                                probe_diag_done=true
+                            elif [[ $pm_rc -eq 0 ]]; then
+                                add_probe_nav "$PROBE_PATH"
+                                create_probe_console_entry "$PROBE_PATH"
+                                migrate_done=true
                             fi
-                        done <<< "$probe_diagnose_list"
-                        if $probe_diag_done; then
-                            batch_commit
-                        fi
+                        done <<< "$probe_migrate_list"
+                        if $migrate_done; then batch_commit; fi
                         clear_processing_lock
+                        if $rate_limited; then
+                            sleep 3600
+                            continue
+                        fi
                     fi
                 fi
 
-                # Redo pass: grade 复习区 retranslations the user has filled in
+                # Redo pass: grade 复习区 retranslations
                 if ! $rate_limited; then
                     local redo_pending
                     redo_pending=$(find_redo_pending || true)
@@ -852,14 +565,8 @@ main() {
                         set_processing_lock
                         local redo_done=false
                         while IFS= read -r file; do
-                            if git_is_busy; then
-                                log "Git became busy — deferring redo grading to next cycle"
-                                break
-                            fi
-                            if guard_hit redo "$file"; then
-                                log "Guard: $(basename "$file" .md) unchanged since last redo attempt — skipping Claude call"
-                                continue
-                            fi
+                            if git_is_busy; then break; fi
+                            if guard_hit redo "$file"; then continue; fi
                             local redo_rc=0
                             redo_review_file "$file" || redo_rc=$?
                             if [[ $redo_rc -eq 2 ]]; then
@@ -867,10 +574,7 @@ main() {
                                 break
                             elif [[ $redo_rc -eq 0 ]]; then
                                 if needs_redo "$file"; then
-                                    # Claude exited 0 but the section is still empty —
-                                    # don't loop on it; retry only after the file changes.
                                     guard_mark redo "$file"
-                                    log "Redo grading yielded no output for $(basename "$file" .md) — guarded"
                                 else
                                     redo_done=true
                                 fi
@@ -882,67 +586,15 @@ main() {
                             update_today_md
                             batch_commit
                         fi
+                        clear_processing_lock
                         if $rate_limited; then
-                            log "Rate limit on redo — backing off 1 hour"
                             sleep 3600
                             continue
                         fi
                     fi
                 fi
 
-                # Fool-missing pass: catch corrected files whose fool was skipped or is stale
-                if ! $rate_limited; then
-                    local fool_missing
-                    fool_missing=$(find_fool_missing || true)
-                    if [[ -n "$fool_missing" ]]; then
-                        _idle=false
-                        mark_push_pending
-                        set_processing_lock
-                        local -a fool_queued=()
-                        while IFS= read -r file; do
-                            if git_is_busy; then
-                                log "Git became busy — deferring fool-missing to next cycle"
-                                break
-                            fi
-                            if guard_hit fool "$file"; then
-                                log "Guard: $(basename "$file" .md) unchanged since failed fool — skipping Claude call"
-                                continue
-                            fi
-                            local fool_path="${file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
-                            local fool_rc=0
-                            log "Fool-missing: $(basename "$file" .md) — running decomposition"
-                            fool_file "$file" "$fool_path" || fool_rc=$?
-                            if [[ $fool_rc -eq 2 ]]; then
-                                fool_queued+=("$file")
-                                rate_limited=true
-                                break
-                            elif [[ $fool_rc -eq 0 ]]; then
-                                add_fool_nav "$fool_path"
-                                create_console_entry "$fool_path"
-                                fool_queued+=("$file")
-                            else
-                                guard_mark fool "$file"
-                                log "Fool failed for $(basename "$file" .md) — guarded until file changes"
-                            fi
-                        done <<< "$fool_missing"
-
-                        if [[ ${#fool_queued[@]} -gt 0 ]]; then
-                            batch_commit
-                        fi
-
-                        if $rate_limited; then
-                            log "Rate limit on fool — backing off 1 hour"
-                            sleep 3600
-                            continue
-                        fi
-                    fi
-
-                    # Fool-missing pass done (or skipped).
-                    # Always clear the lock here (cleans up stale locks too).
-                    # Then verify corrections AND fool are truly complete before pushing.
-                    clear_processing_lock
-                    try_push "解锁后检验"
-                fi
+                try_push "周期末检验"
             fi
         fi
 

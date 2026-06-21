@@ -10,7 +10,7 @@
 | 文件 | 谁写 | 做什么 |
 |------|------|--------|
 | `internal-skills.md` | **你**维护状态；条目骨架可预置 | 跨天的内功问题与招式；**内化进度** |
-| `<month>/<day>-probe.md` | **机器裁切 + AI 诊断** | 当天刺痛、触发了哪几条内功/招式、台阶位置、今日带走 |
+| `<month>/<day>-probe.md` | **Agent 在批改流水线内写入** | 仅针对 src 田静每日一句的内功诊断（今日刺痛、G/P、台阶、今日带走） |
 
 probe **不是** fool 的缩短版，**不是**空 Q&A 等 Gemini 粘贴，**不是** studio 已显示的采分复印件（可保留极简裁切供离线看）。
 
@@ -81,7 +81,7 @@ source: [...]
 
 - `## 今日刺痛`：从 ✗/△ 与批改归纳，**感受语言**，不堆术语；至少一条写清「表面是某词错，其实是哪层过程断了」——替学员说出 Gemini 里诊断过、但自己说不出口的内功别扭
 - `## 内功印证`：列出触发的 `Gxx` + 今天怎么表现 + 建议读 `internal-skills.md` 哪节
-- `## 招式印证`：列出触发的 `Pxx` + 与今日 fool 的关联（如有）
+- `## 招式印证`：列出触发的 `Pxx` + **仅联系当日原句**上的误译过程（不引用 fool 例句）
 - `## 提分台阶`：当前台阶、距下一台阶差什么
 - `## 今日带走`：**一句**考场可执行直觉（今天最该内化的一条）
 
@@ -91,9 +91,9 @@ source: [...]
 
 ## 6. 生成流程
 
-1. `create_probe`（bash）：批改后有评分且 probe 不存在 → 写骨架 + 裁切原句/翻译/评分
-2. `probe_diagnose`（Claude）：读 `src` 当日文件 + `internal-skills.md` + 本标尺 → **只编辑** 当日 probe 的诊断段
-3. 若 probe 为旧版（仅有 `## Q&A`）→ 视为待诊断，跑 `probe_diagnose`
+1. `process_day`（Cursor Agent，默认 `sonnet-4.6`）：**一步**顺序 批改 src → fool → probe
+2. probe **只读** src 田静每日一句（原句/译文/批改/评分），不读 fool
+3. 旧版 probe（`## Q&A`）→ 单独 `probe_migrate` pass
 
 **禁止覆盖** `internal-skills.md`（除非你明确手改）。
 
@@ -101,4 +101,4 @@ source: [...]
 
 ## 7. 修订
 
-改标尺后同步 `auto-review.sh` 内 `probe_diagnose` prompt。
+改标尺后同步 `scripts/day-pipeline-prompt.sh` 与 `auto-review.sh`。
