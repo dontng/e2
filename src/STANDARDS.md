@@ -2,7 +2,7 @@
 
 > 本文件是 **src/** 下每日句子文件的生成与质量契约。  
 > `auto-review.sh` 批改、复习批改均须遵守；与 shell 内 prompt 冲突时，**以本文件为准**。  
-> 配套：`fool/STANDARDS.md`（例句拆解）、`probe/STANDARDS.md` + `probe/内化库.md`（内功 G / 招式 P，日 probe 由 AI 诊断印证）。
+> 配套：`fool/STANDARDS.md`（例句拆解）、`probe/STANDARDS.md` + `probe/internal-skills.md`（内功 G / 招式 P，日 probe 由 AI 诊断印证）。
 
 ---
 

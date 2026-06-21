@@ -51,7 +51,7 @@ nohup ./auto-review.sh >> .auto-review.log 2>&1 &
 
 后台挂起，每 10 分钟扫一次。发现未批改文件时自动：批改 → 生成 probe（裁切 + 内功诊断）→ 生成 fool → 更新 console → push。
 
-读完批改后，打开当日 `probe/*-probe.md`：看 **今日刺痛 / 内功印证 / 今日带走**；跨天的总表在 [`probe/内化库.md`](probe/内化库.md)，印证够了自行改条目 **状态**。
+读完批改后，打开当日 `probe/*-probe.md`：看 **今日刺痛 / 内功印证 / 今日带走**；跨天的总表在 [`probe/internal-skills.md`](probe/internal-skills.md)，印证够了自行改条目 **状态**。
 
 ```bash
 tail -f .auto-review.log   # 查看进度
@@ -66,5 +66,5 @@ pkill -f auto-review.sh    # 停止
 |------|------|------|
 | `src/` | 原始句子文件 | 批改结果写回这里；质量契约见 [`src/STANDARDS.md`](src/STANDARDS.md) |
 | `fool/` | 愚者解析 | AI 对句子的全量拆解，帮你读懂批改；契约见 [`fool/STANDARDS.md`](fool/STANDARDS.md) |
-| `probe/` | 内功印证卡 | 裁切 + AI 诊断：今日刺痛、G/P 触发、提分台阶、今日带走；总表见 [`probe/内化库.md`](probe/内化库.md) |
+| `probe/` | 内功印证卡 | 裁切 + AI 诊断：今日刺痛、G/P 触发、提分台阶、今日带走；总表见 [`probe/internal-skills.md`](probe/internal-skills.md) |
 | `console/` | 控制台 | 3 天滚动窗口，`today.md` 作入口 |
