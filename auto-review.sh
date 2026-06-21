@@ -505,7 +505,7 @@ main() {
     if [[ -z "${_AR_FLOCKED:-}" ]]; then
         local rc=0
         # || rc=$? keeps set -e from aborting on flock's nonzero (conflict) exit.
-        _AR_FLOCKED=1 flock -n -o -E 142 "$REPO_DIR/.auto-review.lock" "$0" "$@" || rc=$?
+        _AR_FLOCKED=1 flock -n -o -E 142 "$REPO_DIR/.auto-review.lock" "$REPO_DIR/auto-review.sh" "$@" || rc=$?
         (( rc == 142 )) && { log "Another instance already running — exiting."; exit 0; }
         exit "$rc"
     fi
