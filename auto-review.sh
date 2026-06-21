@@ -139,9 +139,19 @@ find_uncorrected() {
 
 # Find corrected source files that have a score but no probe file yet
 find_probe_missing() {
-    find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
+    find "$REPO_DIR/src" -name "*-day*.md" -print0 | while IFS= read -r -d '' f; do
         local probe_path="${f/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
         if ! needs_review "$f" && has_score "$f" && needs_probe "$probe_path"; then
+            echo "$f"
+        fi
+    done
+}
+
+# Find probe files that need AI diagnosis (待诊断 or legacy Q&A layout)
+find_probe_needs_diagnose() {
+    find "$REPO_DIR/src" -name "*-day*.md" -print0 | while IFS= read -r -d '' f; do
+        local probe_path="${f/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+        if ! needs_review "$f" && has_score "$f" && needs_probe_diagnose "$probe_path"; then
             echo "$f"
         fi
     done
@@ -459,6 +469,96 @@ redo_review_file() {
     log "复习区 graded: $rel"
 }
 
+# Diagnose today's 内功/招式 triggers into probe. Return 0 on success, 1 on error, 2 on rate limit.
+probe_diagnose_file() {
+    local source_file="$1"
+    local probe_path="$2"
+    local rel="${source_file#$REPO_DIR/}"
+    local probe_rel="${probe_path#$REPO_DIR/}"
+    local fool_path="${source_file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
+    log "Probe diagnose: $rel → $probe_rel"
+
+    local tmpout exit_code=0
+    tmpout=$(mktemp)
+
+    claude -p "你是 probe 诊断师。任务：根据今日翻译与批改，把「内功/招式」印证写入 probe 文件。
+
+**标尺（生成前须 Read）：**
+- $REPO_DIR/probe/STANDARDS.md
+- $REPO_DIR/probe/内化库.md
+
+source：$source_file
+probe：$probe_path
+fool（若存在，只读）：$fool_path
+
+【立意】
+学员备考英二四战，目标 65+（争取 70+）。probe 完成 Q&A 没做成的事：
+把跨句、跨对话里 Gemini 已诊断出的底层别扭（内功 Gxx）与可练直觉（招式 Pxx）落实到每一天，
+让提分变成可观察台阶，而不是开盲盒。
+
+【核心任务 — 替学员说他说不出口的话】
+学员常只觉得「这个词译错了」，说不清是方向、画面、气口、形近、主被动哪一层断了。
+你要从 ✗/△ 与批改反推**过程断点**，用「你可能以为…其实…」替他说清别扭从哪来。
+这不是贴语法标签，是把 Gemini 长期共识里的**内功**落到今天这一句上。
+
+诊断顺序（内化库条目不够用时仍用感受语言描述，但优先对照已有 Gxx/Pxx）：
+1. 表面错词背后：形近？画面空？方向反？介词跟谁？
+2. 读句过程：有没有盲译到底、气口断、长句半途放弃？
+3. 语境层：字典义项与场景打架了吗（G01）？术语想不起来时身体在干嘛（G02）？
+
+【可完成性 — 由你组织成学员做得到的样子】
+- 今日带走 = 写**下一句**前 3 秒能做的**一个**动作（身体感/检查点）；禁止「多练」「扩大词汇量」
+- 提分台阶 = 当前①–⑤站位 + **一个**可观察的下一习惯（如「连续 3 句先方向检」），不预测考场运气
+- 内功/招式：触发了就标编号；优先呼应内化库里**印证中**的条目；明显新类仍标最接近的 G/P 并一句说明
+
+【学员固定档位】首译稳定约 3.5–4.5/10；讲解不引用仓库内任何历史 probe/fool 作样板。
+
+**约束：**
+- 只允许编辑 $probe_path
+- 可 Read source、fool、内化库、STANDARDS；不得修改它们
+- 保留文件头、source 行、## 原句 / ## 我的翻译 / ## 评分 的裁切内容（可微调今日刺痛所用的引用，但不要删节）
+- 删除 legacy 的 ## Q&A section（若存在）
+- 填写以下 section，禁止留「待诊断」，禁止生成问答题、禁止要求用户粘贴 Gemini：
+
+## 今日刺痛
+2–4 条感受语言。至少 1 条写「表面是某词错，其实是……过程断了」（从 ✗/△ 与批改来，不用语法术语堆砌）。
+
+## 内功印证
+列表，每条格式：
+- **Gxx 名称** — 今天怎么表现的（一句，含「你可能以为…」）→ 去读内化库哪条
+
+## 招式印证
+列表，每条格式：
+- **Pxx 名称** — 今天与哪处误译/ fool 例句相关（一句）→ 明天译前怎么做
+
+## 提分台阶
+当前台阶（①–⑤见 STANDARDS）、今日分数、距下一台阶还差**哪一个习惯**（具体、可观察，一句到三句）。
+
+## 今日带走
+**一句**考场可执行直觉（今天最该记住的身体感/检查点），不用术语。
+
+直接编辑 probe 文件，不要输出其他内容。" \
+        --allowedTools "Read,Edit" \
+        --dangerously-skip-permissions \
+        > "$tmpout" 2>&1 || exit_code=$?
+
+    cat "$tmpout" | tee_log
+
+    if [[ $exit_code -ne 0 ]]; then
+        if grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$tmpout"; then
+            log "Rate limit on probe diagnose (exit $exit_code) — will back off"
+            rm -f "$tmpout"
+            return 2
+        fi
+        log "ERROR: probe diagnose exited $exit_code for $rel"
+        rm -f "$tmpout"
+        return 1
+    fi
+
+    rm -f "$tmpout"
+    log "Probe diagnose done: $probe_rel"
+}
+
 # shellcheck source=scripts/console.sh
 source "$REPO_DIR/scripts/console.sh"
 # shellcheck source=scripts/probe.sh
@@ -482,12 +582,16 @@ batch_commit() {
     label=$(git diff --cached --name-only -- fool/ \
         | xargs -I{} basename {} .md \
         | paste -sd ', ')
+    [[ -z "$label" ]] && label=$(git diff --cached --name-only -- probe/ \
+        | grep -E '\-probe\.md$' \
+        | xargs -I{} basename {} -probe.md \
+        | paste -sd ', ')
     [[ -z "$label" ]] && label=$(git diff --cached --name-only -- src/ \
         | xargs -I{} basename {} .md \
         | paste -sd ', ')
     [[ -z "$label" ]] && label="batch"
 
-    git commit -m "批改+愚者 $label"
+    git commit -m "批改+愚者+probe $label"
     log "Committed: $label"
 }
 
@@ -645,6 +749,19 @@ main() {
                                 add_probe_nav "$probe_path"
                                 create_probe_console_entry "$probe_path"
                             fi
+                            if has_score "$file" && [[ -f "$probe_path" ]] && needs_probe_diagnose "$probe_path"; then
+                                local probe_rc=0
+                                if guard_hit probe "$probe_path"; then
+                                    log "Guard: probe diagnose unchanged — skipping"
+                                else
+                                    probe_diagnose_file "$file" "$probe_path" || probe_rc=$?
+                                    [[ $probe_rc -eq 1 ]] && guard_mark probe "$probe_path"
+                                fi
+                                if [[ $probe_rc -eq 2 ]]; then
+                                    rate_limited=true
+                                    break
+                                fi
+                            fi
                             local fool_path="${file/\/src\//\/fool\/}"; fool_path="${fool_path%.md}-fool.md"
                             local fool_rc=0
                             if needs_fool "$file" "$fool_path"; then
@@ -682,9 +799,9 @@ main() {
                     fi
                 fi
 
-                # Probe-missing pass: fast bash extraction, no Claude needed
+                # Probe pass: scaffold (bash) + diagnose (Claude)
                 if ! $rate_limited; then
-                    local probe_missing
+                    local probe_missing probe_diagnose_list
                     probe_missing=$(find_probe_missing || true)
                     if [[ -n "$probe_missing" ]]; then
                         while IFS= read -r file; do
@@ -694,6 +811,34 @@ main() {
                             create_probe_console_entry "$probe_path"
                         done <<< "$probe_missing"
                         batch_commit
+                    fi
+                    probe_diagnose_list=$(find_probe_needs_diagnose || true)
+                    if [[ -n "$probe_diagnose_list" ]]; then
+                        _idle=false
+                        mark_push_pending
+                        set_processing_lock
+                        local probe_diag_done=false
+                        while IFS= read -r file; do
+                            if git_is_busy; then break; fi
+                            local probe_path="${file/\/src\//\/probe\/}"; probe_path="${probe_path%.md}-probe.md"
+                            if guard_hit probe "$probe_path"; then
+                                log "Guard: probe diagnose $(basename "$probe_path") — skipping"
+                                continue
+                            fi
+                            local pd_rc=0
+                            probe_diagnose_file "$file" "$probe_path" || pd_rc=$?
+                            [[ $pd_rc -eq 1 ]] && guard_mark probe "$probe_path"
+                            if [[ $pd_rc -eq 2 ]]; then
+                                rate_limited=true
+                                break
+                            elif [[ $pd_rc -eq 0 ]]; then
+                                probe_diag_done=true
+                            fi
+                        done <<< "$probe_diagnose_list"
+                        if $probe_diag_done; then
+                            batch_commit
+                        fi
+                        clear_processing_lock
                     fi
                 fi
 

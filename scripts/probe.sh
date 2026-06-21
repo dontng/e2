@@ -1,9 +1,25 @@
 #!/usr/bin/env bash
-# probe.sh — per-sentence probe card (原句 + 翻译 + 评分 + Q&A placeholder)
+# probe.sh — 日 probe 裁切 + 待诊断标记
 # Sourced by auto-review.sh; requires REPO_DIR and log() to be defined.
 
 needs_probe() {
     [[ ! -f "$1" ]]
+}
+
+# 旧版 Q&A 探针或诊断段含「待诊断」→ 需要 probe_diagnose
+needs_probe_diagnose() {
+    local probe_path="$1"
+    [[ -f "$probe_path" ]] || return 1
+    if grep -q '待诊断' "$probe_path" 2>/dev/null; then
+        return 0
+    fi
+    if grep -q '^## Q&A' "$probe_path" 2>/dev/null; then
+        return 0
+    fi
+    if ! grep -q '^## 内功印证' "$probe_path" 2>/dev/null; then
+        return 0
+    fi
+    return 1
 }
 
 has_score() {
@@ -32,8 +48,18 @@ create_probe() {
         printf '## 原句\n\n%s\n\n' "$original"
         printf '## 我的翻译\n\n%s\n\n' "$translation"
         printf '## 评分\n\n%s\n\n' "$score"
-        printf '%s\n\n%s\n\n' '---' '## Q&A'
+        printf '%s\n\n' '---'
+        printf '%s\n\n' '## 今日刺痛'
+        printf '%s\n\n' '（待诊断）'
+        printf '%s\n\n' '## 内功印证'
+        printf '%s\n\n' '（待诊断）'
+        printf '%s\n\n' '## 招式印证'
+        printf '%s\n\n' '（待诊断）'
+        printf '%s\n\n' '## 提分台阶'
+        printf '%s\n\n' '（待诊断）'
+        printf '%s\n\n' '## 今日带走'
+        printf '%s\n' '（待诊断）'
     } > "$probe_path"
 
-    log "Probe: ${probe_path#$REPO_DIR/}"
+    log "Probe scaffold: ${probe_path#$REPO_DIR/}"
 }
