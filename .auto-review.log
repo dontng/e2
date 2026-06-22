@@ -181,3 +181,22 @@ flock: failed to execute auto-review.sh: No such file or directory
 [2026-06-21 12:18:02] ========================================
 [2026-06-21 12:18:06] No uncorrected files found. Polling every 600s.
 [2026-06-21 18:22:34] Online — idle 6h, still polling.
+From github.com:dontng/english2-daily
+ * branch            main       -> FETCH_HEAD
+Updating 5f1ffa9..e9f3567
+Fast-forward
+ README.md         |   4 +-
+ auto-review.sh    | 190 ++++++++++++++++++++++++---------------
+ fool/STANDARDS.md | 206 ++++++++++++++++++++++++++++++++++++++++++
+ src/STANDARDS.md  | 261 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 590 insertions(+), 71 deletions(-)
+ create mode 100644 fool/STANDARDS.md
+ create mode 100644 src/STANDARDS.md
+[2026-06-21 20:03:32] No uncorrected files found. Polling every 600s.
+[2026-06-22 10:14:59] ========================================
+[2026-06-22 10:14:59] Auto-review agent started
+[2026-06-22 10:14:59] Repo: /home/djology/english2-daily
+[2026-06-22 10:14:59] Agent: agent · model: sonnet-4.6
+[2026-06-22 10:14:59] ========================================
+[2026-06-22 10:15:02] No pipeline-pending files. Polling every 600s.
+[2026-06-22 10:15:02] Another instance already running — exiting.

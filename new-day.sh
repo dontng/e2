@@ -43,17 +43,17 @@ PROBE_FILE="$PROBE_DIR/${MMDD}-day${DAY_NUM}-probe.md"
 
 mkdir -p "$DIR" "$FOOL_DIR" "$PROBE_DIR"
 
-# 日期去重：同一 MMDD 不得出现两个不同 day 号（见 0612 事故）。
-EXISTING=$(find src -name “${MMDD}-day*.md” 2>/dev/null | head -1)
-if [ -n “$EXISTING” ]; then
-  echo “Already exists for ${MMDD}: $EXISTING” >&2
+# 当天去重：按日期(MMDD)判断，而非完整文件名。
+EXISTING=$(find "$DIR" -maxdepth 1 -name "${MMDD}-day*.md" 2>/dev/null | head -1)
+if [ -n "$EXISTING" ]; then
+  echo "Already exists for ${MMDD}: $EXISTING" >&2
   exit 1
 fi
 
 # day 号去重：同一 day 号不得出现在两个不同日期。
-EXISTING_DAY=$(find src -name “*-day${DAY_NUM}.md” 2>/dev/null | head -1)
-if [ -n “$EXISTING_DAY” ]; then
-  echo “day${DAY_NUM} already used: $EXISTING_DAY” >&2
+EXISTING_DAY=$(find src -name "*-day${DAY_NUM}.md" 2>/dev/null | head -1)
+if [ -n "$EXISTING_DAY" ]; then
+  echo "day${DAY_NUM} already used: $EXISTING_DAY" >&2
   exit 1
 fi
 

@@ -29,14 +29,14 @@ bash word.sh        # 单词复习页：一屏一次，词+例句端上来（端
 
 ---
 
-## 在公司笔记本上用
+## 在其他笔记本上用
 
 `bash studio.sh` 在哪台机器上跑行为自动适配，无需配置。
 
 | 场景 | 模式 | 保存后做什么 |
 |------|------|-------------|
 | Dell（跑着 auto-review） | 本地模式 | 写 markdown → touch 唤醒文件，daemon ≤15s 接手 |
-| 公司笔记本（没有 daemon） | 远程模式 | 写 markdown → commit + push，Dell pull 后处理 |
+| 其他笔记本（没有 daemon） | 远程模式 | 写 markdown → commit + push，Dell pull 后处理 |
 
 远程模式下 studio 不调用 Claude，只做 git 操作。批改 / fool / probe 全在 Dell 上完成，推回 GitHub 后页面每 60 秒自动 pull，结果直接出现。
 
