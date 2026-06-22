@@ -76,5 +76,4 @@ Dell WSL2 安装 Cursor Agent：`curl https://cursor.com/install -fsS | bash`，
 | `fool/` | 愚者拆解 | 四步拆解全部英文句（原句 + Vocab + Phrases 例句）；契约见 [`fool/STANDARDS.md`](fool/STANDARDS.md) |
 | `probe/` | 内功印证卡 | 仅针对田静每日一句：刺痛 / G/P 印证 / 台阶 / 今日带走；跨天总表 [`probe/internal-skills.md`](probe/internal-skills.md) |
 | `console/` | 控制台 | 3 天滚动窗口；`today.md` 含倒计时和今日链接；[`scores.md`](console/scores.md) 全部评分 |
-| `data/vocab.json` | 单词 SRS 状态 | 本机本地，不入 git |
 | `scripts/` | 工具脚本 | 见 [`scripts/README.md`](scripts/README.md) |
