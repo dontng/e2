@@ -67,6 +67,6 @@ pkill -f auto-review.sh    # 停止
 | 目录 | 内容 | 说明 |
 |------|------|------|
 | `src/` | 原始句子文件 | 批改结果写回这里；质量契约见 [`src/STANDARDS.md`](src/STANDARDS.md) |
-| `fool/` | 愚者解析 | AI 对句子的全量拆解，帮你读懂批改；契约见 [`fool/STANDARDS.md`](fool/STANDARDS.md) |
+| `fool/` | 愚者拆解 | 四步：扫词→词块→句式→读句；契约 [`fool/STANDARDS.md`](fool/STANDARDS.md) |
 | `probe/` | 内功印证卡 | Agent 诊断（仅田静每日一句）：刺痛、G/P、台阶、今日带走；总表见 [`probe/internal-skills.md`](probe/internal-skills.md) |
 | `console/` | 控制台 | 3 天滚动窗口，`today.md` 作入口 |

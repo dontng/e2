@@ -21,7 +21,11 @@ bash studio.sh        # 打开浏览器交互台，写译 / 重译 / 看批改�
 
 > 两页都在跑后，页面标题下各有「单词 ↗ / 句子 ↗」链接可**直接在浏览器里互跳**，不必回终端再敲命令。互链按默认端口 8787/8788 硬编码；若用 `PORT=` 自定义端口则链接失效。
 | `new-day.sh` | 创建当天的 `src/<月>/<mmdd>-dayN.md`，自动注入「复习区」（盲译重做的句子）。`bash new-day.sh tomorrow` 预建明天；`bash new-day.sh 0625` 指定日期。 | 手动 / 网页「开启 day / 备好明天」按钮 |
-| `auto-review.sh` | **批改 daemon**，常驻在家里那台 Dell。轮询仓库找未批改的翻译 → 调 Claude 批改 → 生成评分/讲解、刷新 console 与 probe → commit & push。默认 10 分钟轮询；`--once` 扫一次即退。 | Dell 上常驻；VS Code `folderOpen` task 也会拉起 |
+| `auto-review.sh` | **批改 daemon**（Dell 常驻）。轮询 → 一次 Agent 顺序 **批改 src → fool → probe**；`scripts/src.sh` / `fool.sh` / `probe.sh` 验证通过后 push。 | Dell；VS Code `folderOpen` task |
+| `day-pipeline-prompt.sh` | 日课 Agent prompt 构建（流程 only；格式见各 `STANDARDS.md`）。 | 被 `auto-review.sh` source |
+| `src.sh` | src 批改完成度（批改+评分+Vocab/Phrases 例句意图）。 | 被 `auto-review.sh` source |
+| `fool.sh` | fool 完成度（四步 v2：扫词/扫词块/扫句式/读句子）。 | 被 `auto-review.sh` source |
+| `probe.sh` | probe 完成度（原句摘抄+诊断五段）。 | 被 `auto-review.sh` source |
 
 ### scripts/ 下（多为被 source 的模块，非独立运行）
 
@@ -35,10 +39,11 @@ bash studio.sh        # 打开浏览器交互台，写译 / 重译 / 看批改�
 | `review.py` | day 文件与复习区的解析/写入单一职责模块。CLI：`review.py inject <file> <day>` 注入复习区；`review.py pending <file>` 判断是否有待批改重译。库函数 `section / set_section / parse_blocks / fill_redo` 被 studio.py、scores.py 复用。复习注入规则：每句一生恰好被复习两次（第 3 次前、第 7 次前），盲译不带答案，参考译文藏在 HTML 注释里渲染不可见、批改可读。 |
 | `scores.py` | 评分数据的唯一归属。CLI `scores.py <repo> <exam_date>` 重生成 `console/scores.md` 并输出 today.md 摘要行。库函数 `collect(repo)` 返回所有天的首译/重译分数，喂给 studio 的走势图与表格。 |
 | `console.sh` | 被 `auto-review.sh` source。维护 3 天滚动的 console 窗口文件（带上一篇/下一篇导航的轻量入口）。 |
-| `nav.sh` | 被 `auto-review.sh` source（须在 `console.sh` 之后）。给 `fool/`、`probe/` 文件维护行内上一篇/下一篇导航。 |
-| `probe.sh` | 被 `auto-review.sh` source。为每句生成 probe 卡片（原句+翻译+评分+问答占位）。 |
+| `nav.sh` | 被 `auto-review.sh` source（须在 `console.sh` 之后）。`fool/`、`probe/` 行内导航。 |
+| `probe.sh` | probe 完成度（原句摘抄 + 诊断五段；无 Q&A）。 |
+| `verify-day.sh` | 本地诊断：`bash scripts/verify-day.sh src/.../dayN.md`。 |
 
-> 调用关系：`auto-review.sh` 依次 source `console.sh → nav.sh → probe.sh`；`studio.py` import `review` 和 `scores`；`scores.py` 也 import `review`。解析逻辑只在 `review.py` 里写一份，其余全部复用，不重复造解析。
+> 调用关系：`auto-review.sh` source `console.sh → nav.sh → probe.sh → src.sh → fool.sh → day-pipeline-prompt.sh`；`studio.py` import `review`、`scores`。
 
 ---
 

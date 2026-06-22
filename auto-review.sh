@@ -2,7 +2,7 @@
 # auto-review.sh — Autonomous English correction agent (Dell WSL2 daemon)
 #
 # Polls repo (default 10 min), git pull, runs Cursor Agent for each pending day:
-#   批改 src → fool 拆解 → probe 内功诊断（仅田静每日一句）
+#   批改 src → fool 拆解 → probe 内功诊断（标尺 2026-06-22）
 # Push only after all three are verified complete.
 #
 # Usage:
@@ -51,6 +51,10 @@ source "$REPO_DIR/scripts/console.sh"
 source "$REPO_DIR/scripts/nav.sh"
 # shellcheck source=scripts/probe.sh
 source "$REPO_DIR/scripts/probe.sh"
+# shellcheck source=scripts/src.sh
+source "$REPO_DIR/scripts/src.sh"
+# shellcheck source=scripts/fool.sh
+source "$REPO_DIR/scripts/fool.sh"
 
 agent_rate_limited() {
     grep -qiE "rate.?limit|usage.?limit|too many request|quota|overloaded|529|429" "$1"
@@ -160,20 +164,9 @@ needs_review() {
     [[ -n "$translation" && -z "$correction" ]]
 }
 
-# Returns 0 if 批改 section has content — the file has been corrected.
-# Guards fool generation: a freshly created (empty) day file must not be decomposed.
-has_correction() {
-    awk '/^## 批改/{f=1;next} f&&/^## /{exit} f' "$1" | grep -q '[^[:space:]]'
-}
+# has_correction → scripts/src.sh
 
-# Returns 0 if fool needs to be generated: fool file missing or has no entries.
-# Deliberately does NOT re-trigger on source file edits — fool is generated once and kept.
-needs_fool() {
-    local source_file="$1"
-    local fool_path="$2"
-    [[ ! -f "$fool_path" ]] && return 0
-    ! grep -q '^### fool-' "$fool_path"
-}
+# fool 完成度：scripts/fool.sh（fool_complete / needs_fool）
 
 # Find markdown files where 我的理解和翻译 has content but 批改 is empty
 find_uncorrected() {
@@ -190,9 +183,11 @@ find_pipeline_pending() {
         day_paths "$f"
         if needs_review "$f"; then
             echo "$f"
-        elif has_correction "$f" && needs_fool "$f" "$FOOL_PATH"; then
+        elif has_correction "$f" && ! src_day_complete "$f"; then
             echo "$f"
-        elif has_correction "$f" && has_score "$f" && ! probe_complete "$PROBE_PATH"; then
+        elif src_day_complete "$f" && needs_fool "$f" "$FOOL_PATH"; then
+            echo "$f"
+        elif src_day_complete "$f" && ! probe_complete "$PROBE_PATH"; then
             echo "$f"
         fi
     done
@@ -202,7 +197,7 @@ find_pipeline_pending() {
 find_probe_incomplete() {
     find "$REPO_DIR/src" -name "*-day*.md" -print0 | while IFS= read -r -d '' f; do
         day_paths "$f"
-        if ! needs_review "$f" && has_correction "$f" && has_score "$f" && ! probe_complete "$PROBE_PATH"; then
+        if ! needs_review "$f" && src_day_complete "$f" && ! probe_complete "$PROBE_PATH"; then
             echo "$f"
         fi
     done
@@ -231,7 +226,7 @@ find_redo_pending() {
 find_fool_missing() {
     find "$REPO_DIR/src" -name "*.md" -print0 | while IFS= read -r -d '' f; do
         day_paths "$f"
-        if ! needs_review "$f" && has_correction "$f" && needs_fool "$f" "$FOOL_PATH"; then
+        if ! needs_review "$f" && src_day_complete "$f" && needs_fool "$f" "$FOOL_PATH"; then
             echo "$f"
         fi
     done
@@ -251,8 +246,8 @@ guard_mark() { _FAILED_HASH[$1:$2]=$(md5sum "$2" | awk '{print $1}'); }
 day_pipeline_verified() {
     local f="$1"
     day_paths "$f"
-    has_correction "$f" && has_score "$f" \
-        && ! needs_fool "$f" "$FOOL_PATH" \
+    src_day_complete "$f" \
+        && fool_complete "$FOOL_PATH" \
         && probe_complete "$PROBE_PATH"
 }
 
@@ -304,19 +299,8 @@ redo_review_file() {
     local file="$1"
     local rel="${file#$REPO_DIR/}"
     log "Grading 复习区: $rel"
-    run_agent "你是复习批改老师。只处理「## 复习区」。
-
-Read：$REPO_DIR/src/STANDARDS.md §9
-文件：$file
-
-约束：只在「**复习批改：**」空白处写入；其余不得改动（含 <!-- review-meta -->）。
-
-找到「**我的重译：**」已填、「**复习批改：**」为空的块，写入：
-- **过程对比**（2-3 行）
-- 仍存错误（最多 5 条）或肯定
-- 末行：**复习评分：X / 10**（首译 Y / 10，↑/→/↓）
-
-直接编辑文件，不要输出其他内容。"
+    prompt=$(build_redo_review_prompt "$file")
+    run_agent "$prompt"
 }
 
 batch_commit() {

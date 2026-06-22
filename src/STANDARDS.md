@@ -2,7 +2,8 @@
 
 > 本文件是 **src/** 下每日句子文件的生成与质量契约。  
 > `auto-review.sh` 批改、复习批改均须遵守；与 shell 内 prompt 冲突时，**以本文件为准**。  
-> 配套：`fool/STANDARDS.md`（例句拆解）、`probe/STANDARDS.md` + `probe/internal-skills.md`（内功 G / 招式 P，日 probe 由 AI 诊断印证）。
+> 流水线版本：**2026-06-22**（流程见 `scripts/day-pipeline-prompt.sh`，完成度见 `scripts/src.sh`）。  
+> 配套：`fool/STANDARDS.md`（例句拆解）、`probe/STANDARDS.md` + `probe/internal-skills.md`（内功诊断）。
 
 ---
 
@@ -72,7 +73,7 @@ src/<month>/<mmdd>-day<N>.md
 ### 4.3 问答收录 / 练习与习得
 
 - AI **不得填写**
-- 学员疑点写在 `probe/<month>/<mmdd>-day<N>-probe.md` 的「疑点收件箱」
+- 学员疑点、过程断点见当日 `probe/*-probe.md` 诊断段；跨天总表 `probe/internal-skills.md`
 
 ---
 
@@ -123,11 +124,11 @@ src/<month>/<mmdd>-day<N>.md
 
 采分点（5点）：
 - ✓ [采分点描述]
-- △ [采分点] → 用户写了什么 · 差在哪
-- ✗ [采分点] → 用户写了什么 · 差在哪
+- △ [采分点] → 用户写了什么，差在哪
+- ✗ [采分点] → 用户写了什么，差在哪
 ```
 
-△ 或 ✗ 必须附一句话说明。
+△ 或 ✗ 的说明用**中文逗号**衔接（不用间隔号 `·`）。
 
 ---
 
@@ -258,4 +259,4 @@ src/<month>/<mmdd>-day<N>.md
 
 ## 11. 修订
 
-本标尺随项目演进更新；修改后应同步 `auto-review.sh` 内 prompt，并注明修订日期。
+本标尺随项目演进更新；修改后应同步 `scripts/day-pipeline-prompt.sh` 与 `scripts/src.sh`。

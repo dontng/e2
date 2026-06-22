@@ -12,3 +12,6 @@ data/vocab.json
 
 # 深色模式偏好（每机一份，不同步）
 data/theme
+
+# 历史日课本地归档（不同步到 GitHub）
+archive/
