@@ -1,8 +1,8 @@
-« [0622-day60](0622-day60-probe.md)
+« [0618-day57](0618-day57-probe.md)
 
 # day61 Probe
 
-source: [src/june/0623-day61.md](../../src/june/0623-day61.md)
+source: [probe/june/0623-day61-probe.md](../probe/june/0623-day61-probe.md)
 
 ---
 
@@ -38,4 +38,5 @@ source: [src/june/0623-day61.md](../../src/june/0623-day61.md)
 下次遇到 N, appositive, who… 的连串逗号，先数有几对逗号、哪段是插入说明，把插入语括起来跳过，再读主干——「who emigrated and took up posts」才是密斯真正做的事。
 
 
-« [0622-day60](0622-day60-probe.md)
+
+« [0618-day57](0618-day57-probe.md)

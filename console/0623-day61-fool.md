@@ -1,8 +1,8 @@
-« [0622-day60](0622-day60-fool.md)
+« [0618-day57](0618-day57-fool.md)
 
 # Day 61 Fool Sessions · 2026-06-23
 
-source: [src/june/0623-day61.md](../../src/june/0623-day61.md)
+source: [fool/june/0623-day61-fool.md](../fool/june/0623-day61-fool.md)
 
 ---
 
@@ -384,4 +384,5 @@ it tells you what…, not that…：what 引导名词从句（它是什么），
 ---
 
 
-« [0622-day60](0622-day60-fool.md)
+
+« [0618-day57](0618-day57-fool.md)
