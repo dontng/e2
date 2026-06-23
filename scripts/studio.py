@@ -55,11 +55,23 @@ PULL_INTERVAL = 60          # 远程模式下自动 pull 的最小间隔（秒�
 _git_lock = threading.Lock()
 _last_pull = 0.0
 
+_daemon_ts = 0.0
+_daemon_val = False
+_DAEMON_TTL = 5.0          # 5 秒内复用上次的 /proc 扫描结果
+
+_src_cache_key: float = -1.0
+_src_cache_data: dict = {}
+
+_exam_date_val = None
+
 
 def exam_date() -> datetime.date:
     """EXAM_DATE 的唯一定义在 console.sh，这里读取而不复制。"""
-    m = re.search(r'EXAM_DATE="(\d{4}-\d{2}-\d{2})"', (SCRIPTS / 'console.sh').read_text())
-    return datetime.date.fromisoformat(m.group(1))
+    global _exam_date_val
+    if _exam_date_val is None:
+        m = re.search(r'EXAM_DATE="(\d{4}-\d{2}-\d{2})"', (SCRIPTS / 'console.sh').read_text())
+        _exam_date_val = datetime.date.fromisoformat(m.group(1))
+    return _exam_date_val
 
 
 def git(*args, timeout=40):
@@ -92,7 +104,30 @@ def proc_alive(needle: str) -> bool:
 
 
 def local_daemon() -> bool:
-    return proc_alive('auto-review.sh')
+    global _daemon_ts, _daemon_val
+    if time.time() - _daemon_ts < _DAEMON_TTL:
+        return _daemon_val
+    _daemon_val = proc_alive('auto-review.sh')
+    _daemon_ts = time.time()
+    return _daemon_val
+
+
+def _src_mtime_key() -> float:
+    """src/ 下所有 .md 文件的最大 mtime；文件增删或修改后自动失效。"""
+    return max((f.stat().st_mtime for f in REPO.glob('src/*/*.md')), default=0.0)
+
+
+def _load_src_data() -> dict:
+    """缓存 scores + stems；只在文件变化时重新扫描。"""
+    global _src_cache_key, _src_cache_data
+    key = _src_mtime_key()
+    if key == _src_cache_key:
+        return _src_cache_data
+    sc = scores_mod.collect(REPO)
+    stems = [f"{e['mmdd']}-day{day}" for day, e in sorted(sc['entries'].items())]
+    _src_cache_data = {'scores': sc, 'stems': stems}
+    _src_cache_key = key
+    return _src_cache_data
 
 
 # ── git 同步（仅远程模式使用） ────────────────────────────────────────────────
@@ -176,7 +211,7 @@ def read_doc(kind: str, stem: str = '') -> str:
 
 def all_day_stems() -> list:
     """所有 src 天文件的 stem（形如 '0616-day56'），按文件名排序≈时间顺序。"""
-    return [f.name[:-3] for f in sorted(REPO.glob('src/*/*-day*.md'), key=lambda p: p.name)]
+    return _load_src_data()['stems']
 
 
 def day_nav(stem: str, stems: list = None) -> tuple:
@@ -188,10 +223,11 @@ def day_nav(stem: str, stems: list = None) -> tuple:
     return (stems[i - 1] if i > 0 else '', stems[i + 1] if i < len(stems) - 1 else '')
 
 
-def day_card(f: Path) -> dict:
+def day_card(f: Path, text: str = None) -> dict:
     """单个天文件 → 卡片数据（原句/翻译/批改/评分 + fool/probe 是否存在 + 复习块）。
     get_state 的今日卡与 day_view 的历史卡共用，避免两处重复。"""
-    text = f.read_text(encoding='utf-8')
+    if text is None:
+        text = f.read_text(encoding='utf-8')
     rel = str(f.relative_to(REPO))
     stem = f.name[:-3]
     fool_rel = f'fool/{f.parent.name}/{stem}-fool.md'
@@ -232,18 +268,19 @@ def get_state() -> dict:
     mmdd = today.strftime('%m%d')
     f = find_day_file(mmdd)
 
-    data = scores_mod.collect(REPO)
-    entries, redos = data['entries'], data['redos']
+    src = _load_src_data()
+    entries, redos = src['scores']['entries'], src['scores']['redos']
+    stems = src['stems']
     next_day = max(entries, default=0) + 1
 
-    stems = all_day_stems()
     t = {'exists': False, 'mmdd': mmdd, 'next_day': next_day}
     blocks = []
     if f:
-        t = day_card(f)
+        text = f.read_text(encoding='utf-8')
+        t = day_card(f, text)
         t['next_day'] = next_day
         t['prev'], t['next'] = day_nav(t['stem'], stems)
-        blocks = review.parse_blocks(f.read_text(encoding='utf-8'))
+        blocks = review.parse_blocks(text)
     else:
         # 今天还没建文件：左箭头退回到现存最新一天，仍可翻阅历史
         t['prev'] = stems[-1] if stems else ''
