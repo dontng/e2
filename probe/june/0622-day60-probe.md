@@ -1,3 +1,5 @@
+« [0620-day59](0620-day59-probe.md)　　[0623-day61](0623-day61-probe.md) »
+
 # day60 Probe
 
 source: [src/june/0622-day60.md](../../src/june/0622-day60.md)
@@ -33,3 +35,6 @@ source: [src/june/0622-day60.md](../../src/june/0622-day60.md)
 ## 今日带走
 
 下一句落笔前 3 秒：长句 // 切完后，先念一遍「主语动词宾语齐了没」——今天 everybody 就是 // 前丢的那一块。
+
+
+« [0620-day59](0620-day59-probe.md)　　[0623-day61](0623-day61-probe.md) »

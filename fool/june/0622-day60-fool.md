@@ -1,3 +1,5 @@
+« [0620-day59](0620-day59-fool.md)　　[0623-day61](0623-day61-fool.md) »
+
 # Day 60 Fool Sessions · 2026-06-22
 
 source: [src/june/0622-day60.md](../../src/june/0622-day60.md)
@@ -505,3 +507,6 @@ He caught "集中" 是对的一半；but tied it to "伤害最多" 是误——�
 直读：distinctive 词尾 -ive 是特色，distribute 词尾 -ute 是分发，混了整个从句就跑到「配送路线」去了。
 
 ---
+
+
+« [0620-day59](0620-day59-fool.md)　　[0623-day61](0623-day61-fool.md) »
