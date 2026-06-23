@@ -1,9 +1,3 @@
-[2026-06-16 23:06:17] ========================================
-[2026-06-16 23:06:17] Auto-review agent started
-[2026-06-16 23:06:17] Repo: /home/djology/english2-daily
-[2026-06-16 23:06:17] Poll interval: 600s
-[2026-06-16 23:06:17] ========================================
-[2026-06-16 23:06:24] Another instance already running — exiting.
 [2026-06-17 00:58:29] ========================================
 [2026-06-17 00:58:29] Auto-review agent started
 [2026-06-17 00:58:29] Repo: /home/djology/english2-daily
@@ -200,3 +194,65 @@ Fast-forward
 [2026-06-22 10:14:59] ========================================
 [2026-06-22 10:15:02] No pipeline-pending files. Polling every 600s.
 [2026-06-22 10:15:02] Another instance already running — exiting.
+[2026-06-23 11:00:38] ========================================
+[2026-06-23 11:00:38] Auto-review agent started
+[2026-06-23 11:00:38] Repo: /home/djology/english2-daily
+[2026-06-23 11:00:38] Agent: agent · model: sonnet-4.6
+[2026-06-23 11:00:38] ========================================
+[2026-06-23 11:00:42] Day pipeline: src/june/0619-day58.md → 批改·fool·probe
+[2026-06-23 11:00:42] ERROR: agent not found — install: curl https://cursor.com/install -fsS | bash
+[2026-06-23 11:00:42] Pipeline failed for 0619-day58 — guarded
+[2026-06-23 11:00:42] Probe migrate: src/june/0619-day58.md
+[2026-06-23 11:00:42] ERROR: agent not found — install: curl https://cursor.com/install -fsS | bash
+[2026-06-23 11:00:42] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 11:11:11] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 11:11:11] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 11:14:34] Wake signal — scanning immediately
+[2026-06-23 11:14:39] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 11:14:39] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 11:25:08] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 11:25:08] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 11:35:39] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 11:35:40] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 11:46:13] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 11:46:13] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 11:56:48] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 11:56:48] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 12:07:21] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 12:07:21] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 12:17:50] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 12:17:50] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 12:28:22] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 12:28:22] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 12:38:52] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 12:38:52] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 12:49:21] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 12:49:21] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 12:59:44] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 12:59:45] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 13:10:08] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 13:10:08] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 13:20:36] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 13:20:36] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 13:31:00] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 13:31:00] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 13:41:25] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 13:41:26] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 13:52:03] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 13:52:03] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 14:02:29] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 14:02:29] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 14:59:37] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 14:59:37] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 15:10:02] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 15:10:02] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 15:20:30] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 15:20:30] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 15:30:53] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 15:30:53] Push pending [周期末检验]: 1 fool-missing file(s) remain
+[2026-06-23 15:39:10] Wake signal — scanning immediately
+[2026-06-23 15:39:15] Guard: 0619-day58 unchanged since failed pipeline — skipping
+[2026-06-23 15:39:15] Day pipeline: src/june/0623-day61.md → 批改·fool·probe
+[2026-06-23 15:39:15] ERROR: agent not found — install: curl https://cursor.com/install -fsS | bash
+[2026-06-23 15:39:15] Pipeline failed for 0623-day61 — guarded
+[2026-06-23 15:39:15] Push pending [周期末检验]: 1 uncorrected file(s) remain
