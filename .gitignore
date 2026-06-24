@@ -15,3 +15,4 @@ data/theme
 
 # 历史日课本地归档（不同步到 GitHub）
 archive/
+.auto-review.log
