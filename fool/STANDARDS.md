@@ -1,12 +1,18 @@
 # fool 拆解文件标尺
 
-`fool/` 下的文件是每日例句的逐句拆解。目的是让学员读完当天 src 里的英文句子能真正吸收。fool 不重复批改，只做降维讲解——降维发生在**中文解释**，英文原句一字不动。
+fool 是**阅读放大器**：每日一句田静原句的批改里包含英二难度的 Vocab 例句和 Phrases 例句，fool 把这些例句逐句降维拆解，让学员真正读进去，而不是扫一眼又懵。一天一句翻译加上 fool 消化掉的所有例句，合计等于多读了若干句同等难度的英文——这是补阅读训练量的核心机制。
+
+fool 不重复批改，不生成新英文，只做降维讲解。降维发生在**中文解释层**，英文原句一字不动。
+
+批改流水线入口：`scripts/day-pipeline-prompt.sh`。
 
 ---
 
 ## 读者档位（固定）
 
-与 src/STANDARDS.md 一致：首译 3.5–4.5/10。讲解深度不随当天得分高低变化，也不参照历史 fool 文件调节。
+与 src/STANDARDS.md 一致：首译 3.5–4.5/10，对应英二 35–45 分。
+
+讲解深度固定按此档位，不随当天得分高低变化，也不参照历史 fool 文件调节。
 
 ---
 
@@ -42,7 +48,7 @@ source: [src/<month>/<mmdd>-day<N>.md](../../src/<month>/<mmdd>-day<N>.md)
 
 ## 四步拆解
 
-每条条目做四步。**Step 1–4 的中文讲解合计不超过 12 行**（不含 blockquote 英文行和步骤标题行）。第一条和最后一条密度要一致，不能后段缩水。
+每条条目做四步。**Step 1–4 的中文讲解合计不超过 12 行**（不含 blockquote 英文行和步骤标题行）。第一条和最后一条密度必须一致，后段不得缩略、敷衍。
 
 ```markdown
 ### fool-NN [扣原句|迁移|防坑]
@@ -67,8 +73,8 @@ source: [src/<month>/<mmdd>-day<N>.md](../../src/<month>/<mmdd>-day<N>.md)
 - 句子实义词多时只扫 2–5 个分量词，为后面步骤留行数
 
 ```
-- **whirlwind**：whirl（旋）+ wind（风）→ 打着旋扫过。核心意象：来得猛、转得快；新闻语境 = 行业剧变，不是天气台风。
-- **distinctive**：dis- + stinct（区分点）→ 能分开。注意≠distribute（分发）。核心意象：有特色，最不 distinctive = 最同质化。
+- **whirlwind**：打着旋扫过。核心意象：来得猛、转得快；新闻语境 = 行业剧变。
+- **distinctive**：有特色，能被区分开。注意 ≠ distribute（分发）。
 ```
 
 ---
@@ -77,14 +83,16 @@ source: [src/<month>/<mmdd>-day<N>.md](../../src/<month>/<mmdd>-day<N>.md)
 
 扫**必须合读**才成立的较短片段——固定搭配、习惯用法、带介词的动词/名词块（`bothered with`、`concentrated in areas`）。
 
-每个块写：**原词**（可截片段）+ 平行变体（用 `/` 分隔，来自原句骨架，不造新例句）+ **中文感受**（合读后的语气、方向、主被动）。
+每个块写：**原词**（可截片段）+ 平行变体（用 `/` 分隔，来自 blockquote 内已有的搭配）+ **中文感受**（合读后的语气、方向、主被动）。
+
+**禁止在 Step 2 新增英文例句**——平行变体只来自 blockquote 里那句英文本身，不另造句子。
 
 `not A but B`、where/that 从句整段等更长的结构归 Step 3。
 
 防坑条目（例句意图含"防坑"）在这里加一行：`首译典型错读：…；本句纠偏：…`
 
 ```
-- **be provoked to wonder**：rarely provoked to / provoked into wondering。中文感受：被激得去寻思——「被戳到才想」，不是主动好奇。
+- **be provoked to wonder**：provoked to / provoked into wondering。中文感受：被激得去寻思——被戳到才想，不是主动好奇。
 - **concentrated in areas**：concentrated in / concentrated on。中文感受：损害「落在」领域内，不是挂在表面。
 ```
 
@@ -110,6 +118,6 @@ but 连接两半：前半 whirlwind harmed everybody；后半 damage concentrate
 - **直读**：短句、口语，像转述给朋友，能默念
 - **考场**：一句书面译，采分骨架在，过得分门槛即可
 
-fool 训练读解能力，不是展示范文。略欧化、略生硬，逻辑打通就合格。比 src 参考译文还华丽反而不对——学员复制不了。
+fool 训练读解能力，不是展示范文。略欧化、略生硬，逻辑打通就合格。比 src 参考译文更华丽反而不对——学员复制不了。
 
 极简句可省略「考场」行。Vocab/Phrases 例句以**读懂**为主，考场层可极简或省略。
