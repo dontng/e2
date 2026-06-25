@@ -1,44 +1,45 @@
-# day63 Probe
+# probe · Day 63 · 2026-06-25
 
-source: [src/june/0625-day63.md](../../src/june/0625-day63.md)
+原句：It insists that economic co-ordination should involve all 27 members of the EU club, among whom there is a small majority for free-market liberalism and economic rigour; in the inner core alone, Germany fears, a small majority favour French interference.
 
 ---
 
-## 原句
+**Q：insists that...should 为什么不是"命令别人做某事"，而是表达立场？**
 
-> It insists that economic co-ordination should involve all 27 members of the EU club, among whom there is a small majority for free-market liberalism and economic rigour; in the inner core alone, Germany fears, a small majority favour French interference.
+insist 后面接 that 从句时，should 是英语里"虚拟语气"的信号，但不需要记这个名字。你只需要感受到：insist that something should happen 这个结构，说话人是在用力摁住自己的主张——"我坚持认为这件事应该是这样的"——不是在给别人下命令，是在声明自己的规范性立场。
 
-## 今日刺痛
+这和 demand that 有点像但不一样：demand 的语气里有强迫性，insist 的语气里更多是坚持自己的判断不松手。
 
-**"它要求经济协同要求"——同一个词出现两次，自己没察觉。**  
-你的译文开头是"它要求经济协同要求全部的……"，两个"要求"撞在一起，意思已经不通顺，但你写完没有扫一眼。这是最直接的盲译信号：落笔之后没有读一遍自己写了什么。多出来的那个"要求"是在翻 co-ordination 后面的 involve——involve 不是"要求"，是"涵盖/包含"。
+所以遇到 insist/suggest/recommend/require/propose + that 从句时，要预期：后面说的是某人坚持/建议/要求某事应该如何，是一个关于"应然"的判断，不是对动作的直接描述。
 
-**`rigour` 直接保留英文，说明那一瞬间完全放弃了。**  
-碰到不认识的词，译文里留一个英文原词，是心理放弃的标志——「我不知道就跳过」。但在考场上你没有跳过的权利；此时正确的做法是：看上下文，economic rigour 后面是"for free-market liberalism and economic rigour"里的第二个名词，economic 已经给了方向，猜一个「经济严格性/管理严格」留在那里，比留英文强。
+---
 
-**`interference` → "参与"——完全感知不到词的负面色彩。**  
-"France's interference"在欧洲政治语境里是一个有明确负面倾向的表达（干涉 = 不受欢迎的插手），德国正是因为"担心"这件事才提出来——"担心"和"参与（中性）"是两个方向。你把 interference 的批评意味读平了，变成了德国担心法国"参与"——这就把整个句子的政治逻辑消解掉了。
+**Q：for 在 "a small majority for free-market liberalism" 里为什么是"支持"，读到时怎么判断？**
 
-## 内功印证
+for 的核心方向感是"朝向、站在……这一侧"。当它出现在名词后面接抽象事物（主义、政策、提案）时，几乎都是"赞成/支持"的意思，相当于 in favor of。
 
-- **G07 盲译无检**：今日触发两次：① "要求…要求"双出现未察觉，② "经济的rigour"这种明显留白未回检。写完之后默读一遍中文，这两处都能自我发现。建议回看 `internal-skills.md` §G07。
+判断方法很简单：看 for 后面是不是一个可以被支持或反对的立场/事物。如果是，那就是"支持"，不是"为了"。"为了"（目的）通常出现在动词前面（in order to do / for the purpose of doing），而不是这种"名词 + for + 名词"的结构。
 
-- **G09 画面未激活**：今日触发两次：① liberalism 的 -ism 后缀丢失——"自由主义"和"自由"画面完全不同，一个是思想体系，一个是状态；② rigour 遇到不认识就空着，没有先建"严格/不松动的标准"这个画面再猜义。建议回看 §G09。
+这次卡在这里是因为看到 for 就套"目的"——但这个直觉只适合 for doing something，不适合 for + 抽象名词表立场。修正方法：看到 for 先判断后面跟的是动作还是立场/事物，再决定是"为了"还是"支持"。
 
-- **G01 语境违和迟钝**：interference → "参与"，德国"害怕"法国"参与"——两个词的语境搭配没有触发违和感。"德国担心的事"语境下，参与是中性词，感受上应该不对，但没有停下来核查。建议回看 §G01。
+---
 
-## 招式印证
+**Q：英语里为什么要插进去一个 "Germany fears" 打断句子，这种结构在阅读时该建立什么预期？**
 
-- **P01 方向检**：今日句尾"Germany fears, a small majority favour French interference"——fears（担心）和 interference（干涉）都带着方向：怕的是一件坏事，被干涉的人不情愿。落笔前 3 秒问：「法国参与」这件事是德国**担心**的还是期待的？答案会把"参与"挡在门外。
+这种插在句子中间的短语叫插入语，功能是标注"后面这个判断是谁说的、谁认为的"。Germany fears 不是在描述德国人在情感上很害怕，而是在告诉你：后面说的"核心圈内刚过半支持法国干预"，是德国的判断，不是客观事实。
 
-- **P04 画面三件套**：rigour 卡壳时，先走一遍：词根 rig-（僵硬/不弯）→ 画面：一条不折弯的标准线 → economic 语境中的搭配：strict rules / tight budgets。画面建起来，才能猜出「严格管理/财政纪律」的方向，而不是留英文空白。
+这在政治、经济类文章里非常常见——作者需要区分"事实"和"某方的判断"。常见的插入语有 critics argue、analysts note、officials say、the government fears 等，都是这个功能：标注来源，告诉你这个判断的主体是谁。
 
-## 提分台阶
+读到插入语时，建立的预期是：主句陈述的内容，是插入语主体的观点或担忧，不一定是客观真相。这对阅读很重要——能帮你区分文章在报道事实还是在转述某方的判断。
 
-当前站位：台阶① 止血（首译均分目标 5+）  
-今天 3.0/10，结构层（成员数量、刚过半）拿到了分，但两个核心词（rigour / interference）全失分，且有低级可避免的错误（要求重复、英文留白）。  
-距下一台阶差什么：养成两个习惯——① 遇到陌生词，用上下文猜一个中文方向，哪怕不准，不留英文；② 写完之后把中文读一遍，看有没有同词重复或意思不通的地方。这两条加起来能帮你从 3 分区提到 4–5 分区。
+---
 
-## 今日带走
+**Q：interference 和 participation 为什么不能混用，碰到带负面色彩的词怎么判断？**
 
-遇到不认识的词别留英文——看上下文猜一个方向，哪怕只写「某种严格标准」，比留 rigour 要强；考场不扣猜错的分，但会扣留白的分。
+interference 的词根是"撞进中间"——有人没被邀请，强行插进来，带有打扰、破坏、越界的感觉。这句话里德国"担心"核心圈内多数支持法国的 interference，这个担心本身就说明德国认为这是坏事。
+
+participation 是"参与"，完全中性，甚至带点正面——被邀请进来，一起做某事。
+
+区分的方法：看词的来源语境——interference 和 interfer with（干扰……、妨碍……）是同族，这个家族里都有"未被邀请、造成阻碍"的感觉。
+
+更通用的判断直觉：在政治经济文章里，当一个词和"担心、批评、警告"搭配出现时，要意识到这个词大概率是负面的。这句里是 Germany fears + French interference，fears 是警告信号——interference 在这里肯定不是好事。以后遇到不确定极性的词，先看它周围的情感词，再判断极性。
