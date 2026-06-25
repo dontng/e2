@@ -1,36 +1,44 @@
-# day59 Probe
+# probe / Day 59 on 2026-06-20
 
-source: [src/june/0620-day59.md](../../src/june/0620-day59.md)
+原句：
+> But the researchers believe that outside directors have an easier time of avoiding a blow to their reputations if they leave a firm before bad news breaks, even if a review of history shows they were on the board at the time any wrongdoing occurred.
 
 ---
 
-## 原句
+**Q：`director` 明明认识，为什么在这里译成了"导演"而不是"董事"？这种词义跟语境走的词，读到时该怎么判断？**
 
-> But the researchers believe that outside directors have an easier time of avoiding a blow to their reputations if they leave a firm before bad news breaks, even if a review of history shows they were on the board at the time any wrongdoing occurred.
+同一个词在不同领域里可以有完全不同的主义项，`director` 就是典型：电影行业是"导演"，公司治理语境里是"董事"。这次错在没有先看语境再定词义，而是让第一个跳出来的联想（导演）锁死了。
 
-## 今日刺痛
+英语里这类词不少——先读周围的词，再定意思。这句话里 `board`（董事会）、`firm`（公司）、`researchers`（研究者）这些词已经把语境锁定在公司治理领域，`director` 在这个框架下只有"董事"这一个选项。读到不确定的词，先扫一眼上下文的语境词，语境词会排除掉 80% 的误解。
 
-表面是 director、blow、break 几个词错，其实是**场景没进场**：一读 director 就落到「导演」，一读 break 就落到「播报」——公司丑闻、董事会、旧账翻出来这条线整段没建立。have an easier time of avoiding 被拆成「轻松的时期 + 避开」，说明**动词骨架还没挂稳**就往下填词；even if 后面 wrongdoing 译成「糟糕执行」，是**认词形不认罪错画面**——执行差和违规坏事不是一回事。
+遇到类似情况的预期：如果一个你认识的词放进句子里感觉别扭，先不要放弃，看看周围的词——语境会把它拉回正确的意思。
 
-## 内功印证
+---
 
-- **G01 语境违和迟钝** — outside directors 在上市公司语境里几乎总是「外部董事」；你落笔「外面的导演」，字典义项抢了场景。
-- **G09 画面未激活** — blow 没画面（一击、重创），break 没画面（消息爆出来），wrongdoing 没画面（坏事、违规）；认字母就译，搭配整坨塌。
-- **G03 主干方向不稳** — have an easier time **of avoiding** 是「更容易避开」，你译成「有很轻松的时期」——of 后面的事没挂在 easier time 上。
-- **G10 长句心理放弃** — even if 从句只译了「回顾历史」，on the board + wrongdoing occurred 糊成「糟糕执行的时期」——后半嵌套没剥完。
+**Q：`have an easier time of avoiding` 里，`time` 为什么不是"一段时间"？这种搭配里的 `time` 该怎么感知？**
 
-## 招式印证
+`time` 在英语里有两条独立的意思线：一是"时钟时间/时间段"，二是"体验/经历"——`have a good time`（玩得开心）、`have a hard time`（不顺、费劲）、`have an easy time of doing`（轻松做某事），这一整组搭配里的 `time` 走的都是第二条线。
 
-- **P04 画面三件套** — 今天 director/blow/break/wrongdoing 四个词都缺画面；下次卡壳：先问「这场景里是什么画面」，再选中文。
-- **P08 三道直觉检** — outside directors：词尾像名词、右边挂着 believe 从句里的主语——是谁？公司治理人，不是片场人。
-- **P03 气口 what / which** — 长句可在 believe that // if they leave // even if shows 处换气；先顺 even if 半句「即使回顾表明……当时仍在任」，再挂 wrongdoing。
+怎么判断走哪条？靠 `have` + 形容词 + `time` 这个结构。只要看到 `have a [形容词] time`，几乎可以直接判断是在说"体验/难易"，不是时间段。这不是靠语境推断，是结构本身就告诉你了。
 
-## 提分台阶
+这次的断点是没有识别出这个结构整体，把 `time` 孤立出来按字典定义读，搭配的意思就丢了。以后看到 `have a/an [adj.] time (of doing)`，第一反应应该是"这是在说做某事的难易程度"，不是时间。
 
-**当前：台阶 ① 止血**（今日 3/10）。outside directors、bad news breaks 两采分点 ✗，说明**场景+多义词**仍在漏血；△ 的三点说明主干和搭配「沾边但没挂牢」。
+---
 
-**距台阶 ①（均分 5+）差什么：** 公司治理句先标「董事/董事会/丑闻爆出」再动笔；have an easier time of doing 见到就默念「更容易做某事」；a blow to reputation 固定记「声誉一击」。
+**Q：`bad news breaks` 里 `break` 作不及物动词，为什么是"（消息）曝光/爆出"？这类不及物用法平时没注意过，遇到应该怎么预期？**
 
-## 今日带走
+`break` 的核心意象是"突然打破某种状态"。当它的主语是新闻、丑闻、风波这类词，且没有宾语时，它描述的就是"某件原本隐藏着的事，在某个时刻突然冲破封锁被外界知道"——不是有人去"播报"它，而是它自己"爆出来了"。这种用法强调的是从隐藏到公开的那个节点，带有突然性。
 
-进句先问：**这是公司丑闻句还是别的场景？** director → 董事，break → 爆出，blow → 打击声誉——三个词同一套画面，别各查各的字典第一项。
+这和 `break out`（爆发，用于战争、疾病）是同一个底层逻辑：都是"原本被压住的东西忽然冲出来"。
+
+遇到"坏消息/丑闻/风波 + break（不带宾语）"时，预期就是"曝光、爆出"，而不是"打破"或"播报"。如果看到 `news broke`，基本可以直接读成"消息（突然）曝光了"。
+
+---
+
+**Q：`wrongdoing` 是 `wrong` + `doing`，字面是"做错了的事"，这次为什么译成"糟糕的执行"而不是"违规行为"？合成词该怎么读？**
+
+这次的断点是字面拆解加上了一个不该加的映射：`wrong` → 糟糕，`doing` → 执行/做法，拼在一起就成了"糟糕的执行"。问题在于拆完字面意思还要加一层判断：这个合成词的使用场景是什么？
+
+`wrongdoing` 在英语里是一个有固定使用场景的词——法律、监管、公司治理、道德评判。它出现的地方，说的都是"明知故犯的不当或违法行为"，而不是中性的"把事情做差了"。`wrong` 在这里不只是"效果不好"，是"道德或法律层面的错"，`wrongdoing` 整体带有可追责、可被调查的含义。
+
+遇到这类合成词，字面分解之后要再问一次：这个词实际上出现在什么样的句子里？上下文是法律调查、丑闻、监管——那 `wrongdoing` 就不是"表现不好"，而是"违规行为"。语境是最后的校验。

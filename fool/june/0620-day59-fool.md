@@ -1,739 +1,535 @@
-# Day 59 Fool Sessions · 2026-06-20
-
-source: [src/june/0620-day59.md](../../src/june/0620-day59.md)
+# fool / Day 59 on 2026-06-20
 
 ---
 
-## 原句
+## fool-01
 
-### fool-01
+**句子（原句）**
+
 > But the researchers believe that outside directors have an easier time of avoiding a blow to their reputations if they leave a firm before bad news breaks, even if a review of history shows they were on the board at the time any wrongdoing occurred.
 
-**Step 1 扫词**
-- **director**：direct（指导）+ -or（人）。核心意象：商业语境 = 董事；影视才是导演，场景定义项。
-- **reputation**：re-（反复）+ put（想）。核心意象：别人怎么看你、信不信任你——名声。
-- **wrongdoing**：wrong + doing。核心意象：做错的事——违规、失职、造假，不是「执行差」。
+**词**
 
-**Step 2 扫词块**
-- **outside directors**：outside directors / independent directors。中文感受：公司外部聘请的董事，非内部高管。
-- **have an easier time of avoiding a blow to their reputations**：have an easier time of avoiding / easier time avoiding a blow to reputation。中文感受：更容易避开对声誉的一击——time = 情况不是时段，blow 名词 = 打击不是报导。
-- **before bad news breaks**：before bad news broke / before the scandal broke。中文感受：坏消息爆出/披露之前——break = 消息突然公开，不是播报。
+- outside directors：外部董事（不受雇于公司的独立董事）
+- firm：公司
+- reputation：声誉、名誉
+- a blow to：对……的打击
+- break（坏消息作主语）：（消息）曝光、爆出
+- a review of：对……的回溯/审查
+- wrongdoing：不当行为、违规行为
+- occurred：发生（过去时）
 
-**Step 3 扫句式**
-主干 researchers believe that…——宾语从句挂 believe 后。
-if they leave… before bad news breaks 条件：坏消息爆出前离开 → 更容易避声誉打击；even if a review of history shows they were on the board at the time any wrongdoing occurred 让步打脸——翻旧账仍表明不当行为发生时他们在董事会任职。
+**词块**
 
-**Step 4 读句子**
-直读：研究人员认为，外部董事要是坏消息爆出前离开公司，就更容易避开声誉受损；就算历史回顾表明不当行为发生时他们还在董事会任职。
-考场：但研究人员认为，外部董事若在坏消息爆出前离开公司，就更容易避免声誉受损；即使历史回顾表明，在任何不当行为发生时他们仍在董事会任职。
+- `have an easier time of avoiding`：更容易避开——`have a [easy/hard] time of doing` 整体表示"做某事的难易程度"，不是时间段
+- `a blow to their reputations`：对他们声誉的打击——`blow to` 后面接受损的对象
+- `before bad news breaks`：在坏消息曝光之前——`break` 这里是消息"爆出来"，不是"播报"
+- `at the time any wrongdoing occurred`：在任何违规行为发生的时候——`at the time` 后面接时间定语，说明的是"他们在场的那个时间点"
 
----
+**句式**
 
-## Vocab · director
+主句是"研究人员认为外部董事能更容易地避开……"，"避开什么"是"对声誉的打击"。后面跟了两个 if：
 
-### fool-02 [扣原句]
-> Outside directors often lack daily access to internal records, yet they still vote on major deals.
+第一个 `if`（条件）说的是"怎样才能避开"——在坏消息曝光前离开公司。
 
-**Step 1 扫词**
-- **director**：direct + -or。核心意象：商业语境 = 董事（董事会成员），不是影视导演。
-- **record**：核心意象：记录、档案——internal records = 公司内部文件。
-- **deal**：核心意象：交易、并购案——major deals = 重大交易。
+第二个 `even if`（让步）说的是"即便如此也能避开"——就算回溯历史能证明违规时他们还在任，也无所谓。
 
-**Step 2 扫词块**
-- **Outside directors**：Outside directors / independent directors。中文感受：外部董事——outside 贴 director，公司外部聘请的。
-- **lack daily access to**：lack access to / lack daily access to。中文感受：日常接触不到——lack + access to 表缺通道。
-- **vote on major deals**：vote on deals / vote on transactions。中文感受：对……投票表决——on 表针对某事投票。
+整句逻辑：提前跑路 → 声誉不受损，哪怕事后有证据证明他们当时在场。
 
-**Step 3 扫句式**
-前半 Outside directors often lack daily access to internal records——外部董事日常碰不到内部文件；yet 转折：they still vote on major deals——却仍对重大交易投票。对比：信息少 vs 权力大。
+**翻译**
 
-**Step 4 读句子**
-直读：外部董事平时接触不到内部文件，却仍对重大交易投票。
-考场：外部董事往往无法日常查阅内部档案，但仍对重大交易拥有表决权。
+但研究人员认为，外部董事如果在坏消息曝光之前离开公司，就能更轻松地保住声誉——即便事后回溯历史可以证明，相关违规行为发生时他们正在董事会任职。
 
 ---
 
-### fool-03 [迁移]
-> The board appointed two new directors with experience in risk management after the audit failed.
+## fool-02
 
-**Step 1 扫词**
-- **audit**：核心意象：审计、查账——audit failed = 审计没过/查出问题。
-- **appoint**：核心意象：任命、委任——board appoints directors。
-- **risk**：核心意象：风险——risk management = 风险管理。
+**句子（outside director · 例句 1）**
 
-**Step 2 扫词块**
-- **The board appointed**：The board appointed / The board named。中文感受：董事会任命——board 作主语，治理动作。
-- **with experience in risk management**：with experience in / with a background in。中文感受：with 引背景特征，有……经验的。
-- **after the audit failed**：after the audit failed / after auditors found problems。中文感受：审计失败之后——时间背景，说明为何换人。
+> Outside directors are expected to bring independent judgment to board decisions, free from the conflicts of interest that can cloud the thinking of executives who depend on the company for their livelihood.
 
-**Step 3 扫句式**
-主干 The board appointed two new directors；with experience in risk management 修饰 directors——两名有风险管理经验的；after the audit failed 交代背景：审计出问题后才任命。
+**词**
 
-**Step 4 读句子**
-直读：审计失败后，董事会任命了两名有风险管理经验的董事。
-考场：审计失败后，董事会任命了两名具备风险管理经验的新董事。
+- be expected to：被期望、应当
+- independent judgment：独立判断
+- conflict of interest：利益冲突
+- cloud：（动词）使模糊、蒙蔽
+- executive：高管、执行层董事
+- livelihood：生计、谋生手段
 
----
+**词块**
 
-### fool-04 [防坑]
-> He read outside directors as "directors from outside the film industry" and translated them as movie directors.
+- `bring independent judgment to board decisions`：把独立判断带进董事会决策——`bring sth. to sth.` 是"把某东西引入某场合"
+- `free from the conflicts of interest`：不受利益冲突的束缚——`free from` 后面接的是被摆脱的东西，这里是分词短语，修饰 `outside directors`
+- `who depend on the company for their livelihood`：靠这家公司养活自己的（高管）——`depend on ... for ...` 是"靠……获得……"
 
-**Step 1 扫词**
-- **industry**：核心意象：行业——film industry = 影视业，不是泛指「工业」。
-- **movie**：核心意象：电影——movie directors = 电影导演。
+**句式**
 
-**Step 2 扫词块**
-- **read … as**：read outside directors as / read X as Y。中文感受：把……读成/理解成——as 表「当作」。
-- **directors from outside the film industry**：directors from outside / outside the industry。中文感受：行业外的导演——他把 outside 理解成「影视圈外」而非「公司外部」。
-首译典型错读：outside directors 拆成 outside + director，想到「外面的导演/圈外导演」；本句纠偏：公司治理语境 outside = 公司外部，director = 董事，整词 = 外部董事。
+主干："外部董事被期待把独立判断带进董事会决策。"
 
-**Step 3 扫句式**
-He read outside directors as "directors from outside the film industry" 是第一错；and translated them as movie directors 是第二错——and 连接误读和误译，两步都滑向影视导演。
+后面 `free from the conflicts of interest...` 这一长串是补充说明外部董事"哪里独立"——不像那些靠公司吃饭的高管，他们没有利益纠葛，脑子不会被蒙蔽。
 
-**Step 4 读句子**
-直读：他把 outside directors 读成「影视圈外的导演」，译成了电影导演。
+`that can cloud the thinking of executives` 是修饰 `conflicts of interest` 的，说明这种利益冲突会干扰高管判断。
+
+**翻译**
+
+外部董事应当为董事会决策带来独立判断，不受利益冲突的干扰——那些靠公司养活自己的高管，才容易被这种冲突蒙蔽思维。
 
 ---
 
-## Vocab · reputation
+## fool-03
 
-### fool-05 [扣原句]
-> Executives worry that resigning during a scandal will still leave a blow to their reputations.
+**句子（outside director · 例句 2）**
 
-**Step 1 扫词**
-- **executive**：核心意象：高管、执行官——公司高层管理人员。
-- **scandal**：核心意象：丑闻——负面事件公开，名声受损。
-- **reputation**：re- + put。核心意象：声誉、名声——别人怎么看你。
+> When the scandal broke, the outside directors who had resigned months earlier found themselves largely shielded from the regulatory inquiry that ensnared their former colleagues.
 
-**Step 2 扫词块**
-- **resigning during a scandal**：resigning during / resigning amid。中文感受：丑闻期间辞职——during 表时间段内。
-- **leave a blow to their reputations**：leave a blow to / deliver a blow to。中文感受：留下对声誉的一击——leave 这里 = 造成/留下（打击），不是「离开」。
+**词**
 
-**Step 3 扫句式**
-Executives worry that…——高管担心……；that 从句：resigning during a scandal will still leave a blow to their reputations——丑闻期间辞职仍会重创声誉。still 强调：就算辞职也躲不掉。
+- scandal：丑闻
+- broke：（丑闻、消息）曝光（`break` 的过去式）
+- resigned：辞职（过去完成时，比主句更早发生）
+- shielded from：免受……波及，受到庇护
+- regulatory inquiry：监管调查
+- ensnare：使陷入、缠住（`snare` = 陷阱）
+- former colleagues：前同事
 
-**Step 4 读句子**
-直读：高管担心，丑闻期间辞职仍会重创声誉。
-考场：高管担心，在丑闻期间辞职仍会对其声誉造成打击。
+**词块**
 
----
+- `found themselves largely shielded from`：发现自己基本上免于……——`find oneself + 形容词/分词` 表示"发现自己处于某状态"，`largely` 修饰程度"大部分、基本上"
+- `shielded from the regulatory inquiry`：免受监管调查的波及——`shield from` 是"遮挡、保护"
+- `that ensnared their former colleagues`：缠住了他们前同事的（调查）——修饰 `inquiry`，说明这场调查对留任者的影响
 
-### fool-06 [迁移]
-> A single failed product launch can damage a firm's reputation for years in a tight market.
+**句式**
 
-**Step 1 扫词**
-- **launch**：核心意象：发布、上市——product launch = 产品发布。
-- **firm**：核心意象：公司、企业——这里不是「牢固」。
-- **tight**：核心意象：紧张的、竞争激烈的——tight market = 竞争激烈的市场。
+时间先后要注意：外部董事辞职（过去完成时）→ 丑闻曝光（过去时）→ 他们发现自己没被查（过去时）。
 
-**Step 2 扫词块**
-- **damage a firm's reputation**：damage reputation / harm a firm's name。中文感受：损害公司声誉——damage 接抽象对象 reputation。
-- **for years**：for years / for a long time。中文感受：持续多年——强调影响时间长。
-- **in a tight market**：in a tight market / in a competitive market。中文感受：在竞争激烈的市场里——背景条件。
+`who had resigned months earlier` 这一块是定语，限定的是"哪些外部董事"——提前几个月辞职的那批。
 
-**Step 3 扫句式**
-主干 A single failed product launch can damage a firm's reputation for years；in a tight market 是背景——竞争激烈市场里，一次失败发布可多年损害声誉。
+`that ensnared their former colleagues` 修饰 `inquiry`，说的是"同一场调查把留任的同事缠进去了，但没缠住他们"。
 
-**Step 4 读句子**
-直读：竞争激烈的市场里，一次失败的产品发布可多年损害公司声誉。
+**翻译**
+
+丑闻曝光时，那些提前数月辞职的外部董事发现自己基本上没被监管调查牵连——而他们的前同事，却被这场调查深深缠住了。
 
 ---
 
-### fool-07 [防坑]
-> He translated reputations as "news reports" instead of how others view someone's name.
+## fool-04
 
-**Step 1 扫词**
-- **report**：核心意象：报告、报道——但 reputation ≠ report，两词不同义。
+**句子（outside director · 例句 3）**
 
-**Step 2 扫词块**
-- **translated … as "news reports"**：translated reputations as / read reputations as。中文感受：把 reputations 译成「报导」——as 表译成什么。
-- **instead of how others view someone's name**：instead of / rather than。中文感受：而非……——对比错误译法和正确含义。
-首译典型错读：reputations 音形联想到 report，译成「报导」；本句纠偏：reputation = 别人怎么看某人的名声，不是新闻报道。
+> Unlike inside directors, who are typically full-time employees with stock options and bonuses tied to performance, outside directors receive a flat fee and are meant to act as a check on management.
 
-**Step 3 扫句式**
-He translated reputations as "news reports" 是错译；instead of how others view someone's name 点明正解——instead of 对比两种理解，后者才是 reputation 的核心。
+**词**
 
-**Step 4 读句子**
-直读：他把 reputations 译成「报导」，而不是「别人怎么看某人的名声」。
+- typically：通常、一般来说
+- stock options：股票期权
+- bonuses tied to performance：与业绩挂钩的奖金
+- flat fee：固定费用（不随业绩浮动）
+- be meant to：应当、被设计用来
+- act as a check on：对……起制约作用
 
----
+**词块**
 
-## Vocab · blow
+- `who are typically full-time employees with stock options and bonuses tied to performance`：修饰 `inside directors`——说明内部董事的具体特征，是插入补充，读完这块再回到主句比较
+- `tied to performance`：与业绩挂钩的——`tied to` 是"绑定在、与……挂钩"
+- `act as a check on management`：对管理层起制衡作用——`act as` 是"充当、起……作用"，`a check on` 是"对……的约束/制衡"
 
-### fool-08 [扣原句]
-> Leaving early did not spare the CEO from a blow to his reputation when the fraud surfaced.
+**句式**
 
-**Step 1 扫词**
-- **CEO**：核心意象：首席执行官——公司最高管理者。
-- **fraud**：核心意象：欺诈、造假——财务/商业欺诈。
-- **surface**：核心意象：浮出水面、曝光——fraud surfaced = 欺诈被揭露。
+对比句：`Unlike A, B do C.` ——"不像 A，B 是这样的"。
 
-**Step 2 扫词块**
-- **did not spare … from**：did not spare from / failed to spare from。中文感受：没能帮……躲开——spare from = 使免遭。
-- **a blow to his reputation**：a blow to reputation / a hit to his name。中文感受：对声誉的一击——blow 名词 = 打击/重创，不是吹、不是报导。
-- **when the fraud surfaced**：when … surfaced / when … came to light。中文感受：当……曝光时——surface 作动词 = 浮出水面。
+`who are typically...` 这一长串是插入语，补充说明 A（内部董事）的细节，读到 `outside directors` 才回到主句的主语。
 
-**Step 3 扫句式**
-主干 Leaving early did not spare the CEO from a blow to his reputation——提前离开没能帮 CEO 躲开声誉打击；when the fraud surfaced 交代时间点：欺诈曝光时。条件句：早走 ≠ 免责。
+主干：内部董事拿股权和浮动奖金；外部董事拿固定费，职能是制衡管理层。
 
-**Step 4 读句子**
-直读：欺诈曝光时，提前离开也没能帮 CEO 躲开声誉重创。
-考场：欺诈曝光时，提前离任未能使 CEO 免遭声誉打击。
+**翻译**
+
+内部董事通常是全职雇员，持有股票期权，奖金与业绩挂钩；外部董事则不同，他们拿固定费用，职责就是对管理层形成制约。
 
 ---
 
-### fool-09 [迁移]
-> The court ruling dealt a blow to investors who had trusted the company's forecasts.
+## fool-05
 
-**Step 1 扫词**
-- **ruling**：核心意象：裁决、判决——court ruling = 法院判决。
-- **investor**：核心意象：投资者。
-- **forecast**：核心意象：预测、展望——company's forecasts = 公司预测/业绩展望。
+**句子（wrongdoing · 例句 1）**
 
-**Step 2 扫词块**
-- **dealt a blow to**：dealt a blow to / delivered a blow to。中文感受：给予……一击——deal a blow = 造成打击，固定搭配。
-- **who had trusted the company's forecasts**：who had trusted / who had relied on。中文感受：who 从句修饰 investors——曾信任公司预测的那些人。
+> The investigation found no evidence of criminal wrongdoing, but the executives were nonetheless censured for breaching their fiduciary duties to shareholders.
 
-**Step 3 扫句式**
-主干 The court ruling dealt a blow to investors；who had trusted the company's forecasts 限定是哪些投资者——曾信任公司预测的。判决 → 打击信任者。
+**词**
 
-**Step 4 读句子**
-直读：法院判决打击了那些曾信任公司预测的投资者。
-考场：该法院判决对曾信任公司预测的投资者造成了打击。
+- investigation：调查
+- criminal wrongdoing：刑事违法行为
+- nonetheless：尽管如此、但还是
+- censure：（动词/名词）谴责、批评（正式场合，来自上级或机构）
+- breach：违反、违背（正式用法）
+- fiduciary duties：受信义务（受托人对委托人应尽的法律义务）
+- shareholders：股东
 
----
+**词块**
 
-### fool-10 [防坑]
-> She left the English word "blow" untranslated and guessed it meant media coverage.
+- `found no evidence of criminal wrongdoing`：没有发现刑事违法的证据——`evidence of` 后面接证据证明的事
+- `nonetheless censured for`：尽管如此还是因……被谴责——`nonetheless` 表让步转折，接了个反预期的结果
+- `breaching their fiduciary duties`：违反了受信义务——`breach` 作动词，`fiduciary duties` 是法律术语，指受托人（如高管）对委托人（如股东）的忠诚义务
 
-**Step 1 扫词**
-- **coverage**：核心意象：报道、覆盖范围——media coverage = 媒体报道，但 blow ≠ coverage。
-- **guess**：核心意象：猜测——没读懂就瞎猜义。
+**句式**
 
-**Step 2 扫词块**
-- **left … untranslated**：left blow untranslated / left the word in English。中文感受：留着不译——整词跳过。
-- **guessed it meant media coverage**：guessed it meant / guessed it stood for。中文感受：猜它意思是媒体报道——完全偏了。
-首译典型错读：blow 不认识就留英文，还猜成 media coverage（报导）；本句纠偏：blow 名词 = 打击，a blow to reputation = 对声誉的重创。
+转折结构：`found no evidence of X, but nonetheless censured for Y`。
 
-**Step 3 扫句式**
-She left the English word "blow" untranslated 是第一错；and guessed it meant media coverage 是第二错——and 连接「留英文」和「瞎猜义」，两步都偏。
+前半句说"没查到刑事问题"，后半句说"但还是被谴责了"——因为违反的是另一种义务（受信义务）。两个层次的法律责任并列，转折是核心逻辑。
 
-**Step 4 读句子**
-直读：她把 blow 留着不译，还猜它是媒体报道。
+**翻译**
+
+调查没有发现任何刑事违法的证据，但这些高管还是因违反对股东的受信义务而遭到正式谴责。
 
 ---
 
-## Vocab · wrongdoing
+## fool-06
 
-### fool-11 [扣原句]
-> The committee found that directors on the board at the time any wrongdoing occurred should share liability.
+**句子（wrongdoing · 例句 2）**
 
-**Step 1 扫词**
-- **committee**：核心意象：委员会——调查/问责机构。
-- **wrongdoing**：wrong + doing。核心意象：不当行为、违规——造假、失职等，不是「执行差」。
-- **liability**：核心意象：责任、法律责任——share liability = 共担责任。
+> Board members who stepped down before the accounting irregularities came to light were later shown by company records to have been present when the wrongdoing was sanctioned at the highest level.
 
-**Step 2 扫词块**
-- **on the board at the time**：on the board at the time / serving on the board when。中文感受：在……时在董事会任职——at the time 强调时间点。
-- **any wrongdoing occurred**：any wrongdoing occurred / when wrongdoing happened。中文感受：任何不当行为发生之时——occurred = 发生，不是「执行」。
+**词**
 
-**Step 3 扫句式**
-The committee found that…——委员会认定……；that 从句主干：directors … should share liability——董事应共担责任；on the board at the time any wrongdoing occurred 修饰 directors——不当行为发生时在任的董事。
+- stepped down：辞职、卸任
+- accounting irregularities：会计不规范行为、账目异常
+- came to light：（事情）曝光、被发现（固定搭配）
+- were later shown by company records：后来被公司档案证明
+- sanctioned：批准、认可（这里是"被授权/默许"，不是"制裁"）
+- at the highest level：在最高层
 
-**Step 4 读句子**
-直读：委员会认定，任何不当行为发生时在任的董事应共担责任。
-考场：委员会认定，在任何不当行为发生时担任董事的人员应共同承担责任。
+**词块**
 
----
+- `came to light`：浮出水面、被曝光——`come to light` 是固定搭配，不是字面的"来到光里"
+- `shown by company records to have been present`：被公司记录证明曾在场——`show sb. to have done` 是"证明某人做了/曾经……"的结构
+- `when the wrongdoing was sanctioned at the highest level`：当违规行为在最高层被默许时——`sanction` 此处是"授权、批准（某件本不该做的事）"，有讽刺意味
 
-### fool-12 [迁移]
-> Regulators punished the bank for wrongdoing that had been hidden from shareholders for years.
+**句式**
 
-**Step 1 扫词**
-- **regulator**：核心意象：监管机构——金融/行业监管部门。
-- **shareholder**：核心意象：股东——持有公司股份的人。
-- **punish**：核心意象：处罚、惩罚——官方制裁。
+主干："那些在……之前离职的董事会成员，后来被公司档案证明，在……时曾经在场。"
 
-**Step 2 扫词块**
-- **punished the bank for wrongdoing**：punished for / penalized for。中文感受：因……处罚银行——for 引出处罚原因。
-- **hidden from shareholders**：hidden from / concealed from。中文感受：对股东隐瞒——hide from = 瞒着某人。
+两个时间节点：① 账目异常曝光之前（他们已经离开）；② 违规行为在最高层被默许时（他们还在）。句子的张力就在这两个时间点的错位。
 
-**Step 3 扫句式**
-主干 Regulators punished the bank for wrongdoing；that had been hidden from shareholders for years 修饰 wrongdoing——多年对股东隐瞒的违规行为。处罚原因 = 隐瞒的 wrongdoing。
+**翻译**
 
-**Step 4 读句子**
-直读：监管机构处罚了银行，因其多年对股东隐瞒的违规行为。
+那些在账目异常曝光前便已辞职的董事会成员，后来被公司档案证明，在违规行为于最高层被默许之时，他们正在场。
 
 ---
 
-### fool-13 [防坑]
-> He translated wrongdoing as "poor execution" instead of illegal or unethical acts.
+## fool-07
 
-**Step 1 扫词**
-- **execution**：核心意象：执行、实施——poor execution = 执行差，但 wrongdoing ≠ execution。
-- **illegal**：核心意象：违法的。
-- **unethical**：核心意象：不道德的——un-（不）+ ethical（道德的）。
+**句子（wrongdoing · 例句 3）**
 
-**Step 2 扫词块**
-- **translated wrongdoing as "poor execution"**：translated wrongdoing as / read wrongdoing as。中文感受：把 wrongdoing 译成「糟糕执行」——as 表译成什么。
-- **instead of illegal or unethical acts**：instead of / rather than。中文感受：而非违法或不道德行为——对比错译和正解。
-首译典型错读：wrongdoing 看到 doing 想到「执行」，译成「糟糕执行」；本句纠偏：wrongdoing = 做错的事 = 违法或不道德行为，不是执行能力问题。
+> While *mistake* suggests an unintentional error and *misconduct* focuses on professional failure, *wrongdoing* carries a heavier moral charge — it implies someone knew what they were doing was wrong.
 
-**Step 3 扫句式**
-He translated wrongdoing as "poor execution" 是错译；instead of illegal or unethical acts 点明正解——wrong + doing = 错事，不是 poor execution。
+**词**
 
-**Step 4 读句子**
-直读：他把 wrongdoing 译成「糟糕执行」，而不是违法或不道德行为。
+- unintentional：无意的、非故意的
+- misconduct：失职行为、不当行为（职业层面）
+- carries a heavier moral charge：带有更重的道德指控色彩
+- implies：暗示、意味着
 
----
+**词块**
 
-## Vocab · break
+- `suggests an unintentional error`：暗含无意失误——`suggest` 这里是"暗示、带有……含义"
+- `focuses on professional failure`：关注的是职业层面的失职
+- `carries a heavier moral charge`：带有更重的道德负担——`carry a charge` 是"承载某种含义/指控"，`moral charge` 是"道德指控"
+- `knew what they were doing was wrong`：知道自己做的事是错的——`what they were doing` 是名词从句作宾语，`was wrong` 是对它的判断
 
-### fool-14 [扣原句]
-> Traders sold shares hours before bad news broke about the missing funds.
+**句式**
 
-**Step 1 扫词**
-- **trader**：核心意象：交易员——买卖股票的人。
-- **share**：核心意象：股份、股票——sold shares = 抛售股票。
-- **fund**：核心意象：资金——missing funds = 失踪/亏空的资金。
+三段对比：`While A and B, C` 结构。
 
-**Step 2 扫词块**
-- **before bad news broke**：before bad news broke / before the news broke。中文感受：坏消息爆出之前——break 新闻语境 = 消息突然公开，不是播报。
-- **about the missing funds**：about the missing funds / regarding the missing funds。中文感受：关于资金失踪的——about 引出消息内容。
+前半句用 `While` 同时交代两个词的特点，后半句用破折号加 `it implies` 点出 `wrongdoing` 比前两者更重的原因——主观知情。
 
-**Step 3 扫句式**
-主干 Traders sold shares hours before bad news broke——交易员在坏消息爆出前数小时抛售；about the missing funds 说明是什么坏消息——资金失踪。时间先后：先卖股，后爆料。
+**翻译**
 
-**Step 4 读句子**
-直读：资金失踪的坏消息爆出前数小时，交易员抛售了股票。
-考场：在有关资金失踪的坏消息爆出前数小时，交易员抛售了股票。
+`mistake` 暗示无意失误，`misconduct` 侧重职业层面的失职，而 `wrongdoing` 则带有更重的道德指控——它意味着当事人知道自己所做的事是错的。
 
 ---
 
-### fool-15 [迁移]
-> The journalist broke the story that forced the minister to resign within a week.
+## fool-08
 
-**Step 1 扫词**
-- **journalist**：核心意象：记者。
-- **minister**：核心意象：部长、大臣——政府高官。
-- **resign**：核心意象：辞职——主动请辞。
+**句子（reputation · 例句 1）**
 
-**Step 2 扫词块**
-- **broke the story**：broke the story / broke the news。中文感受：爆出报道/发布消息——break 新闻义 = 首次公开，不是打碎。
-- **forced the minister to resign**：forced … to resign / pressured … to step down。中文感受：逼迫……辞职——force + 人 + to do。
+> A single fraud conviction can destroy a reputation built over decades, which is why even the appearance of impropriety can prompt executives to distance themselves from troubled companies.
 
-**Step 3 扫句式**
-主干 The journalist broke the story——记者爆出报道；that forced the minister to resign within a week 修饰 story——报道内容导致部长一周内辞职。break the story → 引发辞职。
+**词**
 
-**Step 4 读句子**
-直读：记者爆出报道，一周内逼部长辞职。
-考场：记者披露了迫使部长在一周内辞职的报道。
+- fraud conviction：欺诈罪定罪
+- reputation built over decades：数十年积累的声誉
+- appearance of impropriety：不当行为的外观、看上去像是违规（即便实际未必如此）
+- prompt sb. to do：促使某人做某事
+- distance themselves from：与……划清界限、保持距离
+- troubled companies：陷入麻烦的公司
 
----
+**词块**
 
-### fool-16 [防坑]
-> He read breaks as "broadcast" and wrote "新闻播报" instead of news becoming public.
+- `built over decades`：历经数十年积累——分词短语修饰 `reputation`，`over` 这里是"经历（时间）"
+- `which is why`：这就是为什么——`which` 指代前面整件事，引出原因说明
+- `even the appearance of impropriety`：哪怕只是看起来像违规——`appearance` 不是实质，是表象；`impropriety` 是"不当、不体面"
+- `distance themselves from`：与……划清界限
 
-**Step 1 扫词**
-- **broadcast**：核心意象：广播、播报——电视/电台播新闻，但 break ≠ broadcast。
-- **public**：核心意象：公开的——becoming public = 被公开、公之于众。
+**句式**
 
-**Step 2 扫词块**
-- **read breaks as "broadcast"**：read breaks as / understood breaks as。中文感受：把 breaks 读成「播报」——as 表理解成什么。
-- **instead of news becoming public**：instead of / rather than。中文感受：而非消息被公开——对比错读和正解。
-首译典型错读：breaks 想到 broadcast（播报），写「新闻播报」；本句纠偏：bad news breaks = 坏消息被公开/爆出的那一刻，不是电视主播在播。
+因果关系句：`A can destroy B, which is why C.`
 
-**Step 3 扫句式**
-He read breaks as "broadcast" 是第一错；and wrote "新闻播报" instead of news becoming public 是第二错——and 连接误读和误写，都偏离「消息公开」义。
+前半句说"后果有多惨"（一次定罪就能毁掉数十年声誉），`which is why` 转接"所以高管连看起来像违规的事都要躲开"。重心在 `which is why` 后面——解释高管行为动机。
 
-**Step 4 读句子**
-直读：他把 breaks 读成「播报」，写「新闻播报」，而不是「消息被公开」。
+**翻译**
+
+一次欺诈定罪就能摧毁数十年积累的声誉，这正是为什么哪怕只是看上去像违规，高管们就会急着与陷入麻烦的公司划清界限。
 
 ---
 
-## Vocab · board
+## fool-09
 
-### fool-17 [扣原句]
-> Records show she was on the board when the contracts were signed without proper review.
+**句子（reputation · 例句 2）**
 
-**Step 1 扫词**
-- **record**：核心意象：记录、档案——Records show = 记录显示。
-- **contract**：核心意象：合同、合约——contracts were signed = 合同被签署。
-- **review**：核心意象：审查、审核——proper review = 适当审查。
+> By leaving the firm six months before the scandal broke, she preserved her reputation as a rigorous independent director — something her colleagues who stayed on could no longer claim.
 
-**Step 2 扫词块**
-- **was on the board**：was on the board / served on the board。中文感受：在董事会任职——on the board = 担任董事，不是「在董事会那个房间」。
-- **without proper review**：without proper review / without adequate review。中文感受：未经适当审查——without 表缺失。
+**词**
 
-**Step 3 扫句式**
-Records show she was on the board when…——记录显示她在……时在董事会任职；when the contracts were signed without proper review 交代时间点：合同未经适当审查签署时。任职 + 失职背景。
+- rigorous：严格的、一丝不苟的
+- independent director：独立董事
+- preserved：保全、保住（`preserve` = 使不受损害地保留）
+- stayed on：留任
+- claim：（动词）主张、宣称自己拥有某种资格或地位
 
-**Step 4 读句子**
-直读：记录显示，合同未经适当审查签署时她在董事会任职。
-考场：记录表明，在合同未经适当审查即签署时，她仍在董事会任职。
+**词块**
 
----
+- `By leaving ... before the scandal broke`：通过在……之前离开——`by doing` 是"通过做某事"，说明方式手段；`before the scandal broke` 再次用了 `break` 表示丑闻爆发
+- `her reputation as a rigorous independent director`：作为一名严格独立董事的声誉——`reputation as` 是"以……身份建立的名声"
+- `something her colleagues who stayed on could no longer claim`：某种她留任的同事再也无法宣称拥有的东西——破折号后是补充说明，`something` 指她保住的那种声誉
 
-### fool-18 [迁移]
-> Shareholders elected three outsiders to the board to improve oversight after the scandal.
+**句式**
 
-**Step 1 扫词**
-- **shareholder**：核心意象：股东——公司股份持有人。
-- **outsider**：核心意象：外部人士——非公司内部的人。
-- **oversight**：over-（在上）+ sight（看）。核心意象：监督、监管——improve oversight = 加强监督。
+主干："她通过提前离开，保住了声誉——而这种声誉是留任的同事已经失去资格再宣称的。"
 
-**Step 2 扫词块**
-- **elected … to the board**：elected to the board / appointed to the board。中文感受：选进董事会——to the board 表目的地/职位。
-- **to improve oversight**：to improve oversight / in order to improve oversight。中文感受：为了加强监督——to 表目的。
+破折号后的部分是对比，强调她保住的东西的珍贵：别人再也没有了。
 
-**Step 3 扫句式**
-主干 Shareholders elected three outsiders to the board——股东选三名外部人士进董事会；to improve oversight 表目的；after the scandal 交代背景：丑闻之后才改革。
+**翻译**
 
-**Step 4 读句子**
-直读：丑闻后，股东选了三名外部人士进董事会以加强监督。
-考场：丑闻发生后，股东选举三名外部人士进入董事会以改善监督。
+提前六个月在丑闻曝光前离职，她保住了一名严格独立董事的声誉——而这，是她那些留任的同事再也无法宣称的东西。
 
 ---
 
-### fool-19 [防坑]
-> He wrote "在董事会的" without the sense of serving as a member when wrongdoing happened.
+## fool-10
 
-**Step 1 扫词**
-- **member**：核心意象：成员——serving as a member = 担任成员/任职。
-- **serve**：核心意象：任职、服务——serve on the board = 在董事会任职。
+**句子（reputation · 例句 3）**
 
-**Step 2 扫词块**
-- **without the sense of serving as a member**：without the sense of / lacking the sense of。中文感受：没有「任职」的含义——只写位置感，缺任职感。
-- **when wrongdoing happened**：when wrongdoing happened / at the time wrongdoing occurred。中文感受：不当行为发生时——时间锚点。
-首译典型错读：on the board 只译「在董事会的」，像描述物理位置；本句纠偏：on the board = 担任董事职务，尤其 wrongdoing happened 时要体现「当时在任」。
+> Don't confuse *reputation* with *character*: character is who you are when no one is watching; reputation is what people believe about you when you're not in the room.
 
-**Step 3 扫句式**
-He wrote "在董事会的" 是表面译法；without the sense of serving as a member when wrongdoing happened 点出缺失——缺任职感，且没挂住 wrongdoing 发生的时间点。
+**词**
 
-**Step 4 读句子**
-直读：他写「在董事会的」，没体现不当行为发生时担任董事这层意思。
+- confuse A with B：把 A 和 B 混淆
+- character：品格、为人（内在的）
+- reputation：声誉（外部的评价）
 
----
+**词块**
 
-## Phrases · outside directors
+- `who you are when no one is watching`：没人看着时你是什么样的人——`when no one is watching` 是时间状语，暗示内在真实
+- `what people believe about you`：别人对你的看法——`believe about` 是"关于某人所持有的信念/看法"
+- `when you're not in the room`：你不在场时——暗示这是第三方的独立评价，不受你影响
 
-### fool-20 [扣原句]
-> Outside directors are supposed to challenge management, but they rarely see daily operations.
+**句式**
 
-**Step 1 扫词**
-- **management**：核心意象：管理层——公司内部高管团队。
-- **challenge**：核心意象：质疑、挑战——challenge management = 对管理层提出异议。
-- **operation**：核心意象：运营、运作——daily operations = 日常运营。
+冒号引出对比定义：`A is [who/what] + 从句; B is [who/what] + 从句`。
 
-**Step 2 扫词块**
-- **Outside directors**：Outside directors / independent directors。中文感受：外部董事——公司外部聘请的董事会成员，整词不可拆成「外面的导演」。
-- **are supposed to**：are supposed to / are expected to。中文感受：本应、应该——表期望/职责。
-- **rarely see daily operations**：rarely see / seldom witness。中文感受：很少见到日常运营——rarely 强调接触少。
+两个平行结构，用对比点出本质区别：`character` 看的是无人在场时的你；`reputation` 是你离开后别人怎么谈你。句子本身结构非常清晰，靠语境体会两个词的区别。
 
-**Step 3 扫句式**
-前半 Outside directors are supposed to challenge management——外部董事本应挑战管理层；but 转折：they rarely see daily operations——却很少见到日常运营。矛盾：职责大 vs 信息少。
+**翻译**
 
-**Step 4 读句子**
-直读：外部董事本应挑战管理层，却很少见到日常运营。
-考场：外部董事本应质疑管理层，但很少能了解日常运营情况。
+不要把声誉（reputation）和品格（character）搞混：品格是没人看着时你的样子，声誉是你不在场时别人对你的评价。
 
 ---
 
-### fool-21 [迁移]
-> The reform package gives outside directors more power to fire CEOs in crisis.
+## fool-11
 
-**Step 1 扫词**
-- **reform**：核心意象：改革——reform package = 改革方案/一揽子改革。
-- **crisis**：核心意象：危机——in crisis = 危机期间。
-- **CEO**：核心意象：首席执行官。
+**句子（have an easy/easier time of doing · 例句 1）**
 
-**Step 2 扫词块**
-- **gives … more power to**：gives more power to / grants more authority to。中文感受：赋予……更大权力——give power to do。
-- **fire CEOs in crisis**：fire CEOs / dismiss CEOs in crisis。中文感受：危机中解雇 CEO——fire = 解雇，in crisis 表时机。
+> Firms with strong internal controls have an easier time of detecting fraud early, before it has compounded into losses that threaten the whole enterprise.
 
-**Step 3 扫句式**
-主干 The reform package gives outside directors more power to fire CEOs in crisis——改革方案赋予外部董事危机中解雇 CEO 的更大权力。outside directors 作主语受益者，power to fire 是核心。
+**词**
 
-**Step 4 读句子**
-直读：改革方案赋予外部董事危机中解雇 CEO 的更大权力。
-考场：改革方案给予外部董事在危机期间解雇 CEO 的更大权力。
+- internal controls：内部控制机制
+- detect：察觉、发现
+- fraud：欺诈
+- compound into：（动词）累积成、复利式增大成
+- losses：损失
+- enterprise：企业
 
----
+**词块**
 
-### fool-22 [防坑]
-> Do not translate outside directors as film directors who work "outside" the studio.
+- `have an easier time of detecting fraud early`：更容易早期发现欺诈——整个 `have an easier time of doing` 是搭配
+- `before it has compounded into losses`：在它演变成损失之前——`compound into` 是"不断叠加累积成"，`it` 指欺诈行为
+- `that threaten the whole enterprise`：威胁到整个企业的（损失）
 
-**Step 1 扫词**
-- **studio**：核心意象：制片厂、工作室——film studio = 电影制片厂。
-- **film**：核心意象：电影——film directors = 电影导演。
+**句式**
 
-**Step 2 扫词块**
-- **translate … as film directors**：translate outside directors as / read outside directors as。中文感受：把外部董事译成电影导演——as 表译成什么。
-- **who work "outside" the studio**：who work outside / who work outside the studio。中文感受：在制片厂「外面」干活的——把 outside 字面理解成物理位置。
-首译典型错读：outside directors 拆词，outside = 外面，director = 导演，译成在制片厂外干活的电影导演；本句纠偏：公司治理整词 = 外部董事/独立董事，outside = 公司外部。
+主句说公司更容易早期发现欺诈，`before` 引出时间限制——在欺诈滚雪球成大损失之前就能发现。重心是"早"字：控制机制越强，发现得越早，损失越小。
 
-**Step 3 扫句式**
-祈使句 Do not translate…——警告别这么译；outside directors as film directors who work "outside" the studio 点明误读路径：整词拆散 → 影视导演。
+**翻译**
 
-**Step 4 读句子**
-直读：别把 outside directors 译成在制片厂「外面」干活的电影导演。
+内部控制机制健全的公司，能更轻松地在早期就发现欺诈——在其演变成威胁整个企业的重大损失之前。
 
 ---
 
-## Phrases · have an easier time of avoiding
+## fool-12
 
-### fool-23 [扣原句]
-> Remote workers have an easier time of avoiding office politics but harder access to mentors.
+**句子（have an easy/easier time of doing · 例句 2）**
 
-**Step 1 扫词**
-- **remote**：核心意象：远程的——remote workers = 远程办公者。
-- **politics**：核心意象：政治——office politics = 办公室政治/勾心斗角。
-- **mentor**：核心意象：导师、前辈——职场引路人。
+> Analysts who had covered the sector for years had an easier time of spotting the accounting irregularities than those who came to the story late.
 
-**Step 2 扫词块**
-- **have an easier time of avoiding**：have an easier time of doing / have an easier time avoiding。中文感受：做某事更容易、更不费劲——of avoiding 挂后面，不是「有一段轻松时期」。
-- **harder access to mentors**：harder access to / more difficult access to。中文感受：更难接触到导师——access to = 接触/获取通道。
+**词**
 
-**Step 3 扫句式**
-对比结构：Remote workers have an easier time of avoiding office politics（更容易躲开办公室政治）but harder access to mentors（却更难接触导师）。but 连接一易一难。
+- covered the sector：长期跟踪报道某行业（`cover` 在新闻和分析语境里是"持续跟进报道"）
+- spotting：发现、识别出
+- accounting irregularities：会计不规范行为
+- came to the story late：后来才接触这个事件的人
 
-**Step 4 读句子**
-直读：远程员工更容易躲开办公室政治，却更难接触导师。
-考场：远程工作者更容易避开办公室政治，但更难获得导师指导。
+**词块**
 
----
+- `had covered the sector for years`：跟踪这个行业多年——过去完成时，比主句更早的持续状态
+- `had an easier time of spotting`：更容易识别出——核心搭配
+- `than those who came to the story late`：比那些后来才介入的人——比较对象，`those` 指另一批分析师
 
-### fool-24 [迁移]
-> Early investors had an easier time of avoiding losses when they sold before the bubble burst.
+**句式**
 
-**Step 1 扫词**
-- **investor**：核心意象：投资者。
-- **loss**：核心意象：亏损、损失——avoiding losses = 避开亏损。
-- **bubble**：核心意象：泡沫——经济/股市泡沫。
+比较句：`had an easier time of doing than those who...`。
 
-**Step 2 扫词块**
-- **had an easier time of avoiding losses**：had an easier time of avoiding / had an easier time avoiding。中文感受：更容易避开亏损——同原句 have an easier time of avoiding 骨架。
-- **before the bubble burst**：before the bubble burst / before the bubble popped。中文感受：泡沫破裂之前——burst = 破裂、破灭。
+比较的两方：① 长期跟踪行业的分析师；② 后来才接触的人。结论是前者更容易发现异常——因为他们有历史基准做参照。
 
-**Step 3 扫句式**
-主干 Early investors had an easier time of avoiding losses——早期投资者更容易避开亏损；when they sold before the bubble burst 交代条件：泡沫破裂前卖出时。时机对 → 更容易避损。
+**翻译**
 
-**Step 4 读句子**
-直读：泡沫破裂前卖出的早期投资者更容易避开亏损。
+跟踪这个行业多年的分析师，比那些后来才介入的同行，更容易识别出账目中的异常。
 
 ---
 
-### fool-25 [防坑]
-> He wrote "会有很轻松的时期避开" instead of "更容易避开".
+## fool-13
 
-**Step 1 扫词**
-- **period**：核心意象：时期、一段时间——「轻松的时期」误读来源。
-- **easy**：核心意象：容易的——easier time 不是 easy period。
+**句子（have an easy/easier time of doing · 例句 3）**
 
-**Step 2 扫词块**
-- **have an easier time of avoiding**（本句纠偏对象）：have an easier time of / have an easier time doing。中文感受：做某事更容易——time 这里是「情况/处境」，不是 clock time 时间段。
-- **instead of "更容易避开"**：instead of / rather than。中文感受：而非正确译法——对比错译和正译。
-首译典型错读：have an easier time 读成「有一段轻松的时期/time = 时光」；本句纠偏：have an easier time of doing = 做某事更不费劲、更容易，应译「更容易避开」。
+> Compare: *She had a hard time persuading the board to act* (= it was difficult) vs. *She had an easier time of it once the chairman stepped down* — the second uses "of it" as a shorthand when the action is already understood.
 
-**Step 3 扫句式**
-He wrote "会有很轻松的时期避开" 是错译——把 time 当时间段；instead of "更容易避开" 是正译——instead of 直接对比两种中文输出。
+**词**
 
-**Step 4 读句子**
-直读：他写「会有很轻松的时期避开」，而不是「更容易避开」。
+- persuading：说服（动名词）
+- stepped down：卸任、辞职
+- shorthand：简略说法、速记（这里指语言上的简写）
+- the action is already understood：行为对象已经从上下文明确了
 
----
+**词块**
 
-## Phrases · a blow to one's reputation
+- `had a hard time persuading`：费力说服——注意这里 `of` 省略了，口语中 `have a hard time doing` 可以不加 `of`
+- `had an easier time of it`：更轻松地做（那件事）——`of it` 是简略用法，`it` 代指上文已知的行为
+- `once the chairman stepped down`：一旦主席卸任——`once` 是"一旦、在……之后"
 
-### fool-26 [扣原句]
-> A sudden resignation can still deliver a blow to a director's reputation if timing looks suspicious.
+**句式**
 
-**Step 1 扫词**
-- **resignation**：核心意象：辞职——sudden resignation = 突然辞职。
-- **suspicious**：核心意象：可疑的——timing looks suspicious = 时机看起来可疑。
-- **director**：direct + -or。核心意象：董事——这里指公司治理义。
+对比辨析句，解释两种用法的区别：
 
-**Step 2 扫词块**
-- **deliver a blow to a director's reputation**：deliver a blow to / deal a blow to。中文感受：给予对声誉的一击——blow 名词 = 打击，to reputation 说明打在哪。
-- **if timing looks suspicious**：if timing looks / if the timing seems。中文感受：若时机看起来可疑——if 引条件，解释何时仍会受损。
+- `have a hard time persuading`：`of` 可省，动词直接跟
+- `have an easier time of it`：用 `of it` 代替具体动作，当行为已在语境中清楚时
 
-**Step 3 扫句式**
-主干 A sudden resignation can still deliver a blow to a director's reputation——突然辞职仍可能重创董事声誉；if timing looks suspicious 是条件：时机可疑时尤其如此。still 强调：就算辞职也躲不掉。
+这条句子的功能是辨析用法，重点不是句子本身，而是两个变体的使用条件。
 
-**Step 4 读句子**
-直读：若时机可疑，突然辞职仍可能重创董事声誉。
-考场：若辞职时机显得可疑，突然辞职仍可能对董事声誉造成打击。
+**翻译**
+
+对比：*她很难说服董事会采取行动*（= 费力）vs. *主席卸任后她轻松多了* ——第二句用"of it"作为简略说法，因为行为对象在上下文中已经清楚了。
 
 ---
 
-### fool-27 [迁移]
-> The leaked emails dealt a blow to the scientist's reputation among peers.
+## fool-14
 
-**Step 1 扫词**
-- **leak**：核心意象：泄露——leaked emails = 泄露的邮件。
-- **scientist**：核心意象：科学家。
-- **peer**：核心意象：同行——among peers = 在同行当中。
+**句子（a blow to sth. · 例句 1）**
 
-**Step 2 扫词块**
-- **dealt a blow to the scientist's reputation**：dealt a blow to / delivered a blow to。中文感受：给予对声誉的一击——固定搭配，blow 是打击不是报导。
-- **among peers**：among peers / among colleagues。中文感受：在同行当中——范围限定，声誉受损的圈子。
+> The sudden resignation of three outside directors in a single week dealt a severe blow to investor confidence, sending the company's share price down nearly fifteen percent.
 
-**Step 3 扫句式**
-主干 The leaked emails dealt a blow to the scientist's reputation among peers——泄露邮件打击了科学家在同行中的声誉。among peers 说明受损范围。
+**词**
 
-**Step 4 读句子**
-直读：泄露的邮件打击了该科学家在同行中的声誉。
-考场：泄露的电子邮件对该科学家在同行中的声誉造成了打击。
+- resignation：辞职（名词）
+- in a single week：在短短一周内
+- dealt a severe blow to：给……以沉重打击——`deal a blow to` 是固定动词搭配
+- investor confidence：投资者信心
+- share price：股价
 
----
+**词块**
 
-### fool-28 [防坑]
-> Mixing blow with "report" and leaving blow in English loses the whole phrase.
+- `The sudden resignation of three outside directors in a single week`：主语，整块说的是一件事——三人在一周内相继辞职
+- `dealt a severe blow to investor confidence`：给投资者信心以沉重打击——`deal a blow to` 是"给……以打击"，`severe` 修饰打击程度
+- `sending the company's share price down nearly fifteen percent`：现在分词短语，说明结果——股价因此下跌近 15%
 
-**Step 1 扫词**
-- **mix**：核心意象：混淆、混在一起——mixing blow with report = 把 blow 和报导混为一谈。
-- **phrase**：核心意象：短语、搭配——the whole phrase = 整坨搭配。
+**句式**
 
-**Step 2 扫词块**
-- **a blow to reputation**（本句纠偏对象）：a blow to / a hit to reputation。中文感受：对声誉的一击——blow + to reputation 是固定搭配，不可拆开。
-- **leaving blow in English**：leaving blow in English / leaving the word untranslated。中文感受：把 blow 留着不译——整坨搭配丢失。
-首译典型错读：blow 留英文，reputation 译成「报导」，整坨 a blow to reputation 搭配没读出来；本句纠偏：blow 名词 = 打击，to reputation = 打在名声上，整短语 = 声誉受损。
+主干："突然辞职这件事打击了投资者信心。"后面 `sending...` 是结果状语，补充说明打击的具体后果。
 
-**Step 3 扫句式**
-Mixing blow with "report" 是第一错；and leaving blow in English 是第二错——and 连接两种错误；loses the whole phrase 是后果：整坨搭配丢失。
+时间压缩感很强：`in a single week`（一周内）和 `nearly fifteen percent`（近 15%）两个数字叠加，强调冲击的烈度。
 
-**Step 4 读句子**
-直读：把 blow 混成「报导」还留英文，整坨搭配就丢了。
+**翻译**
+
+三名外部董事在短短一周内相继辞职，严重打击了投资者信心，公司股价随之下跌近 15%。
 
 ---
 
-## Phrases · before bad news breaks
+## fool-15
 
-### fool-29 [扣原句]
-> Several executives sold stock before bad news broke about the accounting errors.
+**句子（a blow to sth. · 例句 2）**
 
-**Step 1 扫词**
-- **executive**：核心意象：高管。
-- **stock**：核心意象：股票——sold stock = 抛售股票。
-- **accounting**：核心意象：会计的——accounting errors = 会计差错。
+> Leaving before the scandal surfaced shielded her from the blow to her reputation that felled most of her former colleagues on the board.
 
-**Step 2 扫词块**
-- **before bad news broke**：before bad news broke / before the scandal broke。中文感受：坏消息爆出之前——break = 消息被公开/披露，不是 TV 播报。
-- **about the accounting errors**：about the accounting errors / regarding accounting errors。中文感受：关于会计差错的——about 引出消息内容。
+**词**
 
-**Step 3 扫句式**
-主干 Several executives sold stock before bad news broke——数名高管在坏消息爆出前抛售股票；about the accounting errors 说明是什么坏消息。时间链：先卖股 → 后爆料。
+- surfaced：（事情）浮出水面、曝光（`surface` 作动词）
+- shielded her from：使她免受……（`shield from` = 保护、遮挡）
+- the blow to her reputation：对她声誉的打击
+- felled：击倒、使倒下（`fell` 是 `fall` 的使役动词，"使落下"，这里比喻"摧毁了……的声誉/地位"）
 
-**Step 4 读句子**
-直读：会计差错坏消息爆出前，数名高管抛售了股票。
-考场：在有关会计差错的坏消息爆出之前，数名高管抛售了股票。
+**词块**
 
----
+- `Leaving before the scandal surfaced`：动名词短语作主语——"提前离开这个行为"本身是主语
+- `shielded her from the blow`：保护她免受打击——`shield from` 接受到保护的人，`from` 后接被挡掉的东西
+- `that felled most of her former colleagues`：修饰 `blow`——那次打击击倒了大多数留任的前同事
 
-### fool-30 [迁移]
-> The firm collapsed weeks after bad news broke that its largest client had defaulted.
+**句式**
 
-**Step 1 扫词**
-- **collapse**：核心意象：倒闭、崩溃——firm collapsed = 公司倒闭。
-- **default**：核心意象：违约——had defaulted = 已违约。
-- **client**：核心意象：客户——largest client = 最大客户。
+主干："提前离开这个行为 → 保护了她 → 免受打击。"
 
-**Step 2 扫词块**
-- **weeks after bad news broke**：weeks after … broke / soon after … broke。中文感受：坏消息爆出数周后——after 表时间先后。
-- **that its largest client had defaulted**：that … had defaulted / that the client defaulted。中文感受：that 从句说明坏消息内容——最大客户违约了。
+`that felled most of her former colleagues on the board` 修饰 `the blow`，说明那次打击有多重——大多数留任的同事都倒了。她和同事的命运形成对比。
 
-**Step 3 扫句式**
-主干 The firm collapsed weeks after bad news broke——公司倒闭在坏消息爆出数周后；that its largest client had defaulted 是同位语/内容从句，说明是什么坏消息。因果：客户违约曝光 → 公司倒闭。
+**翻译**
 
-**Step 4 读句子**
-直读：最大客户违约的坏消息爆出数周后，公司倒闭了。
-考场：在其最大客户违约的坏消息爆出数周后，该公司倒闭。
+在丑闻曝光前离开，使她免受了那次声誉重创——那次打击击垮了她在董事会的大多数前同事。
 
 ---
 
-### fool-31 [防坑]
-> "新闻播报" imagines a TV anchor; breaks imagines the moment scandal goes public.
+## fool-16
 
-**Step 1 扫词**
-- **anchor**：核心意象：主播——TV anchor = 电视新闻主播。
-- **scandal**：核心意象：丑闻。
-- **public**：核心意象：公开的——goes public = 被公开、公之于众。
+**句子（a blow to sth. · 例句 3）**
 
-**Step 2 扫词块**
-- **bad news breaks**（本句纠偏对象）：bad news breaks / the news broke。中文感受：坏消息爆出——breaks 想象丑闻公开那一刻，不是主播在播。
-- **"新闻播报"**：新闻播报 / 新闻广播。中文感受：错读产物——想象电视主播在念稿，完全偏离 break 的「消息公开」义。
-首译典型错读：breaks 译「新闻播报」，想象 TV anchor 在播；本句纠偏：breaks 想象的是 scandal goes public（丑闻公开那一刻），不是播报动作。
+> Note the direction of damage: *a blow to the economy* means the economy suffers; compare *a boost to the economy*, same structure, opposite effect — the preposition `to` stays the same regardless of direction.
 
-**Step 3 扫句式**
-分号连接两个对比："新闻播报" imagines a TV anchor（错读画面）; breaks imagines the moment scandal goes public（正读画面）。两种想象完全不同。
+**词**
 
-**Step 4 读句子**
-直读：「新闻播报」想象的是电视主播；breaks 想象的是丑闻公开那一刻。
+- direction of damage：损害的方向（谁受损）
+- suffers：受损、遭受损失
+- a boost to：对……的提振、推动（`boost` = 推动力）
+- opposite effect：相反的效果
+- preposition：介词
+- regardless of direction：不管方向如何、不管是打击还是提振
 
----
+**词块**
 
-## Phrases · even if a review of history shows…
+- `a blow to the economy`：对经济的打击——受损方是 `the economy`
+- `compare a boost to the economy`：对比"对经济的提振"——`boost to` 和 `blow to` 结构一样，`to` 后接的都是受影响的对象
+- `same structure, opposite effect`：结构相同，效果相反——点出这两个搭配的共同点和区别
+- `the preposition to stays the same regardless of direction`：`to` 这个介词不管是打击还是提振都不变
 
-### fool-32 [扣原句]
-> Even if a review of history shows the policy failed, supporters still claim it saved jobs.
+**句式**
 
-**Step 1 扫词**
-- **policy**：核心意象：政策。
-- **supporter**：核心意象：支持者——still claim = 仍声称。
-- **job**：核心意象：就业、工作岗位——saved jobs = 保住了就业。
+辨析句，重点是帮你理解 `to` 在这个结构里的功能：不是"方向"，而是"指向受影响的对象"。
 
-**Step 2 扫词块**
-- **even if a review of history shows**：even if a review shows / even if history shows。中文感受：即使历史回顾表明——even if 让步，review of history = 翻旧账/回顾历史。
-- **still claim**：still claim / still insist。中文感受：仍然声称——still 强调让步后立场不变。
+`blow to` 和 `boost to` 都用 `to`，因为 `to` 只是标记"谁受到影响"，不区分好坏。
 
-**Step 3 扫句式**
-even if a review of history shows the policy failed 是让步从句——即使历史回顾表明政策失败；主句 supporters still claim it saved jobs——支持者仍称它保住了就业。打脸结构：证据 vs 坚持。
+**翻译**
 
-**Step 4 读句子**
-直读：即使历史回顾表明政策失败，支持者仍称它保住了就业。
-考场：即使历史回顾显示该政策已失败，支持者仍声称它拯救了就业。
-
----
-
-### fool-33 [迁移]
-> Even if a review of history shows early warnings were ignored, officials deny responsibility.
-
-**Step 1 扫词**
-- **warning**：核心意象：警告——early warnings = 早期预警。
-- **ignore**：核心意象：忽视、不理睬——were ignored = 被忽视了。
-- **official**：核心意象：官员。
-- **responsibility**：核心意象：责任——deny responsibility = 否认责任。
-
-**Step 2 扫词块**
-- **even if a review of history shows**：even if a review shows / even if history reveals。中文感受：即使历史回顾表明——同原句 even if 让步骨架。
-- **deny responsibility**：deny responsibility / refuse to accept responsibility。中文感受：否认责任——deny = 否认，不是 delay。
-
-**Step 3 扫句式**
-even if a review of history shows early warnings were ignored 让步——即使回顾表明早期警告被忽视；主句 officials deny responsibility——官员仍否认责任。证据打脸 vs 拒不认账。
-
-**Step 4 读句子**
-直读：即使历史回顾表明早期警告被忽视了，官员仍否认责任。
-考场：即使历史回顾显示早期警告遭到忽视，官员仍否认承担责任。
-
----
-
-### fool-34 [防坑]
-> He caught "回顾历史" but turned wrongdoing into "poor execution" inside the clause.
-
-**Step 1 扫词**
-- **clause**：核心意象：从句——inside the clause = 在从句内部。
-- **execution**：核心意象：执行——poor execution = 执行差，但 wrongdoing ≠ execution。
-- **wrongdoing**：wrong + doing。核心意象：不当行为、违规——不是执行能力问题。
-
-**Step 2 扫词块**
-- **even if a review of history shows**（本句前半已译对）：even if a review shows / even if history shows。中文感受：即使历史回顾表明——even if 从句骨架抓住了。
-- **turned wrongdoing into "poor execution"**：turned wrongdoing into / translated wrongdoing as。中文感受：把 wrongdoing 变成「糟糕执行」——从句内部关键词仍偏。
-首译典型错读：even if a review of history 译对了「回顾历史」，但从句里 wrongdoing 仍译成「糟糕执行」；本句纠偏：even if 从句内每个关键词都要读准，wrongdoing = 不当行为不是 poor execution。
-
-**Step 3 扫句式**
-He caught "回顾历史" 是对的一半——even if a review of history 骨架抓住了；but turned wrongdoing into "poor execution" inside the clause 是错——but 转折，从句内部 wrongdoing 仍偏。
-
-**Step 4 读句子**
-直读：他译对了「回顾历史」，但从句里把 wrongdoing 译成了「糟糕执行」。
-
----
+注意受损方向：*a blow to the economy* 意思是经济受损；对比 *a boost to the economy*——结构相同，效果相反。`to` 这个介词不管是打击还是提振，用法都一样。
