@@ -57,10 +57,14 @@ _last_pull = 0.0
 
 _daemon_ts = 0.0
 _daemon_val = False
-_DAEMON_TTL = 5.0          # 5 秒内复用上次的 /proc 扫描结果
+_DAEMON_TTL = 30.0         # 30 秒内复用上次的 /proc 扫描结果
 
 _src_cache_key: float = -1.0
 _src_cache_data: dict = {}
+
+_live_state: dict = {}
+_live_lock = threading.Lock()
+_page_html: str = ''          # studio.html 模板，启动时读入，省去每次磁盘 I/O
 
 _exam_date_val = None
 
@@ -95,6 +99,8 @@ def proc_alive(needle: str) -> bool:
         if p.name == me:
             continue
         try:
+            if 'bash' not in (p / 'comm').read_text(errors='ignore'):
+                continue
             cmd = (p / 'cmdline').read_bytes().decode(errors='ignore').replace('\x00', ' ')
         except OSError:
             continue
@@ -413,13 +419,22 @@ class Handler(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         q = parse_qs(u.query)
         if u.path == '/api/state':
-            return self._json(get_state())
+            with _live_lock:
+                s = _live_state
+            return self._json(s or get_state())
         if u.path == '/api/day':
             return self._json(day_view(q.get('d', [''])[0]))
         if u.path in ('/api/fool', '/api/probe'):
             return self._json({'md': read_doc(u.path.rsplit('/', 1)[1], q.get('d', [''])[0])})
         if u.path in ('/', '/index.html'):
-            body = PAGE.read_bytes()
+            with _live_lock:
+                s = _live_state
+            if s:
+                state_json = json.dumps(s, ensure_ascii=False).replace('</', '<\\/')
+                inject = f'<script>window.__INITIAL_STATE__={state_json};</script>\n'
+                body = (_page_html.replace('</body>', inject + '</body>')).encode('utf-8')
+            else:
+                body = _page_html.encode('utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
             self.send_header('Content-Length', str(len(body)))
@@ -440,7 +455,23 @@ class Handler(BaseHTTPRequestHandler):
             self._json({'ok': False, 'msg': str(e)}, 500)
 
 
+def _bg_state_worker():
+    """后台每 3 秒刷新 _live_state，请求路径只做内存读取。"""
+    global _live_state
+    while True:
+        try:
+            s = get_state()
+            with _live_lock:
+                _live_state = s
+        except Exception:
+            pass
+        time.sleep(3)
+
+
 def main():
+    global _page_html
+    _page_html = PAGE.read_text(encoding='utf-8')
+    threading.Thread(target=_bg_state_worker, daemon=True).start()
     server = ThreadingHTTPServer(('127.0.0.1', PORT), Handler)
     mode = '本地模式（daemon 在本机）' if local_daemon() else '远程模式（经 GitHub 同步）'
     print(f'studio → http://127.0.0.1:{PORT}   {mode}   (Ctrl-C 退出)')
