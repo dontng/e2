@@ -1,40 +1,45 @@
-« [0620-day59](0620-day59-probe.md)　　[0623-day61](0623-day61-probe.md) »
+# probe / Day 60 on 2026-06-22
 
-# day60 Probe
-
-source: [src/june/0622-day60.md](../../src/june/0622-day60.md)
+原句：The whirlwind that swept through newsrooms harmed everybody, but much of the damage has been concentrated in areas where newspapers are least distinctive.
 
 ---
 
-## 原句
+**Q：whirlwind 我知道是"旋风"，为什么读到这句我就直接写成"台风"了，这个直觉错在哪？**
 
-> The whirlwind that swept through newsrooms harmed everybody, but much of the damage has been concentrated in areas where newspapers are least distinctive.
+不是词不认识，而是脑子里有一条错误的判断链：看到风类词 + 新闻业语境 → "这肯定是比喻某种冲击" → 但手写的时候直接落笔"台风"，没有停下来确认 whirlwind 和 typhoon/hurricane 之间的区别。
 
-## 今日刺痛
+这里有两个问题叠在一起。第一，whirlwind 和 typhoon 不是同一个词，whirlwind 是旋风/龙卷式的急速卷动，typhoon 是热带气旋。第二，更关键的是：英语里 whirlwind 已经高度词汇化成比喻，表示"快速席卷一切的变化或冲击"，直接写"台风"不只是词义偏，还把比喻变成了实体事件，让读者以为真的有台风。
 
-表面是 whirlwind 译成「台风」、distinctive 译成「分发」——其实同一句里两件事叠在一起：前半扫过新闻界时 **everybody 整段消失**，后半定语从句 **distinctive 被 distribute 拐走**。不是不认识单词，是译到一半画面断了、形近词没分字母，主干只留了「扫」和「集中」两个壳。
+以后遇到这类比喻性词语的判断规则：先看语境（新闻业被冲击，不会有真台风），再看词本身（whirlwind 而非 typhoon），确认是比喻之后直接译"旋风"或"一场急剧的冲击"就够了，不需要找更戏剧的词。
 
-## 内功印证
+---
 
-- **G01 语境违和迟钝** · whirlwind 在新闻句里违和感很强（行业剧变而非天气），但「台风」看着顺眼就落了笔 → 读 internal-skills §G01
-- **G05 形近闪电混淆** · distinctive（特色）→「要分发」，典型形近/词尾联想岔路 → §G05
-- **G07 盲译无检** · harmed everybody 整段漏译，说明从第一个词一路译到底，没在中途问「主干齐了没」 → §G07
-- **G09 画面未激活** · whirlwind/sweep 有「旋、扫」的画面，但落笔变成气象台风 + 边角，画面没绑到 newsrooms/everybody → §G09
+**Q：distinctive 我完全读成了 distribute 相关的词，是形近词干扰，还是有别的原因？**
 
-## 招式印证
+主要是形近词干扰，但还有一层：遇到不太确定的词，大脑会找最近看到过的"熟悉形状"来填空，这里"报纸 + 区域"的语境，加上 -dist- 开头，就触发了 distribute（分发）的联想，然后整个词就被错误地安装进句子里了。
 
-- **P05 形近 N/L 锚** · distinctive（-ive 特色）与 distribute（-ute 分发）未先分词尾，定语从句整段偏 → 当日句 areas where newspapers are least distinctive 应先拆 -ive/-ute
-- **P08 三道直觉检** · 剥壳后后半应是「损害集中在哪些 area」，但剥壳停在「报纸…地方」，右侧 where 从句没挂上 → 当日句 much of the damage has been concentrated in areas where…
+这类干扰最有效的防法不是死记 distinctive 的意思，而是在读到这个词的时候，停一下问自己：这里如果是"分发"，整句还说得通吗？损害集中在"报纸要分发的地方"——逻辑上就很怪，报纸分发到哪里和损害集中没有明显关系。这种语义不通的感觉应该触发你重新确认词义，而不是强行圆过去。
 
-## 提分台阶
+实际上 distinctive 是一个高频英二词：-distinct-（区分、区别）+ -ive（具有……性质的）= 有区分度的、有特色的。least distinctive 就是"最缺乏独特性"，这句话的核心逻辑才能成立：没有独特性的地方最容易被冲垮。
 
-**当前站位：① 止血（目标 5+）之下** — 首译 2/10，采分点 3 个 ✗、2 个 △，比喻义、漏译主干、形近混读同时出现。
+---
 
-**距下一台阶差什么：** ① 译完 sweep through 立刻问 harmed **谁**（everybody 不能丢）；② 见到 -tive/-ute 先分词尾再义（P05）；③ whirlwind 在新闻语境先想「行业风暴」而非天气（G01/G09）。
+**Q：但转折之后这句的因果逻辑是什么——为什么"缺乏独特性的地方"会受损最重？**
 
-## 今日带走
+这是这句话真正在说的一件事，而不只是翻译层面的问题。
 
-下一句落笔前 3 秒：长句 // 切完后，先念一遍「主语动词宾语齐了没」——今天 everybody 就是 // 前丢的那一块。
+逻辑链是：如果一份报纸有独特性（独家内容、深度报道、特定受众的信任），它有护城河，冲击来了还能撑住。但如果它卖的东西和竞争对手没什么区别——通稿、同质化报道、随便换一家都能看——那么当数字媒体把同样的内容免费端出来，读者根本没有理由留下来，损害就会格外集中。
 
+所以 but much of the damage has been concentrated in areas where newspapers are least distinctive 这句话，等于是在给出一个判断：差异性是护城河，没有差异性的地方最脆弱。这是阅读理解层面的核心判断，如果 distinctive 读错，这一层完全丢失。
 
-« [0620-day59](0620-day59-probe.md)　　[0623-day61](0623-day61-probe.md) »
+以后遇到 but 之后接"大部分/最多/集中"这类说法，要预期它在给出一个筛选条件——什么情况下最严重，为什么是这些而不是那些。条件通常就藏在 where/when/that 引出的从句里。
+
+---
+
+**Q：swept through 和 swept over 我平时不区分，原句里为什么用 through 而不是 over？**
+
+through 和 over 的核心区别在于方向和穿透感。through 是"穿越一个空间，从入口到出口，没有死角"；over 是"从上方经过或漫过，像波浪"。
+
+这句说 whirlwind swept through newsrooms，用 through 的原因是：这场冲击不是从外部俯视新闻业，而是深入其中、贯穿整个行业，编辑室、记者、发行各个环节全部卷进去。through 给人一种"内部被穿透"的感觉，而 over 会让人觉得从外面掠过，没那么深入。
+
+记这个区分的直觉：通过一堵墙是 through，越过一堵墙是 over。用到比喻时也保留这个感觉——through 意味着深入内部全面影响，over 意味着从上方漫过或经过。
