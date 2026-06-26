@@ -39,7 +39,8 @@ _Q     = '[“”"]'  # U+201C U+201D U+0022
 _CORE  = re.compile('核心[义画面]*[是：:]\\s*' + _Q + '?(.+?)(?=' + _Q + '?[。；，—\\n])')
 _MEANS = re.compile('意思是' + _Q + '(.+?)' + _Q)
 _EQ    = re.compile(r'=\s*([一-鿿][^。；，—\n]*)')
-_ETYM  = re.compile(r'词根|来自(?:古英语|拉丁|希腊|法语)|字面来|原意是')
+_ETYM  = re.compile(r'词根|来自(?:古英语|拉丁|希腊|法语)|字面来|原意是|核心画面')
+_CORE_MEANING = re.compile('核心义[是：:]\\s*' + _Q + '(.+?)' + _Q)
 
 
 def _first_para(card: str) -> str:
@@ -63,8 +64,8 @@ def _first_para(card: str) -> str:
 
 
 def _strip_word(s: str, word: str) -> str:
-    # 去掉开头的英文词名及紧随的助词（词头已显示，释义不必重复）
     s = re.sub(r'^' + re.escape(word) + r'\s*(?:的|是|=|：|:)?\s*', '', s, flags=re.I)
+    s = re.sub(r'^核心义[是：:]\s*', '', s)
     return s.lstrip('是，、').strip()
 
 
@@ -90,30 +91,34 @@ def _gloss(card: str) -> str:
     first = _first_para(card)
     cleaned = _clean_md(card)
 
-    # P1: 核心义/画面 —— 仅第一段，防命中错误分析句
-    m = _CORE.search(first)
+    # P1: word(本身)?是/=”X” —— 带引号的直接定义，最可信
+    m = re.search(re.escape(word) + r'(?:本身)?\s*(?:是|=)\s*' + _Q + r'(.+?)' + _Q, cleaned, re.I)
     if m:
         return _trim(m.group(1), word)
 
-    # P2: 意思是”...” —— 全卡
-    m = _MEANS.search(cleaned)
-    if m:
-        return _trim(m.group(1), word)
-
-    # P3: 特指/专指/用于指/，指 —— 仅第一段
-    s = _try_point(first)
-    if s:
-        return _trim(s, word)
-
-    # P4: word = 纯汉字释义 —— 仅 word 直接在 = 左边时才取
+    # P2: word = 纯汉字（无引号，word 直接在左，最精确）
     m = re.search(re.escape(word) + r'\s*=\s*([一-鿿][^。；，—\n]*)', cleaned)
     if m:
         s = m.group(1).strip()
         if sum(1 for c in s if ord(c) < 128) / max(len(s), 1) < 0.25:
             return _trim(s, word)
-            return _trim(s, word)
 
-    # P5: 第一段第二句起 —— 取 —— 前或首逗前，跳过词根句
+    # P3: 核心义是”X”（区别于核心画面）
+    m = _CORE_MEANING.search(first)
+    if m:
+        return _trim(m.group(1), word)
+
+    # P4: 意思是”X”
+    m = _MEANS.search(cleaned)
+    if m:
+        return _trim(m.group(1), word)
+
+    # P5: 特指/专指/用于指/，指
+    s = _try_point(first)
+    if s:
+        return _trim(s, word)
+
+    # P6: 第一段第二句起，跳过词根/画面句
     sentences = [s.strip() for s in re.split(r'。', first) if s.strip()]
     for sent in sentences[1:]:
         if _ETYM.search(sent):
@@ -125,6 +130,13 @@ def _gloss(card: str) -> str:
             part = re.split(r'[，,]', stripped, 1)[0].strip()
         if part and re.match(r'[一-鿿]', part) and len(part) >= 4:
             return _trim(part, word)
+
+    # P7: 末段 word 不是X，是Y 兜底（仅搜最后一段，避免命中首段画面句）
+    paras = [p.strip() for p in card.split('\n\n') if p.strip() and not p.strip().startswith('-')]
+    last_para = _clean_md(paras[-1]) if paras else ''
+    m = re.search(re.escape(word) + r'(?:[^，。\n]+，)+是([一-鿿][^，。—\n（]{3,30})', last_para, re.I)
+    if m:
+        return _trim(m.group(1), word)
 
     return ''
 
