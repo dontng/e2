@@ -36,10 +36,11 @@ def _clean_md(s: str) -> str:
 
 
 def _gloss(card: str) -> str:
-    """取词头下第一散文段首句作简短词义。"""
+    """取词条最后一段散文（收尾总结句）截到 —— 作词义提示。"""
     lines = card.split('\n')
     past_head = False
-    prose = []
+    paragraphs = []
+    current = []
     for line in lines:
         stripped = line.strip()
         if _HEAD.match(stripped):
@@ -47,18 +48,24 @@ def _gloss(card: str) -> str:
             continue
         if not past_head:
             continue
-        if not stripped:
-            if prose:
-                break
-            continue
         if stripped.startswith('-'):
-            break
-        prose.append(stripped)
-    if not prose:
+            if current:
+                paragraphs.append(' '.join(current))
+                current = []
+            continue
+        if not stripped:
+            if current:
+                paragraphs.append(' '.join(current))
+                current = []
+        else:
+            current.append(stripped)
+    if current:
+        paragraphs.append(' '.join(current))
+    if not paragraphs:
         return ''
-    s = _clean_md(' '.join(prose))
-    s = re.split(r'[。；—\n]', s, 1)[0].strip().strip('，,""" ')
-    return s[:44] + '…' if len(s) > 46 else s
+    s = _clean_md(paragraphs[-1])
+    s = re.split(r'[。；——]', s, 1)[0].strip()
+    return s[:60] + '…' if len(s) > 62 else s
 
 
 def collect_vocab(repo: Path) -> list:
