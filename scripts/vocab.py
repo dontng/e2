@@ -35,37 +35,98 @@ def _clean_md(s: str) -> str:
     return s.strip()
 
 
-def _gloss(card: str) -> str:
-    """取词条最后一段散文（收尾总结句）截到 —— 作词义提示。"""
+_Q     = '[“”"]'  # U+201C U+201D U+0022
+_CORE  = re.compile('核心[义画面]*[是：:]\\s*' + _Q + '?(.+?)(?=' + _Q + '?[。；，—\\n])')
+_MEANS = re.compile('意思是' + _Q + '(.+?)' + _Q)
+_EQ    = re.compile(r'=\s*([一-鿿][^。；，—\n]*)')
+_ETYM  = re.compile(r'词根|来自(?:古英语|拉丁|希腊|法语)|字面来|原意是')
+
+
+def _first_para(card: str) -> str:
     lines = card.split('\n')
-    past_head = False
-    paragraphs = []
-    current = []
+    past_head, buf = False, []
     for line in lines:
-        stripped = line.strip()
-        if _HEAD.match(stripped):
+        s = line.strip()
+        if _HEAD.match(s):
             past_head = True
             continue
         if not past_head:
             continue
-        if stripped.startswith('-'):
-            if current:
-                paragraphs.append(' '.join(current))
-                current = []
+        if not s:
+            if buf:
+                break
             continue
-        if not stripped:
-            if current:
-                paragraphs.append(' '.join(current))
-                current = []
+        if s.startswith('-'):
+            break
+        buf.append(s)
+    return _clean_md(' '.join(buf))
+
+
+def _strip_word(s: str, word: str) -> str:
+    # 去掉开头的英文词名及紧随的助词（词头已显示，释义不必重复）
+    s = re.sub(r'^' + re.escape(word) + r'\s*(?:的|是|=|：|:)?\s*', '', s, flags=re.I)
+    return s.lstrip('是，、').strip()
+
+
+def _trim(s: str, word: str) -> str:
+    s = _strip_word(s.strip(), word)
+    return (s[:44] + '…') if len(s) > 46 else s
+
+
+def _try_point(text: str):
+    # 找 特指/专指/用于指/，指 引导的释义；先带引号后不带
+    m = re.search('(?:特指|专指|用于指|，指)' + _Q + '(.+?)' + _Q, text)
+    if m:
+        return m.group(1).strip()
+    m = re.search(r'(?:特指|专指|用于指|，指)([^。；\n—，]{4,})(?=[。；—，\n]|$)', text)
+    if m:
+        return m.group(1).strip()
+    return None
+
+
+def _gloss(card: str) -> str:
+    hm = _HEAD.search(card)
+    word = hm.group(1).strip() if hm else ''
+    first = _first_para(card)
+    cleaned = _clean_md(card)
+
+    # P1: 核心义/画面 —— 仅第一段，防命中错误分析句
+    m = _CORE.search(first)
+    if m:
+        return _trim(m.group(1), word)
+
+    # P2: 意思是”...” —— 全卡
+    m = _MEANS.search(cleaned)
+    if m:
+        return _trim(m.group(1), word)
+
+    # P3: 特指/专指/用于指/，指 —— 仅第一段
+    s = _try_point(first)
+    if s:
+        return _trim(s, word)
+
+    # P4: word = 纯汉字释义 —— 仅 word 直接在 = 左边时才取
+    m = re.search(re.escape(word) + r'\s*=\s*([一-鿿][^。；，—\n]*)', cleaned)
+    if m:
+        s = m.group(1).strip()
+        if sum(1 for c in s if ord(c) < 128) / max(len(s), 1) < 0.25:
+            return _trim(s, word)
+            return _trim(s, word)
+
+    # P5: 第一段第二句起 —— 取 —— 前或首逗前，跳过词根句
+    sentences = [s.strip() for s in re.split(r'。', first) if s.strip()]
+    for sent in sentences[1:]:
+        if _ETYM.search(sent):
+            continue
+        stripped = _strip_word(sent, word)
+        if '——' in stripped:
+            part = stripped.split('——')[0].strip()
         else:
-            current.append(stripped)
-    if current:
-        paragraphs.append(' '.join(current))
-    if not paragraphs:
-        return ''
-    s = _clean_md(paragraphs[-1])
-    s = re.split(r'[。；——]', s, 1)[0].strip()
-    return s[:60] + '…' if len(s) > 62 else s
+            part = re.split(r'[，,]', stripped, 1)[0].strip()
+        if part and re.match(r'[一-鿿]', part) and len(part) >= 4:
+            return _trim(part, word)
+
+    return ''
 
 
 def collect_vocab(repo: Path) -> list:
