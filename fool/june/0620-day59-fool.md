@@ -12,7 +12,7 @@
 
 - `outside directors`：外部董事（不受雇于公司的独立董事）
 - `firm`：公司
-- `reputation`：声誉、名誉
+- `reputation`：re-(again) + putare(count/think) → 反复被人品评 → 声誉；compute同根
 - `a blow to`：对……的打击
 - `break`（坏消息作主语）：（消息）曝光、爆出
 - `a review of`：对……的回溯/审查
@@ -159,9 +159,9 @@
 - `investigation`：调查
 - `criminal wrongdoing`：刑事违法行为
 - `nonetheless`：尽管如此、但还是
-- `censure`：（动词/名词）谴责、批评（正式场合，来自上级或机构）
-- `breach`：违反、违背（正式用法）
-- `fiduciary duties`：受信义务（受托人对委托人应尽的法律义务）
+- `censure`：censere(judge/assess) → 由权威机构正式评判并谴责；census同根
+- `breach`：break(打破) → 打开一个缺口；法律文书常用，比 violate 更强调"撕破"义务
+- `fiduciary duties`：fides(faith/trust) → 基于信任的法律义务；fidelity/confide同根
 - `shareholders`：股东
 
 **词块**
@@ -191,7 +191,7 @@
 **词**
 
 - `stepped down`：辞职、卸任
-- `accounting irregularities`：会计不规范行为、账目异常
+- `accounting irregularities`：irregular = ir-(not) + regula(rule) → 不合规律的异常；regular同根
 - `came to light`：（事情）曝光、被发现（固定搭配）
 - `were later shown by company records`：后来被公司档案证明
 - `sanctioned`：批准、认可（这里是"被授权/默许"，不是"制裁"）
@@ -257,7 +257,7 @@
 
 - `fraud conviction`：欺诈罪定罪
 - `reputation built over decades`：数十年积累的声誉
-- `appearance of impropriety`：不当行为的外观、看上去像是违规（即便实际未必如此）
+- `appearance of impropriety`：impropriety = im-(not) + proprius(fitting) → 不合适、不体面；proper同根
 - `prompt sb. to do`：促使某人做某事
 - `distance themselves from`：与……划清界限、保持距离
 - `troubled companies`：陷入麻烦的公司
@@ -289,7 +289,7 @@
 
 **词**
 
-- `rigorous`：严格的、一丝不苟的
+- `rigorous`：rigor(stiffness/harshness) → 僵硬→严格、一丝不苟；rigor mortis同根
 - `independent director`：独立董事
 - `preserved`：保全、保住（`preserve` = 使不受损害地保留）
 - `stayed on`：留任
@@ -447,7 +447,7 @@
 
 **词**
 
-- `resignation`：辞职（名词）
+- `resignation`：re- + signare(sign) → 取消签署 → 辞职；sign/signature同根
 - `in a single week`：在短短一周内
 - `dealt a severe blow to`：给……以沉重打击——`deal a blow to` 是固定动词搭配
 - `investor confidence`：投资者信心
@@ -514,7 +514,7 @@
 - `suffers`：受损、遭受损失
 - `a boost to`：对……的提振、推动（`boost` = 推动力）
 - `opposite effect`：相反的效果
-- `preposition`：介词
+- `preposition`：pre-(before) + ponere(put) → 放在名词前面的词；position同根
 - `regardless of direction`：不管方向如何、不管是打击还是提振
 
 **词块**

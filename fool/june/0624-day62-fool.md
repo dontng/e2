@@ -16,9 +16,9 @@
 - `impact` 影响（v.）
 - `acquired` 获得、购置
 - `clothes dryers` 烘干机
-- `self-sufficiency` 自给自足
-- `desirable` 令人向往的、值得追求的
-- `inevitable` 不可避免的、必然的
+- `self-sufficiency`：sufficient = sub-(up to) + facere(make) → 够用的；自给自足靠自己供应所需
+- `desirable`：desiderare(wish for/long for) → 令人向往的、值得追求的；desire同根
+- `inevitable`：in-(not) + evitare(avoid) → 无法避开、躲不掉；evade同根
 - `widely shared` 被广泛认同/共享
 
 **词块**
@@ -87,11 +87,11 @@
 
 **词**
 
-- `inflation` 通货膨胀
-- `persist` 持续、持久不退
+- `inflation`：in-(into) + flare(blow) → 吹气进去膨胀；deflation反义
+- `persist`：per-(through) + sistere(stand) → 一路站到底；resist/consist同根
 - `rate hikes` 加息（`hike` = 大幅提升）
 - `policymakers` 政策制定者
-- `credible` 可信的、站得住脚的
+- `credible`：credere(believe) → 值得相信的；credit/creed同根
 
 **词块**
 
@@ -146,7 +146,7 @@
 
 - `working knowledge` 够用的、实用的知识（不是精通，是能运转）
 - `posted in` 派驻在（外交/公司派驻）
-- `immersion` 沉浸（`immerse` = 浸入）
+- `immersion`：im-(into) + mergere(dip/plunge) → 浸入其中；merge/submerge同根
 - `formal study` 正规学习
 
 **词块**
@@ -174,7 +174,7 @@
 **词**
 
 - `postwar decades` 战后数十年
-- `domestic life` 家庭生活（`domestic` = 家庭的/国内的，这里是家庭）
+- `domestic life`：domus(house/home) → 家里的；domicile/domain同根
 - `reshaping` 重塑
 
 **词块**
@@ -204,7 +204,7 @@
 - `startup` 初创公司
 - `patents` 专利
 - `influence` 影响力
-- `capability` 能力、实力
+- `capability`：capere(grasp/hold) → 能抓住/承接的能力；capacity/capable同根
 
 **词块**
 
@@ -352,7 +352,7 @@
 - `merely` 仅仅
 - `socially desirable` 在社会层面令人向往的
 - `dependence on` 对……的依赖
-- `suspicion` 怀疑、猜忌
+- `suspicion`：sub-(under) + specere(look) → 从下偷看 → 怀疑；suspect/inspect同根
 
 **词块**
 
@@ -436,9 +436,9 @@
 
 **词**
 
-- `mechanization` 机械化
+- `mechanization`：mechane(Greek: device/contrivance) → 机器驱动化；mechanical同根
 - `distant possibility` 遥远的可能性
-- `transformation` 变革、转型
+- `transformation`：trans-(across) + formare(shape) → 彻底改变形态；inform同根
 - `within a generation` 在一代人的时间内
 
 **词块**
@@ -466,9 +466,9 @@
 
 **词**
 
-- `emissions` 排放（温室气体）
+- `emissions`：e-(out) + mittere(send) → 向外发出的；emit同根（详见day64）
 - `avoidable` 可避免的（`avoid` + `-able`）
-- `conflating` 混为一谈（`conflate` = 把两件事错误地合并）
+- `conflating`：con-(together) + flare(blow) → 吹到一起/混为一谈；inflate同根
 - `false panic` 虚假的恐慌
 - `false comfort` 虚假的安慰
 
@@ -587,7 +587,7 @@
 - `attacked as` 被抨击为
 - `ineffective` 无效的
 - `unconstitutional` 违宪的
-- `opponents` 反对者
+- `opponents`：op-(against) + ponere(put) → 把自己放到对立面；oppose同根
 - `grounds` 理由、依据（这里是复数）
 - `challenge` 挑战、质疑（法律语境中是提出异议）
 

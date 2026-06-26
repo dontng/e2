@@ -11,7 +11,7 @@ It insists that economic co-ordination should involve all 27 members of the EU c
 
 **词**
 - `insists`：坚持认为，坚持主张
-- `co-ordination`：协调，协同
+- `co-ordination`：co-(together) + ordinare(arrange in order) → 共同排列协调；ordinal同根
 - `involve`：涵盖，包括
 - `liberalism`：自由主义（这里指经济上的自由市场主义）
 - `rigour`：严苛，严格
@@ -46,9 +46,9 @@ It insists that economic co-ordination should involve all 27 members of the EU c
 The experiment demanded scientific rigour: every variable was controlled, every measurement triple-checked, and any result that could not be replicated was discarded outright.
 
 **词**
-- `variable`：变量
+- `variable`：variare(change) → 可变化的量；variety/vary同根
 - `triple-checked`：反复核查了三遍
-- `replicated`：被重复验证
+- `replicated`：re- + plicare(fold) → 重新折叠/复制；replica同根
 - `discarded outright`：直接丢弃，完全不要
 
 **词块**
@@ -72,7 +72,7 @@ The central bank's economic rigour—keeping inflation below two percent regardl
 - `central bank`：央行
 - `inflation`：通货膨胀
 - `regardless of`：不管，不论
-- `credibility`：公信力，可信度
+- `credibility`：credere(believe) → 可信度；credit/creed同根
 - `bond markets`：债券市场
 - `command`：赢得，拥有（这里是"获得某种地位或信任"的意思）
 
@@ -101,9 +101,9 @@ The policy was praised for its rigour but criticised for its rigidity: rigour me
 **词**
 - `praised`：被称赞
 - `criticised`：被批评
-- `rigidity`：僵化，死板
+- `rigidity`：rigere(be stiff) → 僵硬；与rigour同根，但多了"拒不适应"的意味
 - `holding to`：坚守，坚持
-- `adapt`：适应，调整
+- `adapt`：ad-(to) + aptare(fit) → 调整以适合；apt/aptitude同根
 
 **词块**
 - `praised for its rigour but criticised for its rigidity`：因为严苛而被称赞，又因为僵化而被批评，for 在这里是"因为/以……为由"
@@ -124,7 +124,7 @@ The broadcasting regulator ruled that the new transmitter was causing interferen
 **词**
 - `broadcasting regulator`：广播监管机构
 - `ruled that`：裁定，判定
-- `transmitter`：发射器，信号发射装置
+- `transmitter`：trans-(across) + mittere(send) → 跨越发送；emit同根
 - `frequencies`：频率，频道
 - `ordered it shut down`：命令将其关闭
 
@@ -150,8 +150,8 @@ Germany's longstanding fear is that deeper eurozone integration will open the do
 - `longstanding`：由来已久的，长期存在的
 - `eurozone integration`：欧元区一体化
 - `open the door to`：为……打开大门，引出某种可能性
-- `fiscal policy`：财政政策
-- `instruments`：工具，手段
+- `fiscal policy`：fiscus(国库/国家钱袋) → 国库 → 财政的；confiscate同根
+- `instruments`：instruere(build/equip) → 用来构建/执行的工具；instruct/construct同根
 - `national advantage`：国家利益
 
 **词块**
@@ -197,9 +197,9 @@ Classical liberalism, as articulated by Adam Smith and later refined by Friedric
 
 **词**
 - `classical`：古典的，经典的
-- `articulated`：阐述，表达（articulate 作动词）
+- `articulated`：artus(joint) → 有关节地连接 → 条理清晰地表达；article同根
 - `refined`：完善，精炼
-- `consenting parties`：自愿参与的双方
+- `consenting parties`：con-(together) + sentire(feel) → 感受一致 → 双方同意；consent同根
 - `social outcomes`：社会结果
 - `central planner`：中央计划者（指计划经济体制下的政府）
 
@@ -336,7 +336,7 @@ There is a meaningful difference between insisting that something should happen 
 
 **词**
 - `meaningful difference`：有实质意义的区别，不是细枝末节的差别
-- `normative position`：规范性立场，表达"应当如何"的价值判断
+- `normative position`：norma(rule/pattern) → 规范性的；norm/abnormal同根
 - `diplomacy`：外交
 
 **词块**
@@ -362,8 +362,8 @@ The committee approved the proposal by a small majority, with eleven votes in fa
 - `in favour`：赞成
 - `against`：反对
 - `margin`：差距，优势幅度
-- `abstention`：弃权
-- `reversed the outcome`：逆转结果
+- `abstention`：abs-(away) + tenere(hold) → 拉住自己不参与 → 弃权；abstain同根
+- `reversed the outcome`：re-(back) + vertere(turn) → 转回去/逆转结果；revert同根
 
 **词块**
 - `by a small majority`：以微弱多数通过，by 在这里是"以……的幅度"
@@ -416,7 +416,7 @@ A small majority is not the same as a stable majority: a narrow lead in a vote o
 - `stable majority`：稳定的多数
 - `narrow lead`：微弱领先
 - `principle`：原则
-- `evaporate`：蒸发，消散（比喻支持瓦解）
+- `evaporate`：e-(out) + vapor(steam) → 蒸汽散出 → 消散；vapor同根
 - `implementation details`：具体实施细节
 
 **词块**

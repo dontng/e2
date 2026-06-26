@@ -12,8 +12,8 @@
 - `newsrooms`：新闻编辑室
 - `harmed`：伤害了
 - `damage`：损害、损失
-- `concentrated`：集中（聚集在某处）
-- `distinctive`：有特色的、有区别度的（区别于竞争对手的那种独特性）
+- `concentrated`：con-(together) + centrare(center) → 聚集到中心点；center同根
+- `distinctive`：dis-(apart) + tinguere(mark) → 打上独特标记，与众不同；distinguish同根
 - `least`：最不……
 
 **词块**
@@ -36,7 +36,7 @@
 > Her voice is so distinctive that you can recognize her on the radio after hearing just one sentence.
 
 **词**
-- `recognize`：认出来
+- `recognize`：re-(again) + cognoscere(know) → 重新认出来；cognition同根
 
 **词块**
 - `so...that...`：如此……以至于……——前半说程度，后半说结果
@@ -56,8 +56,8 @@
 > In a market saturated with generic content, a publication's distinctive editorial voice is the only reason readers return week after week.
 
 **词**
-- `saturated`：饱和的，这里指"充斥着、到处都是"
-- `generic`：通用的、没有特色的、千篇一律的
+- `saturated`：satur(full/enough) → 饱和的，满到再也进不去；saturation point
+- `generic`：genus(kind/class) → 属于某一类而无特色；gene/genus同根
 - `publication`：出版物（杂志、报纸等）
 - `editorial voice`：编辑腔调，指一家媒体的写作风格和立场
 
@@ -126,8 +126,8 @@
 > The whirlwind of automation that swept through manufacturing left millions of mid-skill workers without transferable options.
 
 **词**
-- `automation`：自动化
-- `manufacturing`：制造业
+- `automation`：auto-(self) → 自动运作；automatic同根
+- `manufacturing`：manu-(hand) + facere(make) → 用手做 → 制造业；manufacture同根
 - `mid-skill workers`：中等技能工人
 - `transferable`：可转移的，这里指"能用到别处的（技能或选择）"
 - `options`：选择、出路
@@ -152,8 +152,8 @@
 **词**
 - `thrilling`：令人激动的、刺激的
 - `precisely because`：正是因为
-- `implies`：暗示、意味着
-- `momentum`：动力、势头
+- `implies`：im-(in) + plicare(fold) → 折叠进去/暗含；explicit是展开说的
+- `momentum`：movere(move) → 运动的势头/惯性；motion/motor同根
 
 **词块**
 - `too fast to question`：快得来不及质疑——too...to... 是"太……以至于不能……"
@@ -173,7 +173,7 @@
 > A wave of consolidation swept through the banking sector, leaving only a handful of mega-institutions standing.
 
 **词**
-- `consolidation`：整合、兼并
+- `consolidation`：con-(together) + solidare(make solid) → 使固化合并；solid同根
 - `banking sector`：银行业
 - `a handful of`：少数几个、一小撮
 - `mega-institutions`：超大型机构
@@ -247,7 +247,7 @@
 > Wealth in that country is so concentrated in the top decile that the bottom half holds virtually no assets.
 
 **词**
-- `decile`：十分位，top decile 就是最顶端的 10%
+- `decile`：decem(ten) → 十等分之一；decimal/decade同根
 - `virtually`：几乎、实际上
 - `assets`：资产
 
@@ -298,9 +298,9 @@
 - `unemployment`：失业（率）
 - `coastal`：沿海的
 - `manufacturing towns`：制造业城镇
-- `focal point`：焦点、中心点
+- `focal point`：focus(Latin: 炉灶→光线汇聚点) → 焦点/中心；可用于物理光学或注意力
 - `density`：密度
-- `accumulation`：积累、堆积
+- `accumulation`：ad- + cumulare(pile up) → 往上堆积；cumulative同根
 
 **词块**
 - `concentrated in coastal manufacturing towns`：集中在沿海制造业城镇——concentrated in 后接地点

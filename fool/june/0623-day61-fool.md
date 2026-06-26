@@ -9,11 +9,11 @@
 **词**
 
 - `phrase`：短语，说法（这里指一句格言）
-- `popularize`：推广，使流行开来
-- `architect`：建筑师
+- `popularize`：populus(people) → 使大众化；populate/popular同根
+- `architect`：archi-(chief) + tekton(builder) → 首席建造者，重设计而非施工；architecture同根
 - `associated with`：与……有关联的
 - `the Bauhaus`：包豪斯（专有名词，德国现代主义设计学院名称）
-- `emigrate`：移居国外，离开本国定居他处
+- `emigrate`：e-(out) + migrare(move) → 向外迁移；immigrate是向内迁入
 - `took up posts`：就任职位，接受职务
 - `architecture schools`：建筑学院
 
@@ -43,8 +43,8 @@
 **词**
 
 - `theories`：理论（复数）
-- `evolution`：进化论
-- `justification`：正当理由，辩护依据
+- `evolution`：e-(out) + volvere(roll) → 展开滚出 → 进化；revolve/involve同根
+- `justification`：justus(just/fair) + facere(make) → 使其显得正当；justify同根
 - `social inequality`：社会不平等
 
 **词块**
@@ -93,7 +93,7 @@
 
 **词**
 
-- `concept`：概念
+- `concept`：con-(together) + capere(grasp) → 把握住的想法 → 概念；conceive同根
 - `implies`：意味着，隐含着
 - `active agent`：主动施动者（这里指有人在主动推广）
 - `the spreading`：传播这件事
@@ -124,7 +124,7 @@
 - `industrial cities`：工业城市
 - `decades`：数十年（decade = 十年）
 - `fundamentally`：从根本上
-- `demographics`：人口结构，人口构成
+- `demographics`：demo-(people) + graphein(write/record) → 记录人口的学科；democracy同根
 
 **词块**
 
@@ -149,7 +149,7 @@
 
 - `political climate`：政治气候，政治环境
 - `turned hostile`：变得不友善，趋于敌意
-- `expertise`：专业知识，专长
+- `expertise`：expertus(tried/tested) → 经过检验的知识 → 专长；experience同根
 - `networks`：（人脉）网络
 - `sustained`：维系，支撑
 
@@ -176,7 +176,7 @@
 **词**
 
 - `emigrated from`：从……离开移居
-- `immigrated`：移入，定居（强调抵达的一端）
+- `immigrated`：im-(into) + migrare(move) → 向内迁入；与emigrate方向相反
 - `settled permanently`：永久定居
 - `naming`：命名，指称
 
@@ -227,7 +227,7 @@
 
 - `members`：成员
 - `effectively`：实际上，事实上（不是"有效地"，这里是"就其效果而言"）
-- `transplanting`：移植
+- `transplanting`：trans-(across) + plantare(plant) → 跨越移植；implant同根
 - `modernist design curriculum`：现代主义设计课程
 - `continent`：大陆
 
@@ -333,7 +333,7 @@
 **词**
 
 - `distinct from`：与……截然不同
-- `discipline`：学科，领域
+- `discipline`：discipulus(learner) → 需要学习的规范领域；disciple同根
 - `concerned with`：关注的是，致力于
 - `the physical act of building`：建造这一物理行为
 
@@ -360,7 +360,7 @@
 **词**
 
 - `the Manhattan Project`：曼哈顿计划（二战美国研制原子弹的项目）
-- `vocal advocates`：直言不讳的倡导者
+- `vocal advocates`：vox(voice) + ad-vocare(call for) → 公开发声呼吁的人；vocation同根
 - `nuclear arms control`：核军备控制
 - `haunted by`：被……所困扰，被……阴魂不散
 
@@ -444,7 +444,7 @@
 - `theorists`：理论家
 - `détournement`：异轨（法语词，指挪用和颠覆现有文化材料）
 - `repurposing`：改变用途，重新利用
-- `subvert`：颠覆，破坏
+- `subvert`：sub-(from below) + vertere(turn) → 从底部颠覆；convert/divert同根
 
 **词块**
 
@@ -469,9 +469,9 @@
 
 - `mentor`：导师，引路人
 - `computational linguistics`：计算语言学
-- `acquire`：习得（语言习得不同于学习，是自然内化的过程）
+- `acquire`：ad- + quaerere(seek) → 主动寻求获得；inquire/quest同根
 - `mother tongue`：母语
-- `explicit instruction`：明确的教导，显性的教学
+- `explicit instruction`：explicit = ex-(out) + plicare(fold) → 展开说清楚的；与implicit(折进去=暗含的)相对
 
 **词块**
 

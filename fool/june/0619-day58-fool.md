@@ -10,9 +10,9 @@
 
 **词**
 
-- `sustain`：维持、撑住（不让某样东西垮掉）
-- `illusion`：幻觉、错觉（以为是真的但其实不存在的东西）
-- `conscious`：有意识的（清醒地知道自己在做什么）
+- `sustain`：sub-(under) + tenere(hold) → 从下托住，不让垮掉；可接意志/信念/停火协议
+- `illusion`：il-(into) + ludere(play) → 被玩弄迷惑；看起来真实但其实不存在
+- `conscious`：con-(together) + scire(know) → 完全知晓的；清醒地知道自己在做什么
 - `alone`：仅凭、只靠（副词，放在名词后，不是"孤独"）
 - `continually`：持续不断地、一再地
 - `faced with`：面对、正视
@@ -50,7 +50,7 @@
 - `drop from`：从……落下
 - `consciousness`：意识、清醒状态
 - `long enough for sth to do`：足够久，让……能够做某事
-- `descend`：下降
+- `descend`：de-(down) + scandere(climb) → 往下走；ascend 是方向反义词
 - `breathable altitude`：可呼吸的高度（大气层里氧气够用的高度）
 
 **词块**
@@ -77,7 +77,7 @@
 **词**
 
 - `diplomacy`：外交、外交斡旋
-- `fragile`：脆弱的、易碎的
+- `fragile`：frangere(打碎) → 一碰就碎；fracture/fragment/fraction同根
 - `ceasefire`：停火协议
 - `miscalculated`：判断失误的、算错的
 - `airstrike`：空袭
@@ -107,8 +107,8 @@
 
 **词**
 
-- `endure`：忍受、熬过（被动承受，不舒服但能撑）
-- `expedition`：远征、探险（长途的、艰苦的）
+- `endure`：en- + durare(last/hard) → 硬撑过去；比 tolerate 多一层"在时间里熬"的感觉
+- `expedition`：ex-(out) + pedis(foot) → 迈脚出去；expedite/pedestrian同根
 - `struggle to do`：努力想做但做得很费劲
 - `worthwhile`：值得的、有意义的
 - `slip away`：悄悄溜走、渐渐消失
@@ -142,7 +142,7 @@
 - `sustained by debt`：靠债务撑着的——by 说明支撑的来源
 - `credit`：信贷、信用额度
 - `dry up`：枯竭、断绝（像水源干掉一样）
-- `prosperity`：繁荣、兴旺
+- `prosperity`：pro-(forward) + spes(hope) → 向前有希望的繁荣状态；prosper同根
 - `vanish overnight`：一夜之间消失
 
 **词块**
@@ -171,7 +171,7 @@
 
 - `committee`：委员会
 - `maintain`：维持、保持（和 sustain 相近，这里侧重"对外呈现"）
-- `consensus`：共识、一致意见
+- `consensus`：con-(together) + sentire(feel) → 大家感受一致；consent/sense同根
 - `issue statements`：发表声明
 - `behind closed doors`：在关门之后、私下里（外界看不到的地方）
 - `remain deadlocked`：依然僵持不下、没有进展
@@ -200,11 +200,11 @@
 
 **词**
 
-- `delusion`：妄想（固定的、抵抗证据的错误信念，通常有病理意味）
+- `delusion`：de-(completely) + ludere(play) → 被彻底玩弄的错误信念；比illusion更根深蒂固
 - `fixed false belief`：固定的错误信念——fixed 说明牢不可破
 - `resistant to evidence`：对证据有抵抗力——证据来了也改变不了
 - `misperception`：误判、错误认知
-- `dissolve`：消散、溶解
+- `dissolve`：dis-(apart) + solvere(loosen) → 散开化开；solution/resolve同根
 - `fade`：消退、变淡
 - `exercise`：行使、使用（不是锻炼）
 
@@ -235,7 +235,7 @@
 - `effort`：努力、刻意的动作
 - `slow her breathing`：放慢呼吸
 - `aware`：意识到、清楚地知道
-- `anxiety`：焦虑
+- `anxiety`：angere(choke/strangle) → 被掐住喉咙的感觉；angina/anguish同根
 - `train of thought`：思路（像列车一样连贯的思路链）
 - `lose her train of thought`：思路断掉
 
@@ -267,7 +267,7 @@
 - `board`：董事会
 - `prioritize A over B`：把 A 放在 B 之前、以 A 为优先
 - `short-term profit`：短期利润
-- `long-term reputation`：长期声誉
+- `long-term reputation`：reputation = re-(again) + putare(count/think) → 反复被人品评 → 声誉；compute同根
 - `weigh the risks`：权衡风险
 
 **词块**
