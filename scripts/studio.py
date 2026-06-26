@@ -64,7 +64,6 @@ _src_cache_data: dict = {}
 
 _live_state: dict = {}
 _live_lock = threading.Lock()
-_page_html: str = ''          # studio.html 模板，启动时读入，省去每次磁盘 I/O
 
 _exam_date_val = None
 
@@ -427,14 +426,15 @@ class Handler(BaseHTTPRequestHandler):
         if u.path in ('/api/fool', '/api/probe'):
             return self._json({'md': read_doc(u.path.rsplit('/', 1)[1], q.get('d', [''])[0])})
         if u.path in ('/', '/index.html'):
+            page = PAGE.read_text(encoding='utf-8')
             with _live_lock:
                 s = _live_state
             if s:
                 state_json = json.dumps(s, ensure_ascii=False).replace('</', '<\\/')
                 inject = f'<script>window.__INITIAL_STATE__={state_json};</script>\n'
-                body = (_page_html.replace('</body>', inject + '</body>')).encode('utf-8')
+                body = (page.replace('</body>', inject + '</body>')).encode('utf-8')
             else:
-                body = _page_html.encode('utf-8')
+                body = page.encode('utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
             self.send_header('Content-Length', str(len(body)))
@@ -469,8 +469,6 @@ def _bg_state_worker():
 
 
 def main():
-    global _page_html
-    _page_html = PAGE.read_text(encoding='utf-8')
     threading.Thread(target=_bg_state_worker, daemon=True).start()
     server = ThreadingHTTPServer(('127.0.0.1', PORT), Handler)
     mode = '本地模式（daemon 在本机）' if local_daemon() else '远程模式（经 GitHub 同步）'
