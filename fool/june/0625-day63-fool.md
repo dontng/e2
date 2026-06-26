@@ -1,3 +1,5 @@
+« [0624-day62](0624-day62-fool.md)　　[0626-day64](0626-day64-fool.md) »
+
 # fool · Day 63 · 2026-06-25
 
 ---
@@ -427,3 +429,6 @@ A small majority is not the same as a stable majority: a narrow lead in a vote o
 
 **翻译**
 微弱多数不等于稳定多数：在原则性投票中的微弱领先，一旦换成具体实施细节的投票，可能就会完全瓦解。
+
+
+« [0624-day62](0624-day62-fool.md)　　[0626-day64](0626-day64-fool.md) »

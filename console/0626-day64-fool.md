@@ -1,8 +1,8 @@
-« [0625-day63](0625-day63-fool.md)　　[0627-day65](0627-day65-fool.md) »
+« [0623-day61](0623-day61-fool.md)　　[0627-day65](0627-day65-fool.md) »
 
 # Day 64 Fool Sessions · 2026-06-26
 
-source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
+source: [fool/june/0626-day64-fool.md](../fool/june/0626-day64-fool.md)
 
 ---
 
@@ -334,4 +334,5 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 
 
 
-« [0625-day63](0625-day63-fool.md)　　[0627-day65](0627-day65-fool.md) »
+
+« [0623-day61](0623-day61-fool.md)　　[0627-day65](0627-day65-fool.md) »

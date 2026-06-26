@@ -1,3 +1,5 @@
+« [0624-day62](0624-day62-probe.md)　　[0626-day64](0626-day64-probe.md) »
+
 # probe · Day 63 · 2026-06-25
 
 原句：It insists that economic co-ordination should involve all 27 members of the EU club, among whom there is a small majority for free-market liberalism and economic rigour; in the inner core alone, Germany fears, a small majority favour French interference.
@@ -43,3 +45,6 @@
 区分的方法：看词的来源语境——`interference` 和 `interfer with`（干扰……、妨碍……）是同族，这个家族里都有"未被邀请、造成阻碍"的感觉。
 
 更通用的判断直觉：在政治经济文章里，当一个词和"担心、批评、警告"搭配出现时，要意识到这个词大概率是负面的。这句里是 `Germany fears + French interference`，`fears` 是警告信号——`interference` 在这里肯定不是好事。以后遇到不确定极性的词，先看它周围的情感词，再判断极性。
+
+
+« [0624-day62](0624-day62-probe.md)　　[0626-day64](0626-day64-probe.md) »

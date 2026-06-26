@@ -2,7 +2,7 @@
 
 # Day 65 Fool Sessions · 2026-06-27
 
-source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
+source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 
 ---
 
@@ -413,6 +413,7 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 
 **Step 4 读句子**
 `peer pressure` 专指"来自同辈"的压力，价值中立（可正可负）；`social pressure` 来源更广泛（文化/媒体/规范）；`conformity` 强调的是从众这个行为结果，不说明来源。读到 `peer pressure` 时，先定位"同辈"是关键，不是泛化的社会压力。
+
 
 
 « [0626-day64](0626-day64-fool.md)

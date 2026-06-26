@@ -1,42 +1,40 @@
-« [0618-day57](0618-day57-probe.md)
+« [0622-day60](../probe/june/0622-day60-probe.md)　　[0626-day64](0626-day64-probe.md) »
 
-# day61 Probe
+# probe · Day 61 · 2026-06-23
 
-source: [probe/june/0623-day61-probe.md](../probe/june/0623-day61-probe.md)
+原句：The phrase "less is more" was actually first popularized by a German, the architect Ludwig Mies van der Rohe, who like other people associated with the Bauhaus, a school of design, emigrated to the United States before World War Ⅱ and took up posts at American architecture schools.
 
 ---
 
-## 原句
+**Q：这句话的主语明明是"这句话"，为什么读起来总感觉主语是那个德国人？**
 
-> The phrase "less is more" was actually first popularized by a German, the architect Ludwig Mies van der Rohe, who like other people associated with the Bauhaus, a school of design, emigrated to the United States before World War Ⅱ and took up posts at American architecture schools.
+因为 `a German` 出现在 `by` 后面、位置很突出，很容易被大脑抓住当主语。但 `by` 是介词，介词后面的名词永远不是句子主语。英语被动句的逻辑是：受事（被做的东西）在主语位置，施动者（做事的人）藏在 `by` 后面。所以主语始终是 `the phrase "less is more"`，`a German` 只是说"谁干的这件事"。
 
-## 今日刺痛
+遇到被动句时，先找主语（句首那个名词/名词短语），再找 `by` 后面的施动者，不要把施动者升格成主语。
 
-表面是把 phrase 译成「术语」、architect 译成「设计师」——但这句真正的难点在中段那串插入结构：三处逗号组成的同位语 + 比较插入语 + who 从句，一旦没读清插入层次，就会像今天这样：把"like other people associated with the Bauhaus"整段误读成「其他被组织的人倾向于称之为 the Bauhaus」，方向全反。不是不认识单词，是读到插入结构时画面断了——逗号隔开的部分不知道该挂到哪个主干上，就凭感觉拼了一句不通的意思。
+---
 
-末尾 took up posts at American architecture schools 也出了同类问题：architecture（建筑学）被拆成「建造」，posts（职位）被拆成「建造」，两个词都和建筑学科无关，拼出「在美国建造学校拿下很多支持」——说明读句子时画面没激活，architecture 没有建立学科的画面感，直接进了「建造」动作。
+**Q：句子里夹了很多插入成分，为什么会读到后半段就找不到谓语了？**
 
-## 内功印证
+这句有两层插入：第一层，`the architect Ludwig Mies van der Rohe` 是对 `a German` 的解释；第二层，`like other people associated with the Bauhaus, a school of design` 是插在 `who` 和 `emigrated` 之间的比较状语。两层叠加之后，主干变成了：`who... emigrated to the US... and took up posts...`，距离被拉得很远。
 
-- **G03 主干方向不稳** · who 从句里 "like other people associated with" 是插入比较，不是 who 的谓语；把它读成独立的动作（「被组织的人称之为」），主干就整体丢失 → 读 internal-skills §G03
-- **G09 画面未激活** · architecture 在学科语境里应激活「建筑学院、学科」的画面，但看到字面 archi + tectur 就直接走向「建造」——词形认识，画面没建立 → §G09
-- **G07 盲译无检** · took up posts at 整个短语译完，没回头检验「拿下很多支持」和原句是否相符；一条路走到底，没有检查节点 → §G07
+处理这类长句的方法：先找 `who`/`which` 引导从句的第一个谓语动词——这里是 `emigrated`，找到它，后半段的结构就清楚了。插入成分读完之后，继续往后找动词，不要在插入段里停下来。
 
-## 招式印证
+---
 
-- **P08 三道直觉检（形态·右侧·剥壳）** · 剥壳 who 从句后主干应是 Mies emigrated… and took up posts——但学生剥壳时把插入比较语留成了谓语，主干没剥干净。当日句 "who, like other people…, emigrated and took up posts" 应先识别逗号对，剥掉插入语，再读 who 的真实谓语。
-- **P04 画面三件套（词根→画面→搭配）** · architecture 词根 archi（首席）+ tect（建造者）指建筑师/建筑艺术，画面应是「建筑系的走廊」而非「建造工地」；联系搭配 architecture school / school of architecture 可以反推这是学科，不是动作。当日句 architecture schools 若先建画面就不会误译。
+**Q：`a school of design` 夹在句子中间，它是在做什么，能跳过不读吗？**
 
-## 提分台阶
+这是同位语，专门解释它前面那个可能让读者不认识的名词——`the Bauhaus`。功能相当于作者在括号里加了一个注："（这是一所设计学院）"。
 
-**当前站位：① 止血（目标 5+）之下** — 首译 3.0/10，采分点 3 个 ✗、1 个 △、1 个 ✓；插入结构读断、学科词画面缺失同时出现。
+可以跳过，主干不受影响。但读的时候应该建立一个习惯：逗号后面紧跟一个名词短语，没有动词，这是同位语的信号，读完它之后继续往后找谓语，不要以为这里开始了一个新的分句。
 
-**距下一台阶差什么：** ① 见到连续逗号，先问「哪段是插入说明」、哪段是真正的谓语——剥壳之后再译（P08）；② architecture 类学科词先激活学科画面，再看后面的搭配（P04）；③ 译完后做一次方向检：「主语推出的结果是否合理」——今天 took up posts → 拿下支持，明显不通，3 秒检能捉住（G07）。
+---
 
-## 今日带走
+**Q：这次把 `take up posts` 读成"拿下支持"，背后出了什么问题，怎么防止下次再犯？**
 
-下次遇到 N, appositive, who… 的连串逗号，先数有几对逗号、哪段是插入说明，把插入语括起来跳过，再读主干——「who emigrated and took up posts」才是密斯真正做的事。
+断点是把 `posts` 字形迁移到了错误的义项上——`post` 有"柱子、帖子、邮政"等意思，但这里是"职位"这个义项，在 `take up` 这个动词框架下，`post` 几乎只会是"职位/教职"。
 
+防止这类错误的方法：遇到一个词有多个义项时，先看前面的动词给了什么框架。`take up` 作为一个词块，常见搭配是 `take up a position / take up a role / take up a post`，都是"开始担任某个职责"的意思。如果脑子里有这个词块的整体感觉，就不会把 `posts` 单独拆出来乱猜。认词块比认单词更可靠。
 
 
-« [0618-day57](0618-day57-probe.md)
+« [0622-day60](../probe/june/0622-day60-probe.md)　　[0626-day64](0626-day64-probe.md) »

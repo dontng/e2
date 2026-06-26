@@ -1,8 +1,8 @@
-« [0625-day63](0625-day63-probe.md)　　[0627-day65](0627-day65-probe.md) »
+« [0623-day61](0623-day61-probe.md)　　[0627-day65](0627-day65-probe.md) »
 
 # day64 Probe
 
-source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
+source: [probe/june/0626-day64-probe.md](../probe/june/0626-day64-probe.md)
 
 ---
 
@@ -38,4 +38,5 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 
 
 
-« [0625-day63](0625-day63-probe.md)　　[0627-day65](0627-day65-probe.md) »
+
+« [0623-day61](0623-day61-probe.md)　　[0627-day65](0627-day65-probe.md) »
