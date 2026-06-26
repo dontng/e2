@@ -4,18 +4,23 @@
 库:  collect_vocab(repo) → [{word, pos, gloss, day, mmdd, sentences:[{en, zh}]}, ...]
      按词面去重（同词多次出现合并 sentences、保留首次 day）。
 
-只解析既有 markdown，不生成内容。中文来源全部现成：
-  例句行 `- *英文* （中文）` → 句子英文 + 句子中文
-  **核心意象** 段首句               → 词义中文（gloss，截断保持简洁）
+只解析既有 markdown，不生成内容。
+
+当前源文件格式（src/*/*.md）：
+  词条用 --- 分隔
+  词头行 **`word`** *(pos)* 或 **`word`** *pos.*
+  例句行 - 纯英文，无中文翻译
+  词义：取词头下第一散文段，截到第一个句读
 """
 import re
 from pathlib import Path
 
-_CARD = re.compile(r'^###\s+', re.M)
-_HEAD = re.compile(r'^(.+?)\s+\*\((.+?)\)\*')          # word *(pos)*
-_IMAGE = re.compile(r'\*\*核心意象\*\*[：:]\s*(.+)')
-_SENT = re.compile(r'^-\s+\*(.+?)\*\s*(?:（(.+?)）)?', re.M)
+_CARD_SEP = re.compile(r'^\s*---\s*$', re.M)
+_HEAD = re.compile(r'^\*\*`(.+?)`\*\*\s+\*\(?([^*()\n]+)\)?\*', re.M)
+_SENT = re.compile(r'^-\s+(.+)$', re.M)
 _BOLD = re.compile(r'\*\*(.+?)\*\*')
+_CODE = re.compile(r'`(.+?)`')
+_ITALIC = re.compile(r'\*(.+?)\*')
 
 
 def _vocab_section(text: str) -> str:
@@ -23,19 +28,36 @@ def _vocab_section(text: str) -> str:
     return m.group(1) if m else ''
 
 
+def _clean_md(s: str) -> str:
+    s = _BOLD.sub(r'\1', s)
+    s = _CODE.sub(r'\1', s)
+    s = _ITALIC.sub(r'\1', s)
+    return s.strip()
+
+
 def _gloss(card: str) -> str:
-    """取核心意象作词义：跳过"……这里是"之类的铺垫直取义项，截到第一个句读，
-    仅对过长者收尾省略（不强行精简短义）。"""
-    m = _IMAGE.search(card)
-    if not m:
-        return ''
-    s = _BOLD.sub(r'\1', m.group(1)).strip().strip('"“”')
-    for mark in ('这里是', '这里指', '这里取', '这里强调'):
-        i = s.find(mark)
-        if i != -1:
-            s = s[i + len(mark):]
+    """取词头下第一散文段首句作简短词义。"""
+    lines = card.split('\n')
+    past_head = False
+    prose = []
+    for line in lines:
+        stripped = line.strip()
+        if _HEAD.match(stripped):
+            past_head = True
+            continue
+        if not past_head:
+            continue
+        if not stripped:
+            if prose:
+                break
+            continue
+        if stripped.startswith('-'):
             break
-    s = re.split(r'[。；—\n]', s, 1)[0].strip().strip('，,"“” ')
+        prose.append(stripped)
+    if not prose:
+        return ''
+    s = _clean_md(' '.join(prose))
+    s = re.split(r'[。；—\n]', s, 1)[0].strip().strip('，,""" ')
     return s[:44] + '…' if len(s) > 46 else s
 
 
@@ -47,21 +69,22 @@ def collect_vocab(repo: Path) -> list:
             continue
         mmdd, day = fm.group(1), int(fm.group(2))
         section = _vocab_section(f.read_text(encoding='utf-8'))
-        for card in _CARD.split(section):
+        for card in _CARD_SEP.split(section):
             card = card.strip()
             if not card:
                 continue
-            hm = _HEAD.match(card)
+            hm = _HEAD.search(card)
             if not hm:
                 continue
             word = hm.group(1).strip()
+            pos = hm.group(2).strip().rstrip('.')
             key = word.lower()
-            sents = [{'en': en.strip(), 'zh': (zh or '').strip()} for en, zh in _SENT.findall(card)]
-            if key in by_word:                       # 同词复现：并句子，保留首次
+            sents = [{'en': _clean_md(s), 'zh': ''} for s in _SENT.findall(card) if s.strip()]
+            if key in by_word:
                 seen = {s['en'] for s in by_word[key]['sentences']}
                 by_word[key]['sentences'] += [s for s in sents if s['en'] not in seen]
             else:
-                by_word[key] = {'word': word, 'pos': hm.group(2).strip(),
+                by_word[key] = {'word': word, 'pos': pos,
                                 'gloss': _gloss(card), 'day': day, 'mmdd': mmdd,
                                 'sentences': sents}
     return sorted(by_word.values(), key=lambda w: w['day'])
