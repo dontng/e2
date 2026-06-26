@@ -10,14 +10,14 @@
 
 **词**
 
-- outside directors：外部董事（不受雇于公司的独立董事）
-- firm：公司
-- reputation：声誉、名誉
-- a blow to：对……的打击
-- break（坏消息作主语）：（消息）曝光、爆出
-- a review of：对……的回溯/审查
-- wrongdoing：不当行为、违规行为
-- occurred：发生（过去时）
+- `outside directors`：外部董事（不受雇于公司的独立董事）
+- `firm`：公司
+- `reputation`：声誉、名誉
+- `a blow to`：对……的打击
+- `break`（坏消息作主语）：（消息）曝光、爆出
+- `a review of`：对……的回溯/审查
+- `wrongdoing`：不当行为、违规行为
+- `occurred`：发生（过去时）
 
 **词块**
 
@@ -50,12 +50,12 @@
 
 **词**
 
-- be expected to：被期望、应当
-- independent judgment：独立判断
-- conflict of interest：利益冲突
-- cloud：（动词）使模糊、蒙蔽
-- executive：高管、执行层董事
-- livelihood：生计、谋生手段
+- `be expected to`：被期望、应当
+- `independent judgment`：独立判断
+- `conflict of interest`：利益冲突
+- `cloud`：（动词）使模糊、蒙蔽
+- `executive`：高管、执行层董事
+- `livelihood`：生计、谋生手段
 
 **词块**
 
@@ -85,13 +85,13 @@
 
 **词**
 
-- scandal：丑闻
-- broke：（丑闻、消息）曝光（`break` 的过去式）
-- resigned：辞职（过去完成时，比主句更早发生）
-- shielded from：免受……波及，受到庇护
-- regulatory inquiry：监管调查
-- ensnare：使陷入、缠住（`snare` = 陷阱）
-- former colleagues：前同事
+- `scandal`：丑闻
+- `broke`：（丑闻、消息）曝光（`break` 的过去式）
+- `resigned`：辞职（过去完成时，比主句更早发生）
+- `shielded from`：免受……波及，受到庇护
+- `regulatory inquiry`：监管调查
+- `ensnare`：使陷入、缠住（`snare` = 陷阱）
+- `former colleagues`：前同事
 
 **词块**
 
@@ -121,12 +121,12 @@
 
 **词**
 
-- typically：通常、一般来说
-- stock options：股票期权
-- bonuses tied to performance：与业绩挂钩的奖金
-- flat fee：固定费用（不随业绩浮动）
-- be meant to：应当、被设计用来
-- act as a check on：对……起制约作用
+- `typically`：通常、一般来说
+- `stock options`：股票期权
+- `bonuses tied to performance`：与业绩挂钩的奖金
+- `flat fee`：固定费用（不随业绩浮动）
+- `be meant to`：应当、被设计用来
+- `act as a check on`：对……起制约作用
 
 **词块**
 
@@ -156,13 +156,13 @@
 
 **词**
 
-- investigation：调查
-- criminal wrongdoing：刑事违法行为
-- nonetheless：尽管如此、但还是
-- censure：（动词/名词）谴责、批评（正式场合，来自上级或机构）
-- breach：违反、违背（正式用法）
-- fiduciary duties：受信义务（受托人对委托人应尽的法律义务）
-- shareholders：股东
+- `investigation`：调查
+- `criminal wrongdoing`：刑事违法行为
+- `nonetheless`：尽管如此、但还是
+- `censure`：（动词/名词）谴责、批评（正式场合，来自上级或机构）
+- `breach`：违反、违背（正式用法）
+- `fiduciary duties`：受信义务（受托人对委托人应尽的法律义务）
+- `shareholders`：股东
 
 **词块**
 
@@ -190,12 +190,12 @@
 
 **词**
 
-- stepped down：辞职、卸任
-- accounting irregularities：会计不规范行为、账目异常
-- came to light：（事情）曝光、被发现（固定搭配）
-- were later shown by company records：后来被公司档案证明
-- sanctioned：批准、认可（这里是"被授权/默许"，不是"制裁"）
-- at the highest level：在最高层
+- `stepped down`：辞职、卸任
+- `accounting irregularities`：会计不规范行为、账目异常
+- `came to light`：（事情）曝光、被发现（固定搭配）
+- `were later shown by company records`：后来被公司档案证明
+- `sanctioned`：批准、认可（这里是"被授权/默许"，不是"制裁"）
+- `at the highest level`：在最高层
 
 **词块**
 
@@ -223,10 +223,10 @@
 
 **词**
 
-- unintentional：无意的、非故意的
-- misconduct：失职行为、不当行为（职业层面）
-- carries a heavier moral charge：带有更重的道德指控色彩
-- implies：暗示、意味着
+- `unintentional`：无意的、非故意的
+- `misconduct`：失职行为、不当行为（职业层面）
+- `carries a heavier moral charge`：带有更重的道德指控色彩
+- `implies`：暗示、意味着
 
 **词块**
 
@@ -255,12 +255,12 @@
 
 **词**
 
-- fraud conviction：欺诈罪定罪
-- reputation built over decades：数十年积累的声誉
-- appearance of impropriety：不当行为的外观、看上去像是违规（即便实际未必如此）
-- prompt sb. to do：促使某人做某事
-- distance themselves from：与……划清界限、保持距离
-- troubled companies：陷入麻烦的公司
+- `fraud conviction`：欺诈罪定罪
+- `reputation built over decades`：数十年积累的声誉
+- `appearance of impropriety`：不当行为的外观、看上去像是违规（即便实际未必如此）
+- `prompt sb. to do`：促使某人做某事
+- `distance themselves from`：与……划清界限、保持距离
+- `troubled companies`：陷入麻烦的公司
 
 **词块**
 
@@ -289,11 +289,11 @@
 
 **词**
 
-- rigorous：严格的、一丝不苟的
-- independent director：独立董事
-- preserved：保全、保住（`preserve` = 使不受损害地保留）
-- stayed on：留任
-- claim：（动词）主张、宣称自己拥有某种资格或地位
+- `rigorous`：严格的、一丝不苟的
+- `independent director`：独立董事
+- `preserved`：保全、保住（`preserve` = 使不受损害地保留）
+- `stayed on`：留任
+- `claim`：（动词）主张、宣称自己拥有某种资格或地位
 
 **词块**
 
@@ -321,9 +321,9 @@
 
 **词**
 
-- confuse A with B：把 A 和 B 混淆
-- character：品格、为人（内在的）
-- reputation：声誉（外部的评价）
+- `confuse A with B`：把 A 和 B 混淆
+- `character`：品格、为人（内在的）
+- `reputation`：声誉（外部的评价）
 
 **词块**
 
@@ -351,12 +351,12 @@
 
 **词**
 
-- internal controls：内部控制机制
-- detect：察觉、发现
-- fraud：欺诈
-- compound into：（动词）累积成、复利式增大成
-- losses：损失
-- enterprise：企业
+- `internal controls`：内部控制机制
+- `detect`：察觉、发现
+- `fraud`：欺诈
+- `compound into`：（动词）累积成、复利式增大成
+- `losses`：损失
+- `enterprise`：企业
 
 **词块**
 
@@ -382,10 +382,10 @@
 
 **词**
 
-- covered the sector：长期跟踪报道某行业（`cover` 在新闻和分析语境里是"持续跟进报道"）
-- spotting：发现、识别出
-- accounting irregularities：会计不规范行为
-- came to the story late：后来才接触这个事件的人
+- `covered the sector`：长期跟踪报道某行业（`cover` 在新闻和分析语境里是"持续跟进报道"）
+- `spotting`：发现、识别出
+- `accounting irregularities`：会计不规范行为
+- `came to the story late`：后来才接触这个事件的人
 
 **词块**
 
@@ -413,10 +413,10 @@
 
 **词**
 
-- persuading：说服（动名词）
-- stepped down：卸任、辞职
-- shorthand：简略说法、速记（这里指语言上的简写）
-- the action is already understood：行为对象已经从上下文明确了
+- `persuading`：说服（动名词）
+- `stepped down`：卸任、辞职
+- `shorthand`：简略说法、速记（这里指语言上的简写）
+- `the action is already understood`：行为对象已经从上下文明确了
 
 **词块**
 
@@ -447,11 +447,11 @@
 
 **词**
 
-- resignation：辞职（名词）
-- in a single week：在短短一周内
-- dealt a severe blow to：给……以沉重打击——`deal a blow to` 是固定动词搭配
-- investor confidence：投资者信心
-- share price：股价
+- `resignation`：辞职（名词）
+- `in a single week`：在短短一周内
+- `dealt a severe blow to`：给……以沉重打击——`deal a blow to` 是固定动词搭配
+- `investor confidence`：投资者信心
+- `share price`：股价
 
 **词块**
 
@@ -479,10 +479,10 @@
 
 **词**
 
-- surfaced：（事情）浮出水面、曝光（`surface` 作动词）
-- shielded her from：使她免受……（`shield from` = 保护、遮挡）
-- the blow to her reputation：对她声誉的打击
-- felled：击倒、使倒下（`fell` 是 `fall` 的使役动词，"使落下"，这里比喻"摧毁了……的声誉/地位"）
+- `surfaced`：（事情）浮出水面、曝光（`surface` 作动词）
+- `shielded her from`：使她免受……（`shield from` = 保护、遮挡）
+- `the blow to her reputation`：对她声誉的打击
+- `felled`：击倒、使倒下（`fell` 是 `fall` 的使役动词，"使落下"，这里比喻"摧毁了……的声誉/地位"）
 
 **词块**
 
@@ -510,12 +510,12 @@
 
 **词**
 
-- direction of damage：损害的方向（谁受损）
-- suffers：受损、遭受损失
-- a boost to：对……的提振、推动（`boost` = 推动力）
-- opposite effect：相反的效果
-- preposition：介词
-- regardless of direction：不管方向如何、不管是打击还是提振
+- `direction of damage`：损害的方向（谁受损）
+- `suffers`：受损、遭受损失
+- `a boost to`：对……的提振、推动（`boost` = 推动力）
+- `opposite effect`：相反的效果
+- `preposition`：介词
+- `regardless of direction`：不管方向如何、不管是打击还是提振
 
 **词块**
 
