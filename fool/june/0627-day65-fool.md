@@ -48,9 +48,9 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 > The plaintiff's lawyers contended that the contract was void from the start, while the defence argued that all parties had signed with full knowledge of its terms and could not later claim ignorance.
 
 **Step 1 扫词**
-- `plaintiff`：原告（提起诉讼的一方）
+- `plaintiff`：plaindre(诉苦/控诉) → 主动起诉的那一方；对方是 defendant 被告
 - `contended`：主张，坚持认为（`contend` 的过去式）
-- `void`：无效的（法律上"从一开始就不存在"）
+- `void`：vacuus(空的) → 法律上"空白/从未存在过"；≠invalid（曾存在但被废除）
 - `defence`：辩护方，被告方
 - `full knowledge`：完全知情
 - `claim ignorance`：声称不知情
@@ -74,9 +74,9 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 > Tina Rosenberg contends in Join the Club that peer pressure, typically treated as a negative force, can be deliberately harnessed to drive positive behaviour change at scale.
 
 **Step 1 扫词**
-- `typically`：通常，一般来说
+- `typically`：typus(典型/模型) → 按照典型模式来；比 usually 稍正式，强调"符合规律"
 - `treated as`：被视为，被当作
-- `deliberately`：故意地，有意地
+- `deliberately`：deliberare(仔细权衡) → 经过充分考虑的 → 故意的，有意为之；不是意外
 - `harnessed`：被利用，被驾驭（`harness` 原义"给马套上挽具"，引申为"有效利用某种力量"）
 - `at scale`：大规模地
 
@@ -100,10 +100,10 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 
 **Step 1 扫词**
 - `so-called`：所谓的（带质疑色彩）
-- `address`：应对，处理（问题）
-- `underlying`：深层的，根本的
+- `address`：ad-(to) + directum(直指) → 直接对准；处理问题、发表演讲、写地址，同一个"对准"逻辑
+- `underlying`：under + lie(躺) → 躺在下面看不见的 → 深层的、根本的；≠surface level
 - `structural problems`：结构性问题
-- `fundamental`：根本性的，基础性的
+- `fundamental`：fundus(底部) → 铺在最底层的 → 根本性的；与 foundation 同根
 
 **Step 2 扫词块**
 - `contend that...have done little to address`：主张……几乎没有做到解决——`little` 把效果压到极低
@@ -123,10 +123,10 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 > City officials met with neighbourhood representatives to discuss the proposed rezoning, but residents left the meeting feeling that their concerns had been noted without being genuinely addressed.
 
 **Step 1 扫词**
-- `neighbourhood`：街区，社区
+- `neighbourhood`：neighbour + -hood(集合后缀) → 邻居聚居之处；-hood 和 childhood, brotherhood 同类
 - `representatives`：代表
 - `rezoning`：重新划定区域（城市规划调整）
-- `residents`：居民
+- `residents`：residere(留在此地) → 定居于此的人；≠inhabitants（中性泛称），residents 强调定居关系
 - `noted`：被记下了，被注意到了
 - `genuinely addressed`：真正被处理，切实回应
 
@@ -401,7 +401,7 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 - `solely`：仅仅，单独地
 - `information provision`：信息提供
 - `harness`：利用，驾驭（某种力量为己所用）
-- `adolescents`：青少年
+- `adolescents`：adolescere(成长) → 正在成长中的人；比 teenagers 正式，强调发育阶段
 - `in response to`：对……做出回应，受……影响
 
 **Step 2 扫词块**

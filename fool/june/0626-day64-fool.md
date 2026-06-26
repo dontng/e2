@@ -15,7 +15,7 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 - `while producing`：在产生……的同时（分词状语，主语和主句共享）
 - `quantities`：数量（`quantity` 的复数）
 - `CO2`：二氧化碳
-- `emit`：散发，发出（热量/光/声音向外输出）
+- `emit`：e-(out) + mittere(send) → 向外发出；可接热/光/声/气，不是CO2排放专用词
 - `a great deal of`：大量的（接不可数名词）
 - `heat`：热量（不可数）
 - `the centres`：数据中心（`data centres` 的简称，运行这些计算机的机房）
@@ -50,8 +50,8 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 - `server room`：服务器机房
 - `excess heat`：多余的热量，废热
 - `raised-floor cooling system`：高架地板冷却系统（地板下走冷风的散热设计）
-- `overwhelmed`：压垮了，超出了承受能力
-- `capacity`：容量，承载能力
+- `overwhelmed`：over + whelm(淹没) → 被彻底淹没/压垮；不只是"很忙"，是超出上限
+- `capacity`：capere(容纳) → 最多能装/承受多少；物理容量、个人能力、职位资格都用这个词
 - `redesign`：重新设计
 
 **Step 2 扫词块**
@@ -74,10 +74,10 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 
 **Step 1 扫词**
 - `tungsten`：钨（金属元素，用于灯丝）
-- `filament`：灯丝，细丝
-- `current`：电流
+- `filament`：filum(线) → 极细的导体；细到电阻极大，通电后温度升到发光
+- `current`：currere(跑/流) → 流动中的东西；名词是电流/水流，形容词是"当前的"，一词两义留心
 - `visible light`：可见光
-- `infrared radiation`：红外线辐射
+- `infrared radiation`：infra(在……之下) + red → 频率比红光低、肉眼不可见；热成像仪拍的就是这个
 - `wasted`：浪费掉的，白白耗散的
 
 **Step 2 扫词块**
@@ -125,7 +125,7 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 - `archive rooms`：档案室，存档室
 - `year-round`：全年，一年到头
 - `humidity damage`：湿度损害，潮湿破坏
-- `manuscripts`：手稿，文献原件
+- `manuscripts`：manu(手) + scriptus(写) → 手写文本；印刷术前所有书都是手稿
 - `unheated`：未供暖的
 
 **Step 2 扫词块**
@@ -147,7 +147,7 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 > Data centres have to be meticulously air-conditioned: every rack of servers generates heat, and without precise cooling the hardware fails within hours—making climate control as critical as the power supply itself.
 
 **Step 1 扫词**
-- `meticulously`：一丝不苟地，精确地
+- `meticulously`：metus(恐惧) → 生怕出差错 → 极度谨慎、一丝不苟；强度比 carefully 高一个档
 - `rack`：机架（放服务器的标准金属框架）
 - `generates`：产生
 - `precise cooling`：精确冷却
@@ -200,7 +200,7 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 **Step 1 扫词**
 - `infrastructure`：基础设施
 - `perceives`：感知，认为
-- `inadequate`：不足的，不够的
+- `inadequate`：in-(not) + adaequare(使相等) → 达不到应有标准；偏重质量不达标，不只是数量少
 - `invisible`：看不见的，不可见的
 - `taken for granted`：被视为理所当然
 
@@ -250,7 +250,7 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 - `concluded`：得出结论（conclude that...）
 - `uncertainty`：不确定性（不可数）
 - `long-term effects`：长期影响
-- `definitive`：确定性的，决定性的
+- `definitive`：definire(划清界限) → 彻底划定的、最终版的；≠definite（确定，但还可能修改）
 - `be drawn`：被得出（draw a conclusion → conclusion is drawn）
 
 **Step 2 扫词块**
@@ -320,7 +320,7 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 **Step 1 扫词**
 - `acknowledging`：承认，认可（`acknowledge` 的分词形式）
 - `limitations`：局限性
-- `consistent with`：与……一致
+- `consistent with`：con-(together) + sistere(站) → 站在一起/不矛盾 → 与……一致；也指"始终如一的"
 - `reliable`：可靠的
 - `foundation`：基础，根基
 
