@@ -17,7 +17,7 @@
 
 **Q：这句话最后 `his belief that...was widely shared`，为什么 `that` 从句那么长、里面又有 `was`，还能再接一个 `was widely shared`？读到中间不迷路的关键是什么？**
 
-关键是认清 `his belief` 是主语，`was widely shared` 是它的谓语。中间的 `that self-sufficiency was both desirable and inevitable` 是在回答"这个 belief 的内容是什么"——是一个同位语从句，专门说明 `belief` 里装的是什么。
+关键是认清 `his belief` 是主语，`was widely shared` 是它的谓语。中间的 `that self-sufficiency was both desirable and inevitable` 是在回答"这个 `belief` 的内容是什么"——是一个同位语从句，专门说明 `belief` 里装的是什么。
 
 英语里名词后面跟 `that` 从句是一种标准结构，常出现在 `belief / idea / fact / claim / argument` 这类词后面。意思是"……的内容是……"。这个从句里有自己的主谓（`self-sufficiency was`），但它是内嵌的，说的是"信念的内容"，不是整句话的主干。
 
