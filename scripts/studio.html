@@ -659,14 +659,6 @@ async function refresh() {
   render(s);
 }
 
-// 键盘左右键 = 点击对应箭头（复用下沉动效）；打字、看 doc 时不响应
-document.addEventListener('keydown', e => {
-  if (docView) return;
-  const ae = document.activeElement;
-  if (ae && (ae.tagName === 'TEXTAREA' || ae.tagName === 'INPUT')) return;
-  if (e.key === 'ArrowLeft')  $('day-nav').querySelector('.dayarrow.left:not(.gone)')?.click();
-  if (e.key === 'ArrowRight') $('day-nav').querySelector('.dayarrow.right:not(.gone)')?.click();
-});
 
 paintThemeBtn();
 if (window.__INITIAL_STATE__) {
