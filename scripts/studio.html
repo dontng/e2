@@ -116,10 +116,9 @@ button:disabled { opacity: .4; pointer-events: none; }
 .score-detail li { margin: .15em 0; }
 .correction-detail { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px; }
 .md table { width: 100%; border-collapse: collapse; font-size: 13px; margin: .6em 0; }
-.md th, .md td { padding: 5px 8px; border: 1px solid var(--line); text-align: center; vertical-align: middle; }
-.md td:first-child { text-align: left; }
+.md th, .md td { padding: 5px 8px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.md th { text-align: center; }
 .md thead th { background: var(--paper); font-size: 11.5px; letter-spacing: .03em; color: var(--sub); }
-.md .col-mark { writing-mode: vertical-rl; padding: 8px 4px; width: 1.8em; }
 
 .scorebig { display: flex; align-items: baseline; gap: 8px; margin-top: 18px;
             font-family: Georgia, serif; }
@@ -315,11 +314,7 @@ function md(src) {
       const cells = row.split('|').slice(1, -1);
       if (cells.every(c => /^[-: ]+$/.test(c))) { sawSep = true; continue; }
       const tag = sawSep ? 'td' : 'th';
-      const tr = '<tr>' + cells.map(c => {
-        const t = c.trim();
-        const cls = (!sawSep && t === '标记') ? ' class="col-mark"' : '';
-        return `<${tag}${cls}>${t}</${tag}>`;
-      }).join('') + '</tr>';
+      const tr = '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
       if (!sawSep) head += tr; else body += tr;
     }
     return `<table>${head ? '<thead>' + head + '</thead>' : ''}${body ? '<tbody>' + body + '</tbody>' : ''}</table>`;
