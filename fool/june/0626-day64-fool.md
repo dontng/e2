@@ -96,26 +96,23 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 ### fool-04
 
 **Vocab · `emit` · 例句 3**
-> `emit` vs `release` vs `discharge`: all involve something going outward, but `emit` is typically for energy or radiation (heat, light, sound, gas); `release` often implies something held back that is now freed; `discharge` is used for liquids or official release.
+> Volcanoes emit not only ash and lava but also large quantities of sulphur dioxide, which can cool the climate by reflecting sunlight back into space for months after an eruption.
 
 **Step 1 扫词**
-- `outward`：向外的
-- `typically`：通常，典型情况下
-- `radiation`：辐射
-- `implies`：暗示，隐含
-- `held back`：被压住的，被拦住的
-- `discharge`：排放（液体）；解除（职务）
+- `lava`：熔岩
+- `sulphur dioxide`：二氧化硫
+- `reflect`：反射
+- `eruption`：火山喷发
 
 **Step 2 扫词块**
-- `all involve something going outward`：都涉及某样东西向外输出——`involve + 动名词` 说明共同特点
-- `is typically for energy or radiation`：通常用于能量或辐射——`be for` 表示适用于某类对象
-- `implies something held back that is now freed`：暗含"之前被压住、现在被释放"——`held back` 是过去分词作定语
+- `emit not only...but also`：不仅散发……还散发……——`not only...but also` 并列两个宾语
+- `can cool the climate by reflecting sunlight`：能通过反射阳光来冷却气候——`by doing` 说明方式
 
 **Step 3 扫句式**
-这是一个对比辨析结构：先说三个词都有什么共同点（向外输出），然后逐一说每个词各自的适用范围。冒号后面是正文，三个词用分号分隔，依次说明。
+主语 `Volcanoes` + 谓语 `emit` + 两个并列宾语（`ash and lava` 和 `large quantities of sulphur dioxide`）；`which` 引导非限制性定语从句，说明二氧化硫的效应；`for months after an eruption` 是时间状语。
 
 **Step 4 读句子**
-`emit`、`release`、`discharge` 都涉及某样东西向外输出，但 `emit` 通常用于能量或辐射（热/光/声/气）；`release` 暗含"之前被压住、现在被释放"；`discharge` 用于液体排放或正式免职。
+火山不仅喷出灰烬和熔岩，还散发大量二氧化硫；`which` 从句说明这种气体能通过反射阳光持续数月为气候降温。`emit` 的对象是 `sulphur dioxide`，属于气体/辐射类，用法和"散发热量"完全一致。
 
 ---
 
@@ -175,22 +172,23 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 ### fool-07
 
 **Vocab · `air-conditioned` · 例句 3**
-> `well air-conditioned` (充分有空调的) vs `better air-conditioned` (空调效果更好的) vs `air-conditioned` (有空调的)——`well` 是充分程度，不是比较；如果要表达"比某处空调更好"才用 `better`.
+> Although the office building claimed to be fully air-conditioned, employees on the upper floors reported that the cooling system barely functioned during the hottest weeks of summer.
 
 **Step 1 扫词**
-- `充分`：adequate, sufficient（够用的程度）
-- `比较级`：comparative（形容词的"更……"形式）
-- `程度副词`：degree adverb（说明到什么程度，如 well, perfectly, barely）
+- `claimed to be`：声称是……
+- `fully`：完全地，充分地
+- `barely`：几乎不，勉强
+- `functioned`：运转，运作
 
 **Step 2 扫词块**
-- `well + past participle`：充分地……，良好地……——`well` 修饰过去分词时是程度，不是比较
-- `better + past participle`：比……更好地……——这才是比较级
+- `claimed to be fully air-conditioned`：声称已完全配备空调——`claim to be + adj.` 说明对自身的表述
+- `the cooling system barely functioned`：冷却系统几乎不运转——`barely` 把动作压到极弱
 
 **Step 3 扫句式**
-三种形式的对比：`air-conditioned` 是基本形（有空调），`well air-conditioned` 是程度加强（空调完善），`better air-conditioned` 才是比较（比某处空调更好）。`well` 和 `better` 看起来都是修饰过去分词，但 `well` 是绝对程度，`better` 是相对比较——两者不同。
+让步从句 `Although...claimed to be fully air-conditioned` 和主句 `employees reported` 形成"宣称 vs 实际"的对比；`that` 从句里 `barely functioned` 揭示真实情况；`during the hottest weeks` 是时间状语点明问题最严重的时段。
 
 **Step 4 读句子**
-遇到 `well + 过去分词` 时，先想"充分地/良好地做了某件事"，不要误读成比较级；要表达"比……更好"，需要用 `better + 过去分词`。
+尽管这栋楼声称全面配备了空调，楼上的员工反映夏季最热的几周里冷却系统几乎不运作。`fully air-conditioned` = 完全有空调，是比 `air-conditioned` 程度更强的说法；`barely functioned` 说明现实和声称之间的落差。
 
 ---
 
@@ -246,23 +244,24 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 ### fool-10
 
 **Phrases · `a great deal of` · 例句 3**
-> `a great deal of`（不可数）vs `a great number of`（可数复数）vs `a large amount of`（不可数，更正式）——区别核心在于后面的名词是否可数；遇到时先判断名词词性，再选用哪种量词。
+> The report concluded that a great deal of uncertainty remains about the long-term effects of the policy, and that further research would be needed before any definitive conclusions could be drawn.
 
 **Step 1 扫词**
-- `uncountable`：不可数的（`heat / money / energy` 这类）
-- `countable plural`：可数复数（`computers / centres / machines` 这类）
-- `量词`：quantity expression（说明多少的词组）
+- `concluded`：得出结论（conclude that...）
+- `uncertainty`：不确定性（不可数）
+- `long-term effects`：长期影响
+- `definitive`：确定性的，决定性的
+- `be drawn`：被得出（draw a conclusion → conclusion is drawn）
 
 **Step 2 扫词块**
-- `a great deal of + 不可数名词`：大量的……（书面用）
-- `a great number of + 可数复数`：大量的……（数量上的"很多个"）
-- `a large amount of + 不可数名词`：大量的……（更正式，常见于书面）
+- `a great deal of uncertainty remains`：大量不确定性依然存在——`a great deal of` 修饰不可数名词 `uncertainty`
+- `before any definitive conclusions could be drawn`：在任何确切结论得出之前——`before` 从句 + 情态被动
 
 **Step 3 扫句式**
-三个量词表达的语义都是"大量"，区别不在于量的大小，而在于搭配的名词类型。不可数名词用 `a great deal of / a large amount of`；可数复数用 `a great number of`。
+`The report concluded that` + 两个并列宾语从句，用 `and that` 连接；第一个从句 `a great deal of uncertainty remains`，第二个 `further research would be needed...`；`before` 从句修饰第二个从句，说明先决条件。
 
 **Step 4 读句子**
-"大量"的表达方式要看后面跟的是什么名词：不可数的（热量/金钱/能源）用 `a great deal of` 或 `a large amount of`；可数的（台机器/个中心）用 `a great number of`。
+报告得出结论：关于该政策的长期影响仍有大量不确定性，在得出任何确切结论之前还需要进一步研究。`a great deal of` 后接不可数名词 `uncertainty`，语气正式，是英二阅读里典型的书面表达。
 
 ---
 
@@ -316,21 +315,24 @@ source: [src/june/0626-day64.md](../../src/june/0626-day64.md)
 ### fool-13
 
 **Phrases · `while doing` · 例句 3**
-> `while doing`（共享主语，分词省略主语）vs `while + 完整从句`（两个主语不同，必须写出）——如果两句主语不同就不能省，省了就是悬垂修饰（dangling modifier）。
+> While acknowledging the limitations of the study, the researchers argued that their findings were consistent with previous literature and offered a reliable foundation for future investigation.
 
 **Step 1 扫词**
-- `dangling modifier`：悬垂修饰（分词短语的主语和主句主语不一致，造成语义错误）
-- `complete clause`：完整从句（有自己的主语和动词）
+- `acknowledging`：承认，认可（`acknowledge` 的分词形式）
+- `limitations`：局限性
+- `consistent with`：与……一致
+- `reliable`：可靠的
+- `foundation`：基础，根基
 
 **Step 2 扫词块**
-- `while doing`：分词形式，省略了与主句相同的主语
-- `while + 主语 + 动词`：完整从句形式，两个子句主语不同时必须用这种
+- `while acknowledging the limitations`：在承认局限性的同时——`while doing` 表示并发动作，这里带让步色彩
+- `were consistent with previous literature`：与此前文献一致——`consistent with` 是学术表达常用搭配
 
 **Step 3 扫句式**
-对比两种结构：同一主语可以省（`while producing`，主语和 `these computers` 相同）；主语不同不能省（如果是"在计算机运算时，机房温度升高"，计算机和机房是两个主语，必须写完整从句）。
+`while acknowledging...` 是 `while doing` 结构，省略的主语和主句主语 `the researchers` 相同；主句 `argued that` 后接两个并列宾语从句：`their findings were consistent with...` 和 `offered a reliable foundation for...`。
 
 **Step 4 读句子**
-`while doing` 省略了和主句相同的主语；如果分词短语的主语和主句主语不一样，就必须写出完整从句——否则就成了悬垂修饰，句子主语归属出错。
+研究者在承认研究局限的同时，主张他们的发现与既有文献一致，为未来研究提供了可靠基础。`while acknowledging` 这里不只是"同时"，还带有一点让步意味（承认不足，但依然坚持结论）——是英二里很常见的学术辩证写法。
 
 
 
