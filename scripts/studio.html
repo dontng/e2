@@ -118,6 +118,7 @@ button:disabled { opacity: .4; pointer-events: none; }
 .md table { width: 100%; border-collapse: collapse; font-size: 13px; margin: .6em 0; }
 .md th, .md td { padding: 5px 8px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
 .md th { text-align: center; white-space: nowrap; }
+.md .col-mark { text-align: center; }
 .md thead th { background: var(--paper); font-size: 11.5px; letter-spacing: .03em; color: var(--sub); }
 
 .scorebig { display: flex; align-items: baseline; gap: 8px; margin-top: 18px;
@@ -309,12 +310,16 @@ function md(src) {
   // 处理表格（段落分割前）
   h = h.replace(/((?:\|[^\n]+\|\n?)+)/g, (match) => {
     const rows = match.trim().split('\n');
-    let head = '', body = '', sawSep = false;
+    let head = '', body = '', sawSep = false, markCol = -1;
     for (const row of rows) {
       const cells = row.split('|').slice(1, -1);
       if (cells.every(c => /^[-: ]+$/.test(c))) { sawSep = true; continue; }
       const tag = sawSep ? 'td' : 'th';
-      const tr = '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
+      if (!sawSep) markCol = cells.findIndex(c => c.trim() === '标记');
+      const tr = '<tr>' + cells.map((c, i) => {
+        const cls = i === markCol ? ' class="col-mark"' : '';
+        return `<${tag}${cls}>${c.trim()}</${tag}>`;
+      }).join('') + '</tr>';
       if (!sawSep) head += tr; else body += tr;
     }
     return `<table>${head ? '<thead>' + head + '</thead>' : ''}${body ? '<tbody>' + body + '</tbody>' : ''}</table>`;
