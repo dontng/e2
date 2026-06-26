@@ -490,10 +490,7 @@ function scoreBig(scoreText) {
   const m = scoreText.match(/([\d.]+)\s*\/\s*10\*\*/);
   if (!m) return '';
   const v = parseFloat(m[1]);
-  // 去掉整个 **总分.../ 10** 粗体行，只留评分表格
-  const rest = scoreText.replace(/\*\*[^\n]*\/\s*10\*\*/g, '').replace(/用户/g, '你').trim();
-  return `<div class="scorebig ${v >= 6 ? 'good' : ''}"><b>${m[1]}</b><span>/ 10</span></div>`
-       + (rest ? `<div class="md score-detail">${md(rest)}</div>` : '');
+  return `<div class="scorebig ${v >= 6 ? 'good' : ''}"><b>${m[1]}</b><span>/ 10</span></div>`;
 }
 
 // 显示完整批改内容（markdown 渲染）
