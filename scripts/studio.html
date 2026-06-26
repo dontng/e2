@@ -114,6 +114,10 @@ button:disabled { opacity: .4; pointer-events: none; }
 .md b { color: var(--strong-ink); }
 .score-detail ul { margin: .3em 0; }
 .score-detail li { margin: .15em 0; }
+.correction-detail { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px; }
+.md table { width: 100%; border-collapse: collapse; font-size: 13px; margin: .6em 0; }
+.md th, .md td { padding: 5px 8px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.md thead th { background: var(--paper); font-size: 11.5px; letter-spacing: .03em; color: var(--sub); }
 
 .scorebig { display: flex; align-items: baseline; gap: 8px; margin-top: 18px;
             font-family: Georgia, serif; }
@@ -301,8 +305,21 @@ function md(src) {
   h = h.replace(/^[-•] (.*)$/gm, '<li>$1</li>');
   h = h.replace(/(<li>[\s\S]*?<\/li>)(?=\n(?!<li>)|$)/g, '<ul>$1</ul>');
   h = h.replace(/\n*(<\/?(?:ul|li)>)\n*/g, '$1');   // 去掉列表标签周边换行，避免段落处理塞入 <br>
+  // 处理表格（段落分割前）
+  h = h.replace(/((?:\|[^\n]+\|\n?)+)/g, (match) => {
+    const rows = match.trim().split('\n');
+    let head = '', body = '', sawSep = false;
+    for (const row of rows) {
+      const cells = row.split('|').slice(1, -1);
+      if (cells.every(c => /^[-: ]+$/.test(c))) { sawSep = true; continue; }
+      const tag = sawSep ? 'td' : 'th';
+      const tr = '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
+      if (!sawSep) head += tr; else body += tr;
+    }
+    return `<table>${head ? '<thead>' + head + '</thead>' : ''}${body ? '<tbody>' + body + '</tbody>' : ''}</table>`;
+  });
   return h.split(/\n{2,}/).map(p =>
-    /^<(pre|blockquote|ul|h3|h4|hr)/.test(p.trim()) ? p : '<p>' + p.replace(/\n/g, '<br>') + '</p>'
+    /^<(pre|blockquote|ul|table|h3|h4|hr)/.test(p.trim()) ? p : '<p>' + p.replace(/\n/g, '<br>') + '</p>'
   ).join('');
 }
 
@@ -463,18 +480,20 @@ async function save(kind, taId, day) {
 }
 
 function scoreBig(scoreText) {
-  const m = scoreText.match(/\*\*([\d.]+)\s*\/\s*10\*\*/);
+  // 兼容 **X / 10** 和 **总分：...= X / 10** 两种格式
+  const m = scoreText.match(/([\d.]+)\s*\/\s*10\*\*/);
   if (!m) return '';
   const v = parseFloat(m[1]);
-  const rest = scoreText.replace(/\*\*[\d.]+\s*\/\s*10\*\*/, '').replace(/用户/g, '你').trim();
+  // 去掉整个 **总分.../ 10** 粗体行，只留评分表格
+  const rest = scoreText.replace(/\*\*[^\n]*\/\s*10\*\*/g, '').replace(/用户/g, '你').trim();
   return `<div class="scorebig ${v >= 6 ? 'good' : ''}"><b>${m[1]}</b><span>/ 10</span></div>`
        + (rest ? `<div class="md score-detail">${md(rest)}</div>` : '');
 }
 
-// 从「## 批改」块里只取参考译文（逐条解释与采分点重复，不再展示整块批改）。
+// 显示完整批改内容（markdown 渲染）
 function refBox(correction) {
-  const m = correction.match(/\*\*参考译文[：:]*\*\*[：:]*\s*(.+)/);
-  return m ? `<div class="mine ref"><label>参考译文</label>${esc(m[1].trim())}</div>` : '';
+  if (!correction) return '';
+  return `<div class="md correction-detail">${md(correction.replace(/用户/g, '你'))}</div>`;
 }
 
 function renderToday(s) {

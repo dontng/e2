@@ -29,7 +29,7 @@ def section(text: str, title: str) -> str:
 
 
 def first_score(text: str) -> str:
-    m = re.search(r'\*\*([\d.]+)\s*/\s*10\*\*', section(text, '评分'))
+    m = re.search(r'([\d.]+)\s*/\s*10\*\*', section(text, '评分'))
     return m.group(1) if m else ''
 
 
