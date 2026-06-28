@@ -306,7 +306,7 @@ redo_review_file() {
 batch_commit() {
     cd "$REPO_DIR"
 
-    git add src/ fool/ console/ probe/ "$LOG_FILE"
+    git add -A src/ fool/ console/ probe/ "$LOG_FILE"
 
     if git diff --cached --quiet; then
         log "No changes staged, skipping commit"
@@ -451,7 +451,7 @@ main() {
                         _last_heartbeat=$_now
                         trim_log "$LOG_FILE"
                         update_today_md
-                        git add "$LOG_FILE" console/
+                        git add -A "$LOG_FILE" console/
                         if ! git diff --cached --quiet; then
                             git commit -m "log: heartbeat" \
                                 && git push origin main 2>/dev/null \
