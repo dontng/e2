@@ -323,10 +323,17 @@ def get_state() -> dict:
 # ── 动作 ──────────────────────────────────────────────────────────────────────
 
 def do_save(payload: dict) -> dict:
-    f = find_day_file(datetime.date.today().strftime('%m%d'))
-    if not f:
-        return {'ok': False, 'msg': '今天的文件还不存在'}
+    stem = payload.get('stem')
     kind, content = payload.get('kind'), payload.get('content', '')
+    if stem and kind == 'redo':
+        hits = sorted(REPO.glob(f'src/*/{stem}.md'))
+        f = hits[0] if hits else None
+        if not f:
+            return {'ok': False, 'msg': f'找不到 {stem}'}
+    else:
+        f = find_day_file(datetime.date.today().strftime('%m%d'))
+        if not f:
+            return {'ok': False, 'msg': '今天的文件还不存在'}
     if not content.strip():
         return {'ok': False, 'msg': '内容为空'}
 

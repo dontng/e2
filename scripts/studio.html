@@ -416,11 +416,11 @@ function renderDayView(d) {
   const links = docLinks(d);
   if (links) body += `<div class="row" style="justify-content:flex-start">${links}</div>`;
   el.innerHTML = title + body;
-  renderRedoView(d.redo_blocks || []);
+  renderRedoView(d.redo_blocks || [], d.stem);
 }
 
-// 历史天的复习块：只读
-function renderRedoView(blocks) {
+// 历史天的复习块：已批改只读，未批改可继续写译
+function renderRedoView(blocks, stem) {
   const el = $('sec-redo');
   if (!blocks.length) { el.innerHTML = ''; return; }
   let h = `<div class="stitle"><h2>复习</h2><small>当日盲译重做</small></div>`;
@@ -428,9 +428,16 @@ function renderRedoView(blocks) {
     h += `<div class="redo-card"><div class="redo-head"><span class="tag">day ${b.day} · ${b.date}</span>
           ${b.feedback ? '<span class="done-mark">済</span>' : ''}</div>
           <div class="en">${esc(b.sentence.replace(/^>\s?/gm, ''))}</div>`;
-    if (b.redo) h += `<div class="mine"><label>我的重译</label>${esc(b.redo)}</div>`;
-    if (b.feedback) h += `<div class="md">${md(b.feedback)}</div>`;
-    if (!b.redo && !b.feedback) h += '<div class="hint">未重译</div>';
+    if (b.feedback) {
+      h += `<div class="mine"><label>我的重译</label>${esc(b.redo)}</div>
+            <div class="md">${md(b.feedback)}</div>`;
+    } else if (b.redo) {
+      h += saveBox('redo', b.redo, '', { day: b.day, hint: '已保存，可继续修改', stem })
+         + `<div class="waiting"><span class="pulse"></span>${MODE === 'remote'
+           ? '已推送 · 等待 Dell 复习批改…' : '复习批改中…'}</div>`;
+    } else {
+      h += saveBox('redo', '', '不看旧答案，直接重译…', { day: b.day, stem });
+    }
     h += `</div>`;
   }
   el.innerHTML = h;
@@ -471,18 +478,27 @@ async function post(url, body = {}) {
 
 function saveBox(kind, value, placeholder, extra = {}) {
   const id = 'ta-' + kind + (extra.day || '');
+  const stemArg = extra.stem ? `,'${extra.stem}'` : '';
   return `
     <textarea id="${id}" placeholder="${placeholder}">${esc(value || '')}</textarea>
     <div class="row">
       <span class="hint">${extra.hint || ''}</span>
-      <button onclick="save('${kind}','${id}',${extra.day || 'null'})">保 存</button>
+      <button onclick="save('${kind}','${id}',${extra.day || 'null'}${stemArg})">保 存</button>
     </div>`;
 }
 
-async function save(kind, taId, day) {
+async function save(kind, taId, day, stem) {
   const content = $(taId).value;
   if (!content.trim()) { toast('还没写呢'); return; }
-  await post('/api/save', { kind, content, day });
+  const body = { kind, content, day };
+  if (stem) body.stem = stem;
+  const r = await fetch('/api/save', { method: 'POST', body: JSON.stringify(body) });
+  const j = await r.json();
+  toast(j.msg || (j.ok ? '完成' : '失败'));
+  // 历史天重译：重新拉取该天视图；今日：刷新全局状态
+  if (stem && curDay) setTimeout(() => gotoDay(curDay), 600);
+  else setTimeout(refresh, 600);
+  return j;
 }
 
 function scoreBig(scoreText) {
