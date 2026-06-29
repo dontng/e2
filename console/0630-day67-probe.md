@@ -2,7 +2,7 @@
 
 # day67 Probe
 
-source: [src/june/0630-day67.md](../../src/june/0630-day67.md)
+source: [probe/june/0630-day67-probe.md](../probe/june/0630-day67-probe.md)
 
 ---
 
@@ -35,6 +35,7 @@ source: [src/june/0630-day67.md](../../src/june/0630-day67.md)
 ## 今日带走
 
 `work one's way through X` = 在X中逐步、费力推进，`through ≠ "凭借"`；长主语不是句子的终点，找到谓语才是关键；`competing` = 相互对立的，`shared` = 共有的——两者并列描述学界信念格局的两个面向。
+
 
 
 

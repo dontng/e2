@@ -1,4 +1,4 @@
-« [0626-day64](0626-day64-probe.md)
+« [0626-day64](../probe/june/0626-day64-probe.md)　　[0629-day66](0629-day66-probe.md) »
 
 # day65 Probe
 
@@ -38,4 +38,5 @@ source: [probe/june/0627-day65-probe.md](../probe/june/0627-day65-probe.md)
 
 
 
-« [0626-day64](0626-day64-probe.md)
+
+« [0626-day64](../probe/june/0626-day64-probe.md)　　[0629-day66](0629-day66-probe.md) »

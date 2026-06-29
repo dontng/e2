@@ -1,4 +1,4 @@
-« [0626-day64](0626-day64-fool.md)
+« [0626-day64](../fool/june/0626-day64-fool.md)　　[0629-day66](0629-day66-fool.md) »
 
 # Day 65 Fool Sessions · 2026-06-27
 
@@ -48,9 +48,9 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 > The plaintiff's lawyers contended that the contract was void from the start, while the defence argued that all parties had signed with full knowledge of its terms and could not later claim ignorance.
 
 **Step 1 扫词**
-- `plaintiff`：原告（提起诉讼的一方）
+- `plaintiff`：plaindre(诉苦/控诉) → 主动起诉的那一方；对方是 defendant 被告
 - `contended`：主张，坚持认为（`contend` 的过去式）
-- `void`：无效的（法律上"从一开始就不存在"）
+- `void`：vacuus(空的) → 法律上"空白/从未存在过"；≠invalid（曾存在但被废除）
 - `defence`：辩护方，被告方
 - `full knowledge`：完全知情
 - `claim ignorance`：声称不知情
@@ -74,9 +74,9 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 > Tina Rosenberg contends in Join the Club that peer pressure, typically treated as a negative force, can be deliberately harnessed to drive positive behaviour change at scale.
 
 **Step 1 扫词**
-- `typically`：通常，一般来说
+- `typically`：typus(典型/模型) → 按照典型模式来；比 usually 稍正式，强调"符合规律"
 - `treated as`：被视为，被当作
-- `deliberately`：故意地，有意地
+- `deliberately`：deliberare(仔细权衡) → 经过充分考虑的 → 故意的，有意为之；不是意外
 - `harnessed`：被利用，被驾驭（`harness` 原义"给马套上挽具"，引申为"有效利用某种力量"）
 - `at scale`：大规模地
 
@@ -96,23 +96,24 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 ### fool-04
 
 **Vocab · `contend` · 例句 3**
-> `contend` vs `claim` vs `argue`: `argue` 最强（有逻辑推理支撑），`contend` 居中（正式，立场坚定），`claim` 最弱（只是说，有时暗示可信度存疑）——遇到 `contend` 说明说话人是认真在主张，不是随口一说。
+> Several critics contend that the so-called reforms have done little to address the underlying structural problems, and that without more fundamental changes, the situation is unlikely to improve.
 
 **Step 1 扫词**
-- `logic`：逻辑（`argue` 背后隐含有推理支撑）
-- `credibility`：可信度（`claim` 有时暗示说话人的可信度有待评估）
-- `stance`：立场，态度
+- `so-called`：所谓的（带质疑色彩）
+- `address`：ad-(to) + directum(直指) → 直接对准；处理问题、发表演讲、写地址，同一个"对准"逻辑
+- `underlying`：under + lie(躺) → 躺在下面看不见的 → 深层的、根本的；≠surface level
+- `structural problems`：结构性问题
+- `fundamental`：fundus(底部) → 铺在最底层的 → 根本性的；与 foundation 同根
 
 **Step 2 扫词块**
-- `有逻辑推理支撑`：backed by reasoning——`argue` 隐含论证
-- `立场坚定`：committed to a position——`contend` 说明不只是随口说
-- `可信度存疑`：credibility in question——`claim` 有时隐含"这是他自己说的，不一定真"
+- `contend that...have done little to address`：主张……几乎没有做到解决——`little` 把效果压到极低
+- `without more fundamental changes, the situation is unlikely to improve`：若无更根本的变革，情况不太可能改善
 
 **Step 3 扫句式**
-三个词都表达"某人认为/主张"，但论证强度和可信度预设不同。`argue` 最有分量（隐含有理由），`contend` 正式且立场坚定，`claim` 最轻（说法上有时留了质疑空间）。
+`Several critics contend that` + 两个并列宾语从句（`and that` 连接）；第一个从句 `reforms have done little to address the underlying structural problems`；第二个从句 `the situation is unlikely to improve`，由 `without...` 条件短语引出。
 
 **Step 4 读句子**
-三个词都表达"某人持有某观点"：`argue` 最有分量，背后有推理；`contend` 正式且认真；`claim` 最弱，有时暗示说话人的话未必可信——读到 `contend` 时，说话人是认真立场的，不是随口一句话。
+几位批评者主张所谓的改革几乎没有触及深层结构性问题，若无更根本的变革情况不太可能改善。`contend` 说明这是认真的立场表述，不是随口的评论；`so-called` 暗含说话人对"改革"这一标签的质疑。
 
 ---
 
@@ -122,10 +123,10 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 > City officials met with neighbourhood representatives to discuss the proposed rezoning, but residents left the meeting feeling that their concerns had been noted without being genuinely addressed.
 
 **Step 1 扫词**
-- `neighbourhood`：街区，社区
+- `neighbourhood`：neighbour + -hood(集合后缀) → 邻居聚居之处；-hood 和 childhood, brotherhood 同类
 - `representatives`：代表
 - `rezoning`：重新划定区域（城市规划调整）
-- `residents`：居民
+- `residents`：residere(留在此地) → 定居于此的人；≠inhabitants（中性泛称），residents 强调定居关系
 - `noted`：被记下了，被注意到了
 - `genuinely addressed`：真正被处理，切实回应
 
@@ -173,23 +174,24 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 ### fool-07
 
 **Vocab · `official` · 例句 3**
-> `official` (担任职务的人) vs `executive` (公司高管) vs `company` (公司实体)——`official` 单独出现时首先想到"人"而非"机构"；如果要说"公司负责人"，`company officials` 加了修饰词才是。
+> Government officials defended the decision at a press conference, insisting that the new regulations were necessary to protect public health and would not impose an unreasonable burden on businesses.
 
 **Step 1 扫词**
-- `entity`：实体（法律上独立存在的组织，如公司）
-- `executive`：高管，执行官（公司内职位）
-- `修饰词`：modifier（限定某个词含义的附加词）
+- `defended`：为……辩护，捍卫
+- `press conference`：新闻发布会
+- `insisting that`：坚称，坚持主张（分词作伴随状语）
+- `impose a burden on`：给……施加/造成负担
+- `unreasonable`：不合理的
 
 **Step 2 扫词块**
-- `official` 单独出现：先预设为"担任公职/正式职务的人"，不预设为公司
-- `company officials`：加了 `company` 修饰后，才是"公司内的官员/负责人"
-- `executive`：专指公司内的高层管理人员，不适用于政府语境
+- `Government officials defended the decision`：政府官员为这一决定辩护——`officials` = 担任公职的人
+- `insisting that...and would not impose`：坚称……不会……（`insisting that` 引两个并列从句）
 
 **Step 3 扫句式**
-三个词辨析：`official` 是人，强调职务；`executive` 是人，强调公司高层职位；`company` 是机构。把 `officials` 译成"公司"是把人译成了机构——词性就错了，更不要说语义了。
+主句 `officials defended the decision`；`insisting that` 引导分词短语补充说明辩护内容；`that` 后接两个并列从句：`regulations were necessary to protect...` 和 `would not impose...`，用 `and` 连接。
 
 **Step 4 读句子**
-`officials` 单独出现时，先想"担任公职/职务的人"；如果要表达"公司负责人"，英文需要用 `company officials` 或 `executives`——单独 `officials` 不等于"公司"。
+政府官员在新闻发布会上为这一决定辩护，坚称新规对公共健康是必要的，且不会给企业造成不合理负担。`officials` = 担任公职的人，此处指政府官员；`insisting` 是分词伴随状语，说明辩护时同步表达的态度。
 
 ---
 
@@ -246,24 +248,23 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 ### fool-10
 
 **Vocab · `dynamics` · 例句 3**
-> `dynamics` 常用复数（`the dynamics of`），不说 `the dynamic of`（`dynamic` 单数是形容词"充满活力的"）；`group dynamics` 是社会心理学专业术语，不只是"团体状态"，而是"群体内驱动行为的力量"。
+> The dynamics of international trade have shifted considerably since the 2008 financial crisis, with emerging economies taking on a far larger share of global exports than they held a decade earlier.
 
 **Step 1 扫词**
-- `plural`：复数形式
-- `adjective`：形容词
-- `social psychology`：社会心理学
-- `terminology`：专业术语
+- `shifted considerably`：发生了相当大的转变（`shift` = 转变；`considerably` = 相当程度地）
+- `financial crisis`：金融危机
+- `emerging economies`：新兴经济体
+- `far larger share`：大得多的份额（`far` 加强比较级）
 
 **Step 2 扫词块**
-- `the dynamics of + 系统`：……的动力机制——固定搭配，`dynamics` 用复数
-- `dynamic` (adj.)：充满活力的、动态的——这是形容词用法，不是名词
-- `group dynamics`：群体动力——社会心理学专业术语，指群体内推动个体行为改变的力量关系
+- `the dynamics of international trade`：国际贸易的动力格局——`the dynamics of + 领域` 是固定搭配
+- `with emerging economies taking on a far larger share`：随着新兴经济体占据大得多的份额——`with` 独立主格结构，补充说明主句
 
 **Step 3 扫句式**
-辨析两个容易混的用法：`dynamics`（名词，复数）= 动力机制；`dynamic`（形容词，单数）= 充满活力的。不能把"团体的动力机制"说成 `the dynamic of the group`，要说 `the dynamics of the group`。
+主句 `the dynamics...have shifted considerably`（现在完成时，说明持续变化）；`since 2008` 是时间起点；`with` 引出独立主格结构，分词 `taking on` 描述新兴经济体的变化；`than they held a decade earlier` 是比较状语。
 
 **Step 4 读句子**
-遇到 `dynamics` 要用复数形式；`group dynamics` = 群体动力（推动行为改变的力量机制），不只是"团体状态变化"；`dynamic` 单数是形容词（充满活力的），两者拼写接近但词性和含义不同。
+国际贸易的动力格局自2008年金融危机以来发生了相当大的转变，新兴经济体在全球出口中占据的份额远大于十年前。`the dynamics of` = 某领域的力量格局/动力机制；`with...taking on` 是英二常见的补充说明方式。
 
 ---
 
@@ -320,26 +321,24 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 ### fool-13
 
 **Phrases · `what she calls` · 例句 3**
-> `through what she calls X` 里的 `through` 不能省——`through` 表示"同伴压力是通过这个机制发挥积极作用的"，省掉 `through` 就只剩一个同位语说明，传导机制的意思就没了。
+> The philosopher argues that most contemporary political conflicts stem from what he calls a crisis of legitimacy, in which institutions have failed to adapt quickly enough to changing social expectations.
 
 **Step 1 扫词**
-- `mechanism`：机制，运作方式
-- `同位语`：appositive（对前一个词进行补充说明的成分）
-- `传导`：transmission, channeling（通过某路径传递/发挥作用）
+- `contemporary`：当代的，现代的
+- `stem from`：源于，由……引起
+- `legitimacy`：合法性，正当性
+- `institutions`：机构，制度体系
+- `social expectations`：社会期望
 
 **Step 2 扫词块**
-- `through what she calls the social cure`：通过她所称的"社会疗法"（这一机制）——`through` 是路径，说明同伴压力借道这个机制发挥作用
-- 没有 `through` 的话：`what she calls the social cure` 就变成纯同位语，只是"解释了一个名字"，没有"借助"的意思
+- `what he calls a crisis of legitimacy`：他所称的"合法性危机"——`what sb. calls X` 引介专有概念，和 `what she calls the social cure` 结构完全一样
+- `in which institutions have failed to adapt`：在这种（危机）中，机构未能适应——`in which` 展开说明这场危机的内涵
 
 **Step 3 扫句式**
-有 `through` vs 没有 `through` 的区别：
-- 有：同伴压力可以成为积极力量，**通过**社会疗法这个机制
-- 没有：同伴压力可以成为积极力量，（也就是）社会疗法（只是换了个名字说同一件事）
-
-`through` 在这里是关键词，说明"力量如何传导"，不能省。
+主句 `the philosopher argues that`；`stem from` 后接 `what he calls a crisis of legitimacy`——`what he calls` 充当 `from` 的宾语；`in which` 引导非限制性定语从句，说明这场危机是什么。
 
 **Step 4 读句子**
-`through what she calls the social cure` 中，`through` 表达的是"通过这个机制"——说明同伴压力借道"社会疗法"发挥积极作用；省掉 `through` 就只剩名字的解释，传导路径的含义就丢了。
+这位哲学家认为多数当代政治冲突源于他所称的"合法性危机"，在这种危机中，各类机构未能足够快速地适应不断变化的社会期望。和原文结构一模一样：`what sb. calls X` 引介一个专有概念，`in which` 再展开解释它。
 
 ---
 
@@ -396,24 +395,27 @@ source: [fool/june/0627-day65-fool.md](../fool/june/0627-day65-fool.md)
 ### fool-16
 
 **Phrases · `peer pressure` · 例句 3**
-> `peer pressure`（同伴压力，value-neutral，可正可负）vs `social pressure`（社会压力，来源更广泛）vs `conformity`（从众，强调结果而非来源）——`peer pressure` 强调"来自同辈"这个来源，比另外两个更具体。
+> Health campaigns that rely solely on information provision tend to be less effective than those that harness peer pressure, since adolescents are far more likely to change their behaviour in response to what their peers do than to what authorities tell them.
 
 **Step 1 扫词**
-- `value-neutral`：价值中立的，本身不带褒贬
-- `conformity`：从众，顺从（强调行为结果）
-- `来源`：source（产生影响力的来源）
+- `solely`：仅仅，单独地
+- `information provision`：信息提供
+- `harness`：利用，驾驭（某种力量为己所用）
+- `adolescents`：adolescere(成长) → 正在成长中的人；比 teenagers 正式，强调发育阶段
+- `in response to`：对……做出回应，受……影响
 
 **Step 2 扫词块**
-- `peer pressure`：来自同辈群体的压力（来源具体，效果可正可负）
-- `social pressure`：来自社会环境的压力（来源更广，包括媒体、文化、社会规范等）
-- `conformity`：从众行为本身（不强调来源，强调结果——个体迁就群体）
+- `rely solely on information provision`：单纯依赖信息提供——`solely` 点明策略的局限
+- `harness peer pressure`：利用同伴压力——把 `peer pressure` 当作积极驱动力，和原文立意一致
+- `far more likely to change their behaviour in response to what their peers do`：远更倾向于因同伴行为而改变自身——`far more likely` 加强比较
 
 **Step 3 扫句式**
-三个词都涉及"群体影响个体"，但角度不同：`peer pressure` 强调来源是同辈；`social pressure` 来源更广；`conformity` 看的是行为结果（从众）。本文用 `peer pressure` 是因为强调"同辈"这个来源特别关键——书中的论点依赖于"同辈"比"权威"更有效。
+主句比较结构：`campaigns...tend to be less effective than those that harness peer pressure`；`since` 引出原因从句；原因从句中有并列比较：`in response to what their peers do` vs `what authorities tell them`，用 `than` 形成对比。
 
 **Step 4 读句子**
-`peer pressure` 专指"来自同辈"的压力，价值中立（可正可负）；`social pressure` 来源更广泛（文化/媒体/规范）；`conformity` 强调的是从众这个行为结果，不说明来源。读到 `peer pressure` 时，先定位"同辈"是关键，不是泛化的社会压力。
+单纯依靠信息传递的健康运动效果不如利用同伴压力的运动，因为青少年改变行为更多是受同伴影响而非权威说教。`harness peer pressure` = 把同伴压力作为推动力——和原文"同伴压力也可以成为积极力量"的论点完全呼应。
 
 
 
-« [0626-day64](0626-day64-fool.md)
+
+« [0626-day64](../fool/june/0626-day64-fool.md)　　[0629-day66](0629-day66-fool.md) »

@@ -2,7 +2,7 @@
 
 # Day 67 Fool Sessions · 2026-06-30
 
-source: [src/june/0630-day67.md](../../src/june/0630-day67.md)
+source: [fool/june/0630-day67-fool.md](../fool/june/0630-day67-fool.md)
 
 ---
 
@@ -401,6 +401,7 @@ source: [src/june/0630-day67.md](../../src/june/0630-day67.md)
 
 **Step 4 读句子**
 `transform X into Y` = 将X彻底转化为Y，发生了质变；`convert X into Y` = 将X换算/转换成Y，形式改变，多用于量化场景；`turn X into Y` = 口语化的变成。本句选 `transform` 是因为"个人声明"变成"学界公认的发现"，发生了认识论层面的根本性质变，不只是换了个标签。
+
 
 
 

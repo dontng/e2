@@ -2,7 +2,7 @@
 
 # day66 Probe
 
-source: [src/june/0629-day66.md](../../src/june/0629-day66.md)
+source: [probe/june/0629-day66-probe.md](../probe/june/0629-day66-probe.md)
 
 ---
 
@@ -35,6 +35,7 @@ source: [src/june/0629-day66.md](../../src/june/0629-day66.md)
 ## 今日带走
 
 `raise questions about X` = 引发对X的质疑，`raise ≠ cause`，`questions ≠ problems`；陌生大写词 + 公司/机构语境 → 先判断是专有名词，不要硬拆字面。
+
 
 
 

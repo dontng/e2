@@ -1,4 +1,4 @@
-« [0626-day64](0626-day64-probe.md)
+« [0626-day64](0626-day64-probe.md)　　[0629-day66](0629-day66-probe.md) »
 
 # day65 Probe
 
@@ -37,4 +37,5 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 `through` = 通过某机制，是路径，不是装饰词，漏了传导的意思就没了；`officials` = 担任公职/职务的人，不是公司；`what sb. calls X` = 她所称之为X的东西，引介专有概念用这个结构。
 
 
-« [0626-day64](0626-day64-probe.md)
+
+« [0626-day64](0626-day64-probe.md)　　[0629-day66](0629-day66-probe.md) »
