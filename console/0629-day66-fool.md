@@ -2,7 +2,7 @@
 
 # Day 66 Fool Sessions · 2026-06-29
 
-source: [src/june/0629-day66.md](../../src/june/0629-day66.md)
+source: [fool/june/0629-day66-fool.md](../fool/june/0629-day66-fool.md)
 
 ---
 
@@ -330,6 +330,7 @@ source: [src/june/0629-day66.md](../../src/june/0629-day66.md)
 
 **Step 4 读句子**
 `make statements about X` = 就X发表声明，X是话题；`make statements to X` = 向X发表声明，X是听众；`comment on X` = 就X评论。`about` 不是所有格，"就管道问题发表声明"不等于"管道发表的声明"。
+
 
 
 

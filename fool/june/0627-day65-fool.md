@@ -1,4 +1,4 @@
-« [0626-day64](0626-day64-fool.md)
+« [0626-day64](0626-day64-fool.md)　　[0629-day66](0629-day66-fool.md) »
 
 # Day 65 Fool Sessions · 2026-06-27
 
@@ -416,4 +416,5 @@ source: [src/june/0627-day65.md](../../src/june/0627-day65.md)
 单纯依靠信息传递的健康运动效果不如利用同伴压力的运动，因为青少年改变行为更多是受同伴影响而非权威说教。`harness peer pressure` = 把同伴压力作为推动力——和原文"同伴压力也可以成为积极力量"的论点完全呼应。
 
 
-« [0626-day64](0626-day64-fool.md)
+
+« [0626-day64](0626-day64-fool.md)　　[0629-day66](0629-day66-fool.md) »
