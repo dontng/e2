@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日一句</title>
+<!-- <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='248' height='248' viewBox='0 0 248 248' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M52.4285 162.873L98.7844 136.879L99.5485 134.602L98.7844 133.334H96.4921L88.7237 132.862L62.2346 132.153L39.3113 131.207L17.0249 130.026L11.4214 128.844L6.2 121.873L6.7094 118.447L11.4214 115.257L18.171 115.847L33.0711 116.911L55.485 118.447L71.6586 119.392L95.728 121.873H99.5485L100.058 120.337L98.7844 119.392L97.7656 118.447L74.5877 102.732L49.4995 86.1905L36.3823 76.62L29.3779 71.7757L25.8121 67.2858L24.2839 57.3608L30.6515 50.2716L39.3113 50.8623L41.4763 51.4531L50.2636 58.1879L68.9842 72.7209L93.4357 90.6804L97.0015 93.6343L98.4374 92.6652L98.6571 91.9801L97.0015 89.2625L83.757 65.2772L69.621 40.8192L63.2534 30.6579L61.5978 24.632C60.9565 22.1032 60.579 20.0111 60.579 17.4246L67.8381 7.49965L71.9133 6.19995L81.7193 7.49965L85.7946 11.0443L91.9074 24.9865L101.714 46.8451L116.996 76.62L121.453 85.4816L123.873 93.6343L124.764 96.1155H126.292V94.6976L127.566 77.9197L129.858 57.3608L132.15 30.8942L132.915 23.4505L136.608 14.4708L143.994 9.62643L149.725 12.344L154.437 19.0788L153.8 23.4505L150.998 41.6463L145.522 70.1215L141.957 89.2625H143.994L146.414 86.7813L156.093 74.0206L172.266 53.698L179.398 45.6635L187.803 36.802L193.152 32.5484H203.34L210.726 43.6549L207.415 55.1159L196.972 68.3492L188.312 79.5739L175.896 96.2095L168.191 109.585L168.882 110.689L170.738 110.53L198.755 104.504L213.91 101.787L231.994 98.7149L240.144 102.496L241.036 106.395L237.852 114.311L218.495 119.037L195.826 123.645L162.07 131.592L161.696 131.893L162.137 132.547L177.36 133.925L183.855 134.279H199.774L229.447 136.524L237.215 141.605L241.8 147.867L241.036 152.711L229.065 158.737L213.019 154.956L175.45 145.977L162.587 142.787H160.805V143.85L171.502 154.366L191.242 172.089L215.82 195.011L217.094 200.682L213.91 205.172L210.599 204.699L188.949 188.394L180.544 181.069L161.696 165.118H160.422V166.772L164.752 173.152L187.803 207.771L188.949 218.405L187.294 221.832L181.308 223.959L174.813 222.777L161.187 203.754L147.305 182.486L136.098 163.345L134.745 164.2L128.075 235.42L125.019 239.082L117.887 241.8L111.902 237.31L108.718 229.984L111.902 215.452L115.722 196.547L118.779 181.541L121.58 162.873L123.291 156.636L123.14 156.219L121.773 156.449L107.699 175.752L86.304 204.699L69.3663 222.777L65.291 224.431L58.2867 220.768L58.9235 214.27L62.8713 208.48L86.304 178.705L100.44 160.155L109.551 149.507L109.462 147.967L108.959 147.924L46.6977 188.512L35.6182 189.93L30.7788 185.44L31.4156 178.115L33.7079 175.752L52.4285 162.873Z' fill='%23D97757'/%3E%3C/svg%3E"> -->
+<style>
+:root {
+  --bg: #f6f3ec;
+  --paper: #fcfaf4;
+  --ink: #34302a;
+  --sub: #948c7d;
+  --line: #e6dfd0;
+  --akane: #a13c3c;
+  --ai: #3c5a78;
+  --moss: #5e7a58;
+  /* 衍生灰阶 / 专用色（暗色模式整体翻面） */
+  --en-ink: #46413a; --quote-ink: #5c564c; --strong-ink: #2c2a25;
+  --mine-ink: #57514a; --placeholder: #c0b8a8; --td-line: #efe9dc;
+  --dash: #c8c0b0; --footer-ink: #c4bcab;
+  --halo: rgba(246,243,236,.96); --halo0: rgba(246,243,236,0);
+  /* 练习热力图绿阶 */
+  --hm-n: #ebe4d6; --hm-0: #d6e2cb; --hm-1: #bcd3ab;
+  --hm-2: #94b884; --hm-3: #6f9963; --hm-4: #5e7a58;
+}
+/* 和纸夜版：暖深炭底 + 柔米白字，点缀色提亮保对比 */
+:root[data-theme="dark"] {
+  --bg: #1a1613; --paper: #241f1a; --ink: #e7ddcc; --sub: #9a8e7c;
+  --line: #39322b; --akane: #d77f72; --ai: #82a8cb; --moss: #8bb079;
+  --en-ink: #d8cdba; --quote-ink: #ab9f8c; --strong-ink: #f1e8d7;
+  --mine-ink: #cabeaa; --placeholder: #6f6555; --td-line: #322c25;
+  --dash: #5e5547; --footer-ink: #5e5547;
+  --halo: rgba(36,31,26,.95); --halo0: rgba(36,31,26,0);
+  --hm-n: #2b2520; --hm-0: #34402e; --hm-1: #46663a;
+  --hm-2: #5d8a4c; --hm-3: #77a862; --hm-4: #8fc079;
+}
+html { transition: background-color .35s ease; }
+body, .md b, .en, .mine, textarea, button, .dayarrow { transition: background-color .35s ease, color .35s ease, border-color .35s ease; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: "Hiragino Sans GB", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 15px; line-height: 2; letter-spacing: .03em;
+}
+.layout { max-width: 1280px; margin: 0 auto; padding: 42px 36px 90px;
+          display: grid; grid-template-columns: 184px 340px 1fr; gap: 44px; }
+@media (max-width: 1040px) { .layout { grid-template-columns: 1fr; gap: 12px; padding: 28px 22px 70px; } }
+aside { position: sticky; top: 38px; align-self: start; }
+aside.track > section:first-child { margin-top: 0; }
+@media (max-width: 1040px) { aside { position: static; padding-bottom: 14px;
+         border-bottom: 1px solid var(--line); margin-bottom: 6px; } }
+main { min-width: 0; }
+.kicker { font-size: 10px; letter-spacing: .42em; color: var(--sub); }
+h1 { font-family: "Hiragino Mincho ProN", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+     font-size: 22px; font-weight: 600; letter-spacing: .14em; margin-top: 4px; }
+.navlink { margin-top: 8px; }
+.dday { margin: 22px 0 2px; padding-top: 20px; border-top: 1px solid var(--line);
+        font-family: Georgia, serif; line-height: 1; }
+.dday b { font-size: 36px; font-weight: 600; color: var(--akane); }
+.dday i { font-style: normal; font-size: 12px; color: var(--akane); margin-left: 4px; }
+.dday em { display: block; font-style: normal; margin-top: 8px;
+           font-family: inherit; font-size: 11px; color: var(--sub); letter-spacing: .3em; }
+
+section { margin-top: 48px; }
+main > section:first-child { margin-top: 2px; }
+aside > section { margin-top: 32px; }
+.stitle { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+.stitle::before { content: ""; align-self: center; width: 3px; height: 15px; background: var(--akane); }
+.stitle h2 { font-family: "Hiragino Mincho ProN", "Noto Serif CJK SC", serif;
+             font-size: 16px; font-weight: 600; letter-spacing: .2em; }
+.stitle small { color: var(--sub); font-size: 12px; letter-spacing: .1em; }
+
+.en { font-family: Georgia, "Times New Roman", serif; font-size: 16px; line-height: 1.85;
+      color: var(--en-ink); padding: 4px 0 4px 18px; border-left: 2px solid var(--line); }
+
+textarea {
+  width: 100%; min-height: 104px; margin-top: 14px; padding: 14px 16px;
+  border: 1px solid var(--line); border-radius: 5px; background: var(--paper);
+  font: inherit; color: var(--ink); resize: vertical; transition: border-color .25s;
+}
+textarea:focus { outline: none; border-color: var(--ai); }
+textarea::placeholder { color: var(--placeholder); }
+
+.row { display: flex; justify-content: flex-end; align-items: center; gap: 14px; margin-top: 12px; }
+.hint { font-size: 12.5px; color: var(--sub); margin-right: auto; }
+button {
+  font: inherit; font-size: 13.5px; letter-spacing: .18em; cursor: pointer;
+  padding: 7px 26px; color: var(--ai); background: none;
+  border: 1px solid var(--ai); border-radius: 4px; transition: all .25s;
+}
+button:hover { background: var(--ai); color: var(--paper); }
+button.quiet { border-color: var(--line); color: var(--sub); padding: 5px 18px; }
+button.quiet:hover { background: none; border-color: var(--sub); color: var(--ink); }
+button:disabled { opacity: .4; pointer-events: none; }
+
+.waiting { display: flex; align-items: center; gap: 10px; margin-top: 16px;
+           font-size: 13.5px; color: var(--sub); }
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--akane);
+         animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+
+.md { margin-top: 18px; font-size: 14.5px; }
+.md p { margin: .6em 0; }
+.md pre { background: var(--paper); border: 1px solid var(--line); border-radius: 5px;
+          padding: 12px 16px; margin: .8em 0; white-space: pre-wrap;
+          font-family: Georgia, serif; font-size: 14.5px; line-height: 1.8; }
+.md code { background: var(--paper); border: 1px solid var(--line); border-radius: 3px;
+           padding: 0 5px; font-family: Georgia, serif; font-size: 13.5px; }
+.md blockquote { border-left: 2px solid var(--line); padding-left: 16px; color: var(--quote-ink);
+                 font-family: Georgia, serif; margin: .6em 0; }
+.md ul { padding-left: 1.3em; margin: .5em 0; }
+.md b { color: var(--strong-ink); }
+.score-detail ul { margin: .3em 0; }
+.score-detail li { margin: .15em 0; }
+.correction-detail { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px; }
+.md table { max-width: 100%; border-collapse: collapse; font-size: 13px; margin: .6em 0; }
+.md th, .md td { padding: 5px 8px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.md th { text-align: center; white-space: nowrap; }
+.md .col-mark { text-align: center; }
+.md thead th { background: var(--paper); font-size: 11.5px; letter-spacing: .03em; color: var(--sub); }
+
+.scorebig { display: flex; align-items: baseline; gap: 8px; margin-top: 18px;
+            font-family: Georgia, serif; }
+.scorebig b { font-size: 40px; font-weight: 600; color: var(--akane); }
+.scorebig.good b { color: var(--moss); }
+.scorebig span { color: var(--sub); font-size: 15px; }
+
+.mine { margin-top: 16px; padding: 12px 16px; background: var(--paper);
+        border: 1px solid var(--line); border-radius: 5px; color: var(--mine-ink); font-size: 14.5px; }
+.mine label { display: block; font-size: 11px; color: var(--sub); letter-spacing: .25em; margin-bottom: 4px; }
+
+.redo-card { padding: 26px 0; border-top: 1px solid var(--line); }
+.redo-card:first-of-type { border-top: none; padding-top: 6px; }
+.redo-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.redo-head .tag { font-family: Georgia, serif; font-size: 13px; color: var(--sub); letter-spacing: .12em; }
+.done-mark { font-size: 12px; color: var(--moss); letter-spacing: .2em; }
+
+#heat { margin-top: 6px; overflow-x: hidden; }
+#heat svg { display: block; }
+.hm-d { rx: 2px; }
+.hm-n { fill: var(--hm-n); }        /* 没练 */
+.hm-0 { fill: var(--hm-0); }        /* 练了未批改 */
+.hm-1 { fill: var(--hm-1); }
+.hm-2 { fill: var(--hm-2); }
+.hm-3 { fill: var(--hm-3); }
+.hm-4 { fill: var(--hm-4); }
+.hm-d.today { stroke: var(--akane); stroke-width: 1.4px; }
+.hm-label { font-family: Georgia, serif; font-size: 9px; fill: var(--sub); }
+.hm-legend { display: flex; align-items: center; justify-content: flex-end;
+             gap: 5px; margin-top: 8px; font-size: 11px; color: var(--sub); }
+.hm-legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+th { font-weight: 400; font-size: 10px; color: var(--sub); letter-spacing: .12em;
+     text-align: left; padding: 5px 3px; border-bottom: 1px solid var(--line); }
+td { padding: 5px 3px; border-bottom: 1px solid var(--td-line);
+     font-variant-numeric: tabular-nums; }
+td.num { font-family: Georgia, serif; }
+.up { color: var(--moss); } .down { color: var(--akane); }
+.dash { color: var(--dash); }
+
+#toast { position: fixed; left: 50%; bottom: 36px; transform: translateX(-50%) translateY(80px);
+         background: var(--ink); color: var(--paper); font-size: 13.5px; letter-spacing: .1em;
+         padding: 10px 28px; border-radius: 4px; opacity: 0; transition: all .35s; }
+#toast.show { opacity: .96; transform: translateX(-50%); }
+.ghlink { font-size: 12px; color: var(--sub); text-decoration: none; letter-spacing: .15em;
+          border-bottom: 1px solid var(--line); }
+.ghlink:hover { color: var(--ai); border-color: var(--ai); }
+button.doc-btn { background: none; border: none; border-bottom: 1px solid var(--line);
+                 padding: 0; cursor: pointer; font: inherit; font-size: 12px; }
+#sec-doc .stitle button.doc-btn { margin-left: auto; }
+.md h3 { font-size: 15px; margin: 20px 0 8px; }
+.md h4 { font-size: 13.5px; color: var(--sub); margin: 15px 0 6px; letter-spacing: .04em; }
+.md hr { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+.navlink { display: inline-block; margin-top: 7px; font-size: 12px; letter-spacing: .18em;
+           color: var(--ai); text-decoration: none; border-bottom: 1px solid var(--line); }
+.navlink:hover { border-color: var(--ai); }
+
+/* 翻日导航：右栏顶部一左一右的手绘大箭头，sticky 悬浮、滚动时浮在正文之上不被遮 */
+#day-nav { position: sticky; top: 4px; z-index: 30; display: flex;
+           justify-content: space-between; align-items: center;
+           height: 60px; margin: -8px -14px 4px; pointer-events: none; }
+#day-nav[hidden] { display: none; }
+.dayarrow { pointer-events: auto; width: 86px; height: 64px; padding: 0; border: none;
+            cursor: pointer; color: var(--ink); display: grid; place-items: center;
+            border-radius: 40px; background: radial-gradient(ellipse 60% 70% at center,
+              var(--halo) 55%, var(--halo0) 78%);
+            box-shadow: 0 4px 18px rgba(0,0,0,.09), 0 1px 4px rgba(0,0,0,.05);
+            transition: transform .15s cubic-bezier(.34,1.56,.64,1), color .2s, opacity .15s, box-shadow .2s; }
+.dayarrow svg { width: 78px; height: 57px; display: block; overflow: visible;
+                filter: url(#sketch); }
+.dayarrow:hover { color: var(--akane); box-shadow: 0 8px 28px rgba(0,0,0,.13), 0 2px 8px rgba(0,0,0,.07); }
+.dayarrow.left:hover  { transform: translateX(-5px) scale(1.06); }
+.dayarrow.right:hover { transform: translateX(5px) scale(1.06); }
+.dayarrow.back:hover  { transform: translateX(-4px) scale(1.06); }
+.dayarrow.press { transform: scale(.74) translateY(4px); opacity: .5;
+                  color: var(--akane); transition-duration: .08s; }
+.dayarrow.gone { visibility: hidden; pointer-events: none; }
+
+/* 深色模式开关：左栏西南角悬浮的手绘日/月，复用 #sketch 滤镜 + 下沉动效 */
+.theme-toggle { position: fixed; left: 20px; bottom: 18px; z-index: 40;
+  width: 60px; height: 60px; padding: 0; border: none; cursor: pointer;
+  color: var(--sub); display: grid; place-items: center; border-radius: 50%;
+  background: radial-gradient(circle, var(--halo) 56%, var(--halo0) 76%);
+  transition: transform .15s cubic-bezier(.34,1.56,.64,1), color .2s, opacity .15s; }
+.theme-toggle svg { width: 40px; height: 40px; display: block; overflow: visible;
+  filter: url(#sketch); transition: transform .2s ease; }
+.theme-toggle:hover { color: var(--akane); }
+.theme-toggle:hover svg { transform: rotate(-14deg) scale(1.08); }
+.theme-toggle.press { transform: scale(.72) translateY(3px); opacity: .55;
+  color: var(--akane); transition-duration: .08s; }
+footer { margin-top: 80px; text-align: center; font-size: 11px;
+         color: var(--footer-ink); letter-spacing: .4em; }
+</style>
+<script>
+/* 预着色：在首帧前就定下明暗，避免刷新时白闪。优先本机记忆，否则跟随系统。 */
+(function () {
+  try {
+    var t = localStorage.getItem('studio-theme');
+    if (!t || t === 'auto') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<div class="layout">
+  <aside class="rail">
+    <div class="kicker">ENGLISH II · DAILY</div>
+    <h1>每日一句</h1>
+    <a class="navlink" href="http://127.0.0.1:8788">单词 ↗</a>
+    <div class="dday"><b id="days-left">—</b><i>天</i><em>距考试</em></div>
+  </aside>
+
+  <aside class="track">
+    <section>
+      <div class="stitle"><h2>坚持</h2><small id="chart-sub"></small></div>
+      <div id="heat"></div>
+      <table id="score-table"></table>
+    </section>
+  </aside>
+
+  <main>
+    <div id="day-nav" hidden></div>
+    <section id="sec-today"></section>
+    <section id="sec-redo"></section>
+    <section id="sec-doc" hidden></section>
+    <footer>静水流深 · 不积跬步无以至千里</footer>
+  </main>
+</div>
+<div id="toast"></div>
+<button id="theme-toggle" class="theme-toggle" aria-label="深色模式开关" onclick="toggleTheme()"></button>
+
+<!-- 手绘抖动滤镜：把规整的箭头描边扰成铅笔手绘的味道 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="sketch">
+    <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</defs></svg>
+
+<script>
+let prev = '';
+let MODE = 'local';
+
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+// —— 深色模式：手绘日/月开关 + 后端同步（两页共享偏好） ——
+const THEME_ICON = {
+  moon: '<path d="M38 13 A 20 20 0 1 0 38 51 A 15 15 0 1 1 38 13 Z" fill="currentColor" stroke="none"/>',
+  sun:  '<circle cx="32" cy="32" r="9"/><path d="M32 7 L32 15 M32 49 L32 57 M7 32 L15 32'
+      + ' M49 32 L57 32 M15 15 L20 20 M44 44 L49 49 M49 15 L44 20 M15 49 L20 44"/>',
+};
+const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+function paintThemeBtn() {
+  const b = $('theme-toggle'); if (!b) return;
+  b.setAttribute('aria-label', isDark() ? '切到亮色' : '切到暗色');
+  b.innerHTML = `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2"`
+    + ` stroke-linecap="round" stroke-linejoin="round">${isDark() ? THEME_ICON.sun : THEME_ICON.moon}</svg>`;
+}
+function applyTheme(t, persist) {
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  else document.documentElement.removeAttribute('data-theme');
+  paintThemeBtn();
+  if (persist) {
+    try { localStorage.setItem('studio-theme', t); } catch (e) {}
+    fetch('/api/theme', { method: 'POST', body: JSON.stringify({ theme: t }) }).catch(() => {});
+  }
+}
+function toggleTheme() {
+  const b = $('theme-toggle'); b.classList.add('press');          // 下沉反馈
+  setTimeout(() => { b.classList.remove('press'); applyTheme(isDark() ? 'light' : 'dark', true); }, 140);
+}
+
+function md(src) {
+  let h = esc(src);
+  h = h.replace(/```([\s\S]*?)```/g, (_, c) => '<pre>' + c.trim() + '</pre>');
+  h = h.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  h = h.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+  h = h.replace(/^#{2,} (.*)$/gm, '<h4>$1</h4>');
+  h = h.replace(/^# (.*)$/gm, '<h3>$1</h3>');
+  h = h.replace(/^---+$/gm, '<hr>');
+  h = h.replace(/^&gt; ?(.*)$/gm, '<blockquote>$1</blockquote>');
+  h = h.replace(/^[-•] (.*)$/gm, '<li>$1</li>');
+  h = h.replace(/(<li>[\s\S]*?<\/li>)(?=\n(?!<li>)|$)/g, '<ul>$1</ul>');
+  h = h.replace(/\n*(<\/?(?:ul|li)>)\n*/g, '$1');   // 去掉列表标签周边换行，避免段落处理塞入 <br>
+  // 处理表格（段落分割前）
+  h = h.replace(/((?:\|[^\n]+\|\n?)+)/g, (match) => {
+    const rows = match.trim().split('\n');
+    let head = '', body = '', sawSep = false, markCol = -1;
+    for (const row of rows) {
+      const cells = row.split('|').slice(1, -1);
+      if (cells.every(c => /^[-: ]+$/.test(c))) { sawSep = true; continue; }
+      const tag = sawSep ? 'td' : 'th';
+      if (!sawSep) markCol = cells.findIndex(c => c.trim() === '标记');
+      const tr = '<tr>' + cells.map((c, i) => {
+        const cls = i === markCol ? ' class="col-mark"' : '';
+        return `<${tag}${cls}>${c.trim()}</${tag}>`;
+      }).join('') + '</tr>';
+      if (!sawSep) head += tr; else body += tr;
+    }
+    return `<table>${head ? '<thead>' + head + '</thead>' : ''}${body ? '<tbody>' + body + '</tbody>' : ''}</table>`;
+  });
+  return h.split(/\n{2,}/).map(p =>
+    /^<(pre|blockquote|ul|table|h3|h4|hr)/.test(p.trim()) ? p : '<p>' + p.replace(/\n/g, '<br>') + '</p>'
+  ).join('');
+}
+
+let docView = null;     // null=日卡视图 | 'fool' | 'probe'
+let docStem = '';       // 当前 doc 所属的天（返回时回到这天）
+let curDay  = null;     // null=今日(可编辑) | stem=正在翻阅的历史某天(只读)
+let lastState = null;   // 最近一次 /api/state
+let TODAY_STEM = '';    // 今天的 stem
+
+// 把右栏三段的显隐切到某种视图
+function showOnly(which) {   // 'day' | 'doc'
+  $('sec-doc').hidden   = which !== 'doc';
+  $('sec-today').hidden = which === 'doc';
+  $('sec-redo').hidden  = which === 'doc';
+}
+
+// —— 手绘图标：翻日双横杠箭头（⇐ / ⇒）+ 返回钩形箭头（↩），都过 #sketch 滤镜抖成手绘味 ——
+const ARROW = {
+  left:  '<path d="M37 10 C 26 21,18 28,13 33 C 18 38,26 45,37 55"/>'
+       + '<path d="M16 28 C 38 27,58 27,78 26"/><path d="M16 38 C 38 39,58 39,78 39"/>',
+  right: '<path d="M51 10 C 62 21,70 28,75 33 C 70 38,62 45,51 55"/>'
+       + '<path d="M72 28 C 50 27,30 27,10 26"/><path d="M72 38 C 50 39,30 39,10 39"/>',
+  back:  '<path d="M31 26 C 24 31,18 37,15 42 C 18 47,24 52,31 57"/>'
+       + '<path d="M16 42 C 46 42,62 42,62 12"/>',
+};
+// 统一的手绘 svg 外壳；缺目标(stem 空/无 onclick)时隐藏但占位
+function sketchBtn(cls, label, onclick, paths, gone) {
+  return `<button class="dayarrow ${cls} ${gone ? 'gone' : ''}" aria-label="${label}" onclick="${onclick}">`
+       + `<svg viewBox="0 0 88 64" fill="none" stroke="currentColor" stroke-width="3.6"`
+       + ` stroke-linecap="round" stroke-linejoin="round">${paths}</svg></button>`;
+}
+function arrowBtn(dir, stem) {
+  return sketchBtn(dir, dir === 'left' ? '前一天' : '后一天', `navDay('${stem}', this)`, ARROW[dir], !stem);
+}
+function backBtn() {
+  return sketchBtn('back', '返回', 'navBack(this)', ARROW.back, false);
+}
+// 顶部悬浮导航：日卡视图=一左一右翻日箭头；doc 视图=左上角返回钩。
+function renderDayNav(prevStem, nextStem) {
+  const el = $('day-nav');
+  el.hidden = false;
+  el.innerHTML = docView
+    ? backBtn()
+    : arrowBtn('left', prevStem || '') + arrowBtn('right', nextStem || '');
+}
+
+function navDay(stem, btn) {
+  if (!stem) return;
+  btn.classList.add('press');                  // 下沉反馈
+  setTimeout(() => { btn.classList.remove('press'); gotoDay(stem); }, 160);
+}
+function navBack(btn) {
+  btn.classList.add('press');                  // 下沉反馈
+  setTimeout(() => { btn.classList.remove('press'); backDoc(); }, 160);
+}
+// 切到某天：今天→回到可编辑今日卡；其它→拉取只读历史卡。
+function gotoDay(stem) {
+  docView = null;
+  if (!stem || stem === TODAY_STEM) { curDay = null; if (lastState) render(lastState); return; }
+  curDay = stem;
+  fetch('/api/day?d=' + encodeURIComponent(stem)).then(r => r.json()).then(d => {
+    if (curDay !== stem || docView) return;     // 期间又切走了
+    renderDayView(d);
+  });
+}
+
+// fool/probe/SRC 入口（今日卡与历史卡共用）
+function docLinks(t) {
+  return [
+    t.gh ? `<a class="ghlink" href="${t.gh}" target="_blank">SRC</a>` : '',
+    t.has_fool ? `<button class="ghlink doc-btn" onclick="showDoc('fool','${t.stem}')">FOOL</button>` : '',
+    t.has_probe ? `<button class="ghlink doc-btn" onclick="showDoc('probe','${t.stem}')">PROBE</button>` : '',
+  ].filter(Boolean).join('　');
+}
+
+// 只读渲染历史某天整张卡（原句/我的翻译/评分/批改 + 入口）+ 该天复习块。
+function renderDayView(d) {
+  showOnly('day');
+  renderDayNav(d.prev, d.next);
+  const el = $('sec-today');
+  if (!d.exists) { el.innerHTML = '<div class="hint">没有这一天</div>'; $('sec-redo').innerHTML = ''; return; }
+  const title = `<div class="stitle"><h2>${d.is_today ? '今日' : '回顾'}</h2>`
+              + `<small>day ${d.day} · ${d.mmdd.slice(0,2)}/${d.mmdd.slice(2)}</small></div>`;
+  let body = `<div class="en">${esc((d.sentence || '').replace(/^>\s?/gm, ''))}</div>`;
+  if (d.translation) body += `<div class="mine"><label>我的翻译</label>${esc(d.translation)}</div>`;
+  if (d.correction) body += scoreBig(d.score) + refBox(d.correction);
+  else body += '<div class="hint" style="margin-top:14px">这天还没有批改</div>';
+  const links = docLinks(d);
+  if (links) body += `<div class="row" style="justify-content:flex-start">${links}</div>`;
+  el.innerHTML = title + body;
+  renderRedoView(d.redo_blocks || [], d.stem);
+}
+
+// 历史天的复习块：已批改只读，未批改可继续写译
+function renderRedoView(blocks, stem) {
+  const el = $('sec-redo');
+  if (!blocks.length) { el.innerHTML = ''; return; }
+  let h = `<div class="stitle"><h2>复习</h2><small>当日盲译重做</small></div>`;
+  for (const b of blocks) {
+    h += `<div class="redo-card"><div class="redo-head"><span class="tag">day ${b.day} · ${b.date}</span>
+          ${b.feedback ? '<span class="done-mark">済</span>' : ''}</div>
+          <div class="en">${esc(b.sentence.replace(/^>\s?/gm, ''))}</div>`;
+    if (b.feedback) {
+      h += `<div class="mine"><label>我的重译</label>${esc(b.redo)}</div>
+            <div class="md">${md(b.feedback)}</div>`;
+    } else if (b.redo) {
+      h += saveBox('redo', b.redo, '', { day: b.day, hint: '已保存，可继续修改', stem })
+         + `<div class="waiting"><span class="pulse"></span>${MODE === 'remote'
+           ? '已推送 · 等待 Dell 复习批改…' : '复习批改中…'}</div>`;
+    } else {
+      h += saveBox('redo', '', '不看旧答案，直接重译…', { day: b.day, stem });
+    }
+    h += `</div>`;
+  }
+  el.innerHTML = h;
+}
+
+// 整个右栏切到某天的 fool/probe 正文；左上角悬浮手绘返回钩回到来时那天。
+function showDoc(kind, stem) {
+  docView = kind; docStem = stem || TODAY_STEM;
+  showOnly('doc');
+  renderDayNav();                       // docView 已置位 → 渲染悬浮返回钩
+  const sec = $('sec-doc');
+  sec.innerHTML = docHead(kind) + '<div class="hint">载入中…</div>';
+  fetch('/api/' + kind + (stem ? '?d=' + encodeURIComponent(stem) : '')).then(r => r.json()).then(d => {
+    if (docView !== kind) return;        // 期间已返回/切换
+    sec.innerHTML = docHead(kind) + (d.md
+      ? `<div class="md">${md(d.md)}</div>`
+      : '<div class="hint">这天没有内容</div>');
+  });
+}
+function docHead(kind) {
+  return `<div class="stitle"><h2>${kind === 'fool' ? '愚者 Fool' : '探针 Probe'}</h2></div>`;
+}
+function backDoc() { docView = null; gotoDay(docStem); }
+
+function toast(msg) {
+  const t = $('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+async function post(url, body = {}) {
+  const r = await fetch(url, { method: 'POST', body: JSON.stringify(body) });
+  const j = await r.json();
+  toast(j.msg || (j.ok ? '完成' : '失败'));
+  setTimeout(refresh, 600);
+  return j;
+}
+
+function saveBox(kind, value, placeholder, extra = {}) {
+  const id = 'ta-' + kind + (extra.day || '');
+  const stemArg = extra.stem ? `,'${extra.stem}'` : '';
+  return `
+    <textarea id="${id}" placeholder="${placeholder}">${esc(value || '')}</textarea>
+    <div class="row">
+      <span class="hint">${extra.hint || ''}</span>
+      <button onclick="save('${kind}','${id}',${extra.day || 'null'}${stemArg})">保 存</button>
+    </div>`;
+}
+
+async function save(kind, taId, day, stem) {
+  const content = $(taId).value;
+  if (!content.trim()) { toast('还没写呢'); return; }
+  const body = { kind, content, day };
+  if (stem) body.stem = stem;
+  const r = await fetch('/api/save', { method: 'POST', body: JSON.stringify(body) });
+  const j = await r.json();
+  toast(j.msg || (j.ok ? '完成' : '失败'));
+  // 历史天重译：重新拉取该天视图；今日：刷新全局状态
+  if (stem && curDay) setTimeout(() => gotoDay(curDay), 600);
+  else setTimeout(refresh, 600);
+  return j;
+}
+
+function scoreBig(scoreText) {
+  // 兼容 **X / 10** 和 **总分：...= X / 10** 两种格式
+  const m = scoreText.match(/([\d.]+)\s*\/\s*10\*\*/);
+  if (!m) return '';
+  const v = parseFloat(m[1]);
+  return `<div class="scorebig ${v >= 6 ? 'good' : ''}"><b>${m[1]}</b><span>/ 10</span></div>`;
+}
+
+// 显示完整批改内容（markdown 渲染）
+function refBox(correction) {
+  if (!correction) return '';
+  return `<div class="md correction-detail">${md(correction.replace(/用户/g, '你'))}</div>`;
+}
+
+function renderToday(s) {
+  const t = s.today;
+  const el = $('sec-today');
+  let title = `<div class="stitle"><h2>今日</h2><small>day ${t.day || t.next_day} · ${t.mmdd.slice(0,2)}/${t.mmdd.slice(2)}</small></div>`;
+
+  if (!t.exists) {
+    el.innerHTML = title + `
+      <div class="row" style="justify-content:flex-start">
+        <span class="hint">今天的文件还没创建</span>
+        <button onclick="post('/api/new-day')">开启 day ${t.next_day}</button>
+      </div>`;
+    return;
+  }
+  let body = '';
+  const links = docLinks(t);
+
+  if (!t.sentence) {
+    body = saveBox('sentence', '', '把田静今天的原句贴进来…');
+  } else if (!t.correction) {
+    body = `<div class="en">${esc(t.sentence.replace(/^>\s?/gm, ''))}</div>`;
+    if (t.translation) {
+      body += saveBox('translation', t.translation, '', { hint: '已保存，可继续修改 · 批改完成前有效' });
+      body += `<div class="waiting"><span class="pulse"></span>${MODE === 'remote'
+        ? '已推送 GitHub · Dell 接手后结果自动出现（页面每分钟同步）'
+        : 'auto-review 批改中，完成后这里直接显示结果'}</div>`;
+    } else {
+      body += saveBox('translation', '', '写下你的理解和翻译…');
+    }
+  } else {
+    body = `<div class="en">${esc(t.sentence.replace(/^>\s?/gm, ''))}</div>`
+         + `<div class="mine"><label>我的翻译</label>${esc(t.translation)}</div>`
+         + scoreBig(t.score)
+         + refBox(t.correction)
+         + (links ? `<div class="row" style="justify-content:flex-start">${links}</div>` : '');
+  }
+  el.innerHTML = title + body;
+}
+
+function renderRedo(s) {
+  const el = $('sec-redo');
+  const blocks = s.redo_blocks || [];
+  if (!blocks.length) { el.innerHTML = ''; return; }
+  let h = `<div class="stitle"><h2>复习</h2><small>盲译重做 · 每句一生两遇</small></div>`;
+  for (const b of blocks) {
+    h += `<div class="redo-card">
+      <div class="redo-head"><span class="tag">day ${b.day} · ${b.date}</span>
+        ${b.feedback ? '<span class="done-mark">済</span>' : ''}</div>
+      <div class="en">${esc(b.sentence.replace(/^>\s?/gm, ''))}</div>`;
+    if (b.feedback) {
+      h += `<div class="mine"><label>我的重译</label>${esc(b.redo)}</div>
+            <div class="md">${md(b.feedback)}</div>`;
+    } else if (b.redo) {
+      h += saveBox('redo', b.redo, '', { day: b.day, hint: '已保存，可继续修改' })
+         + `<div class="waiting"><span class="pulse"></span>${MODE === 'remote'
+           ? '已推送 · 等待 Dell 复习批改…' : '复习批改中…'}</div>`;
+    } else {
+      h += saveBox('redo', '', '不看旧答案，直接重译…', { day: b.day });
+    }
+    h += `</div>`;
+  }
+  el.innerHTML = h;
+}
+
+const fmtIso = dt => dt.getFullYear() + '-' +
+  String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0');
+const hmLevel = sc => sc > 7 ? 4 : sc > 5 ? 3 : sc > 3 ? 2 : sc > 0 ? 1 : 0;
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const MAX_COLS = 20;                   // 热力图固定列数，宽度恒定不随日期增长
+
+function renderHeatmap(s) {
+  const cells = s.heatmap || {};
+  const todayIso = s.today_iso;
+  const today = new Date(todayIso + 'T00:00:00');
+
+  // 固定 MAX_COLS 列：从本周周日往前推 MAX_COLS-1 周，宽度永远不变
+  const thisSun = new Date(today);
+  thisSun.setDate(today.getDate() - today.getDay());
+  let start = new Date(thisSun);
+  start.setDate(thisSun.getDate() - (MAX_COLS - 1) * 7);
+
+  // 连续天数（从今天往回数有练习的日子）
+  let streak = 0;
+  for (let d = new Date(today); ; d.setDate(d.getDate() - 1)) {
+    if (cells[fmtIso(d)] !== undefined) streak++; else break;
+  }
+  $('chart-sub').textContent = `共 ${s.total} 句` + (streak ? ` · 连续 ${streak} 天` : '');
+
+  const CELL = 12, GAP = 3, STEP = CELL + GAP, TOP = 14, LEFT = 28;
+  let rects = '', months = '';
+  let wi = 0, lastMonth = -1;
+  for (let d = new Date(start); d <= today && wi < MAX_COLS; wi++) {
+    const x = LEFT + wi * STEP;
+    if (d.getMonth() !== lastMonth) {             // 该列首日跨入新月份 → 月份标签
+      lastMonth = d.getMonth();
+      months += `<text class="hm-label" x="${x}" y="9">${MONTHS[lastMonth]}</text>`;
+    }
+    for (let di = 0; di < 7; di++) {
+      if (d <= today) {
+        const iso = fmtIso(d);
+        const sc = cells[iso];
+        const cls = sc === undefined ? 'hm-n' : 'hm-' + hmLevel(sc);
+        const here = iso === todayIso ? ' today' : '';
+        const tip = sc === undefined ? iso + ' · 未练'
+          : iso + (sc > 0 ? ` · ${sc} 分` : ' · 待批改');
+        rects += `<rect class="hm-d ${cls}${here}" x="${x}" y="${TOP + di * STEP}" `
+               + `width="${CELL}" height="${CELL}"><title>${tip}</title></rect>`;
+      }
+      d.setDate(d.getDate() + 1);
+    }
+  }
+  const W = LEFT + wi * STEP, H = TOP + 7 * STEP;
+  const wd = [['Mon', 1], ['Wed', 3], ['Fri', 5]].map(([t, r]) =>
+    `<text class="hm-label" x="0" y="${TOP + r * STEP + 9}">${t}</text>`).join('');
+  $('heat').innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${months}${wd}${rects}</svg>`
+    + `<div class="hm-legend">少 <i style="background:var(--hm-n)"></i>`
+    + `<i style="background:var(--hm-1)"></i><i style="background:var(--hm-2)"></i>`
+    + `<i style="background:var(--hm-3)"></i><i style="background:var(--hm-4)"></i> 多</div>`;
+}
+
+function renderTable(s) {
+  const rows = s.rows || [];
+  if (!rows.length) { $('score-table').innerHTML = ''; return; }
+  let h = '<tr><th>DAY</th><th>日期</th><th>首译</th><th>重译</th></tr>';
+  for (const r of rows) {
+    const redo = r.redos.map(x =>
+      `<span class="${x.trend === '↑' ? 'up' : x.trend === '↓' ? 'down' : ''}">${x.score}${x.trend}</span>`
+    ).join(' · ') || '<span class="dash">—</span>';
+    h += `<tr><td class="num">${r.day}</td><td>${r.date}</td>
+          <td class="num">${r.first || '<span class="dash">—</span>'}</td><td class="num">${redo}</td></tr>`;
+  }
+  $('score-table').innerHTML = h;
+}
+
+function render(s) {
+  MODE = s.mode; lastState = s;
+  TODAY_STEM = (s.today && s.today.stem) || '';
+  $('days-left').textContent = s.days_left;
+  renderHeatmap(s); renderTable(s);            // 侧栏始终跟随最新状态
+  if (docView) { showOnly('doc'); renderDayNav(); return; }   // 正在看 fool/probe，不打断
+  if (curDay)  { return; }                     // 正在翻阅历史某天，主栏交给 day_view，不覆盖
+  showOnly('day');                             // 今日可编辑视图
+  renderToday(s); renderRedo(s);
+  renderDayNav(s.today.prev, s.today.next);
+}
+
+async function refresh() {
+  const r = await fetch('/api/state');
+  const s = await r.json();
+  if (s.theme && s.theme !== 'auto') applyTheme(s.theme, false);   // 跨页同步：服务端为准
+  const sig = JSON.stringify(s);
+  if (sig === prev) { lastState = s; return; }
+  if (document.activeElement && document.activeElement.tagName === 'TEXTAREA'
+      && document.activeElement.value.trim()) return;   // 正在打字，不打断
+  prev = sig;
+  render(s);
+}
+
+
+paintThemeBtn();
+if (window.__INITIAL_STATE__) {
+  const s = window.__INITIAL_STATE__;
+  if (s.theme && s.theme !== 'auto') applyTheme(s.theme, false);
+  prev = JSON.stringify(s);
+  lastState = s;
+  render(s);
+} else {
+  refresh();
+}
+setInterval(refresh, 8000);
+</script>
+</body>
+</html>
