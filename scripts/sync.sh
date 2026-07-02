@@ -10,8 +10,27 @@
 INTERVAL=600    # 10 min inside active window
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG="$REPO_DIR/.sync.log"
+LOG_RETAIN_DAYS="${LOG_RETAIN_DAYS:-6}"   # 含今天共保留 7 天
 
 log() { printf '[%s] %s\n' "$(date '+%H:%M:%S')" "$*" | tee -a "$LOG"; }
+
+# 裁掉 LOG_RETAIN_DAYS 天之前的日志行，含今天保留恰好 7 天
+trim_log() {
+    local log_file="$1"
+    [[ -f "$log_file" ]] || return 0
+    local cutoff
+    cutoff=$(date -d "${LOG_RETAIN_DAYS} days ago" '+%Y-%m-%d')
+    local start
+    start=$(awk -v c="$cutoff" '
+        match($0, /\[([0-9]{4})[\/\-]([0-9]{2})[\/\-]([0-9]{2})/, a) {
+            if (a[1] "-" a[2] "-" a[3] > c) { print NR; exit }
+        }
+    ' "$log_file")
+    if [[ -n "$start" && "$start" -gt 1 ]]; then
+        local tmp; tmp=$(mktemp)
+        tail -n +"$start" "$log_file" > "$tmp" && mv "$tmp" "$log_file"
+    fi
+}
 
 # Returns end hour for today (21 weekday / 23 weekend)
 active_end_hour() {
@@ -33,6 +52,7 @@ in_active_window() {
 
 cd "$REPO_DIR"
 log "sync: started  weekday 09–21  weekend 09–23  interval=${INTERVAL}s"
+trim_log "$LOG"
 
 while true; do
     if ! in_active_window; then
@@ -61,5 +81,6 @@ while true; do
         log "sync: fetch failed (offline?)"
     fi
 
+    trim_log "$LOG"
     sleep "$INTERVAL"
 done
