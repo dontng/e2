@@ -32,21 +32,5 @@
       },
       "problemMatcher": []
     },
-    {
-      "label": "AutoReview: Start",
-      "type": "shell",
-      "command": "bash auto-review.sh >> .auto-review.log 2>&1",
-      "isBackground": true,
-      "runOptions": {
-        "runOn": "default"
-      },
-      "presentation": {
-        "reveal": "silent",
-        "panel": "dedicated",
-        "showReuseMessage": false,
-        "close": true
-      },
-      "problemMatcher": []
-    }
   ]
 }
