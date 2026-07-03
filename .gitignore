@@ -1,18 +1,8 @@
-# runtime lock & flag files
-.auto-review.lock
-.auto-review-processing
-.auto-review-push-pending
+# local runtime logs
+.sync.log
 
-# python bytecode
+# local Python bytecode
 scripts/__pycache__/
-.auto-review-wake
 
-# 单词复习本地状态（每机一份，不同步）
-data/vocab.json
-
-# 深色模式偏好（每机一份，不同步）
-data/theme
-
-# 历史日课本地归档（不同步到 GitHub）
+# historical local archive
 archive/
-.auto-review.log

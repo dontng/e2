@@ -21,9 +21,6 @@
       "label": "SrcNav: Update",
       "type": "shell",
       "command": "bash scripts/src-nav.sh",
-      "runOptions": {
-        "runOn": "folderOpen"
-      },
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated",
@@ -31,6 +28,6 @@
         "close": true
       },
       "problemMatcher": []
-    },
+    }
   ]
 }

@@ -1,28 +1,54 @@
 #!/usr/bin/env bash
-# src-nav.sh — maintain « prev  next » navigation in src/ daily files
+# Maintain top/bottom navigation for canonical files under src/.
 #
-# Rules:
-#   - Show only the arrows that exist; no placeholders.
-#   - Nav only links consecutive day numbers (dayN ↔ dayN+1).
-#   - Canonical file per day: prefer the one that already carries nav,
-#     then highest numeric version. Suffixes like -minimal are excluded.
+# Canonical rules:
+#   - Normal daily files are named MMDD-dayN.md.
+#   - The only historical exception is src/june/0630-day67-v2.md.
+#   - Other variants such as -v3 or -minimal are ignored and have nav removed.
+#   - Dates do not need to be consecutive. Nav only links consecutive day numbers.
 
 set -euo pipefail
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# ─── helpers ──────────────────────────────────────────────────────────────
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SRC_DIR="$REPO_DIR/src"
+
+is_nav_line() {
+    [[ "$1" == *"«"* || "$1" == *"»"* ]]
+}
+
+strip_nav_in_place() {
+    local file="$1"
+    local tmp
+    tmp="$(mktemp)"
+    cp "$file" "$tmp"
+
+    while [[ -s "$tmp" ]] && is_nav_line "$(head -n 1 "$tmp")"; do
+        sed -i '1d' "$tmp"
+        while [[ -s "$tmp" ]] && [[ "$(head -n 1 "$tmp")" =~ ^[[:space:]]*$ ]]; do
+            sed -i '1d' "$tmp"
+        done
+    done
+
+    while [[ -s "$tmp" ]] && is_nav_line "$(tail -n 1 "$tmp")"; do
+        sed -i '$d' "$tmp"
+        while [[ -s "$tmp" ]] && [[ "$(tail -n 1 "$tmp")" =~ ^[[:space:]]*$ ]]; do
+            sed -i '$d' "$tmp"
+        done
+    done
+
+    mv "$tmp" "$file"
+}
 
 rel_path() {
     local from="$1" to="$2"
     if [[ "$(dirname "$from")" == "$(dirname "$to")" ]]; then
         basename "$to"
     else
-        echo "../$(basename "$(dirname "$to")")/$(basename "$to")"
+        printf '../%s/%s' "$(basename "$(dirname "$to")")" "$(basename "$to")"
     fi
 }
 
-
-build_nav() {
+nav_line() {
     local prev_stem="$1" prev_url="$2" next_stem="$3" next_url="$4"
     local nav=""
     [[ -n "$prev_stem" ]] && nav+="[« ${prev_stem}](${prev_url})"
@@ -31,88 +57,105 @@ build_nav() {
     printf '%s' "$nav"
 }
 
-is_nav_line() {
-    printf '%s' "$1" | grep -qE '[«»]'
-}
-
-strip_nav() {
-    local file="$1"
-    local tmp; tmp=$(mktemp)
-    cp "$file" "$tmp"
-    while is_nav_line "$(head -1 "$tmp")"; do
-        sed -i '1d' "$tmp"
-        while head -1 "$tmp" | grep -q '^[[:space:]]*$'; do sed -i '1d' "$tmp"; done
-    done
-    while is_nav_line "$(tail -1 "$tmp")"; do
-        sed -i '$d' "$tmp"
-        while tail -1 "$tmp" | grep -q '^[[:space:]]*$'; do sed -i '$d' "$tmp"; done
-    done
-    echo "$tmp"
-}
-
-apply_nav() {
-    local file="$1" nav="$2"
-    local stripped; stripped=$(strip_nav "$file")
-    local tmp; tmp=$(mktemp)
-    { printf '%s\n\n' "$nav"; cat "$stripped"; printf '\n\n%s\n' "$nav"; } > "$tmp"
+add_nav() {
+    local file="$1" nav="$2" tmp
+    tmp="$(mktemp)"
+    { printf '%s\n\n' "$nav"; cat "$file"; printf '\n\n%s\n' "$nav"; } > "$tmp"
     mv "$tmp" "$file"
-    rm -f "$stripped"
 }
 
-# ─── canonical file discovery ─────────────────────────────────────────────
+is_canonical() {
+    local file="$1"
+    local base
+    base="$(basename "$file")"
 
-collect_and_rank() {
-    while IFS= read -r f; do
-        local name; name=$(basename "$f" .md)
-        [[ "$name" =~ ^[0-9]{4}-day([0-9]+)(-v([0-9]+))?$ ]] || continue
-        local daynum="${BASH_REMATCH[1]}"
-        local vernum="${BASH_REMATCH[3]:-0}"
-        local has_nav=0
-        is_nav_line "$(head -1 "$f")" && has_nav=1
-        printf '%05d %02d %d %s\n' "$daynum" "$vernum" "$has_nav" "$f"
-    done < <(find "$REPO_DIR/src" -name "*.md" ! -name "standard.md" | sort) \
-    | sort -k1,1n -k3,3rn -k2,2rn
+    if [[ "$base" == "0630-day67-v2.md" ]]; then
+        return 0
+    fi
+
+    if [[ "$base" =~ ^0630-day67 ]]; then
+        return 1
+    fi
+
+    [[ "$base" =~ ^[0-9]{4}-day[0-9]+\.md$ ]]
 }
 
-# ─── main ─────────────────────────────────────────────────────────────────
+day_num() {
+    local base="$1"
+    base="$(basename "$base")"
+    [[ "$base" =~ day([0-9]+) ]] || return 1
+    printf '%s' "${BASH_REMATCH[1]}"
+}
 
-declare -a DAYS=()
-declare -a PATHS=()
-prev_day_key=""
+main() {
+    mapfile -t all_files < <(find "$SRC_DIR" -type f -name '*.md' | sort)
 
-while IFS=' ' read -r daynum vernum has_nav f; do
-    [[ "$daynum" == "$prev_day_key" ]] && continue
-    prev_day_key="$daynum"
-    DAYS+=("$daynum")
-    PATHS+=("$f")
-done < <(collect_and_rank)
+    for f in "${all_files[@]}"; do
+        strip_nav_in_place "$f"
+    done
 
-n=${#DAYS[@]}
-echo "src-nav: $n canonical file(s)"
+    declare -a days=()
+    declare -a files=()
 
-for ((i=0; i<n; i++)); do
-    cur_day="${DAYS[$i]}"
-    cur_path="${PATHS[$i]}"
-    cur_stem=$(basename "$cur_path" .md)
+    for f in "${all_files[@]}"; do
+        if is_canonical "$f"; then
+            days+=("$(day_num "$f")")
+            files+=("$f")
+        fi
+    done
 
-    # ── left (prev) ───────────────────────────────────────────────────────
-    prev_stem="" prev_url=""
-    if (( i > 0 )) && (( 10#$cur_day - 10#${DAYS[$((i-1))]} == 1 )); then
-        prev_stem=$(basename "${PATHS[$((i-1))]}" .md)
-        prev_url=$(rel_path "$cur_path" "${PATHS[$((i-1))]}")
+    if ((${#days[@]} == 0)); then
+        echo "src-nav: no canonical files"
+        return 0
     fi
 
-    # ── right (next) ──────────────────────────────────────────────────────
-    next_stem="" next_url=""
-    if (( i < n-1 )) && (( 10#${DAYS[$((i+1))]} - 10#$cur_day == 1 )); then
-        next_stem=$(basename "${PATHS[$((i+1))]}" .md)
-        next_url=$(rel_path "$cur_path" "${PATHS[$((i+1))]}")
-    fi
+    local sorted
+    sorted="$(mktemp)"
+    for i in "${!days[@]}"; do
+        printf '%05d\t%s\n' "${days[$i]}" "${files[$i]}" >> "$sorted"
+    done
+    sort -n "$sorted" -o "$sorted"
 
-    nav=$(build_nav "$prev_stem" "$prev_url" "$next_stem" "$next_url")
-    apply_nav "$cur_path" "$nav"
-    printf '  day%s  %s  ← %s(%s)  → %s(%s)\n' \
-        "$(( 10#$cur_day ))" "$cur_stem" "$prev_stem" "$prev_url" "$next_stem" "$next_url"
-done
+    days=()
+    files=()
+    while IFS=$'\t' read -r d f; do
+        days+=("$d")
+        files+=("$f")
+    done < "$sorted"
+    rm -f "$sorted"
 
-echo "src-nav: done"
+    echo "src-nav: ${#files[@]} canonical file(s)"
+
+    for i in "${!files[@]}"; do
+        local cur_day cur_file prev_stem prev_url next_stem next_url nav
+        cur_day="${days[$i]}"
+        cur_file="${files[$i]}"
+        prev_stem=""
+        prev_url=""
+        next_stem=""
+        next_url=""
+
+        if (( i > 0 )) && (( 10#$cur_day - 10#${days[$((i - 1))]} == 1 )); then
+            prev_stem="$(basename "${files[$((i - 1))]}" .md)"
+            prev_url="$(rel_path "$cur_file" "${files[$((i - 1))]}")"
+        fi
+
+        if (( i + 1 < ${#files[@]} )) && (( 10#${days[$((i + 1))]} - 10#$cur_day == 1 )); then
+            next_stem="$(basename "${files[$((i + 1))]}" .md)"
+            next_url="$(rel_path "$cur_file" "${files[$((i + 1))]}")"
+        fi
+
+        nav="$(nav_line "$prev_stem" "$prev_url" "$next_stem" "$next_url")"
+        if [[ -n "$nav" ]]; then
+            add_nav "$cur_file" "$nav"
+        fi
+
+        printf '  day%s  %s  <- %s(%s)  -> %s(%s)\n' \
+            "$((10#$cur_day))" "$(basename "$cur_file" .md)" \
+            "$prev_stem" "$prev_url" "$next_stem" "$next_url"
+    done
+
+    echo "src-nav: done"
+}
+
+main "$@"
