@@ -39,14 +39,14 @@ strip_nav() {
     local file="$1"
     local tmp; tmp=$(mktemp)
     cp "$file" "$tmp"
-    if is_nav_line "$(head -1 "$tmp")"; then
+    while is_nav_line "$(head -1 "$tmp")"; do
         sed -i '1d' "$tmp"
         while head -1 "$tmp" | grep -q '^[[:space:]]*$'; do sed -i '1d' "$tmp"; done
-    fi
-    if is_nav_line "$(tail -1 "$tmp")"; then
+    done
+    while is_nav_line "$(tail -1 "$tmp")"; do
         sed -i '$d' "$tmp"
         while tail -1 "$tmp" | grep -q '^[[:space:]]*$'; do sed -i '$d' "$tmp"; done
-    fi
+    done
     echo "$tmp"
 }
 
