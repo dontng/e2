@@ -77,4 +77,4 @@ cat > "$FILE" << EOF
 EOF
 
 echo "Initialized: $FILE"
-bash "$REPO_DIR/scripts/src-nav.sh"
+bash "$REPO_DIR/scripts/src-nav.sh" --around "$FILE"

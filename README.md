@@ -1,0 +1,115 @@
+# english2-daily
+
+英二每日翻译训练库。当前版本只保留一条主线：每天翻译一句，把错因、修正路线、词汇短语和可迁移复盘写清楚。
+
+旧的自动化网页、fool/probe/console 系统已归档到 `archive2/`，不参与当前日常流程。
+
+## 当前架构
+
+```text
+README.md              # 项目总览，帮助人和 Codex 快速认清结构
+AGENTS.md              # Codex 长期工作规则
+REVIEW.md              # 当前批改审计入口
+STANDARD.md            # 每日批改详细规范
+reviews/               # 周总结与批改质量审计
+src/                   # 每日翻译与批改正文
+scripts/src-nav.sh     # day 导航刷新脚本
+archive/, archive2/    # 历史归档，不参与日常
+```
+
+## Codex 应该怎么读
+
+不要从 GitHub 链接或全仓库扫描开始。进入项目后按这个顺序读：
+
+1. `README.md`：确认项目当前架构。
+2. `AGENTS.md`：确认 Codex 的长期工作边界。
+3. `REVIEW.md`：确认当前审计范围。
+4. `reviews/<week>.md`：读取本周暴露的问题和批改质量记录。
+5. `src/<month>/MMDD-dayN.md`：只在需要核对证据或执行批改时打开每日文件。
+
+这个项目给 Codex 留的是接口，不是一个巨型总文件。`REVIEW.md` 只指路，周总结承载滚动复盘，每日文件保留完整证据。
+
+## 每日文件
+
+每日内容放在：
+
+```text
+src/<month>/MMDD-dayN.md
+```
+
+当前 canonical day 从 `src/june/0630-day67-v2.md` 开始，之后进入 `src/july/`。日期可以跨月，导航按 day 编号连续。
+
+每日文件结构：
+
+```md
+# Day N · YYYY-MM-DD
+
+## 原句 (Input)
+
+## 我的翻译
+
+## 批改 (Diff & Debug)
+
+## 核心复盘 (Takeaways)
+
+## 词汇 (Vocab)
+
+## 短语 (Phrases)
+```
+
+批改完成后，`## 我的翻译` 整块用 HTML 注释包起来，保留原译作为证据。
+
+## 批改标准
+
+详细格式见 `STANDARD.md`。核心原则：
+
+- 批改是改错，不是讲课。
+- 先指出原译哪里错，再说明误判路线。
+- Vocab 只收这次暴露的问题词。
+- Phrases 只收单词认识但整体读不懂的表达。
+- Takeaways 写可迁移的训练动作，不复述当天句子。
+
+批改或新增日文件后运行：
+
+```bash
+bash scripts/src-nav.sh
+```
+
+只检查导航：
+
+```bash
+bash scripts/src-nav.sh --check
+```
+
+## 周审计
+
+批改不是终点。每周用 `reviews/` 做二次整理：
+
+- 这周反复暴露了哪些能力问题。
+- 哪些批改点覆盖充分，哪些漏讲。
+- Vocab/Phrases 数量是否匹配错误密度。
+- 哪些问题要带到下一周观察。
+
+当前入口：
+
+```text
+REVIEW.md -> reviews/2026-W27.md
+```
+
+`2026-W27` 覆盖 `0630-day67-v2` 到 `0704-day71`，跨月整理，不包含 0629。
+
+## 历史归档
+
+`archive/` 和 `archive2/` 只是历史系统存档。里面的网页、daemon、console、fool、probe 说明不代表当前架构。
+
+当前 active 区只看：
+
+```text
+README.md
+AGENTS.md
+REVIEW.md
+STANDARD.md
+reviews/
+src/
+scripts/src-nav.sh
+```

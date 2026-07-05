@@ -188,7 +188,20 @@ src/<month>/MMDD-dayN.md
 bash scripts/src-nav.sh
 ```
 
+只检查不写入：
+
+```bash
+bash scripts/src-nav.sh --check
+```
+
+只同步某个文件及其相邻 day：
+
+```bash
+bash scripts/src-nav.sh --around src/july/0705-day72.md
+```
+
 导航只看 `dayN` 是否连续，不看日期是否连续。日期可以跳过。
+脚本会扫描 `src/` 计算相邻关系，但只写入导航实际变化的文件。
 
 唯一历史特例：
 
@@ -205,7 +218,7 @@ bash init.sh
 bash init.sh tomorrow
 ```
 
-`init.sh` 会创建模板并刷新导航。
+`init.sh` 会创建模板，并只刷新新文件及相邻 day 的导航。
 
 ## 旧系统
 
