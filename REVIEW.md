@@ -1,14 +1,11 @@
 # Review Interface
 
-当前审计范围：`reviews/2026-W27.md`
+当前审计范围：`reviews/2026-W28.md`
 
 本轮覆盖：
 
-- `src/june/0630-day67-v2.md`
-- `src/july/0701-day68.md`
-- `src/july/0702-day69.md`
-- `src/july/0703-day70.md`
-- `src/july/0704-day71.md`
+- `src/july/0706-day72.md`
+- `src/july/0707-day73.md`
 
 不覆盖：
 
@@ -19,7 +16,7 @@
 ## Codex 进入流程
 
 1. 先读本文件，确认当前周总结。
-2. 再读 `reviews/2026-W27.md`，了解本周暴露的问题和待观察项。
+2. 再读 `reviews/2026-W28.md`，了解本周暴露的问题和待观察项。
 3. 只在需要核对证据时打开对应每日文件。
 4. 批改后新增发现，写回当前周总结，不堆到本文件。
 
