@@ -26,11 +26,10 @@
 2. `AGENTS.md`
 3. `REVIEW.md`
 4. `reviews/<current-week>.md`
-5. `codex/STATE.md`
-6. `codex/BACKLOG.md`
-7. `codex/notes/<current-week>.md`（若存在）
-8. `codex/LOG.md`
-9. 必要的 `src/...day...md`
+5. `codex/HANDOFF.md`
+6. `codex/notes/<current-week>.md`（若存在）
+7. `codex/LOG.md`
+8. 必要的 `src/...day...md`
 
 ## 接管输出格式
 
@@ -58,6 +57,8 @@ Codex 可以代处理：...
 3. `REVIEW.md` 的当前审计范围。
 4. `codex/LOG.md` 的交付记录。
 5. `codex/notes/<week>.md` 的句子讨论精华，尤其是用户问题、Codex 回答、例句和验收动作。
+
+提交信息也是交付物。每次提交必须说明本次改变的目的、范围和后续影响，不能使用 `update`、`fix`、`changes` 这类占位信息。
 
 ## 成功标准
 

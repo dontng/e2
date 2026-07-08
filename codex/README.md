@@ -25,8 +25,8 @@ Codex 不应把每日批改正文堆到这里；这里记录的是“批改之�
 
 ## 入口文件
 
-- `STATE.md`：当前学习协议、运行方式、积压策略。
-- `BACKLOG.md`：长期能力问题台账，只记录还要追踪什么。
+- `README.md`：说明 Codex 工作区的职责和读写边界。
+- `HANDOFF.md`：Codex App、Codex CLI、GPT App 之间的接管规则。
 - `notes/`：句子讨论精华，按周保存；这是给用户复读和给 Codex 接管时快速找训练材料的入口。
 - `LOG.md`：Codex 每次重要接管后的交付记录。
 
@@ -39,7 +39,7 @@ Codex 不应把每日批改正文堆到这里；这里记录的是“批改之�
 3. `REVIEW.md`
 4. 当前 `reviews/<week>.md`
 5. 必要的 `src/...day...md`
-6. 本目录下的 `codex/STATE.md`、`codex/BACKLOG.md`、`codex/notes/<week>.md` 和 `codex/LOG.md`
+6. 本目录下的 `codex/HANDOFF.md`、`codex/notes/<week>.md` 和 `codex/LOG.md`
 
 读取本目录时，重点回答：
 
