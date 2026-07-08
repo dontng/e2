@@ -27,8 +27,10 @@
 3. `REVIEW.md`
 4. `reviews/<current-week>.md`
 5. `codex/STATE.md`
-6. `codex/LOG.md`
-7. 必要的 `src/...day...md`
+6. `codex/BACKLOG.md`
+7. `codex/notes/<current-week>.md`（若存在）
+8. `codex/LOG.md`
+9. 必要的 `src/...day...md`
 
 ## 接管输出格式
 
@@ -55,6 +57,7 @@ Codex 可以代处理：...
 2. 每日文件中的 Takeaways、Vocab、Phrases 覆盖缺口。
 3. `REVIEW.md` 的当前审计范围。
 4. `codex/LOG.md` 的交付记录。
+5. `codex/notes/<week>.md` 的句子讨论精华，尤其是用户问题、Codex 回答、例句和验收动作。
 
 ## 成功标准
 
