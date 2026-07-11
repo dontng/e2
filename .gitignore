@@ -1,8 +1,8 @@
 # local runtime logs
 .sync.log
 
-# local assistant permissions
-.claude/settings.local.json
+# local assistant settings
+.claude/
 
 # local Python bytecode
 scripts/__pycache__/
