@@ -6,35 +6,36 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 项目 | 状态 |
 |---|---|
-| 当前 day | Day 75 |
+| 当前 day | Day 77 |
 | 当前周 | 2026-W28 |
-| 最近 7 天完成 | 4 / 7 |
-| 当前 T0 范围 | `0706-day72` 到 `0709-day75` |
-| 下一次打开 | 新增或批改 Day 76 |
+| 最近 7 天完成 | 6 / 7 |
+| 当前 T0 范围 | `0518-day30` 到 `0711-day77` |
+| 下一次打开 | 新增或批改 Day 78 |
 
 ## 当前风险
 
 | 风险线 | 权重 | 证据 | 下一次预警 |
 |---|---:|---|---|
-| 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of` | 看到 `to/of/at/from` 先合读整块，再翻单词 |
-| 固定表达识别 | high | `best and brightest`, `bargain bin` | 简单词连在一起时先按短语试读 |
-| 核心动词落地 | high | `suppress`, `descended` | 不会的核心动词不能留空；先判褒贬、路径和动作方向 |
-| 回指与省略 | medium | `Myriad's`, `in which` | `which/it/'s` 必须回前文补名词 |
-| 专名与词形 | medium | `Priestly`, `district`, `competing` | 句首大写先按专名；形近词读完整 |
+| 固定表达识别 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find themselves` | 简单词连在一起时先按短语试读，不逐词硬拼 |
+| 长句主干锁定 | high | `we have identified ... to make forecasts` | 先抓主谓宾和 `to do` 目的/结果，再处理修饰 |
+| 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of`, `situations in which` | 看到 `to/of/at/from/in which` 先合读整块，再翻单词 |
+| 专名与技术载体 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers` | 句首大写先按专名；技术名词先判载体类别 |
+| 核心动词落地 | medium | `suppress`, `descended`, `identified`, `make forecasts` | 核心动词先判动作方向和宾语类型，不留英文或泛译 |
+| 回指与省略 | medium | `Myriad's`, `in which`, `find themselves` | `which/it/'s/themselves` 必须回前文补名词或处境 |
 
 ## 今日预警
 
-1. 介词短语先整体读，尤其是 `to/of/at/from` 后面的名词块。
-2. 核心动词不会时先看并列、转折、路径，不留英文。
-3. 所有格省略、`which`、`it` 先回填名词。
+1. 简单词连用先试固定表达：`hold the key to`、`find oneself in` 不能逐词拼。
+2. 长句先锁主干：谁 `has done` 什么，后面的 `to do` 是为了推出什么。
+3. 长专名和技术名词先判类别：机构、平台、浏览器、网页不要混。
 
 ## 收益反馈
 
 | 项目 | 状态 |
 |---|---|
 | 已稳定 | 每日批改格式和周审计入口已稳定 |
-| 正在压低 | 介词短语合读、固定表达识别、核心动词落地 |
-| 仍然活跃 | 长句后半段、回指省略、专名误读 |
+| 正在压低 | 固定表达识别、长句主干锁定、介词短语合读 |
+| 仍然活跃 | 分词修饰、回指省略、专名/技术载体误读 |
 | 下次验证 | 今日预警是否减少同类扣分 |
 
 ## T1 量化口径
@@ -43,13 +44,40 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 - 每个风险线只有三档：`high`、`medium`、`low`。
 - 连续命中同类错误，风险保持或升高；连续避开同类错误，风险下降。
 - 新问题不需要先命名；只要影响得分，就进入风险线或观察项。
-- T1 的目标是让第 i 天的样本提高第 i+1 天的预警质量。
+- T1 的目标是让全部已积累样本提高下一次预警和训练包质量，不是只做相邻两天传递。
+- 用户不是 T1 维护者；风险拆分、drill 自评、预警命中回溯由 Codex 在后台完成。
+
+## T1 自觉机制
+
+- 风险线只做总览；真正的训练入口是错误指纹。
+- 一个错误指纹 = 一个可复现误判路线 + 一个考场反射。
+- 同一风险线下若证据明显分成多个反射，Codex 自动拆分，不等待用户指出。
+- 生成 drill 前必须自评：这份材料训练的是 1 个反射还是多个反射。
+- 如果训练多个反射，自动拆成窄 drill；不要交付展示型合集。
+- 批改后回溯今日预警：命中真实错误则保留或强化；连续空炮则改写预警。
+- Probe 暴露的认知流程问题先进入观察项；证据不足时不急于训练，但不能遗忘。
+
+## 错误指纹候选
+
+| 指纹 | 状态 | 证据 | 训练反射 |
+|---|---|---|---|
+| 名词 + to + 资源/机会误判为动作 | high | `access to` | `to` 后先判资源/机会，不急着译成动作 |
+| into + 外部环境误判为时间背景 | medium | `graduating into` | `into` 后是毕业时进入的局面 |
+| at the prospect of + 名词化事件未合读 | medium | `at the prospect of` | 先把 prospect 后的事件封成担忧对象 |
+| from A to B to C 路径未画线 | medium | `descended from ... to ... to ...` | 先画路径，再落中文动词 |
+| in which 回指悬空 | medium | `in which` | `which` 必须回前文补地点/范围名词 |
+| 简单词固定表达逐词硬拼 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find oneself in` | 先把简单词组合按短语查义，再决定是否逐词 |
+| have done ... to do 主干断裂 | high | `we have identified ... to make forecasts` | 先译“已经识别出……，从而能够……” |
+| 现在分词修饰误作并列动作 | medium | `patterns shaping the history` | `N + doing` 先试“正在/能够……的 N” |
+| 技术载体类别误判 | medium | `internet browsers` | 技术名词先判软件、网页、平台、设备 |
+| how/what/whether 从句作主语后谓语漏接 | high | `just how many others pay attention ... has little to do with` | 句首疑问词从句先封成“这件事”，再找后面的谓语 |
 
 ## Codex 执行
 
 - 用户说“继续”时，先读本文件，再读 `REVIEW.md` 和当前周总结。
 - 批改前只给 3 条以内今日预警。
 - 批改后只更新：风险线、收益反馈、下一次预警。
+- 批改后同时做后台自检：预警是否命中、风险线是否需要拆分、是否出现新错误指纹。
 - 不把 T1 写成教学文章；所有记录都要服务下一次得分。
 - 不默认用户已经吸收了所有历史 T1 内容；历史内容只作为训练材料，不作为已掌握前提。
 - 重复风险再次出现时，不重复生成同质解释；引用相关日训练，把旧样本和今日样本合并成新的训练挑战。

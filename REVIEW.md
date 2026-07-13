@@ -8,6 +8,8 @@
 - `src/july/0707-day73.md`
 - `src/july/0708-day74.md`
 - `src/july/0709-day75.md`
+- `src/july/0710-day76.md`
+- `src/july/0711-day77.md`
 
 不覆盖：
 
