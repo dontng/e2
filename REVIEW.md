@@ -1,19 +1,15 @@
 # Review Interface
 
-当前审计范围：`reviews/2026-W28.md`
+当前审计范围：`reviews/2026-W29.md`
 
 本轮覆盖：
 
-- `src/july/0706-day72.md`
-- `src/july/0707-day73.md`
-- `src/july/0708-day74.md`
-- `src/july/0709-day75.md`
-- `src/july/0710-day76.md`
-- `src/july/0711-day77.md`
+- `src/july/0713-day78.md`
+- `src/july/0714-day79.md`
 
 不覆盖：
 
-- `0629` 及更早内容
+- `0711` 及更早内容
 - `archive/`
 - `archive2/`
 
@@ -21,7 +17,7 @@
 
 1. 先读本文件，确认当前周总结。
 2. 再读 `STATE.md`，确认当前 T1 风险、预警和下一次动作。
-3. 再读 `reviews/2026-W28.md`，了解本周暴露的问题和待观察项。
+3. 再读 `reviews/2026-W29.md`，了解本周暴露的问题和待观察项。
 4. 只在需要核对证据时打开对应每日文件。
 5. 批改后新增发现，写回当前周总结，并同步更新 `STATE.md`。
 
