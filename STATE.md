@@ -6,37 +6,38 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 项目 | 状态 |
 |---|---|
-| 当前 day | Day 77 |
-| 当前周 | 2026-W28 |
+| 当前 day | Day 79 |
+| 当前周 | 2026-W29 |
 | 最近 7 天完成 | 6 / 7 |
-| 当前 T0 范围 | `0518-day30` 到 `0711-day77` |
-| 下一次打开 | 新增或批改 Day 78 |
+| 当前 T0 范围 | `0518-day30` 到 `0714-day79` |
+| 下一次打开 | 新增或批改 Day 80 |
 
 ## 当前风险
 
 | 风险线 | 权重 | 证据 | 下一次预警 |
 |---|---:|---|---|
-| 固定表达识别 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find themselves` | 简单词连在一起时先按短语试读，不逐词硬拼 |
-| 长句主干锁定 | high | `we have identified ... to make forecasts` | 先抓主谓宾和 `to do` 目的/结果，再处理修饰 |
-| 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of`, `situations in which` | 看到 `to/of/at/from/in which` 先合读整块，再翻单词 |
-| 专名与技术载体 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers` | 句首大写先按专名；技术名词先判载体类别 |
-| 核心动词落地 | medium | `suppress`, `descended`, `identified`, `make forecasts` | 核心动词先判动作方向和宾语类型，不留英文或泛译 |
-| 回指与省略 | medium | `Myriad's`, `in which`, `find themselves` | `which/it/'s/themselves` 必须回前文补名词或处境 |
+| 固定表达识别 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find themselves`, `give in to`, `blame A on B` | 简单动词加介词先按短语试读，再确定各成分关系 |
+| 长句主干锁定 | high | `we have identified ... to make forecasts`, `The Constitutional principles ... are noncontroversial` | 长名词主语后越过 `that/which` 从句，找全句有限谓语 |
+| 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of`, `blame A on B` | 看到介词先圈完整信息块，判断它引出对象、原因还是路径 |
+| 核心动词落地 | high | `suppress`, `descended`, `identified`, `precede`, `vanish` | 每个语义块结束前检查核心动作；不会时至少先判方向 |
+| 回指与省略 | high | `Myriad's`, `in which`, `find themselves`, Day 79 `which` | 关系词或代词进入中文前，必须回填明确对象或整件事 |
+| 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington` | 大写词先判专名/代指；政治法律词按制度层级限制词义 |
+| 词形辨认 | medium | `district`, `competing`, `demoralization` | 读完整词干与后缀，不因局部形近跳到熟词 |
 
 ## 今日预警
 
-1. 简单词连用先试固定表达：`hold the key to`、`find oneself in` 不能逐词拼。
-2. 长句先锁主干：谁 `has done` 什么，后面的 `to do` 是为了推出什么。
-3. 长专名和技术名词先判类别：机构、平台、浏览器、网页不要混。
+1. 长名词主语后有 `that/which` 时，先越过从句找到全句真正谓语。
+2. 简单动词加介词先试固定表达；关系代词先回填先行词。
+3. 每个语义块都要落下核心动作，尤其注意感知结构后的第二个动词。
 
 ## 收益反馈
 
 | 项目 | 状态 |
 |---|---|
-| 已稳定 | 每日批改格式和周审计入口已稳定 |
-| 正在压低 | 固定表达识别、长句主干锁定、介词短语合读 |
-| 仍然活跃 | 分词修饰、回指省略、专名/技术载体误读 |
-| 下次验证 | 今日预警是否减少同类扣分 |
+| 已稳定 | 每日批改格式、周审计入口及原译证据保留已稳定 |
+| 正在压低 | 关系代词回填；已生成 Day 79 窄专项进行集中训练 |
+| 仍然活跃 | 固定表达、长句主干、核心动词、介词论元关系 |
+| 下次验证 | 能否找到长主语后的全句谓语，并保住每个语义块的核心动作 |
 
 ## T1 量化口径
 
@@ -66,10 +67,15 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | at the prospect of + 名词化事件未合读 | medium | `at the prospect of` | 先把 prospect 后的事件封成担忧对象 |
 | from A to B to C 路径未画线 | medium | `descended from ... to ... to ...` | 先画路径，再落中文动词 |
 | in which 回指悬空 | medium | `in which` | `which` 必须回前文补地点/范围名词 |
-| 简单词固定表达逐词硬拼 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find oneself in` | 先把简单词组合按短语查义，再决定是否逐词 |
+| 关系代词未先回填先行词 | high | Day 79 `which`, 既往 `in which` | 先说出“这个词替代谁/哪件事”，再读从句 |
+| 简单词固定表达逐词硬拼 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find oneself in`, `give in to` | 先把简单词组合按短语查义，再决定是否逐词 |
+| blame A on B 论元关系倒置 | medium | Day 79 | 先标结果 A、原因 B，再落成“把 A 归因于 B” |
 | have done ... to do 主干断裂 | high | `we have identified ... to make forecasts` | 先译“已经识别出……，从而能够……” |
+| 长名词主语后的全句谓语漏读 | high | `The Constitutional principles ... are noncontroversial` | 越过插入从句，先用主语和最终谓语封口 |
+| that A and that B 并列层级未识别 | medium | Day 78 | 先把两个 `that` 标成同级内容块 |
 | 现在分词修饰误作并列动作 | medium | `patterns shaping the history` | `N + doing` 先试“正在/能够……的 N” |
 | 技术载体类别误判 | medium | `internet browsers` | 技术名词先判软件、网页、平台、设备 |
+| 感知动词后的第二动作丢失 | medium | `feel the oppression vanish` | `feel/see/hear + O + V` 先译“感到 O 做 V” |
 | how/what/whether 从句作主语后谓语漏接 | high | `just how many others pay attention ... has little to do with` | 句首疑问词从句先封成“这件事”，再找后面的谓语 |
 
 ## Codex 执行
