@@ -6,3 +6,7 @@
 
 # local Python bytecode
 scripts/__pycache__/
+
+# archive directories
+archive/
+archive2/

@@ -251,9 +251,13 @@ main() {
         nav="$(nav_line "$prev_stem" "$prev_url" "$next_stem" "$next_url")"
         set_desired_nav "$cur_file" "$nav"
 
-        printf '  day%s  %s  <- %s(%s)  -> %s(%s)\n' \
-            "$((10#$cur_day))" "$(basename "$cur_file" .md)" \
-            "$prev_stem" "$prev_url" "$next_stem" "$next_url"
+        if [[ -z "$AROUND_FILE" ]] || [[ "$cur_file" == "$AROUND_FILE" ]] || \
+           [[ -n "$prev_stem" && "${files[$((i - 1))]}" == "$AROUND_FILE" ]] || \
+           [[ -n "$next_stem" && "${files[$((i + 1))]}" == "$AROUND_FILE" ]]; then
+            printf '  day%s  %s  <- %s(%s)  -> %s(%s)\n' \
+                "$((10#$cur_day))" "$(basename "$cur_file" .md)" \
+                "$prev_stem" "$prev_url" "$next_stem" "$next_url"
+        fi
     done
 
     # Non-canonical md files should not carry generated nav, but they are only
