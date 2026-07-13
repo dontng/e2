@@ -21,6 +21,9 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of`, `blame A on B` | 看到介词先圈完整信息块，判断它引出对象、原因还是路径 |
 | 核心动词落地 | high | `suppress`, `descended`, `identified`, `precede`, `vanish` | 每个语义块结束前检查核心动作；不会时至少先判方向 |
 | 回指与省略 | high | `Myriad's`, `in which`, `find themselves`, Day 79 `which` | 关系词或代词进入中文前，必须回填明确对象或整件事 |
+| 句子期待位保留 | high | Day 78 `The Constitutional principles that ... and that ... are noncontroversial` | 抽象名词开头先保留“这个名词最后怎么样”的槽位 |
+| 头名词挂载链 | high | Day 78 probe：一个头名词后连续挂多个解释块时崩溃放弃 | 先判每个后置块挂给谁，再找主句谓语和中文重排 |
+| 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; 既往简单词短语硬拼 | 常见释义发怪时，回到核心意象，再按当前对象关系落中文 |
 | 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington` | 大写词先判专名/代指；政治法律词按制度层级限制词义 |
 | 词形辨认 | medium | `district`, `competing`, `demoralization` | 读完整词干与后缀，不因局部形近跳到熟词 |
 
@@ -77,6 +80,12 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 技术载体类别误判 | medium | `internet browsers` | 技术名词先判软件、网页、平台、设备 |
 | 感知动词后的第二动作丢失 | medium | `feel the oppression vanish` | `feel/see/hear + O + V` 先译“感到 O 做 V” |
 | how/what/whether 从句作主语后谓语漏接 | high | `just how many others pay attention ... has little to do with` | 句首疑问词从句先封成“这件事”，再找后面的谓语 |
+| 抽象名词 + that 内容从句后主句谓语期待位丢失 | high | Day 78 `The Constitutional principles that A and that B are noncontroversial` | 读到 `claim/fact/principle/belief + that完整句`，先留槽“这个名词怎么样” |
+| that A and that B 内容块并列未切开 | medium | Day 78 两个 `that` 同级说明 `principles` | 重复 `that` 先试平级内容块，不把第二块误接进第一块 |
+| 头名词后多解释块归属不清 | high | Day 78 probe：多个 `that/which/-ing/-ed/介词短语/逗号补充` 都可能服务最前名词 | 每个块先标归属和功能：内容、回指、依据、状态、同位补充 |
+| 中文重排承受力不足 | medium | Day 78 probe：直球内容给出后仍因后置链过长而放弃 | 先建结构树；中文允许前置、拆句或压缩，不强行顺译 |
+| 熟词跨语境后仍停在生活场景义 | high | Day 78 `alone` 只熟“孤独”，`precede` 只熟“之前/更早” | 常见释义别硬套；先抓“排除其他主体”“在前/优先”这类核心意象 |
+| 英文通用动词到中文关系词转换不足 | medium | Day 78 `federal laws precede state laws` | 主宾是抽象对象时，先判关系类型，再落成“优先于/位于之前/成立/取决于”等中文关系词 |
 
 ## Codex 执行
 
@@ -88,6 +97,15 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 - 不默认用户已经吸收了所有历史 T1 内容；历史内容只作为训练材料，不作为已掌握前提。
 - 重复风险再次出现时，不重复生成同质解释；引用相关日训练，把旧样本和今日样本合并成新的训练挑战。
 - T1 要保持复利和创造力：同一风险反复出现时，输出新的考场动作、对照任务或验证方式，而不是围着旧表述兜圈。
+
+## 当前专项 Drill
+
+| 文件 | 目标 |
+|---|---|
+| `t1/july/0713-day78-structure-drill.md` | 抽象名词 + `that` 内容从句时，保留主句谓语槽位 |
+| `t1/july/0713-head-noun-attachment-chain-drill.md` | 一个头名词后多解释块连续挂载时，先归属再重排 |
+| `t1/july/0713-day78-meaning-shift-drill.md` | 熟词跨语境后，用核心意象迁移到当前对象关系 |
+| `t1/july/0714-day79-drill.md` | 关系代词先回填先行词 |
 
 ## 用户交付物
 
