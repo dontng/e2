@@ -6,10 +6,12 @@
 
 - `src/july/0713-day78.md`
 - `src/july/0714-day79.md`
+- `src/july/0715-day80.md`
+- `src/july/0716-day81.md`
 
 不覆盖：
 
-- `0711` 及更早内容
+- `0712` 及更早内容
 - `archive/`
 - `archive2/`
 
