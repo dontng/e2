@@ -6,41 +6,42 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 项目 | 状态 |
 |---|---|
-| 当前 day | Day 79 |
+| 当前 day | Day 81 |
 | 当前周 | 2026-W29 |
 | 最近 7 天完成 | 6 / 7 |
-| 当前 T0 范围 | `0518-day30` 到 `0714-day79` |
-| 下一次打开 | 新增或批改 Day 80 |
+| 当前 T0 范围 | `0518-day30` 到 `0716-day81` |
+| 下一次打开 | 新增或批改 Day 82 |
 
 ## 当前风险
 
 | 风险线 | 权重 | 证据 | 下一次预警 |
 |---|---:|---|---|
-| 固定表达识别 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find themselves`, `give in to`, `blame A on B` | 简单动词加介词先按短语试读，再确定各成分关系 |
-| 长句主干锁定 | high | `we have identified ... to make forecasts`, `The Constitutional principles ... are noncontroversial` | 长名词主语后越过 `that/which` 从句，找全句有限谓语 |
+| 固定表达识别 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find themselves`, `give in to`, `blame A on B`, `make it`, `keep A away from B`, `make the point that`, `replace A with B` | 简单动词加介词或固定宾语结构时先按整体试读，再确定各成分关系 |
+| 长句主干锁定 | high | `we have identified ... to make forecasts`, `The Constitutional principles ... are noncontroversial`, Day 81 双因果句 | 先标文章框架、现象、原因一、原因二，再回到完整主干 |
 | 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of`, `blame A on B` | 看到介词先圈完整信息块，判断它引出对象、原因还是路径 |
-| 核心动词落地 | high | `suppress`, `descended`, `identified`, `precede`, `vanish` | 每个语义块结束前检查核心动作；不会时至少先判方向 |
+| 核心动词落地 | high | `suppress`, `descended`, `identified`, `precede`, `vanish`, `relate`, `automate`, `replace` | 每个语义块结束前检查核心动作；不会时至少先判方向 |
 | 回指与省略 | high | `Myriad's`, `in which`, `find themselves`, Day 79 `which` | 关系词或代词进入中文前，必须回填明确对象或整件事 |
 | 句子期待位保留 | high | Day 78 `The Constitutional principles that ... and that ... are noncontroversial` | 抽象名词开头先保留“这个名词最后怎么样”的槽位 |
 | 头名词挂载链 | high | Day 78 probe：一个头名词后连续挂多个解释块时崩溃放弃 | 先判每个后置块挂给谁，再找主句谓语和中文重排 |
 | 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; 既往简单词短语硬拼 | 常见释义发怪时，回到核心意象，再按当前对象关系落中文 |
 | 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington` | 大写词先判专名/代指；政治法律词按制度层级限制词义 |
-| 词形辨认 | medium | `district`, `competing`, `demoralization` | 读完整词干与后缀，不因局部形近跳到熟词 |
+| 词形辨认 | medium | `district`, `competing`, `demoralization`, `automated` | 读完整词干与后缀，不因局部形近跳到熟词 |
+| 因果与替换方向 | high | Day 81 `reason ... because ... but also because ...`, `replace A with B` | 先列“现象—原因一—原因二”；替换结构先标被替换者 A 和替代者 B |
 
 ## 今日预警
 
-1. 长名词主语后有 `that/which` 时，先越过从句找到全句真正谓语。
-2. 简单动词加介词先试固定表达；关系代词先回填先行词。
-3. 每个语义块都要落下核心动作，尤其注意感知结构后的第二个动词。
+1. 长句先列骨架：谁在说什么，现象是什么，原因有几层，再回填修饰。
+2. 熟词组合先试整体；遇到标题、来源、目的或替换关系，不按字面拼。
+3. `replace A with B` 先标 A 是被替代者、B 是替代者；每个语义块都要落下核心动作。
 
 ## 收益反馈
 
 | 项目 | 状态 |
 |---|---|
 | 已稳定 | 每日批改格式、周审计入口及原译证据保留已稳定 |
-| 正在压低 | 关系代词回填；已生成 Day 79 窄专项进行集中训练 |
-| 仍然活跃 | 固定表达、长句主干、核心动词、介词论元关系 |
-| 下次验证 | 能否找到长主语后的全句谓语，并保住每个语义块的核心动作 |
+| 正在压低 | Day 79 已拆成“短语整体识别”和“语境落点”两个窄专项，避免混练 |
+| 仍然活跃 | 固定表达、长句主干、核心动词、因果与替换方向 |
+| 下次验证 | 能否在双因果句中先保住骨架，并正确判断替换方向 |
 
 ## T1 量化口径
 
@@ -73,6 +74,10 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 关系代词未先回填先行词 | high | Day 79 `which`, 既往 `in which` | 先说出“这个词替代谁/哪件事”，再读从句 |
 | 简单词固定表达逐词硬拼 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find oneself in`, `give in to` | 先把简单词组合按短语查义，再决定是否逐词 |
 | blame A on B 论元关系倒置 | medium | Day 79 | 先标结果 A、原因 B，再落成“把 A 归因于 B” |
+| 动词短语未触发整体识别 | high | Day 79 `give in to` | 先圈动词 + 小品词/介词为单位，再决定是否逐词 |
+| 已识别结构的语境落点偏差 | medium | Day 79 `blame A on B` | 固定关系后，按文本是在归因、归咎还是怪罪选择中文 |
+| 双因果骨架被拆散 | high | Day 81 `reason ... because ... but also because ...` | 先写“现象—原因一—原因二”，不急着翻局部名词 |
+| replace A with B 方向翻转 | high | Day 81 | A 是被替换者，B 是替代者；中文落成“用 B 替代 A” |
 | have done ... to do 主干断裂 | high | `we have identified ... to make forecasts` | 先译“已经识别出……，从而能够……” |
 | 长名词主语后的全句谓语漏读 | high | `The Constitutional principles ... are noncontroversial` | 越过插入从句，先用主语和最终谓语封口 |
 | that A and that B 并列层级未识别 | medium | Day 78 | 先把两个 `that` 标成同级内容块 |
@@ -105,7 +110,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | `t1/july/0713-day78-structure-drill.md` | 抽象名词 + `that` 内容从句时，保留主句谓语槽位 |
 | `t1/july/0713-head-noun-attachment-chain-drill.md` | 一个头名词后多解释块连续挂载时，先归属再重排 |
 | `t1/july/0713-day78-meaning-shift-drill.md` | 熟词跨语境后，用核心意象迁移到当前对象关系 |
-| `t1/july/0714-day79-drill.md` | 关系代词先回填先行词 |
+| `t1/july/0714-day79-chunk-recognition-drill.md` | 动词短语先整体识别，再决定是否逐词 |
+| `t1/july/0714-day79-register-mapping-drill.md` | 固定关系不变时，按语境选择归因/归咎/怪罪等中文落点 |
 
 ## 用户交付物
 
