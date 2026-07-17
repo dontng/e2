@@ -6,11 +6,11 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 项目 | 状态 |
 |---|---|
-| 当前 day | Day 81 |
+| 当前 day | Day 83 |
 | 当前周 | 2026-W29 |
 | 最近 7 天完成 | 6 / 7 |
-| 当前 T0 范围 | `0518-day30` 到 `0716-day81` |
-| 下一次打开 | 新增或批改 Day 82 |
+| 当前 T0 范围 | `0518-day30` 到 `0718-day83` |
+| 下一次打开 | 新增或批改 Day 84 |
 
 ## 当前风险
 
@@ -21,12 +21,14 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of`, `blame A on B` | 看到介词先圈完整信息块，判断它引出对象、原因还是路径 |
 | 核心动词落地 | high | `suppress`, `descended`, `identified`, `precede`, `vanish`, `relate`, `automate`, `replace` | 每个语义块结束前检查核心动作；不会时至少先判方向 |
 | 回指与省略 | high | `Myriad's`, `in which`, `find themselves`, Day 79 `which` | 关系词或代词进入中文前，必须回填明确对象或整件事 |
-| 句子期待位保留 | high | Day 78 `The Constitutional principles that ... and that ... are noncontroversial` | 抽象名词开头先保留“这个名词最后怎么样”的槽位 |
-| 头名词挂载链 | high | Day 78 probe：一个头名词后连续挂多个解释块时崩溃放弃 | 先判每个后置块挂给谁，再找主句谓语和中文重排 |
+| 句子期待位保留 | high | Day 78 `The Constitutional principles that ... and that ... are noncontroversial`；Day 82 否定比较判断 | 抽象名词或比较结构开头先保留“最后结论是什么”的槽位 |
+| 头名词挂载链 | high | Day 78 多解释块；Day 82 `Bill ... that ensures that ...` | 先判每个后置块挂给谁，再找主句谓语和中文重排 |
 | 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; 既往简单词短语硬拼 | 常见释义发怪时，回到核心意象，再按当前对象关系落中文 |
 | 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington` | 大写词先判专名/代指；政治法律词按制度层级限制词义 |
 | 词形辨认 | medium | `district`, `competing`, `demoralization`, `automated` | 读完整词干与后缀，不因局部形近跳到熟词 |
 | 因果与替换方向 | high | Day 81 `reason ... because ... but also because ...`, `replace A with B` | 先列“现象—原因一—原因二”；替换结构先标被替换者 A 和替代者 B |
+| 否定比较关系 | medium | Day 82 `nothing would be more important than ...` | 把否定主语、比较级和 `than` 后对象一起封口，再收束成最高级判断 |
+| 倒装与真主语 | medium | Day 83 `Along with A came B` | 前置伴随块后先找动词，再确认动词后的 B 才是真正主语 |
 
 ## 理解出口追踪
 
@@ -35,17 +37,17 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 标签 | 权重 | 当前证据 | 下一次要验证的出口 |
 |---|---:|---|---|
 | `出口/义项` | high | `alone`, `precede`, `give in`, `make it`, `hold out` | 能否从常见义先走到更宽的动作，再落到当前对象 |
-| `出口/关系` | high | `blame A on B`, `keep A away from B`, `replace A with B` | 能否先用普通中文摆稳结果、原因、承受者与替代者 |
+| `出口/关系` | high | `blame A on B`, `keep A away from B`, `replace A with B`；Day 82 否定比较级 | 能否先用普通中文摆稳比较、结果、原因、承受者与替代者 |
 | `出口/期待` | high | Day 78 两个 `that` 后的主句谓语；Day 81 双因果骨架 | 能否保留“这个名词/现象最后怎么样”的未完成槽位 |
-| `出口/挂载` | high | Day 78 多个后置解释块 | 能否判断每块服务谁，再决定中文顺序 |
+| `出口/挂载` | high | Day 78 多个后置解释块；Day 82 两个 `that` | 能否判断每块服务谁，再决定中文顺序 |
 | `出口/语境` | medium | Day 79 `blame` 的归因/归咎；制度语境的 `precede` | 能否先守住关系，再按对象与立场调整中文 |
-| `出口/重组` | medium | Day 78、81 读到部分关系后中文散裂 | 能否先保住语义骨架，再前置、拆句或压缩 |
+| `出口/重组` | high | Day 78、81 中文散裂；Day 83 前置伴随块后的倒装未还原 | 能否先恢复语义骨架和真主语，再前置、拆句或压缩 |
 
 ## 今日预警
 
-1. 长句先列骨架：谁在说什么，现象是什么，原因有几层，再回填修饰。
-2. 熟词组合先试整体；遇到标题、来源、目的或替换关系，不按字面拼。
-3. `replace A with B` 先标 A 是被替代者、B 是替代者；每个语义块都要落下核心动作。
+1. 否定主语与比较级连用时，把 `nothing/no one + more ... than` 整体还原，不单独处理 `more`。
+2. 句首伴随、地点或方向块后直接出现动词时，继续寻找动词后的真主语，再恢复普通语序。
+3. 每个 `that/which/who` 进入中文前先回填头名词；同句正反方向词要互相校验。
 
 ## 收益反馈
 
@@ -53,8 +55,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 |---|---|
 | 已稳定 | 每日批改格式、周审计入口及原译证据保留已稳定 |
 | 正在压低 | Day 79 已改为“义项过桥→关系落点”的 13 条训练包；后续检查它是否真能让出口走通 |
-| 仍然活跃 | 固定表达、长句主干、核心动词、因果与替换方向 |
-| 下次验证 | 能否在双因果句中先保住骨架，并正确判断替换方向 |
+| 仍然活跃 | 固定表达、长句主干、从句挂载、否定比较关系、倒装真主语 |
+| 下次验证 | 能否在否定比较级中读出最高级结论，并在前置块后准确找到真主语 |
 
 ## T1 量化口径
 
@@ -104,6 +106,9 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 中文重排承受力不足 | medium | Day 78 probe：直球内容给出后仍因后置链过长而放弃 | 先建结构树；中文允许前置、拆句或压缩，不强行顺译 |
 | 熟词跨语境后仍停在生活场景义 | high | Day 78 `alone` 只熟“孤独”，`precede` 只熟“之前/更早” | 常见释义别硬套；先抓“排除其他主体”“在前/优先”这类核心意象 |
 | 英文通用动词到中文关系词转换不足 | medium | Day 78 `federal laws precede state laws` | 主宾是抽象对象时，先判关系类型，再落成“优先于/位于之前/成立/取决于”等中文关系词 |
+| 否定主语 + 比较级 + than 未合读 | medium | Day 82 `nothing would be more important than passing ...` | 先说完整的“没有什么比 X 更重要”，再压缩成“X 最重要” |
+| 前置 along with 块误作主语 | medium | Day 83 `Along with A came B` | 先恢复 `B came along with A`，再翻两组对象的对照 |
+| 对照句中的词义极性翻转 | medium | Day 83 `permanent` 被译成“短暂” | 用同句 `no intention to stay` 反查方向，正反两端必须能够构成对照 |
 
 ## Codex 执行
 
