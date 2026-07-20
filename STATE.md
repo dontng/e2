@@ -46,7 +46,7 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 ## 今日预警
 
-1. 看到 `look beyond X`，先说“不只停在 X 的框架里”，不要把 `beyond` 直译成“背后”。
+1. 看到 `V + 介词/小品词 + X`，先警惕 V 已变成“归结、补偿、关联、屈从、领会、造成、归因、暗指或退回备用方案”等新动作；不要先用动词常见义封口，再把介词逐词补上。
 2. `right or wrong` 与 `middle ground` 同句出现时，先建立二分判断和折中空间的对照。
 3. `hard-wired` 修饰反应或习惯时，从“线路预先接好”走到“自动触发、根深蒂固”；`likely to do` 保留未来方向。
 
@@ -110,7 +110,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 否定主语 + 比较级 + than 未合读 | medium | Day 82 `nothing would be more important than passing ...` | 先说完整的“没有什么比 X 更重要”，再压缩成“X 最重要” |
 | 前置 along with 块误作主语 | medium | Day 83 `Along with A came B` | 先恢复 `B came along with A`，再翻两组对象的对照 |
 | 对照句中的词义极性翻转 | medium | Day 83 `permanent` 被译成“短暂” | 用同句 `no intention to stay` 反查方向，正反两端必须能够构成对照 |
-| beyond + 抽象框架按空间字面拆开 | medium | Day 84 `look beyond the ... logic` | 先还原“不只停在 X 中判断”，再找 X 外要看的层次 |
+| 介词未触发词组义 | medium | Day 84 `look beyond the ... logic` | 先承认 V 已被介词重组为一个新动作，再从对象和结果辨析词组义；不用动词常见义先封口 |
+| 介词 + w- 作用域误判 | medium | 0720 drill probe：`years in which ...` 与 `in which years ...` | 先判 w-块是在界定左边已有名词，还是在提出“什么／哪里／哪一个”的未知内容；两种情况分别按“……的 N”与“……什么／哪里”读 |
 | hard-wired + 反应按物理连接理解 | medium | Day 85 `hard-wired responses` | 先用“预先接好、自动触发”过桥，再落成“近乎本能/根深蒂固” |
 
 ## Codex 执行
@@ -133,6 +134,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | `t1/july/0713-head-noun-attachment-chain-drill.md` | 一个头名词后多解释块连续挂载时，先归属再重排 |
 | `t1/july/0713-day78-meaning-shift-drill.md` | 熟词跨语境后，用核心意象迁移到当前对象关系 |
 | `t1/july/0714-day79-phrase-chain-drill.md` | 从熟动词常见义走到句中义，再把介词关系落成活中文 |
+| `t1/july/0720-day84-verb-reframing-drill.md` | 先让介词把熟动词重组为新的词组动作，再从对象和结果辨析其义 |
+| `t1/july/0720-day84-preposition-wh-scope-drill.md` | 区分介词 + w-块是在界定已有名词，还是在提出整件事的未知内容 |
 
 ## 用户交付物
 
