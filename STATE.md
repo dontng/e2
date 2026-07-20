@@ -6,11 +6,11 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 项目 | 状态 |
 |---|---|
-| 当前 day | Day 83 |
-| 当前周 | 2026-W29 |
+| 当前 day | Day 85 |
+| 当前周 | 2026-W30 |
 | 最近 7 天完成 | 6 / 7 |
-| 当前 T0 范围 | `0518-day30` 到 `0718-day83` |
-| 下一次打开 | 新增或批改 Day 84 |
+| 当前 T0 范围 | `0518-day30` 到 `0721-day85` |
+| 下一次打开 | 新增或批改 Day 86 |
 
 ## 当前风险
 
@@ -23,7 +23,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 回指与省略 | high | `Myriad's`, `in which`, `find themselves`, Day 79 `which` | 关系词或代词进入中文前，必须回填明确对象或整件事 |
 | 句子期待位保留 | high | Day 78 `The Constitutional principles that ... and that ... are noncontroversial`；Day 82 否定比较判断 | 抽象名词或比较结构开头先保留“最后结论是什么”的槽位 |
 | 头名词挂载链 | high | Day 78 多解释块；Day 82 `Bill ... that ensures that ...` | 先判每个后置块挂给谁，再找主句谓语和中文重排 |
-| 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; 既往简单词短语硬拼 | 常见释义发怪时，回到核心意象，再按当前对象关系落中文 |
+| 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; Day 85 `hard-wired`; 既往简单词短语硬拼 | 常见释义发怪时，回到核心意象，再按当前对象关系落中文 |
+| 二元框架与立场关系 | medium | Day 84 `look beyond ... right or wrong`, `middle ground` | 先建“不要只停在 X—为两端之间留出空间”的关系，再落中文 |
 | 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington` | 大写词先判专名/代指；政治法律词按制度层级限制词义 |
 | 词形辨认 | medium | `district`, `competing`, `demoralization`, `automated` | 读完整词干与后缀，不因局部形近跳到熟词 |
 | 因果与替换方向 | high | Day 81 `reason ... because ... but also because ...`, `replace A with B` | 先列“现象—原因一—原因二”；替换结构先标被替换者 A 和替代者 B |
@@ -37,7 +38,7 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 标签 | 权重 | 当前证据 | 下一次要验证的出口 |
 |---|---:|---|---|
 | `出口/义项` | high | `alone`, `precede`, `give in`, `make it`, `hold out` | 能否从常见义先走到更宽的动作，再落到当前对象 |
-| `出口/关系` | high | `blame A on B`, `keep A away from B`, `replace A with B`；Day 82 否定比较级 | 能否先用普通中文摆稳比较、结果、原因、承受者与替代者 |
+| `出口/关系` | high | `blame A on B`, `keep A away from B`, `replace A with B`；Day 82 否定比较级；Day 84 `beyond / middle ground` | 能否先用普通中文摆稳比较、边界、结果、原因、承受者与替代者 |
 | `出口/期待` | high | Day 78 两个 `that` 后的主句谓语；Day 81 双因果骨架 | 能否保留“这个名词/现象最后怎么样”的未完成槽位 |
 | `出口/挂载` | high | Day 78 多个后置解释块；Day 82 两个 `that` | 能否判断每块服务谁，再决定中文顺序 |
 | `出口/语境` | medium | Day 79 `blame` 的归因/归咎；制度语境的 `precede` | 能否先守住关系，再按对象与立场调整中文 |
@@ -45,9 +46,9 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 ## 今日预警
 
-1. 否定主语与比较级连用时，把 `nothing/no one + more ... than` 整体还原，不单独处理 `more`。
-2. 句首伴随、地点或方向块后直接出现动词时，继续寻找动词后的真主语，再恢复普通语序。
-3. 每个 `that/which/who` 进入中文前先回填头名词；同句正反方向词要互相校验。
+1. 看到 `look beyond X`，先说“不只停在 X 的框架里”，不要把 `beyond` 直译成“背后”。
+2. `right or wrong` 与 `middle ground` 同句出现时，先建立二分判断和折中空间的对照。
+3. `hard-wired` 修饰反应或习惯时，从“线路预先接好”走到“自动触发、根深蒂固”；`likely to do` 保留未来方向。
 
 ## 收益反馈
 
@@ -55,8 +56,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 |---|---|
 | 已稳定 | 每日批改格式、周审计入口及原译证据保留已稳定 |
 | 正在压低 | Day 79 已改为“义项过桥→关系落点”的 13 条训练包；后续检查它是否真能让出口走通 |
-| 仍然活跃 | 固定表达、长句主干、从句挂载、否定比较关系、倒装真主语 |
-| 下次验证 | 能否在否定比较级中读出最高级结论，并在前置块后准确找到真主语 |
+| 仍然活跃 | 固定表达、长句主干、从句挂载、二元框架关系、熟词跨语境迁移 |
+| 下次验证 | 能否把 `beyond X` 读成边界外的判断，并在反应/习惯语境中正确落地 `hard-wired` |
 
 ## T1 量化口径
 
@@ -109,6 +110,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 否定主语 + 比较级 + than 未合读 | medium | Day 82 `nothing would be more important than passing ...` | 先说完整的“没有什么比 X 更重要”，再压缩成“X 最重要” |
 | 前置 along with 块误作主语 | medium | Day 83 `Along with A came B` | 先恢复 `B came along with A`，再翻两组对象的对照 |
 | 对照句中的词义极性翻转 | medium | Day 83 `permanent` 被译成“短暂” | 用同句 `no intention to stay` 反查方向，正反两端必须能够构成对照 |
+| beyond + 抽象框架按空间字面拆开 | medium | Day 84 `look beyond the ... logic` | 先还原“不只停在 X 中判断”，再找 X 外要看的层次 |
+| hard-wired + 反应按物理连接理解 | medium | Day 85 `hard-wired responses` | 先用“预先接好、自动触发”过桥，再落成“近乎本能/根深蒂固” |
 
 ## Codex 执行
 
