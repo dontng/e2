@@ -6,11 +6,11 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 项目 | 状态 |
 |---|---|
-| 当前 day | Day 85 |
+| 当前 day | Day 87 |
 | 当前周 | 2026-W30 |
 | 最近 7 天完成 | 6 / 7 |
-| 当前 T0 范围 | `0518-day30` 到 `0721-day85` |
-| 下一次打开 | 新增或批改 Day 86 |
+| 当前 T0 范围 | `0518-day30` 到 `0723-day87` |
+| 下一次打开 | 新增或批改 Day 88 |
 
 ## 当前风险
 
@@ -25,7 +25,7 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 头名词挂载链 | high | Day 78 多解释块；Day 82 `Bill ... that ensures that ...` | 先判每个后置块挂给谁，再找主句谓语和中文重排 |
 | 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; Day 85 `hard-wired`; 既往简单词短语硬拼 | 常见释义发怪时，回到核心意象，再按当前对象关系落中文 |
 | 二元框架与立场关系 | medium | Day 84 `look beyond ... right or wrong`, `middle ground` | 先建“不要只停在 X—为两端之间留出空间”的关系，再落中文 |
-| 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington` | 大写词先判专名/代指；政治法律词按制度层级限制词义 |
+| 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington`, Day 87 `Hair / Broadway / open` | 大写词先判专名/代指；再用所在场景限制动词和名词的含义 |
 | 词形辨认 | medium | `district`, `competing`, `demoralization`, `automated` | 读完整词干与后缀，不因局部形近跳到熟词 |
 | 因果与替换方向 | high | Day 81 `reason ... because ... but also because ...`, `replace A with B` | 先列“现象—原因一—原因二”；替换结构先标被替换者 A 和替代者 B |
 | 否定比较关系 | medium | Day 82 `nothing would be more important than ...` | 把否定主语、比较级和 `than` 后对象一起封口，再收束成最高级判断 |
@@ -46,9 +46,9 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 ## 今日预警
 
-1. 看到 `V + 介词/小品词 + X`，先警惕 V 已变成“归结、补偿、关联、屈从、领会、造成、归因、暗指或退回备用方案”等新动作；不要先用动词常见义封口，再把介词逐词补上。
-2. `right or wrong` 与 `middle ground` 同句出现时，先建立二分判断和折中空间的对照。
-3. `hard-wired` 修饰反应或习惯时，从“线路预先接好”走到“自动触发、根深蒂固”；`likely to do` 保留未来方向。
+1. `break through to X` 先保住“突破障碍、进入 X”；看到 `do/did` 时，回找它强调或代替的完整动作。
+2. `exception to the rule` 一律先按“通常规律之外的少数例外”理解，检查是否与后句因果吻合。
+3. 大写词加演出、出版或制度场景时，先判专名；`open`、`pop into one's mind` 等熟词再按事件或记忆语境整体读。
 
 ## 收益反馈
 
@@ -56,8 +56,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 |---|---|
 | 已稳定 | 每日批改格式、周审计入口及原译证据保留已稳定 |
 | 正在压低 | Day 79 已改为“义项过桥→关系落点”的 13 条训练包；后续检查它是否真能让出口走通 |
-| 仍然活跃 | 固定表达、长句主干、从句挂载、二元框架关系、熟词跨语境迁移 |
-| 下次验证 | 能否把 `beyond X` 读成边界外的判断，并在反应/习惯语境中正确落地 `hard-wired` |
+| 仍然活跃 | 固定表达、长句主干、从句挂载、熟词跨语境迁移、专名与场景定向 |
+| 下次验证 | 能否把 `V + 介词 + 层级/地点` 封成完整动作，并让专名、场景和核心动词互相校验 |
 
 ## T1 量化口径
 
@@ -113,6 +113,8 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | 介词未触发词组义 | medium | Day 84 `look beyond the ... logic` | 先承认 V 已被介词重组为一个新动作，再从对象和结果辨析词组义；不用动词常见义先封口 |
 | 介词 + w- 作用域误判 | medium | 0720 drill probe：`years in which ...` 与 `in which years ...` | 先判 w-块是在界定左边已有名词，还是在提出“什么／哪里／哪一个”的未知内容；两种情况分别按“……的 N”与“……什么／哪里”读 |
 | hard-wired + 反应按物理连接理解 | medium | Day 85 `hard-wired responses` | 先用“预先接好、自动触发”过桥，再落成“近乎本能/根深蒂固” |
+| break + through + to 被拆成普通 break | medium | Day 86 `break through to the summit` | 先把 through 读成突破门槛，再把 to 后层级当作最终抵达处 |
+| 演出语境中的作品/地点/动词未合读 | medium | Day 87 `Hair opened on Broadway` | 大写词先判作品或地点专名；戏剧作主语时 `open` 先试“首演/开演” |
 
 ## Codex 执行
 
