@@ -6,30 +6,31 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 项目 | 状态 |
 |---|---|
-| 当前 day | Day 87 |
-| 当前周 | 2026-W30 |
+| 当前 day | Day 90 |
+| 当前周 | 2026-W31 |
 | 最近 7 天完成 | 6 / 7 |
-| 当前 T0 范围 | `0518-day30` 到 `0723-day87` |
-| 下一次打开 | 新增或批改 Day 88 |
+| 当前 T0 范围 | `0518-day30` 到 `0727-day90` |
+| 下一次打开 | 新增或批改 Day 91 |
 
 ## 当前风险
 
 | 风险线 | 权重 | 证据 | 下一次预警 |
 |---|---:|---|---|
-| 固定表达识别 | high | `best and brightest`, `bargain bin`, `hold the key to`, `find themselves`, `give in to`, `blame A on B`, `make it`, `keep A away from B`, `make the point that`, `replace A with B` | 简单动词加介词或固定宾语结构时先按整体试读，再确定各成分关系 |
-| 长句主干锁定 | high | `we have identified ... to make forecasts`, `The Constitutional principles ... are noncontroversial`, Day 81 双因果句 | 先标文章框架、现象、原因一、原因二，再回到完整主干 |
-| 介词短语合读 | high | `access to`, `graduating into`, `at the prospect of`, `blame A on B` | 看到介词先圈完整信息块，判断它引出对象、原因还是路径 |
-| 核心动词落地 | high | `suppress`, `descended`, `identified`, `precede`, `vanish`, `relate`, `automate`, `replace` | 每个语义块结束前检查核心动作；不会时至少先判方向 |
-| 回指与省略 | high | `Myriad's`, `in which`, `find themselves`, Day 79 `which` | 关系词或代词进入中文前，必须回填明确对象或整件事 |
-| 句子期待位保留 | high | Day 78 `The Constitutional principles that ... and that ... are noncontroversial`；Day 82 否定比较判断 | 抽象名词或比较结构开头先保留“最后结论是什么”的槽位 |
-| 头名词挂载链 | high | Day 78 多解释块；Day 82 `Bill ... that ensures that ...` | 先判每个后置块挂给谁，再找主句谓语和中文重排 |
-| 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; Day 85 `hard-wired`; 既往简单词短语硬拼 | 常见释义发怪时，回到核心意象，再按当前对象关系落中文 |
+| 固定表达识别 | high | `best and brightest`, `give in to`, `blame A on B`, `keep A away from B`, `replace A with B`, `when it comes to` | 简单动词加介词或固定宾语结构时先按整体试读，再确定各成分关系 |
+| 长句主干锁定 | high | `The Constitutional principles ... are noncontroversial`；Day 81 双因果句；Day 90 长主语后的 `has long been outgrown` | 插入块先括起，继续等待能够对完整主语作出判断的谓语 |
+| 介词短语合读 | high | `access to`, `blame A on B`；Day 89 `pressure for A from B`, `keep A out of B`, `isolate C from D` | 连续介词不要合成模糊方向；逐组写明对象、来源、边界和隔离关系 |
+| 核心动词落地 | high | `suppress`, `precede`, `vanish`, `replace`；Day 90 `outgrow` | 每个语义块结束前检查核心动作；抽象义不会时从具体动作提取稳定关系 |
+| 回指与省略 | high | `in which`, Day 79 `which`；Day 90 `each of whom`, `who is ignored` | 先用语义角色筛选先行对象，再用距离和形式确认 |
+| 句子期待位保留 | high | Day 78 长名词主语；Day 88 `Only if ... will they be eligible ...`；Day 90 `the limit ... has long been outgrown` | 长条件、长主语或插入块结束前始终保留“主句最后断言什么”的槽位 |
+| 头名词挂载链 | high | Day 78 多解释块；Day 89 两套 A/B 关系；Day 90 `each of whom / as / who / when it comes to` | 先给每块找归属和语义角色，再决定中文顺序 |
+| 熟词跨语境迁移 | high | Day 78 `alone`, `precede`; Day 85 `hard-wired`; Day 90 `outgrow`, `nature`, `row` | 常见释义发怪时，先提取核心动作或同形区别，再按对象落中文 |
 | 二元框架与立场关系 | medium | Day 84 `look beyond ... right or wrong`, `middle ground` | 先建“不要只停在 X—为两端之间留出空间”的关系，再落中文 |
 | 专名与语境定向 | medium | `Priestly`, `Federal Trade Commission`, `internet browsers`, `Washington`, Day 87 `Hair / Broadway / open` | 大写词先判专名/代指；再用所在场景限制动词和名词的含义 |
 | 词形辨认 | medium | `district`, `competing`, `demoralization`, `automated` | 读完整词干与后缀，不因局部形近跳到熟词 |
 | 因果与替换方向 | high | Day 81 `reason ... because ... but also because ...`, `replace A with B` | 先列“现象—原因一—原因二”；替换结构先标被替换者 A 和替代者 B |
 | 否定比较关系 | medium | Day 82 `nothing would be more important than ...` | 把否定主语、比较级和 `than` 后对象一起封口，再收束成最高级判断 |
 | 倒装与真主语 | medium | Day 83 `Along with A came B` | 前置伴随块后先找动词，再确认动词后的 B 才是真正主语 |
+| 对比范围与同级关系 | medium | Day 89 `make money rather than serve clients ethically` | 看到对比词先寻找左右同级成分，再确认它们共同受谁支配 |
 
 ## 理解出口追踪
 
@@ -37,27 +38,27 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 
 | 标签 | 权重 | 当前证据 | 下一次要验证的出口 |
 |---|---:|---|---|
-| `出口/义项` | high | `alone`, `precede`, `give in`, `make it`, `hold out` | 能否从常见义先走到更宽的动作，再落到当前对象 |
-| `出口/关系` | high | `blame A on B`, `keep A away from B`, `replace A with B`；Day 82 否定比较级；Day 84 `beyond / middle ground` | 能否先用普通中文摆稳比较、边界、结果、原因、承受者与替代者 |
-| `出口/期待` | high | Day 78 两个 `that` 后的主句谓语；Day 81 双因果骨架 | 能否保留“这个名词/现象最后怎么样”的未完成槽位 |
-| `出口/挂载` | high | Day 78 多个后置解释块；Day 82 两个 `that` | 能否判断每块服务谁，再决定中文顺序 |
+| `出口/义项` | high | `alone`, `precede`, `give in`；Day 90 `outgrow / nature / row` | 能否从具体常见义提取稳定关系，再落到抽象对象 |
+| `出口/关系` | high | `blame A on B`, `replace A with B`；Day 89 多组介词论元与 `rather than` | 能否先用普通中文摆稳来源、边界、受影响者和对比两端 |
+| `出口/期待` | high | Day 78 主句谓语；Day 88 前置条件后的倒装结论；Day 90 长主语后的核心谓语 | 能否保留“这个名词或条件最后导向什么”的未完成槽位 |
+| `出口/挂载` | high | Day 78 多个后置解释块；Day 89 两套 A/B 关系；Day 90 多个关系块 | 能否判断每块服务谁，再决定中文顺序 |
 | `出口/语境` | medium | Day 79 `blame` 的归因/归咎；制度语境的 `precede` | 能否先守住关系，再按对象与立场调整中文 |
 | `出口/重组` | high | Day 78、81 中文散裂；Day 83 前置伴随块后的倒装未还原 | 能否先恢复语义骨架和真主语，再前置、拆句或压缩 |
 
 ## 今日预警
 
-1. `break through to X` 先保住“突破障碍、进入 X”；看到 `do/did` 时，回找它强调或代替的完整动作。
-2. `exception to the rule` 一律先按“通常规律之外的少数例外”理解，检查是否与后句因果吻合。
-3. 大写词加演出、出版或制度场景时，先判专名；`open`、`pop into one's mind` 等熟词再按事件或记忆语境整体读。
+1. 长名词主语中出现插入块时先括起，继续等待全句谓语，不因局部信息完整而提前封句。
+2. 抽象宾语前的熟动词若直译发怪，先恢复它最具体的动作关系，再迁移到制度、规模或观点。
+3. `who/which` 不只按距离找先行对象；先问谁在语义上能够执行或承受该动作。
 
 ## 收益反馈
 
 | 项目 | 状态 |
 |---|---|
 | 已稳定 | 每日批改格式、周审计入口及原译证据保留已稳定 |
-| 正在压低 | Day 79 已改为“义项过桥→关系落点”的 13 条训练包；后续检查它是否真能让出口走通 |
-| 仍然活跃 | 固定表达、长句主干、从句挂载、熟词跨语境迁移、专名与场景定向 |
-| 下次验证 | 能否把 `V + 介词 + 层级/地点` 封成完整动作，并让专名、场景和核心动词互相校验 |
+| 正在压低 | Day 88 已把倒装压成“只有条件，结果才成立”；Day 90 已为 `outgrow` 建立“超过旧容器容量”的义项桥 |
+| 仍然活跃 | 长句主干、主句期待位、多组论元对齐、从句挂载、熟词抽象义迁移 |
+| 下次验证 | 能否越过插入块锁定真正谓语，并用语义角色而非最近距离完成回指 |
 
 ## T1 量化口径
 
@@ -115,6 +116,10 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | hard-wired + 反应按物理连接理解 | medium | Day 85 `hard-wired responses` | 先用“预先接好、自动触发”过桥，再落成“近乎本能/根深蒂固” |
 | break + through + to 被拆成普通 break | medium | Day 86 `break through to the summit` | 先把 through 读成突破门槛，再把 to 后层级当作最终抵达处 |
 | 演出语境中的作品/地点/动词未合读 | medium | Day 87 `Hair opened on Broadway` | 大写词先判作品或地点专名；戏剧作主语时 `open` 先试“首演/开演” |
+| Only if 前置后倒装主结论漏读 | high | Day 88 `Only if ... will they be eligible for benefit` | 先搭“只有……才……”并保留结果槽；见 `will + 主语 + 动词` 立即还原主句 |
+| 同句多组介词论元相互串位 | high | Day 89 `pressure for A from B`; `keep A out of B`; `isolate C from D` | 每组先独立写成短关系，再合并；禁止让上一组角色自动沿用到下一组 |
+| outgrow + 抽象宾语只读成普通发展 | high | Day 90 `the limit ... has been outgrown by ... research` | 从“长得超过旧衣服容量”过桥到“新规模使旧规则不再够用” |
+| who 回指被最近名词劫持 | medium | Day 90 `row over who is ignored` | 先找语义上能被忽略的候选人，再检查形式和距离 |
 
 ## Codex 执行
 
@@ -136,7 +141,6 @@ T1 状态层。它不保存英语资料，不替代每日批改；它只把所�
 | `t1/july/0713-head-noun-attachment-chain-drill.md` | 一个头名词后多解释块连续挂载时，先归属再重排 |
 | `t1/july/0713-day78-meaning-shift-drill.md` | 熟词跨语境后，用核心意象迁移到当前对象关系 |
 | `t1/july/0714-day79-phrase-chain-drill.md` | 从熟动词常见义走到句中义，再把介词关系落成活中文 |
-| `t1/july/0720-day84-verb-reframing-drill.md` | 先让介词把熟动词重组为新的词组动作，再从对象和结果辨析其义 |
 | `t1/july/0720-day84-preposition-wh-scope-drill.md` | 区分介词 + w-块是在界定已有名词，还是在提出整件事的未知内容 |
 
 ## 用户交付物
