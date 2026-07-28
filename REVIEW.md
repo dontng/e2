@@ -5,6 +5,8 @@
 本轮覆盖：
 
 - `src/july/0727-day90.md`
+- `src/july/0728-day91.md`
+- `src/july/0729-day92.md`
 
 不覆盖：
 
