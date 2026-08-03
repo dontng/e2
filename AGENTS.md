@@ -14,7 +14,8 @@
 
 ## 执行边界
 
-- 有效内容在 `src/`、`t1/`、`reviews/`、`STATE.md`、`REVIEW.md`、`STANDARD.md`。
+- 每日训练的有效内容在 `src/`、`t1/`、`reviews/`、`STATE.md`、`REVIEW.md`、`STANDARD.md`。
+- `reading/` 是独立的阅读材料模块。阅读任务先读 `reading/README.md`，再按需要进入 `reading/english2/analysis/`、OCR 或真题 PDF；不要把整套阅读语料纳入每日批改扫描。
 - `archive/` 和 `archive2/` 是历史归档，日常不参与。
 - 每日批改格式以 `STANDARD.md` 为准。
 - 批改完成后，把 `## 我的翻译` 整块注释掉，不删除。

@@ -1,6 +1,8 @@
-# english2-daily
+# e2
 
-英二每日翻译训练库。当前版本只保留一条主线：每天翻译一句，把错因、修正路线、词汇短语和可迁移复盘写清楚。
+英语二学习主仓库。它以原 `english2-daily` 的每日翻译训练为主线，并在 `reading/` 中保留历年阅读真题、OCR、分析和 IELTS 材料。
+
+两个项目的原 Git 历史已经通过双父 merge commit 接入本仓库，没有 squash 或重写。原 `reading` 仓库只作为只读归档保留；后续有效工作统一进入本仓库。
 
 旧的自动化网页、fool/probe/console 系统已归档到 `archive2/`，不参与当前日常流程。
 
@@ -17,6 +19,7 @@ reviews/               # 周总结与批改质量审计
 src/                   # 每日翻译与批改正文
 t1/                    # T1 专项训练包
 scripts/src-nav.sh     # day 导航刷新脚本
+reading/               # 阅读真题、OCR、分析和 IELTS 材料
 archive/, archive2/    # 历史归档，不参与日常
 ```
 
@@ -31,6 +34,8 @@ archive/, archive2/    # 历史归档，不参与日常
 5. `REVIEW.md`：确认当前审计范围。
 6. `reviews/<week>.md`：读取本周暴露的问题和批改质量记录。
 7. `src/<month>/MMDD-dayN.md`：只在需要核对证据或执行批改时打开每日文件。
+
+阅读任务从 `reading/README.md` 进入，再按需要打开 `reading/english2/analysis/`、`reading/english2/ocr/` 或对应真题 PDF。阅读材料不改变每日批改的 T0/T1 接口。
 
 这个项目给 Codex 留的是接口，不是一个巨型总文件。`REVIEW.md` 只指路，周总结承载滚动复盘，每日文件保留完整证据。
 
@@ -128,3 +133,17 @@ src/
 t1/
 scripts/src-nav.sh
 ```
+
+## Reading 模块
+
+`reading/` 是从原独立仓库完整并入的阅读材料模块：
+
+```text
+reading/README.md              # 模块入口与目录说明
+reading/english1/              # 英语一 OCR 与真题 PDF
+reading/english2/              # 英语二 OCR、真题 PDF 与阅读分析
+reading/ielts16/               # IELTS 16 示例材料
+reading/VOCAB_PLAN.md          # 合并前的词汇管线规划记录
+```
+
+原仓库中的 8 个 commit 仍可沿合并提交的第二父历史访问；文件只是统一放到了 `reading/` 前缀下。
