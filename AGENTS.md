@@ -6,17 +6,16 @@
 
 日常不要从 GitHub 链接或全仓库扫描开始。优先读取：
 
-1. `REVIEW.md`：当前审计入口，说明本次要看的周总结和每日文件范围。
-2. `t1/CONSTITUTION.md`：T1 解释宪法，确认什么算真正解释、当前如何追踪理解断点。
-3. `STATE.md`：T1 提分状态层，记录当前风险、预警、进度反馈和下一次动作。
-4. `reviews/<week>.md`：周总结，记录批改后暴露的问题、批改覆盖缺口和下周观察点。
-5. `src/<month>/MMDD-dayN.md`：每日原始证据，只在需要核对具体句子和批改时打开。
+1. `suggest/README.md`：现阶段任务、真题递归口径和执行顺序。
+2. `reading/README.md`：完整真题、OCR和年度分析入口。
+3. 处理旧 daily/T1 证据时，再读取 `REVIEW.md`、`t1/CONSTITUTION.md`、`STATE.md`、`reviews/` 和 `src/`。
 
 ## 执行边界
 
-- 每日训练的有效内容在 `src/`、`t1/`、`reviews/`、`STATE.md`、`REVIEW.md`、`STANDARD.md`。
-- `reading/` 是独立的阅读材料模块。阅读任务先读 `reading/README.md`，再按需要进入 `reading/english2/analysis/`、OCR 或真题 PDF；不要把整套阅读语料纳入每日批改扫描。
-- `archive/` 和 `archive2/` 是历史归档，日常不参与。
+- 当前主任务以 `suggest/README.md` 为准，2016—2025完整英二真题是核心语料。
+- `reading/` 不再只是每日批改之外的独立模块；真题任务先读 `reading/README.md`，再进入完整 OCR、PDF 或年度分析。
+- `src/`、`t1/`、`reviews/`、`STATE.md`、`REVIEW.md` 和 `STANDARD.md` 保留旧 daily/T1 证据与规则，只在相关任务中读取。
+- `archive/` 是历史归档，日常不参与。
 - 每日批改格式以 `STANDARD.md` 为准。
 - 批改完成后，把 `## 我的翻译` 整块注释掉，不删除。
 - 新增或批改日文件后运行 `bash scripts/src-nav.sh`。
