@@ -4,23 +4,20 @@
 
 两个项目的原 Git 历史已经通过双父 merge commit 接入本仓库，没有 squash 或重写。原 `reading` 仓库只作为只读归档保留；后续有效工作统一进入本仓库。
 
-原 `english2-daily` 的每日翻译、T1、自动化网页、fool/probe/console 等内容保留为历史证据，不再决定当前主线。
+原 `english2-daily` 的每日翻译正文、T1 状态快照和批改规范保留为历史证据，不再决定当前主线。
 
 ## 当前架构
 
 ```text
 README.md              # 项目总览，帮助人和 Codex 快速认清结构
 AGENTS.md              # Codex 长期工作规则
-suggest/README.md      # 现阶段目标、任务、建议与执行顺序
-t1/CONSTITUTION.md      # 历史 T1 解释宪法
+suggest/0804-tasks-and-suggestions.md  # 0804任务、建议与执行顺序
 STATE.md               # 历史 T1 状态层
 REVIEW.md              # 历史批改审计入口
 STANDARD.md            # 历史每日批改规范
-reviews/               # 历史周总结与审计
 src/                   # 历史每日翻译与批改正文
-t1/                    # 历史 T1 训练包
 scripts/src-nav.sh     # 历史 day 导航脚本
-reading/               # 阅读真题、OCR、分析和 IELTS 材料
+reading/               # 2016—2025 阅读真题、OCR和分析
 archive/               # 历史设计文档与旧系统归档，不参与当前执行
 ```
 
@@ -30,21 +27,19 @@ archive/               # 历史设计文档与旧系统归档，不参与当前�
 
 1. `README.md`：确认项目当前架构。
 2. `AGENTS.md`：确认 Codex 的长期工作边界。
-3. `suggest/README.md`：确认现阶段任务、真题递归口径和执行顺序。
+3. `suggest/0804-tasks-and-suggestions.md`：确认0804任务、真题递归口径和执行顺序。
 4. `reading/README.md`：进入完整真题、OCR和年度分析。
-5. 只有处理旧 daily/T1 证据时，才继续读取 `t1/CONSTITUTION.md`、`STATE.md`、`REVIEW.md`、`reviews/` 和 `src/`。
+5. 只有处理旧 daily/T1 证据时，才继续读取 `STATE.md`、`REVIEW.md` 和 `src/`。
 
 真题任务从 `reading/README.md` 进入，再按需要打开 `reading/english2/analysis/`、`reading/english2/ocr/` 或对应真题 PDF。
 
-这个项目给 Codex 留的是接口，不是一个巨型总文件。当前判断集中在 `suggest/README.md`，真题正文与证据留在 `reading/`；旧 daily/T1 文件只在需要追溯时读取。
+这个项目给 Codex 留的是接口，不是一个巨型总文件。当前判断集中在 `suggest/0804-tasks-and-suggestions.md`，真题正文与证据留在 `reading/`；旧 daily/T1 文件只在需要追溯时读取。
 
 ## T1 提分状态层（历史）
 
-`src/` 的每日翻译和批改是 T0，负责产生真实样本。`STATE.md` 是 T1，负责把所有 T0 样本滚动成下一次训练的风险预警、进度条和收益反馈。`t1/CONSTITUTION.md` 是解释质量的上位约束：不能只给答案或术语，必须交代理解从何处断、又怎样从已知义走到句中义。
+`src/` 的每日翻译和批改是 T0，负责产生真实样本。`STATE.md` 是保留下来的 T1 状态快照，记录风险预警、进度和收益反馈；`REVIEW.md` 保留旧审计入口信息。
 
 T1 不按“学完语法/句法/搭配”计量，而按失分风险是否下降计量；同时用理解出口标签追踪“为什么没读出”，避免只积累结构名称。语法、句法、搭配、介词理解和更灵活的考场问题，都会根据 T0 样本自然进入风险线；不需要预先维护完整白名单。
-
-`t1/` 保存面向用户的专项训练包。训练包只保留“目标”和“训练材料”两类前台内容，主体是 5-10 条高质量例句或阅读片段，不写后台状态说明。
 
 ## 每日文件（历史）
 
@@ -98,23 +93,6 @@ bash scripts/src-nav.sh
 bash scripts/src-nav.sh --check
 ```
 
-## 周审计（历史）
-
-批改不是终点。每周用 `reviews/` 做二次整理：
-
-- 这周反复暴露了哪些能力问题。
-- 哪些批改点覆盖充分，哪些漏讲。
-- Vocab/Phrases 数量是否匹配错误密度。
-- 哪些问题要带到下一周观察。
-
-当前入口：
-
-```text
-STATE.md -> REVIEW.md -> reviews/2026-W28.md
-```
-
-`2026-W28` 当前覆盖 `0706-day72` 到 `0709-day75`，后续若新增本周日文件，继续追加到当前周总结。
-
 ## 历史归档
 
 `archive/` 是历史系统和旧设计文档存档。里面的 T1 设计、网页、daemon、console、fool、probe 说明不代表当前架构。
@@ -124,11 +102,11 @@ STATE.md -> REVIEW.md -> reviews/2026-W28.md
 ```text
 README.md
 AGENTS.md
-suggest/README.md
+suggest/0804-tasks-and-suggestions.md
 reading/
 ```
 
-`STATE.md`、`REVIEW.md`、`STANDARD.md`、`reviews/`、`src/`、`t1/` 和 `scripts/src-nav.sh` 只有在处理旧 daily/T1 任务时才恢复为工作入口。
+`STATE.md`、`REVIEW.md`、`STANDARD.md`、`src/` 和 `scripts/src-nav.sh` 只有在处理旧 daily/T1 任务时才恢复为工作入口。
 
 ## Reading 模块
 
@@ -138,7 +116,6 @@ reading/
 reading/README.md              # 模块入口与目录说明
 reading/english1/              # 英语一 OCR 与真题 PDF
 reading/english2/              # 英语二 OCR、真题 PDF 与阅读分析
-reading/ielts16/               # IELTS 16 示例材料
 reading/VOCAB_PLAN.md          # 合并前的词汇管线规划记录
 ```
 
