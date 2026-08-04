@@ -2,22 +2,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Sync: Auto Pull",
-      "type": "shell",
-      "command": "bash scripts/sync.sh",
-      "isBackground": true,
-      "runOptions": {
-        "runOn": "folderOpen"
-      },
-      "presentation": {
-        "reveal": "silent",
-        "panel": "dedicated",
-        "showReuseMessage": false,
-        "close": false
-      },
-      "problemMatcher": []
-    },
-    {
       "label": "SrcNav: Update",
       "type": "shell",
       "command": "bash scripts/src-nav.sh",

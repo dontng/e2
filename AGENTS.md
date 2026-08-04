@@ -15,7 +15,6 @@
 - 当前主任务以 `suggest/0804-tasks-and-suggestions.md` 为准，2016—2025完整英二真题是核心语料。
 - `reading/` 不再只是每日批改之外的独立模块；真题任务先读 `reading/README.md`，再进入完整 OCR、PDF 或年度分析。
 - `src/`、`STATE.md`、`REVIEW.md` 和 `STANDARD.md` 保留旧 daily/T1 证据与规则，只在相关任务中读取。
-- `archive/` 是历史归档，日常不参与。
 - 每日批改格式以 `STANDARD.md` 为准。
 - 批改完成后，把 `## 我的翻译` 整块注释掉，不删除。
 - 新增或批改日文件后运行 `bash scripts/src-nav.sh`。
@@ -53,3 +52,11 @@ T1 的自觉性由 Codex 负责，不把系统维护成本转嫁给用户。用�
 提交前确认工作区是否含有用户已有修改。只暂存本次任务相关文件，不顺手提交无关改动。
 
 Commit message 是交付物的一部分。提交信息必须清楚说明本次改变的目的、范围和对后续工作的影响；不要只写 `update`、`fix`、`changes` 这类无法交接的占位信息。
+
+### AI 交付署名与提交边界
+
+- 只要改动由 Codex 或 GPT 产出并由其提交交付，保留用户配置的 Git author 和 committer，并在 commit message 最后加入：`Co-Authored-By: Codex <noreply@openai.com>`。
+- 此规则同时适用于本地 `git`、`gh`、GitHub API/connector、直接推送 `main` 和 PR；不要因为交付通道不同而遗漏署名。
+- 一个用户目标默认只形成一个完整、可读、可回滚的 commit。先完成范围内的编辑、校验和文档同步，再提交；不要把检查、补一行说明或中间状态拆成额外 commit。
+- 只有用户新增了独立目标，或保留外部 Git 历史必须产生 merge commit 时，才拆分；后一种情况在交付前说明原因。
+- 用户明确要求 `push to main` 时，完成范围检查、commit 和推送，不擅自改为 PR；推送前核对最终 commit 同时符合本节的署名与单目标边界。

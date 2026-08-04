@@ -5,16 +5,14 @@
 ## 目录
 
 ```text
-english1/ocr/        # 2016–2025 英语一 OCR 文本与 OCR 脚本
-english1/papers/     # 2016–2025 英语一真题 PDF
-english2/analysis/   # 英语二阅读复盘
-english2/ocr/        # 英语二 Markdown；2016起逐年重建完整套卷
-english2/papers/     # 2016–2025 英语二真题 PDF
+../e2-analysis/      # 英语二阅读复盘
+../e2-ocr/           # 英语二 Markdown；2016起逐年重建完整套卷
+../archive-e2/        # 2016–2025 英语二真题 PDF
 VOCAB_PLAN.md        # 独立仓库时期的词汇收集计划
 ```
 
-当前英语二主任务以 `../suggest/0804-tasks-and-suggestions.md` 为准。进入某一年时，先用 `english2/papers/` 保留未看解析的作答条件，再用 `english2/ocr/` 进行句子分析、检索和跨年连接，最后按需要写入 `english2/analysis/`。
+当前英语二主任务以 `../suggest/0804-tasks-and-suggestions.md` 为准。进入某一年时，先用 `../archive-e2/` 保留未看解析的作答条件，再用 `../e2-ocr/` 进行句子分析、检索和跨年连接，最后按需要写入 `../e2-analysis/`。
 
-`english2/ocr/16.md` 已按2016原卷重建为完整套卷，包含完形、传统阅读、新题型、翻译和作文，并保留可识别的粗体、斜体、下划线与图表。其余年份现阶段仍主要是传统阅读 Part A，不能把它们误认为完整套卷；后续按年份逐步替换。
+`../e2-ocr/16.md` 已按2016原卷重建为完整套卷，包含完形、传统阅读、新题型、翻译和作文，并保留可识别的粗体、斜体、下划线与图表。其余年份现阶段仍主要是传统阅读 Part A，不能把它们误认为完整套卷；后续按年份逐步替换。
 
 `VOCAB_PLAN.md` 是合并前的交接记录，其中的项目名和相对路径反映当时两个仓库分立的状态，不应直接当作当前路径说明。

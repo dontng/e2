@@ -2,7 +2,7 @@
 
 > 2026-08-04
 >
-> 本目录取代原 `docs/`，只保存仍会影响当前学习与实施的判断。旧 T1 设计讨论已经移入 `archive/docs/`，不再作为工作入口。
+> 本目录取代原 `docs/`，只保存仍会影响当前学习与实施的判断。
 
 ## 当前目标
 
@@ -19,8 +19,8 @@
 
 ## 已确认的现状
 
-- `reading/english2/papers/` 已保存 2016—2025 真题 PDF。
-- 原 `reading/english2/ocr/16.md`—`25.md` 只包含传统阅读 Part A，不是完整套卷 OCR。
+- `reading/e2-papers/` 已保存 2016—2025 真题 PDF。
+- 原 `reading/e2-ocr/16.md`—`25.md` 只包含传统阅读 Part A，不是完整套卷 OCR。
 - `reading/english2/analysis/16-text1.md` 是早期 `reading + daily` 试作，中心仍是五道题、失分指纹和少量句子，不应继续复制为后续模板。
 - 原 `src/`、`STATE.md` 与 `REVIEW.md` 保留旧 daily/T1 历史证据，但不再决定 e2 的前台学习结构。
 

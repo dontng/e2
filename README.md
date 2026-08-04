@@ -18,7 +18,6 @@ STANDARD.md            # 历史每日批改规范
 src/                   # 历史每日翻译与批改正文
 scripts/src-nav.sh     # 历史 day 导航脚本
 reading/               # 2016—2025 阅读真题、OCR和分析
-archive/               # 历史设计文档与旧系统归档，不参与当前执行
 ```
 
 ## Codex 应该怎么读
@@ -31,7 +30,7 @@ archive/               # 历史设计文档与旧系统归档，不参与当前�
 4. `reading/README.md`：进入完整真题、OCR和年度分析。
 5. 只有处理旧 daily/T1 证据时，才继续读取 `STATE.md`、`REVIEW.md` 和 `src/`。
 
-真题任务从 `reading/README.md` 进入，再按需要打开 `reading/english2/analysis/`、`reading/english2/ocr/` 或对应真题 PDF。
+真题任务从 `reading/README.md` 进入，再按需要打开 `e2-analysis/`、`e2-ocr/` 或 `archive-e2/` 中对应真题 PDF。
 
 这个项目给 Codex 留的是接口，不是一个巨型总文件。当前判断集中在 `suggest/0804-tasks-and-suggestions.md`，真题正文与证据留在 `reading/`；旧 daily/T1 文件只在需要追溯时读取。
 
@@ -93,10 +92,6 @@ bash scripts/src-nav.sh
 bash scripts/src-nav.sh --check
 ```
 
-## 历史归档
-
-`archive/` 是历史系统和旧设计文档存档。里面的 T1 设计、网页、daemon、console、fool、probe 说明不代表当前架构。
-
 当前真题主线只看：
 
 ```text
@@ -114,8 +109,9 @@ reading/
 
 ```text
 reading/README.md              # 模块入口与目录说明
-reading/english1/              # 英语一 OCR 与真题 PDF
-reading/english2/              # 英语二 OCR、真题 PDF 与阅读分析
+archive-e2/                     # 英语二真题 PDF
+e2-ocr/                         # 英语二完整套卷 OCR
+e2-analysis/                    # 英语二阅读分析
 reading/VOCAB_PLAN.md          # 合并前的词汇管线规划记录
 ```
 
