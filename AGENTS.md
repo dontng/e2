@@ -7,14 +7,14 @@
 日常不要从 GitHub 链接或全仓库扫描开始。优先读取：
 
 1. `suggest/0804-tasks-and-suggestions.md`：0804任务、真题递归口径和执行顺序。
-2. `reading/README.md`：完整真题、OCR和年度分析入口。
+2. `archive-e2/`、`e2-ocr/`、`e2-analysis/`：完整真题、OCR和年度分析入口。
 3. 进入某一年时，再打开对应的 PDF、完整 OCR 或年度分析。
 4. 只有明确处理旧 daily 证据时，才读取 `STANDARD.md`、`src/` 与 `archive-src/`。
 
 ## 执行边界
 
 - 当前主任务以 `suggest/0804-tasks-and-suggestions.md` 为准，2016—2025完整英二真题是核心语料。
-- `reading/` 不再只是每日批改之外的独立模块；真题任务先读 `reading/README.md`，再进入完整 OCR、PDF 或年度分析。
+- 真题任务先读 `suggest/0804-tasks-and-suggestions.md`，再直接进入 `archive-e2/`、`e2-ocr/` 或 `e2-analysis/`。
 - `src/`、`archive-src/` 和 `STANDARD.md` 保留旧 daily 证据与规则，只在相关任务中读取；它们不决定当前真题主线。
 - 每日批改格式以 `STANDARD.md` 为准。
 - 批改完成后，把 `## 我的翻译` 整块注释掉，不删除。
