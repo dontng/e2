@@ -22,7 +22,7 @@
 - `reading/e2-papers/` 已保存 2016—2025 真题 PDF。
 - 原 `reading/e2-ocr/16.md`—`25.md` 只包含传统阅读 Part A，不是完整套卷 OCR。
 - `reading/english2/analysis/16-text1.md` 是早期 `reading + daily` 试作，中心仍是五道题、失分指纹和少量句子，不应继续复制为后续模板。
-- 原 `src/`、`STATE.md` 与 `REVIEW.md` 保留旧 daily/T1 历史证据，但不再决定 e2 的前台学习结构。
+- 原 `src/`、`archive-src/` 与 `STANDARD.md` 保留旧 daily 历史证据与规则，但不再决定 e2 的前台学习结构。
 
 ## 当前任务
 

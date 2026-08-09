@@ -4,7 +4,7 @@
 
 两个项目的原 Git 历史已经通过双父 merge commit 接入本仓库，没有 squash 或重写。原 `reading` 仓库只作为只读归档保留；后续有效工作统一进入本仓库。
 
-原 `english2-daily` 的每日翻译正文、T1 状态快照和批改规范保留为历史证据，不再决定当前主线。
+原 `english2-daily` 的每日翻译正文和批改规范保留为历史证据，不再决定当前主线。
 
 ## 当前架构
 
@@ -12,10 +12,9 @@
 README.md              # 项目总览，帮助人和 Codex 快速认清结构
 AGENTS.md              # Codex 长期工作规则
 suggest/0804-tasks-and-suggestions.md  # 0804任务、建议与执行顺序
-STATE.md               # 历史 T1 状态层
-REVIEW.md              # 历史批改审计入口
 STANDARD.md            # 历史每日批改规范
 src/                   # 历史每日翻译与批改正文
+archive-src/           # 较早的每日翻译归档
 scripts/src-nav.sh     # 历史 day 导航脚本
 reading/               # 2016—2025 阅读真题、OCR和分析
 ```
@@ -28,17 +27,11 @@ reading/               # 2016—2025 阅读真题、OCR和分析
 2. `AGENTS.md`：确认 Codex 的长期工作边界。
 3. `suggest/0804-tasks-and-suggestions.md`：确认0804任务、真题递归口径和执行顺序。
 4. `reading/README.md`：进入完整真题、OCR和年度分析。
-5. 只有处理旧 daily/T1 证据时，才继续读取 `STATE.md`、`REVIEW.md` 和 `src/`。
+5. 只有处理旧 daily 证据时，才继续读取 `STANDARD.md`、`src/` 和 `archive-src/`。
 
 真题任务从 `reading/README.md` 进入，再按需要打开 `e2-analysis/`、`e2-ocr/` 或 `archive-e2/` 中对应真题 PDF。
 
-这个项目给 Codex 留的是接口，不是一个巨型总文件。当前判断集中在 `suggest/0804-tasks-and-suggestions.md`，真题正文与证据留在 `reading/`；旧 daily/T1 文件只在需要追溯时读取。
-
-## T1 提分状态层（历史）
-
-`src/` 的每日翻译和批改是 T0，负责产生真实样本。`STATE.md` 是保留下来的 T1 状态快照，记录风险预警、进度和收益反馈；`REVIEW.md` 保留旧审计入口信息。
-
-T1 不按“学完语法/句法/搭配”计量，而按失分风险是否下降计量；同时用理解出口标签追踪“为什么没读出”，避免只积累结构名称。语法、句法、搭配、介词理解和更灵活的考场问题，都会根据 T0 样本自然进入风险线；不需要预先维护完整白名单。
+这个项目给 Codex 留的是接口，不是一个巨型总文件。当前判断集中在 `suggest/0804-tasks-and-suggestions.md`，真题正文与证据留在 `reading/`；旧 daily 文件只在需要追溯时读取。
 
 ## 每日文件（历史）
 
@@ -101,7 +94,7 @@ suggest/0804-tasks-and-suggestions.md
 reading/
 ```
 
-`STATE.md`、`REVIEW.md`、`STANDARD.md`、`src/` 和 `scripts/src-nav.sh` 只有在处理旧 daily/T1 任务时才恢复为工作入口。
+`STANDARD.md`、`src/`、`archive-src/` 和 `scripts/src-nav.sh` 只有在处理旧 daily 任务时才恢复为工作入口。
 
 ## Reading 模块
 
