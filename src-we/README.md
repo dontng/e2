@@ -4,7 +4,7 @@
 
 ```text
 src-we/
-├── MMDD-dayN.md             # 转换结果
+├── YYYY/                    # 按发布年份存放转换结果
 ├── _inbox/                  # 待转换 HTML
 └── _tools/                  # 转换脚本及说明
 ```

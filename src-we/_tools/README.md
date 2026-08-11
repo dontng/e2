@@ -1,6 +1,7 @@
 # 微信文章转换工具
 
-`convert_wechat_daily.py` 把微信导出的“长难句每日一句”HTML整理成 `src-we/MMDD-dayN.md`。
+`convert_wechat_daily.py` 把微信导出的“长难句每日一句”HTML按发布年份整理成
+`src-we/YYYY/MMDD-dayN.md`。
 
 它只保留以下内容：
 
@@ -8,9 +9,12 @@
 - 找谓语动词及原文高亮提示
 - 生词
 - 断句、简化和原文中的红色/删除线格式
+- 语法重点及原文中的强调格式
+- 翻译要点（原文有该栏目时）
 - 参考译文
+- 仅以图片呈现的原句、分析或语法内容（2025 版页面）
 
-图片、开头答疑、视频、语法重点、难点提示及后续预习不会进入结果。
+页眉装饰图、二维码、结尾宣传图、开头答疑、视频、难点提示及后续预习不会进入结果。
 
 ## 单篇转换
 
@@ -18,15 +22,18 @@
 python src-we/_tools/convert_wechat_daily.py "C:\path\article.html"
 ```
 
-脚本读取文章发布时间和 `Day N`，自动生成类似 `0810-day101.md` 的文件名。
+脚本读取文章发布时间和 `Day N`，自动生成类似
+`src-we/2026/0810-day101.md` 的路径。
 
 ## 批量转换
 
 把 HTML 放进 `src-we/_inbox/`，然后运行：
 
 ```powershell
-python src-we/_tools/convert_wechat_daily.py src-we/_inbox
+python src-we/_tools/convert_wechat_daily.py "src-we/_inbox/2026/每日一句"
 ```
+
+批量转换时以 HTML 正文中的 `DAY N` 标记识别每日一句；同目录内没有该标记的通知、汇总等文章会明确提示并跳过。
 
 ## 检查结果是否需要更新
 

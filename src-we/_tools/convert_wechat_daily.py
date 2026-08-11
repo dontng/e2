@@ -54,11 +54,12 @@ class TreeParser(HTMLParser):
 
 
 def nodes(root: Node, tag: str | None = None) -> Iterator[Node]:
-    for child in root.children:
-        if isinstance(child, Node):
-            if tag is None or child.tag == tag:
-                yield child
-            yield from nodes(child, tag)
+    stack = [child for child in reversed(root.children) if isinstance(child, Node)]
+    while stack:
+        node = stack.pop()
+        if tag is None or node.tag == tag:
+            yield node
+        stack.extend(child for child in reversed(node.children) if isinstance(child, Node))
 
 
 def plain_text(node: Node) -> str:
@@ -171,7 +172,336 @@ def join_styled(segments: list[tuple[str, bool, bool, bool]]) -> list[str]:
     return rendered
 
 
-def extract(html: str) -> tuple[str, str, str]:
+def normalize_paragraph(text: str) -> str:
+    """Normalize exported paragraph text without discarding intentional line breaks."""
+    lines = [re.sub(r"[\t\r\f\v ]+", " ", line).strip() for line in text.splitlines()]
+    return "\n".join(line for line in lines if line)
+
+
+def first_index(texts: list[str], value: str, start: int = 0) -> int | None:
+    return next((index for index in range(start, len(texts)) if texts[index] == value), None)
+
+
+def section_end(texts: list[str], start: int, headings: set[str]) -> int:
+    return next((index for index in range(start + 1, len(texts)) if texts[index] in headings), len(texts))
+
+
+HEADINGS = {
+    "分析长难句前的准备工作",
+    "视频讲解",
+    "内容详解",
+    "生词",
+    "分析句子",
+    "参考译文",
+    "语法重点",
+    "翻译要点",
+    "难点提示",
+    "今日预习",
+}
+
+
+def flatten(text: str) -> str:
+    text = " ".join(normalize_paragraph(text).splitlines())
+    return re.sub(r"\s+([,.;:，。；：！？])", r"\1", text).strip()
+
+
+def flatten_2025(text: str) -> str:
+    text = flatten(text)
+    return re.sub(r"(?<=[A-Za-z])\s*([’'])\s*(?=[A-Za-z])", r"\1", text)
+
+
+def format_step(text: str) -> str | None:
+    match = re.match(r"^([012]\s+[^：:\n]+[：:])\s*(.*)$", normalize_paragraph(text), re.S)
+    if not match:
+        return None
+    label, explanation = match.groups()
+    separator = " " if label.startswith("0 ") and explanation else ""
+    return f'<strong><span style="color: {RED};">{label}</span></strong>{separator}{flatten(explanation)}'
+
+
+def vocabulary_lines(paragraphs: list[Node]) -> list[str]:
+    entries: list[str] = []
+    for paragraph in paragraphs:
+        text = normalize_paragraph(plain_text(paragraph))
+        if not text:
+            continue
+        chunks = [chunk for chunk in re.split(r"(?=[✅☑])", text) if chunk.strip()]
+        entries.extend(flatten(chunk) for chunk in chunks)
+    return entries
+
+
+def render_styled_paragraph(paragraph: Node) -> str:
+    lines = join_styled(styled_segments(paragraph))
+    return "  \n".join(lines) if lines else normalize_paragraph(plain_text(paragraph))
+
+
+def render_2025_styled_paragraph(paragraph: Node) -> str:
+    segments = styled_segments(paragraph)
+    visible = [segment for segment in segments if segment[0] != "\n"]
+    if visible and all(bold and not strike for _, _, strike, bold in visible):
+        text = flatten_2025(plain_text(paragraph))
+        if all(red for _, red, _, _ in visible):
+            text = f'<span style="color: {RED};">{text}</span>'
+        return f"**{text}**"
+    lines = join_styled(segments)
+    return "  \n".join(lines) if lines else normalize_paragraph(plain_text(paragraph))
+
+
+def analysis_blocks(paragraphs: list[Node]) -> list[str]:
+    blocks: list[str] = []
+    bullets: list[str] = []
+
+    def flush_bullets() -> None:
+        if bullets:
+            blocks.append("\n".join(bullets))
+            bullets.clear()
+
+    for paragraph in paragraphs:
+        text = normalize_paragraph(plain_text(paragraph))
+        if not text:
+            continue
+        step = format_step(text)
+        if step:
+            flush_bullets()
+            blocks.append(step)
+            continue
+        if text.startswith("【句"):
+            if "简化后的核心内容：" in text:
+                flush_bullets()
+                lines = join_styled(styled_segments(paragraph))
+                if len(lines) >= 2:
+                    core = lines[-1].replace("**简化后的核心内容：** ", "**简化后的核心内容：**")
+                    blocks.append(f"- {lines[0]}\n\n  {core}")
+                else:
+                    blocks.append(f"- {flatten(text)}")
+            else:
+                bullets.append(f"- {flatten(text)}")
+            continue
+        flush_bullets()
+        blocks.append(text)
+    flush_bullets()
+    return blocks
+
+
+BLOCK_TAGS = {"p", "section", "ul", "ol", "li"}
+
+
+def item_text(node: Node) -> str:
+    if node.tag == "p":
+        return normalize_paragraph(plain_text(node))
+    parts: list[str] = []
+
+    def visit(item: Node | str) -> None:
+        if isinstance(item, str):
+            parts.append(item)
+        elif item.tag == "br":
+            parts.append("\n")
+        elif item.tag not in BLOCK_TAGS and item.tag != "img":
+            for child in item.children:
+                visit(child)
+
+    for child in node.children:
+        visit(child)
+    return normalize_paragraph("".join(parts))
+
+
+def content_items(root: Node) -> list[Node]:
+    result: list[Node] = []
+
+    def append_inline(children: list[Node | str], parent: Node) -> None:
+        if not children:
+            return
+        block = Node("text-block", parent=parent, children=list(children))
+        if item_text(block):
+            result.append(block)
+
+    def visit(node: Node) -> None:
+        if node.tag == "img":
+            result.append(node)
+            return
+        if node.tag == "p":
+            result.append(node)
+            for descendant in nodes(node, "img"):
+                result.append(descendant)
+            return
+        inline: list[Node | str] = []
+        for child in node.children:
+            if isinstance(child, Node) and (child.tag in BLOCK_TAGS or child.tag == "img"):
+                append_inline(inline, node)
+                inline.clear()
+                visit(child)
+            else:
+                inline.append(child)
+        append_inline(inline, node)
+
+    visit(root)
+    return result
+
+
+def item_heading_index(items: list[Node], heading: str, start: int = 0) -> int | None:
+    return next(
+        (
+            index
+            for index in range(start, len(items))
+            if items[index].tag != "img" and item_text(items[index]) == heading
+        ),
+        None,
+    )
+
+
+def is_content_image(node: Node) -> bool:
+    url = node.attrs.get("data-src") or node.attrs.get("src", "")
+    if not url or "_gif/" in url or "wx_fmt=gif" in url:
+        return False
+    try:
+        width = int(float(node.attrs.get("data-w", "0")))
+    except ValueError:
+        width = 0
+    return width >= 600
+
+
+def image_markdown(node: Node, alt: str) -> str:
+    url = node.attrs.get("data-src") or node.attrs.get("src", "")
+    return f"![{alt}]({url})"
+
+
+def render_2025_items(items: list[Node], image_alt: str) -> list[str]:
+    rendered: list[str] = []
+    for item in items:
+        if item.tag == "img":
+            if not is_content_image(item):
+                continue
+            value = image_markdown(item, image_alt)
+        else:
+            text = item_text(item)
+            if not text:
+                continue
+            value = render_2025_styled_paragraph(item) if item.tag == "p" else text
+        if value not in rendered:
+            rendered.append(value)
+    return rendered
+
+
+def render_2025_vocabulary(items: list[Node]) -> list[str]:
+    rendered: list[str] = []
+    for item in items:
+        if item.tag == "img":
+            if not is_content_image(item):
+                continue
+            values = [image_markdown(item, "生词图")]
+        else:
+            text = item_text(item)
+            values = []
+            for chunk in re.split(r"(?=[✅☑])", text):
+                if not chunk.strip():
+                    continue
+                value = flatten_2025(chunk)
+                value = re.sub(
+                    r"/([^/]+)/",
+                    lambda match: "/" + re.sub(r"\s+", "", match.group(1)) + "/",
+                    value,
+                )
+                value = re.sub(r"^([✅☑]\s+)([A-Za-z])\s+([a-z]{3,})", r"\1\2\3", value)
+                values.append(value)
+        for value in values:
+            if value not in rendered:
+                rendered.append(value)
+    return rendered
+
+
+def extract_2025(
+    content: Node,
+    paragraphs: list[Node],
+    texts: list[str],
+    year: str,
+    mmdd: str,
+) -> tuple[str, str, str, str]:
+    day_match = next(
+        (match for text in texts if (match := re.fullmatch(r"DAY\s*(\d+)", text, re.I))),
+        None,
+    )
+    if not day_match:
+        raise ValueError("Cannot infer Day N from the article")
+    day = day_match.group(1)
+
+    items = content_items(content)
+    day_item = item_heading_index(items, next(text for text in texts if re.fullmatch(r"DAY\s*\d+", text, re.I)))
+    video_item = item_heading_index(items, "视频讲解", day_item + 1 if day_item is not None else 0)
+    if day_item is None or video_item is None:
+        raise ValueError("Cannot locate the daily sentence card")
+
+    lead_items = items[day_item + 1 : video_item]
+    lead_text_nodes = [
+        item
+        for item in lead_items
+        if item.tag != "img"
+        and item_text(item)
+        and not re.fullmatch(r"词汇\s*[|｜]\s*语法\s*[|｜]\s*解析\s*[|｜]\s*答疑", flatten(item_text(item)))
+    ]
+    lead_texts = [item_text(item) for item in lead_text_nodes]
+    sentence = next((text for text in lead_texts if len(re.findall(r"[A-Za-z]", text)) >= 12), None)
+    source = next((text for text in lead_texts if re.fullmatch(r"【\d{4}[^】]*】", text)), None)
+    questions = [
+        flatten_2025(text)
+        for text in lead_texts
+        if text not in {sentence, source, "思考题:", "思考题："}
+    ]
+    lead_images = [image_markdown(item, "原句") for item in lead_items if item.tag == "img" and is_content_image(item)]
+
+    output = ["## 原句", ""]
+    if sentence:
+        output.append(f"> {flatten_2025(sentence)}")
+    output.extend(lead_images)
+    if source:
+        output.extend(["", f'<div align="center">{source}</div>'])
+    if questions:
+        output.extend(["", "**思考题:**", "", " ".join(questions)])
+
+    section_names = {
+        "生词": "生词",
+        "分析": "分析句子",
+        "翻译": "参考译文",
+        "语法重点": "语法重点",
+    }
+    section_order = ["生词", "分析", "翻译", "语法重点", "难点提示"]
+    item_starts = {heading: item_heading_index(items, heading, video_item + 1) for heading in section_order}
+    missing = [heading for heading in ("生词", "翻译", "语法重点", "难点提示") if item_starts[heading] is None]
+    if missing:
+        raise ValueError(f"Cannot locate required section(s): {', '.join(missing)}")
+
+    bodies: dict[str, list[Node]] = {}
+    available_sections = [heading for heading in section_order if item_starts[heading] is not None]
+    for index, heading in enumerate(available_sections[:-1]):
+        start = item_starts[heading]
+        end = item_starts[available_sections[index + 1]]
+        assert start is not None and end is not None
+        bodies[heading] = items[start + 1 : end]
+
+    for heading in ("生词", "分析", "语法重点", "翻译"):
+        if heading not in bodies:
+            continue
+        values = (
+            render_2025_vocabulary(bodies[heading])
+            if heading == "生词"
+            else render_2025_items(bodies[heading], f"{section_names[heading]}图")
+        )
+        if not values:
+            continue
+        output.extend(["", f"## {section_names[heading]}", ""])
+        if heading == "生词" and not any(value.startswith("![") for value in values):
+            for index, value in enumerate(values):
+                output.append(f"{flatten(value)}{'  ' if index < len(values) - 1 else ''}")
+        else:
+            for index, value in enumerate(values):
+                if index:
+                    output.append("")
+                output.append(value)
+    output.append("")
+    return year, mmdd, day, "\n".join(output)
+
+
+def extract(html: str) -> tuple[str, str, str, str]:
+    """Extract a formatted study note, including the complete grammar section."""
     parser = TreeParser()
     parser.feed(html)
     content = find_by_id(parser.root, "js_content")
@@ -179,76 +509,66 @@ def extract(html: str) -> tuple[str, str, str]:
         raise ValueError('Missing WeChat article body: id="js_content"')
 
     paragraphs = p_nodes(content)
-    texts = [plain_text(p) for p in paragraphs]
-
-    source_index = next((i for i, text in enumerate(texts) if re.fullmatch(r"【\d{4}年英[一二]阅读\s*Text\s*\d+】", text)), None)
-    if source_index is None:
-        raise ValueError("Cannot locate the exam source label")
-    source = texts[source_index]
-    source_node = paragraphs[source_index]
-    card = closest_card(source_node, ("思考题",))
-    card_paragraphs = [p for p in p_nodes(card) if plain_text(p)]
-    card_texts = [plain_text(p) for p in card_paragraphs]
-    local_source_index = card_texts.index(source)
-    sentence = card_texts[local_source_index - 1]
-    question_label_index = next(i for i, text in enumerate(card_texts) if text in {"思考题:", "思考题："})
-    question = card_texts[question_label_index + 1]
-
-    predicate_index = next(i for i, text in enumerate(texts) if text.startswith("0 找谓语动词："))
-    predicate_full = texts[predicate_index]
-    predicate = predicate_full.removeprefix("0 找谓语动词：").strip()
-    predicate_count_node = next_nonempty(paragraphs, predicate_index)
-    predicate_count = plain_text(predicate_count_node)
-    count_index = paragraphs.index(predicate_count_node)
-    predicate_note = plain_text(next_nonempty(paragraphs, count_index))
-
-    vocab_heading = next(i for i, text in enumerate(texts) if text == "生词")
-    analysis_heading = next(i for i, text in enumerate(texts) if text == "分析句子")
-    vocab_lines: list[str] = []
-    for paragraph in paragraphs[vocab_heading + 1 : analysis_heading]:
-        for line in plain_text(paragraph).splitlines():
-            if line.startswith("✅"):
-                vocab_lines.append(line)
-    if not vocab_lines:
-        raise ValueError("Cannot locate vocabulary entries")
-
-    split_index = next(i for i, text in enumerate(texts) if text.startswith("1 断开："))
-    split_intro = texts[split_index].removeprefix("1 断开：").strip()
-    simplify_index = next(i for i, text in enumerate(texts) if text.startswith("2 简化主句1："))
-    split_lines: list[str] = []
-    for paragraph in paragraphs[split_index + 1 : simplify_index]:
-        text = plain_text(paragraph)
-        if text.startswith("【句") and text not in split_lines:
-            split_lines.append(text)
-    simplify_intro = texts[simplify_index].removeprefix("2 简化主句1：").strip()
-
-    simplify_paragraph = next(
-        paragraph
-        for paragraph in paragraphs[simplify_index + 1 :]
-        if plain_text(paragraph).startswith("【句1】主句1：") and "简化后的核心内容：" in plain_text(paragraph)
-    )
-    simplify_lines = join_styled(styled_segments(simplify_paragraph))
-    if len(simplify_lines) < 2:
-        raise ValueError("Cannot split the simplified sentence and its core")
-    simplified_sentence = simplify_lines[0]
-    simplified_core = simplify_lines[-1]
-    simplified_core = simplified_core.replace("**简化后的核心内容：** ", "**简化后的核心内容：**")
-
-    translation_heading = next(i for i, text in enumerate(texts) if text == "参考译文")
-    translation = plain_text(next_nonempty(paragraphs, translation_heading))
+    texts = [normalize_paragraph(plain_text(paragraph)) for paragraph in paragraphs]
 
     publish_node = find_by_id(parser.root, "publish_time")
     published = plain_text(publish_node) if publish_node else ""
     date_match = re.search(r"(\d{4})年(\d{2})月(\d{2})日", published)
     if not date_match:
-        raise ValueError("Cannot infer MMDD from the publish time")
+        raise ValueError("Cannot infer the publication date")
+    year = date_match.group(1)
     mmdd = date_match.group(2) + date_match.group(3)
+    if year == "2025":
+        return extract_2025(content, paragraphs, texts, year, mmdd)
 
-    content_text = plain_text(content)
-    day_match = re.search(r"Day\s*(\d+)", content_text, re.I)
-    if not day_match:
-        raise ValueError("Cannot infer Day N from the article")
-    day = day_match.group(1)
+    source_index = next(
+        (
+            index
+            for index, text in enumerate(texts)
+            if re.fullmatch(r"【\d{4}\s*年[^】]*(?:阅读|翻译)[^】]*】", text)
+        ),
+        None,
+    )
+    if source_index is None:
+        raise ValueError("Cannot locate the exam source label")
+
+    sentence_index = next((index for index in range(source_index - 1, -1, -1) if texts[index]), None)
+    if sentence_index is None:
+        raise ValueError("Cannot locate the original sentence")
+    sentence = texts[sentence_index].replace("\n", " ")
+    source = texts[source_index]
+
+    question_index = next(
+        (index for index in range(source_index + 1, len(texts)) if texts[index] in {"思考题:", "思考题："}),
+        None,
+    )
+    if question_index is None:
+        raise ValueError("Cannot locate the question heading")
+    question_value_index = next((index for index in range(question_index + 1, len(texts)) if texts[index]), None)
+    if question_value_index is None:
+        raise ValueError("Cannot locate the question")
+    question = texts[question_value_index].replace("\n", " ")
+
+    section_starts: dict[str, int] = {}
+    for heading in HEADINGS:
+        index = first_index(texts, heading, source_index + 1)
+        if index is not None:
+            section_starts[heading] = index
+
+    required = {"生词", "参考译文"}
+    missing = sorted(required - section_starts.keys())
+    if missing:
+        raise ValueError(f"Cannot locate required section(s): {', '.join(missing)}")
+
+    def body(heading: str) -> list[str]:
+        start = section_starts[heading]
+        end = section_end(texts, start, HEADINGS)
+        return [text for text in texts[start + 1 : end] if text]
+
+    def body_nodes(heading: str) -> list[Node]:
+        start = section_starts[heading]
+        end = section_end(texts, start, HEADINGS)
+        return [paragraph for paragraph in paragraphs[start + 1 : end] if plain_text(paragraph)]
 
     output = [
         "## 原句",
@@ -260,49 +580,63 @@ def extract(html: str) -> tuple[str, str, str]:
         "**思考题:**",
         "",
         question,
-        "",
-        "## 分析长难句前的准备工作",
-        "",
-        f'<strong><span style="color: {RED};">0 找谓语动词：</span></strong> {predicate}',
-        "",
-        predicate_count,
-        "",
-        f'<mark style="background-color: {YELLOW};">{predicate_note}</mark>',
-        "",
-        "## 生词",
-        "",
     ]
-    output.extend(f"{line}  " for line in vocab_lines[:-1])
-    output.append(vocab_lines[-1])
-    output.extend([
-        "",
-        "## 分析句子",
-        "",
-        f'<strong><span style="color: {RED};">1 断开：</span></strong>{split_intro}',
-        "",
-    ])
-    output.extend(f"- {line}" for line in split_lines)
-    output.extend([
-        "",
-        f'<strong><span style="color: {RED};">2 简化主句1：</span></strong>{simplify_intro}',
-        "",
-        f"- {simplified_sentence}",
-        "",
-        f"  {simplified_core}",
-        "",
-        "## 参考译文",
-        "",
-        translation,
-        "",
-    ])
-    return mmdd, day, "\n".join(output)
+
+    def append_section(title: str, values: list[str]) -> None:
+        if not values:
+            return
+        output.extend(["", f"## {title}", ""])
+        for index, value in enumerate(values):
+            if index:
+                output.append("")
+            output.append(value)
+
+    if "分析长难句前的准备工作" in section_starts:
+        prep_nodes = body_nodes("分析长难句前的准备工作")
+        prep_values: list[str] = []
+        for index, paragraph in enumerate(prep_nodes):
+            text = normalize_paragraph(plain_text(paragraph))
+            step = format_step(text)
+            if step:
+                prep_values.append(step)
+            elif index >= 2:
+                prep_values.append(f'<mark style="background-color: {YELLOW};">{text}</mark>')
+            else:
+                prep_values.append(text)
+        append_section("分析长难句前的准备工作", prep_values)
+
+    vocab = vocabulary_lines(body_nodes("生词"))
+    output.extend(["", "## 生词", ""])
+    output.extend(f"{line}  " for line in vocab[:-1])
+    output.append(vocab[-1])
+
+    if "分析句子" in section_starts:
+        append_section("分析句子", analysis_blocks(body_nodes("分析句子")))
+    if "语法重点" in section_starts:
+        append_section("语法重点", [render_styled_paragraph(node) for node in body_nodes("语法重点")])
+    if "翻译要点" in section_starts:
+        append_section("翻译要点", [render_styled_paragraph(node) for node in body_nodes("翻译要点")])
+    append_section("参考译文", body("参考译文"))
+    output.append("")
+
+    day_match = next(
+        (match for text in texts if (match := re.fullmatch(r"Day\s*(\d+)", text, re.I))),
+        None,
+    )
+    if not day_match:
+        raise ValueError("Cannot infer Day N from the article")
+    return year, mmdd, day_match.group(1), "\n".join(output)
 
 
 def input_files(inputs: list[Path]) -> list[Path]:
     files: list[Path] = []
     for item in inputs:
         if item.is_dir():
-            files.extend(sorted(item.glob("*.html")))
+            for source in sorted(item.glob("*.html")):
+                if re.search(r"Day\s*\d+", source.read_text(encoding="utf-8"), re.I):
+                    files.append(source)
+                else:
+                    print(f"SKIP non-daily HTML {source}", file=sys.stderr)
         elif item.suffix.lower() in {".html", ".htm"}:
             files.append(item)
         else:
@@ -313,7 +647,12 @@ def input_files(inputs: list[Path]) -> list[Path]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("inputs", nargs="+", type=Path, help="HTML file(s) or a directory containing HTML files")
-    parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path(__file__).resolve().parents[1],
+        help="Parent directory for year-based output folders",
+    )
     parser.add_argument("--check", action="store_true", help="Verify existing output instead of writing it")
     args = parser.parse_args()
 
@@ -323,8 +662,8 @@ def main() -> int:
             raise ValueError("No HTML files found")
         failed = False
         for source in files:
-            mmdd, day, markdown = extract(source.read_text(encoding="utf-8"))
-            destination = args.output_dir / f"{mmdd}-day{day}.md"
+            year, mmdd, day, markdown = extract(source.read_text(encoding="utf-8"))
+            destination = args.output_dir / year / f"{mmdd}-day{day}.md"
             if args.check:
                 if not destination.exists() or destination.read_text(encoding="utf-8") != markdown:
                     print(f"OUTDATED {destination}", file=sys.stderr)
