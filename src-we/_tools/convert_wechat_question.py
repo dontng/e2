@@ -11,6 +11,8 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 
 from convert_wechat_daily import (  # noqa: E402
+    RED,
+    YELLOW,
     TreeParser,
     content_items,
     find_by_id,
@@ -29,11 +31,82 @@ SECTION_TITLES = {
     "出题点": "出题点",
 }
 
+SOURCE_RED = "rgb(255, 76, 65)"
+SOURCE_YELLOW = "rgb(255, 251, 0)"
+
 
 def normalized_item(item) -> str:
     if item.tag == "img":
         return ""
-    return flatten_2025(item_text(item)).replace("\xa0", " ")
+    return flatten_2025(item_text(item).replace("\xa0", " "))
+
+
+def rich_segments(item) -> list[tuple[str, bool, bool, bool, bool]]:
+    """Read the article's inline emphasis while standardizing its colors to daily notes."""
+    result: list[tuple[str, bool, bool, bool, bool]] = []
+
+    def visit(node, red: bool = False, highlight: bool = False, strike: bool = False, bold: bool = False) -> None:
+        if isinstance(node, str):
+            value = re.sub(r"\s+", " ", node).strip()
+            if value:
+                result.append((value, red, highlight, strike, bold))
+            return
+        if node.tag == "br":
+            result.append(("\n", False, False, False, False))
+            return
+        style = node.attrs.get("style", "").replace(" ", "")
+        red = red or any(f"color:{color}".replace(" ", "") in style for color in (RED, SOURCE_RED))
+        highlight = highlight or any(
+            f"background-color:{color}".replace(" ", "") in style for color in (YELLOW, SOURCE_YELLOW)
+        )
+        strike = strike or "text-decoration:line-through" in style
+        bold = bold or node.tag in {"b", "strong"} or "font-weight:bold" in style or "font-weight:700" in style
+        for child in node.children:
+            visit(child, red, highlight, strike, bold)
+
+    visit(item)
+    return result
+
+
+def join_text(previous: str, current: str) -> str:
+    if not previous or current.startswith((",", ".", ":", ";", "?", "!", "，", "。", "：", "；", "？", "！", "、", "…", "’", "'", ")", "）")):
+        return ""
+    if previous.endswith(("(", "（", "[", "【", "“", "‘", "’", "'", "-", "—", "/")):
+        return ""
+    if re.search(r"[\u3400-\u9fff]$", previous) or re.match(r"^[\u3400-\u9fff]", current):
+        return ""
+    return " "
+
+
+def render_rich_item(item) -> str:
+    segments = [segment for segment in rich_segments(item) if segment[0] != "\n"]
+    if not segments:
+        return normalized_item(item)
+    all_bold = all(bold and not strike for _, _, _, strike, bold in segments)
+    merged: list[list[object]] = []
+    previous = ""
+    for value, red, highlight, strike, bold in segments:
+        flags = (red, highlight, strike, False if all_bold else bold)
+        separator = join_text(previous, value)
+        if merged and tuple(merged[-1][1:]) == flags:
+            merged[-1][0] = str(merged[-1][0]) + separator + value
+        else:
+            merged.append([separator + value, *flags])
+        previous = value
+
+    output = ""
+    for value, red, highlight, strike, bold in merged:
+        text = str(value)
+        if strike:
+            text = f"<s>{text}</s>"
+        if red:
+            text = f'<span style="color: {RED};">{text}</span>'
+        if highlight:
+            text = f'<mark style="background-color: {YELLOW};">{text}</mark>'
+        if bold:
+            text = f"**{text}**"
+        output += text
+    return f"**{output}**" if all_bold else output
 
 
 def locate(texts: list[str], pattern: str, start: int = 0) -> int:
@@ -64,26 +137,29 @@ def infer_answer(texts: list[str], start: int, end: int) -> str:
     raise ValueError("Cannot determine the correct answer from the article")
 
 
-def render_passage(values: list[str]) -> list[str]:
+def render_passage(values: list[tuple[str, object]]) -> list[str]:
     output: list[str] = []
-    for value in values:
+    for value, item in values:
         match = re.match(r"^(【段\s*\d+\s*】)\s*(.*)$", value, re.S)
         if match:
-            marker, passage = match.groups()
-            output.extend([f"### {marker}", "", passage, ""])
+            marker, _ = match.groups()
+            rendered = render_rich_item(item)
+            rendered = re.sub(r"^\*\*(【段\s*\d+\s*】)\*\*\s*", "", rendered)
+            rendered = re.sub(r"^(【段\s*\d+\s*】)\s*", "", rendered)
+            output.extend([f"**{marker}**", "", rendered, ""])
         else:
-            output.extend([value, ""])
+            output.extend([render_rich_item(item), ""])
     return output
 
 
-def render_explanation(values: list[str]) -> list[str]:
+def render_explanation(values: list[tuple[str, object]]) -> list[str]:
     output: list[str] = []
-    for value in values:
+    for value, item in values:
         key = value.rstrip("：:")
         if key in SECTION_TITLES:
-            output.extend([f"### {SECTION_TITLES[key]}", ""])
+            output.extend([f"## {SECTION_TITLES[key]}", ""])
         else:
-            output.extend([value, ""])
+            output.extend([render_rich_item(item), ""])
     return output
 
 
@@ -125,7 +201,7 @@ def extract(html: str, source_name: str) -> tuple[str, str, str, str]:
     question_index = next((i for i, value in lead if re.match(r"^\d+\.", value)), None)
     if question_index is None:
         raise ValueError("Cannot locate the question")
-    passage = [value for i, value in lead if i < question_index and value.startswith("【段")]
+    passage = [(value, items[i]) for i, value in lead if i < question_index and value.startswith("【段")]
     question = texts[question_index]
     options = [
         match.groups()
@@ -136,7 +212,7 @@ def extract(html: str, source_name: str) -> tuple[str, str, str, str]:
         raise ValueError(f"Expected four options, found {len(options)}")
 
     answer = infer_answer(texts, question_index, solve_reading)
-    explanation = [texts[i] for i in range(solve_wrong + 1, solve_reading) if texts[i]]
+    explanation = [(texts[i], items[i]) for i in range(solve_wrong + 1, solve_reading) if texts[i]]
     understanding = [texts[i] for i in range(solve_reading + 1, save_images) if texts[i]]
     image_notes = [texts[i] for i in range(save_images + 1, preview) if texts[i]]
     images = [
@@ -150,32 +226,37 @@ def extract(html: str, source_name: str) -> tuple[str, str, str, str]:
         raise ValueError("Cannot locate the analysis images")
 
     output = [
-        f"# 阅读每日一题 {number}",
-        "",
-        f"> 发布：{publish_year}-{month}-{day}<br>",
-        f"> 来源：英语{paper} · {exam_year} 年 · Text {text_number} · 第 {question_number} 题<br>",
-        f"> 题型：{question_type}",
-        "",
-        "## 先做真题",
+        "## 真题",
         "",
     ]
     output.extend(render_passage(passage))
-    output.extend(["### 题目", "", question, ""])
-    output.extend(f"- **{letter}** {text}" for letter, text in options)
+    output.extend(
+        [
+            f'<div align="center">【每日一题 {number} · {exam_year} 英语{paper} Text {text_number} 第 {question_number} 题 · {question_type}】</div>',
+            "",
+            "**题目:**",
+            "",
+            question,
+            "",
+        ]
+    )
+    for letter, text in options:
+        output.extend([f"[{letter}] {text}", ""])
 
     vocab_index = next((i for i, value in enumerate(understanding) if value == "生词"), None)
     long_index = next((i for i, value in enumerate(understanding) if value == "长难句"), None)
     if vocab_index is not None:
         vocab_end = long_index if long_index is not None else len(understanding)
         output.extend(["", "## 生词", ""])
-        output.extend(f"- {value}" for value in understanding[vocab_index + 1 : vocab_end])
+        vocab = understanding[vocab_index + 1 : vocab_end]
+        output.extend(f"✅ {value}{'  ' if index < len(vocab) - 1 else ''}" for index, value in enumerate(vocab))
     if long_index is not None:
         output.extend(["", "## 长难句", ""])
-        output.extend(render_passage(understanding[long_index + 1 :]))
+        output.extend(render_passage([(texts[i], items[i]) for i in range(solve_reading + 1, save_images) if texts[i] in understanding[long_index + 1 :]]))
 
-    output.extend(["", "<details>", '<summary><strong>查看答案与讲解</strong></summary>', "", f"**答案：{answer}**", ""])
+    output.extend(["", "<details>", '<summary><strong>答案与讲解</strong></summary>', "", f"**答案：{answer}**", ""])
     output.extend(render_explanation(explanation))
-    output.extend(["### 解析图片", ""])
+    output.extend(["## 解析图片", ""])
     output.extend(f"- {note}" for note in image_notes)
     output.append("")
     for image in images:
