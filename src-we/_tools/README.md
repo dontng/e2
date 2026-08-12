@@ -1,5 +1,29 @@
 # 微信文章转换工具
 
+## 阅读每日一题
+
+`convert_wechat_question.py` 把微信导出的“阅读每日一题”HTML整理成
+`src-we/questions/YYYY/MMDD-questionNNN.md`。转换结果保留真题段落、题目、选项、
+解题方法、词汇、长难句和高分辨率解析图，并把答案与讲解放进折叠区域；视频提示、
+次日预告和公众号宣传内容会被排除。
+
+单篇或少量试转换：
+
+```powershell
+python src-we/_tools/convert_wechat_question.py "src-we/_inbox/2025/每日一题/article.html"
+```
+
+批量转换整个目录：
+
+```powershell
+python src-we/_tools/convert_wechat_question.py "src-we/_inbox/2025/每日一题"
+```
+
+批量模式只处理文件名含三位题号（如 `每日一题001`）的文章；周复习、学习建议等
+非标准文章会提示并跳过。用 `--check` 可以检查现有 Markdown 是否与 HTML 一致。
+
+## 长难句每日一句
+
 `convert_wechat_daily.py` 把微信导出的“长难句每日一句”HTML按发布年份整理成
 `src-we/YYYY/MMDD-dayN.md`。
 
