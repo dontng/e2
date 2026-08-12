@@ -11,7 +11,7 @@
 ```text
 README.md              # 项目总览，帮助人和 Codex 快速认清结构
 AGENTS.md              # Codex 长期工作规则
-suggest/0804-tasks-and-suggestions.md  # 0804任务、建议与执行顺序
+suggest/0812-129-days-to-75.md         # 当前129天计划与真题—黄皮书闭环
 STANDARD.md            # 历史每日批改规范
 src/                   # 历史每日翻译与批改正文
 archive-src/           # 较早的每日翻译归档
@@ -27,13 +27,13 @@ e2-analysis/           # 英语二阅读分析
 
 1. `README.md`：确认项目当前架构。
 2. `AGENTS.md`：确认 Codex 的长期工作边界。
-3. `suggest/0804-tasks-and-suggestions.md`：确认0804任务、真题递归口径和执行顺序。
+3. `suggest/0812-129-days-to-75.md`：确认当前129天计划、真题与黄皮书闭环和前后50天分工。
 4. `archive-e2/`、`e2-ocr/`、`e2-analysis/`：进入完整真题、OCR和年度分析。
 5. 只有处理旧 daily 证据时，才继续读取 `STANDARD.md`、`src/` 和 `archive-src/`。
 
 真题任务按需要直接打开 `archive-e2/` 中对应真题 PDF、`e2-ocr/` 中的完整 OCR 或 `e2-analysis/` 中的年度分析。
 
-这个项目给 Codex 留的是接口，不是一个巨型总文件。当前判断集中在 `suggest/0804-tasks-and-suggestions.md`，真题正文与证据分别留在 `archive-e2/`、`e2-ocr/` 和 `e2-analysis/`；旧 daily 文件只在需要追溯时读取。
+这个项目给 Codex 留的是接口，不是一个巨型总文件。当前判断集中在 `suggest/0812-129-days-to-75.md`，真题正文与证据分别留在 `archive-e2/`、`e2-ocr/` 和 `e2-analysis/`；旧 daily 文件只在需要追溯时读取。
 
 ## 每日文件（历史）
 
@@ -92,7 +92,7 @@ bash scripts/src-nav.sh --check
 ```text
 README.md
 AGENTS.md
-suggest/0804-tasks-and-suggestions.md
+suggest/0812-129-days-to-75.md
 archive-e2/
 e2-ocr/
 e2-analysis/
