@@ -42,3 +42,12 @@ python src-we/_tools/convert_wechat_daily.py src-we/_inbox --check
 ```
 
 脚本只依赖 Python 标准库，不需要安装额外包。微信编辑器结构发生变化时，脚本会明确报错，不会静默生成残缺文件。
+
+## 跨年重复
+
+`dedupe-ignore.txt` 记录已经确认应从 Markdown 语料中排除、但仍需保留原始 HTML
+证据的输出路径。转换器遇到清单中的目标时会显示
+`SKIP deduplicated`，不会重新生成已删除的重复文件；`--check` 也把这些路径视为
+有意跳过，而不是缺失。
+
+需要恢复某篇时，先从清单中删除对应的 `YYYY/MMDD-dayN.md`，再重新运行转换。

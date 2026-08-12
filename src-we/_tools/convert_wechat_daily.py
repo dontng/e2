@@ -644,6 +644,17 @@ def input_files(inputs: list[Path]) -> list[Path]:
     return files
 
 
+def dedupe_ignores(output_dir: Path) -> set[str]:
+    manifest = output_dir / "_tools" / "dedupe-ignore.txt"
+    if not manifest.exists():
+        return set()
+    return {
+        line.strip()
+        for line in manifest.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("inputs", nargs="+", type=Path, help="HTML file(s) or a directory containing HTML files")
@@ -660,10 +671,15 @@ def main() -> int:
         files = input_files(args.inputs)
         if not files:
             raise ValueError("No HTML files found")
+        ignored = dedupe_ignores(args.output_dir)
         failed = False
         for source in files:
             year, mmdd, day, markdown = extract(source.read_text(encoding="utf-8"))
             destination = args.output_dir / year / f"{mmdd}-day{day}.md"
+            relative_destination = destination.relative_to(args.output_dir).as_posix()
+            if relative_destination in ignored:
+                print(f"SKIP deduplicated {destination}")
+                continue
             if args.check:
                 if not destination.exists() or destination.read_text(encoding="utf-8") != markdown:
                     print(f"OUTDATED {destination}", file=sys.stderr)
