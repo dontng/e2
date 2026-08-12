@@ -21,3 +21,9 @@ src-we/
 
 去重后共保留 264 篇：2025 年 166 篇，2026 年 98 篇。去重过程、词汇规模和考纲覆盖估算见
 [`suggest/0812-src-we-dedup-and-vocabulary-coverage.md`](../suggest/0812-src-we-dedup-and-vocabulary-coverage.md)。
+
+## 真题来源
+
+`2025/`、`2026/` 表示课程发布年份，不是真题年份。去重后的 264 句实际取材于
+2002—2023 年考研英语真题；没有 2024、2025 真题句。具体年份分布、英一/英二构成和
+使用边界见 [`suggest/0812-src-we-source-coverage.md`](../suggest/0812-src-we-source-coverage.md)。
