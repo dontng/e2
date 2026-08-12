@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert WeChat “阅读每日一题” HTML exports to focused Markdown notes."""
+"""Convert all WeChat “阅读每日一题” HTML exports to Markdown notes."""
 
 from __future__ import annotations
 
@@ -126,7 +126,7 @@ def parse_source(value: str) -> tuple[str, str, str, str, str]:
     return paper, year, text_number, question_number, question_type
 
 
-def infer_answer(texts: list[str], start: int, end: int) -> str:
+def infer_answer(texts: list[str], start: int, end: int) -> str | None:
     body = " ".join(texts[start:end])
     explicit = re.search(r"正确选项为[：:]?\s*([A-D])", body, re.I)
     if explicit:
@@ -134,7 +134,7 @@ def infer_answer(texts: list[str], start: int, end: int) -> str:
     explained = re.search(r"本题的\s*([A-D])\s*选项是对原文的高度概括", body, re.I)
     if explained:
         return explained.group(1).upper()
-    raise ValueError("Cannot determine the correct answer from the article")
+    return None
 
 
 def render_passage(values: list[tuple[str, object]]) -> list[str]:
@@ -163,21 +163,18 @@ def render_explanation(values: list[tuple[str, object]]) -> list[str]:
     return output
 
 
-def extract(html: str, source_name: str) -> tuple[str, str, str, str]:
-    parser = TreeParser()
-    parser.feed(html)
-    content = find_by_id(parser.root, "js_content")
-    if content is None:
-        raise ValueError('Missing WeChat article body: id="js_content"')
-
-    publish_node = find_by_id(parser.root, "publish_time")
+def publication_date(root, source_name: str) -> tuple[str, str, str]:
+    publish_node = find_by_id(root, "publish_time")
     published = plain_text(publish_node) if publish_node else ""
     date_match = re.search(r"(\d{4})年(\d{2})月(\d{2})日", published)
     if not date_match:
         date_match = re.search(r"\[(\d{4})-(\d{2})-(\d{2})-", source_name)
     if not date_match:
         raise ValueError("Cannot infer the publication date")
-    publish_year, month, day = date_match.groups()
+    return date_match.groups()
+
+
+def extract_question(content, publish_year: str, month: str, day: str) -> str:
 
     items = content_items(content)
     texts = [normalized_item(item) for item in items]
@@ -254,7 +251,9 @@ def extract(html: str, source_name: str) -> tuple[str, str, str, str]:
         output.extend(["", "## 长难句", ""])
         output.extend(render_passage([(texts[i], items[i]) for i in range(solve_reading + 1, save_images) if texts[i] in understanding[long_index + 1 :]]))
 
-    output.extend(["", "<details>", '<summary><strong>答案与讲解</strong></summary>', "", f"**答案：{answer}**", ""])
+    output.extend(["", "<details>", '<summary><strong>答案与讲解</strong></summary>', ""])
+    if answer:
+        output.extend([f"**答案：{answer}**", ""])
     output.extend(render_explanation(explanation))
     output.extend(["## 解析图片", ""])
     output.extend(f"- {note}" for note in image_notes)
@@ -262,18 +261,78 @@ def extract(html: str, source_name: str) -> tuple[str, str, str, str]:
     for image in images:
         output.extend([image, ""])
     output.extend(["</details>", ""])
-    return publish_year, month + day, number, "\n".join(output)
+    return "\n".join(output)
+
+
+def generic_image(node, number: int) -> str | None:
+    url = node.attrs.get("data-src") or node.attrs.get("src", "")
+    if not url or "_gif/" in url or "wx_fmt=gif" in url:
+        return None
+    try:
+        width = int(float(node.attrs.get("data-w", "0")))
+    except ValueError:
+        width = 0
+    if width < 300:
+        return None
+    return image_markdown(node, f"文章图片 {number}")
+
+
+def extract_generic(content, source_name: str, publish_year: str, month: str, day: str) -> str:
+    """Preserve non-standard reviews, summaries, and study-advice articles without inventing structure."""
+    items = content_items(content)
+    title = re.sub(r"^\[\d{4}-\d{2}-\d{2}-\d{4}\]", "", Path(source_name).stem)
+    output = [f"# {title}", "", f"> 发布：{publish_year}-{month}-{day}", ""]
+    previous = ""
+    image_number = 0
+    for item in items:
+        if item.tag == "img":
+            image_number += 1
+            value = generic_image(item, image_number)
+            if value:
+                output.extend([value, ""])
+            continue
+        text = normalized_item(item)
+        if not text or text == previous:
+            continue
+        previous = text
+        rendered = render_rich_item(item)
+        key = text.rstrip("：:")
+        if key in SECTION_TITLES or key in {
+            "先做真题",
+            "再看讲解",
+            "生词",
+            "长难句",
+            "今日复习",
+            "复习总结",
+            "考前救命词",
+        }:
+            output.extend([f"## {key}", ""])
+        else:
+            output.extend([rendered, ""])
+    return "\n".join(output).rstrip() + "\n"
+
+
+def extract(html: str, source_name: str) -> tuple[str, str, str]:
+    parser = TreeParser()
+    parser.feed(html)
+    content = find_by_id(parser.root, "js_content")
+    if content is None:
+        raise ValueError('Missing WeChat article body: id="js_content"')
+    publish_year, month, day = publication_date(parser.root, source_name)
+    try:
+        markdown = extract_question(content, publish_year, month, day)
+        kind = "question"
+    except (ValueError, StopIteration):
+        markdown = extract_generic(content, source_name, publish_year, month, day)
+        kind = "generic"
+    return publish_year, kind, markdown
 
 
 def input_files(inputs: list[Path]) -> list[Path]:
     files: list[Path] = []
     for item in inputs:
         if item.is_dir():
-            for source in sorted(item.glob("*.html")):
-                if re.search(r"每日一题\d{3}", source.name):
-                    files.append(source)
-                else:
-                    print(f"SKIP non-numbered HTML {source}", file=sys.stderr)
+            files.extend(sorted(item.glob("*.html")))
         elif item.suffix.lower() in {".html", ".htm"}:
             files.append(item)
         else:
@@ -296,11 +355,11 @@ def main() -> int:
     try:
         files = input_files(args.inputs)
         if not files:
-            raise ValueError("No numbered question HTML files found")
+            raise ValueError("No HTML files found")
         failed = False
         for source in files:
-            year, mmdd, number, markdown = extract(source.read_text(encoding="utf-8"), source.name)
-            destination = args.output_dir / year / f"{mmdd}-question{number}.md"
+            year, kind, markdown = extract(source.read_text(encoding="utf-8"), source.name)
+            destination = args.output_dir / year / f"{source.stem}.md"
             if args.check:
                 if not destination.exists() or destination.read_text(encoding="utf-8") != markdown:
                     print(f"OUTDATED {destination}", file=sys.stderr)
@@ -310,7 +369,7 @@ def main() -> int:
             else:
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 destination.write_text(markdown, encoding="utf-8")
-                print(destination)
+                print(f"{kind.upper()} {destination}")
         return 1 if failed else 0
     except (OSError, ValueError) as error:
         print(f"error: {error}", file=sys.stderr)

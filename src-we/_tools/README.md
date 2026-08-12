@@ -2,8 +2,9 @@
 
 ## 阅读每日一题
 
-`convert_wechat_question.py` 把微信导出的“阅读每日一题”HTML整理成
-`src-we/questions/YYYY/MMDD-questionNNN.md`。转换结果保留真题段落、题目、选项、
+`convert_wechat_question.py` 把微信导出的“阅读每日一题”HTML整理到
+`src-we/questions/YYYY/`，文件名与原 HTML 一致，仅把扩展名改为 `.md`。标准题目的
+转换结果保留真题段落、题目、选项、
 解题方法、词汇、长难句和高分辨率解析图，并把答案与讲解放进折叠区域；视频提示、
 次日预告和公众号宣传内容会被排除。标题层级、生词的 `✅` 格式、红色强调、加粗和
 删除线沿用“每日一句”的 Markdown 约定；黄色行内重点转换为稳定的高亮，黄色栏目名
@@ -21,10 +22,10 @@ python src-we/_tools/convert_wechat_question.py "src-we/_inbox/2025/每日一题
 python src-we/_tools/convert_wechat_question.py "src-we/_inbox/2025/每日一题"
 ```
 
-批量模式只处理文件名含三位题号（如 `每日一题001`）的文章；周复习、学习建议等
-非标准文章会提示并跳过。由于部分文章没有可可靠抽取的文字答案，转换器会中止而不
-猜测；当前已人工核验 `001`、`002` 两篇。用 `--check` 可以检查现有 Markdown 是否
-与 HTML 一致。
+批量模式会处理目录内全部 HTML。能够识别标准题目结构的文章使用做题版式；没有标准
+结构的周复习、题型汇总和学习建议等文章使用通用版式，按原文顺序保留内容。部分文章
+没有可可靠抽取的文字答案，此时答案栏留空，不进行猜测。用 `--check` 可以逐篇检查
+现有 Markdown 是否与 HTML 的转换结果一致。
 
 ## 长难句每日一句
 
