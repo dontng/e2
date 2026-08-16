@@ -10,15 +10,15 @@
 2. `suggest/0804-tasks-and-suggestions.md`：早期真题递归口径，只有需要追溯旧设计时读取。
 3. `archive-e2/`、`e2-ocr/`、`e2-analysis/`：完整真题、OCR和年度分析入口。
 4. 进入某一年时，再打开对应的 PDF、完整 OCR 或年度分析。
-5. 只有明确处理旧 daily 证据时，才读取 `STANDARD.md`、`src/` 与 `archive-src/`。
+5. 处理 Daily、新句批改或追溯旧证据时，读取 `STANDARD.md`、`src/` 与 `archive-src/`。
 
 ## 执行边界
 
 - 当前主任务以 `suggest/0812-129-days-to-75.md` 为准，2016—2025完整英二真题是核心语料，黄皮书是主要外部解析依据。
 - 真题任务先读 `suggest/0812-129-days-to-75.md`，再直接进入 `archive-e2/`、`e2-ocr/` 或 `e2-analysis/`。
-- `src/`、`archive-src/` 和 `STANDARD.md` 保留旧 daily 证据与规则，只在相关任务中读取；它们不决定当前真题主线。
-- 每日批改格式以 `STANDARD.md` 为准。
-- 批改完成后，把 `## 我的翻译` 整块注释掉，不删除。
+- `src/` 承载当前 Daily 与连续能力诊断，`archive-src/` 保留较早证据。Daily 不替代完整真题主线，但应把真题和每日句子中暴露的阅读问题讲透。
+- Daily 教学方法以 `STANDARD.md` 为准：从用户译文还原阅读过程，定位第一个失控点，针对机制重新教读，再落到译对、译好与考研迁移。不得把 0814 机械复制成固定样板。
+- 用户首次译文作为诊断证据保留；成稿中可以把 `## 我的翻译` 整块注释掉，但不得删除。
 - 新增或批改日文件后运行 `bash scripts/src-nav.sh`。
 
 ## 提交约定
