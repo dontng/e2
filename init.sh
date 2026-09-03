@@ -14,8 +14,9 @@ usage() {
 Usage:
   bash init.sh                    create today's next Daily
   bash init.sh tomorrow           create tomorrow's next Daily
-  bash init.sh 0904               create this year's 09-04 Daily
-  bash init.sh 2026-09-04 day118  create an explicitly dated/numbered Daily
+  bash init.sh 0904 day118        create this year's 09-04 Day 118
+  bash init.sh 0904               create this year's 09-04 next Daily
+  bash init.sh 2026-09-04 day118  specify the year when needed
 
 The target directory uses src/YY-MM/MMDD-dayN.md. If dayN is omitted, the
 largest existing day number is incremented automatically.
