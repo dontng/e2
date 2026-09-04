@@ -1,0 +1,6 @@
+interface:
+  display_name: "关系表达放大镜"
+  short_description: "发现并分组讲透那些容易被迅速放过、却反复阻碍译对的英语关系表达"
+  default_prompt: "使用 $relationship-lens 扫描这篇英语材料，找出阻碍译对却容易被放过的关系表达，并按认知负担分组。"
+policy:
+  allow_implicit_invocation: true
