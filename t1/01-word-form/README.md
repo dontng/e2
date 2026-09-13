@@ -2,24 +2,26 @@
 
 这个专项不负责扩充一张无限词表，只处理一种已经反复造成整句失控的问题：眼睛只取了单词的一部分，脑中先到的熟词替换了纸面上的词。目标不是“这次订正”，而是在新句里稳定完成 **完整取形 → 区分信号 → 句内校验**。
 
+本目录的长期数据分别放在：[历史错例](cases.md) · [闭卷训练](drills.md) · [复测记录](review-log.md)。本页只保留机制说明和首次入口。
+
 ## 哪些词进入这里
 
-只有真实阅读中发生过以下情况的词进入活动队列：漏看字母、添看字母、把长词压成相似熟词，或看见词根就直接拼义。一个词如果只是义项调错，转入 [`02-familiar-sense.md`](02-familiar-sense.md)；词认对但没找到谓语，转入 [`03-expectation-slots.md`](03-expectation-slots.md)。
+只有真实阅读中发生过以下情况的词进入活动队列：漏看字母、添看字母、把长词压成相似熟词，或看见词根就直接拼义。一个词如果只是义项调错，转入 [`02-familiar-sense.md`](../02-familiar-sense/)；词认对但没找到谓语，转入 [`03-expectation-slots.md`](../03-expectation-slots/)。
 
 ## 已发生的错误，不再当作“粗心”
 
 | 首次证据 | 纸面词 | 当时调出的词/意思 | 下次必须抓住的区分信号 |
 |---|---|---|---|
-| [Day 67](../archive-src/june/0630-day67-v2.md) | `competing` | `completing` | `compet-` 是竞争；`complet-` 才是完成 |
-| [Day 70](../src/26-07/0703-day70.md) | `district` | `restriction` | `dis-trict` 很短；没有 `re-` 和 `-tion` |
-| [Day 79](../src/26-07/0714-day79.md) | `demoralization` | `democracy` | 中段是 `moral`，末尾是过程名词 `-ization` |
-| [Day 101](../src/26-08/0810-day101.md) | `novel` | `noble` | 逐字保住 `v`；`novel idea` 是新颖的想法 |
-| [Day 125](../src/26-09/0907-day125.md) | `somewhat` | `somehow` | 尾部 `what` 表程度，`how` 表方式 |
-| [Day 125](../src/26-09/0907-day125.md) | `reaching` | `researching` | `reach` 后直接接 `-ing`，没有 `res-` |
-| [Day 126](../src/26-09/0908-day126.md) | `rationally` | `randomly`/“随心” | 中段 `ration` 指理性；`random` 才是随机 |
-| [Day 127](../src/26-09/0909-day127.md) | `combined / rise / due` | `compared / risk / duty` | 分别锁定 `bin / se / due`，不可只看开头 |
-| [Day 128](../src/26-09/0910-day128.md) | `astronomy` | 航空 | `astro-` 是星体；航空是 `aviation` |
-| [Day 130](../src/26-09/0912-day130.md) | `assessment / sets` | `access / seat` | `assess + ment`；`set` 的复数只有一个 `e` |
+| [Day 67](../../archive-src/june/0630-day67-v2.md) | `competing` | `completing` | `compet-` 是竞争；`complet-` 才是完成 |
+| [Day 70](../../src/26-07/0703-day70.md) | `district` | `restriction` | `dis-trict` 很短；没有 `re-` 和 `-tion` |
+| [Day 79](../../src/26-07/0714-day79.md) | `demoralization` | `democracy` | 中段是 `moral`，末尾是过程名词 `-ization` |
+| [Day 101](../../src/26-08/0810-day101.md) | `novel` | `noble` | 逐字保住 `v`；`novel idea` 是新颖的想法 |
+| [Day 125](../../src/26-09/0907-day125.md) | `somewhat` | `somehow` | 尾部 `what` 表程度，`how` 表方式 |
+| [Day 125](../../src/26-09/0907-day125.md) | `reaching` | `researching` | `reach` 后直接接 `-ing`，没有 `res-` |
+| [Day 126](../../src/26-09/0908-day126.md) | `rationally` | `randomly`/“随心” | 中段 `ration` 指理性；`random` 才是随机 |
+| [Day 127](../../src/26-09/0909-day127.md) | `combined / rise / due` | `compared / risk / duty` | 分别锁定 `bin / se / due`，不可只看开头 |
+| [Day 128](../../src/26-09/0910-day128.md) | `astronomy` | 航空 | `astro-` 是星体；航空是 `aviation` |
+| [Day 130](../../src/26-09/0912-day130.md) | `assessment / sets` | `access / seat` | `assess + ment`；`set` 的复数只有一个 `e` |
 
 活动词不是把左右两栏都背一遍。优先主动掌握纸面词；右栏只作为一次“排除旧反应”的对照。`criteria` 等在句中迟疑过但未发生稳定替换的词，先留作观察项，不挤进活动队列。
 
@@ -76,11 +78,7 @@
 
 记录只用三种结果：`F`（错认）、`H`（对但明显犹豫）、`S`（直接成功）。出现 `F` 就回到 D1，并更换语境；同一路径第三次复发时，只增加一个更窄的形态对比，不再追加一篇解释。
 
-### 复测记录（由 Codex 追加）
-
-| 日期 | 节点与材料 | 检测项 | 结果 | 下一节点 |
-|---|---|---|---|---|
-| — | 等待首次 D0 作答 | 上表活动词 | — | 按实际结果启动 |
+实际队列和每次结果只追加到 [`review-log.md`](review-log.md)，避免机制页与进度表出现两个版本。
 
 ## 专项退出，不等于永不复习
 

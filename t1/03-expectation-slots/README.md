@@ -2,21 +2,23 @@
 
 这个专项处理的不是“长句看着难”，而是阅读时没有持续保留尚未填满的位置：长主语之后还缺谓语，`what` 从句之后还缺外层动作，`that A and that B` 的第二项还在等待，结果眼睛继续向右，脑中却已经把句子结束了。
 
+本目录的长期数据分别放在：[历史错例](cases.md) · [闭卷训练](drills.md) · [复测记录](review-log.md)。本页只保留机制说明和首次入口。
+
 ## 已暴露的坍塌点
 
 | 真实证据 | 当时需要保留的期待位 |
 |---|---|
-| [Day 78](../src/26-07/0713-day78.md)、[Day 90](../src/26-07/0727-day90.md) | 长名词主语结束后，仍等待全句谓语 |
-| [Day 102](../src/26-08/0811-day102.md) | `Asked whether...` 只是背景，仍等待谁说了什么 |
-| [Day 105](../src/26-08/0814-day105.md) | `Researchers measured... and found...` 中并列谓语共享主语 |
-| [Day 106](../src/26-08/0815-day106.md) | `-ing` 事件整体作主语，之后等待 `means` |
-| [Day 108](../src/26-08/0818-day108.md) | `lacking not in A but in B` 要让 A、B 占同一槽位 |
-| [Day 88](../src/26-07/0724-day88.md) | `Only if... will...` 条件结束后等待倒装主句 |
-| [Day 127](../src/26-09/0909-day127.md) | 长主语和介词修饰结束后，等待核心谓语落地 |
-| [Day 128](../src/26-09/0910-day128.md) | `Calls [to A or to B] ignore C`：两个 `to` 都在修饰 `Calls`，`ignore` 才落地 |
-| [Day 129](../src/26-09/0911-day129.md) | `With N doing/done` 是背景，逗号后仍需主句 |
-| [Day 130](../src/26-09/0912-day130.md) | `sets of criteria have been measured`：头名词决定数，`of` 内名词不夺主干 |
-| [Day 131](../src/26-09/0914-day131.md) | `what ... was referring to was that...`：内层关系完成后，外层等式才完成 |
+| [Day 78](../../src/26-07/0713-day78.md)、[Day 90](../../src/26-07/0727-day90.md) | 长名词主语结束后，仍等待全句谓语 |
+| [Day 102](../../src/26-08/0811-day102.md) | `Asked whether...` 只是背景，仍等待谁说了什么 |
+| [Day 105](../../src/26-08/0814-day105.md) | `Researchers measured... and found...` 中并列谓语共享主语 |
+| [Day 106](../../src/26-08/0815-day106.md) | `-ing` 事件整体作主语，之后等待 `means` |
+| [Day 108](../../src/26-08/0818-day108.md) | `lacking not in A but in B` 要让 A、B 占同一槽位 |
+| [Day 88](../../src/26-07/0724-day88.md) | `Only if... will...` 条件结束后等待倒装主句 |
+| [Day 127](../../src/26-09/0909-day127.md) | 长主语和介词修饰结束后，等待核心谓语落地 |
+| [Day 128](../../src/26-09/0910-day128.md) | `Calls [to A or to B] ignore C`：两个 `to` 都在修饰 `Calls`，`ignore` 才落地 |
+| [Day 129](../../src/26-09/0911-day129.md) | `With N doing/done` 是背景，逗号后仍需主句 |
+| [Day 130](../../src/26-09/0912-day130.md) | `sets of criteria have been measured`：头名词决定数，`of` 内名词不夺主干 |
+| [Day 131](../../src/26-09/0914-day131.md) | `what ... was referring to was that...`：内层关系完成后，外层等式才完成 |
 
 ## 不翻译，先记账
 
@@ -76,10 +78,6 @@
 
 专项得分按“控制点”计算，不按整句二元判定。比如第 6 题至少有：头名词、两个并列 `to`、主句谓语、宾语四个控制点；错一个就知道撞在哪次转弯，不会把整题只记成“又不会长难句”。
 
-### 复测记录（由 Codex 追加）
-
-| 日期 | 节点与材料 | 检测骨架 | 控制点结果 | 下一节点 |
-|---|---|---|---|---|
-| — | 等待首次 D0 作答 | 上表期待位 | — | 按实际结果启动 |
+实际队列和每次结果只追加到 [`review-log.md`](review-log.md)，避免机制页与进度表出现两个版本。
 
 某一骨架退出活动队列须在至少 14 天中三次 `S`，其中一次为两个结构叠加的新句，且能在首遍或一次可控回读中恢复主干。背得出 Day 128 的答案不算退出。
