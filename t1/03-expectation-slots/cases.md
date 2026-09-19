@@ -65,6 +65,7 @@
 | 129 | `With A, and B, it is...to assess what...` | 两个背景后等待形式主语判断 | 只剩“他会跟随什么” | [0911](../../src/26-09/0911-day129.md) |
 | 130 | `over 40 different sets of criteria... have been measured` | 头名词 `sets` 决定谓语，`of` 内名词不夺主干 | 主语被拆成“席位鼓励” | [0912](../../src/26-09/0912-day130.md) |
 | 131 | `what Kennedy was referring to was that...` | 内层关系完成后仍等外层等式补语 | `what` 被改成人名受事 | [0914](../../src/26-09/0914-day131.md) |
+| 136 | `pressure [to go to college] in conjunction with expectations... causes...` | `pressure` 后的两层修饰结束前仍等外层谓语 | 在 `pressure` 处提前调用 `causes`，第二股因素被甩到句尾 | [0919](../../src/26-09/0919-day136.md) |
 
 ## 当前最高风险槽位
 

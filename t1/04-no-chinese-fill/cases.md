@@ -36,6 +36,7 @@
 | 129 | `as a result` | 补成“事实上” | 因果被改成真实性评价 | [0911](../../src/26-09/0911-day129.md) |
 | 130 | `civil society engagement` | 补成“市民鼓励” | 领域名词被改成人物动作 | [0912](../../src/26-09/0912-day130.md) |
 | 130 | `how countries are performing` | 补成“国家如何前进” | 表现/运行状况被改成进步方向 | [0912](../../src/26-09/0912-day130.md) |
+| 136 | `in conjunction with increasingly high expectations...` | 在句尾补出“用非常快的 expectation” | 共同作用关系被改成工具关系，程度与世界变化的范围混合 | [0919](../../src/26-09/0919-day136.md) |
 
 ## 守界的判定
 

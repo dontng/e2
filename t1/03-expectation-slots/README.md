@@ -19,6 +19,7 @@
 | [Day 129](../../src/26-09/0911-day129.md) | `With N doing/done` 是背景，逗号后仍需主句 |
 | [Day 130](../../src/26-09/0912-day130.md) | `sets of criteria have been measured`：头名词决定数，`of` 内名词不夺主干 |
 | [Day 131](../../src/26-09/0914-day131.md) | `what ... was referring to was that...`：内层关系完成后，外层等式才完成 |
+| [Day 136](../../src/26-09/0919-day136.md) | `pressure [to do] in conjunction with expectations... causes...`：长主语展开期间继续等待外层谓语 |
 
 ## 不翻译，先记账
 

@@ -81,6 +81,7 @@
 | 129 | `as a result / assess / refer to` | 事实上/跟随 | 结果关系、评估、所指内容 | [0911](../../src/26-09/0911-day129.md) |
 | 130 | `rather than / measure / rounded` | 一般比较/单一“措施”/周转 | 换评价路径、衡量、全面均衡 | [0912](../../src/26-09/0912-day130.md) |
 | 131 | `while / method / measure` | 时间关系与单一中文 | 让步；方法与衡量尺度由位置区分 | [0914](../../src/26-09/0914-day131.md) |
+| 136 | `social pressure` | `social` 封成“社交的” | `pressure to do` 描述社会规范推动的行为，要求“社会压力” | [0919](../../src/26-09/0919-day136.md) |
 
 ## 高优先迁移族
 
