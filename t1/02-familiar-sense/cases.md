@@ -82,6 +82,8 @@
 | 130 | `rather than / measure / rounded` | 一般比较/单一“措施”/周转 | 换评价路径、衡量、全面均衡 | [0912](../../src/26-09/0912-day130.md) |
 | 131 | `while / method / measure` | 时间关系与单一中文 | 让步；方法与衡量尺度由位置区分 | [0914](../../src/26-09/0914-day131.md) |
 | 136 | `social pressure` | `social` 封成“社交的” | `pressure to do` 描述社会规范推动的行为，要求“社会压力” | [0919](../../src/26-09/0919-day136.md) |
+| 137 | `western states / federal tax dollars` | “西方局势 / 州税金额” | `western + states` 是地域中的多个州；`federal` 与州级相对，`tax dollars` 指用于公共支出的税款 | [0921](../../src/26-09/0921-day137.md) |
+| 138 | `creative personalities` | “创造性的个性” | `compete with other...` 需要人的竞争对象，复数 `personalities` 在此指富有创造力的人 | [0922](../../src/26-09/0922-day138.md) |
 
 ## 高优先迁移族
 

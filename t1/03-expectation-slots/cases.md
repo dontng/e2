@@ -66,6 +66,8 @@
 | 130 | `over 40 different sets of criteria... have been measured` | 头名词 `sets` 决定谓语，`of` 内名词不夺主干 | 主语被拆成“席位鼓励” | [0912](../../src/26-09/0912-day130.md) |
 | 131 | `what Kennedy was referring to was that...` | 内层关系完成后仍等外层等式补语 | `what` 被改成人名受事 | [0914](../../src/26-09/0914-day131.md) |
 | 136 | `pressure [to go to college] in conjunction with expectations... causes...` | `pressure` 后的两层修饰结束前仍等外层谓语 | 在 `pressure` 处提前调用 `causes`，第二股因素被甩到句尾 | [0919](../../src/26-09/0919-day136.md) |
+| 137 | `Though [S is] viewed..., S is..., says Professor...` | 省略的让步块完成后等核心 `is`，完整判断后再接报告语 | 原因块和专家身份悬空，主句内部关系不稳 | [0921](../../src/26-09/0921-day137.md) |
+| 138 | `During..., I realised [S was not enough to compete...], so I decided [that...]` | 时间块后等 `realised` 内容，`enough` 后等能力门槛，`decided` 后等判断内容 | 课程、竞争和未来错误串接，因果主线被打散 | [0922](../../src/26-09/0922-day138.md) |
 
 ## 当前最高风险槽位
 
