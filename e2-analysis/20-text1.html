@@ -43,6 +43,33 @@
       letter-spacing: .02em;
     }
 
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mode-switch {
+      display: flex;
+      padding: 2px;
+      background: #e9e9e5;
+      border-radius: 7px;
+    }
+
+    .mode-button {
+      padding: 5px 11px;
+      background: transparent;
+      border: 0;
+      border-radius: 5px;
+      color: #666;
+    }
+
+    .mode-button[aria-pressed="true"] {
+      color: #171717;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+    }
+
     .toolbar-note {
       margin-left: 8px;
       color: #777;
@@ -164,8 +191,165 @@
       letter-spacing: .35em;
     }
 
+    .analysis-note {
+      display: none;
+      margin: 3pt 0 7pt;
+      color: #222;
+      background: #faf9f5;
+      border: 1px solid #dedbd2;
+      border-radius: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      font-size: 8.7pt;
+      line-height: 1.55;
+      text-align: left;
+      text-indent: 0;
+      word-spacing: 0;
+    }
+
+    body.review-mode .analysis-note { display: block; }
+
+    .analysis-note > summary {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 20pt;
+      padding: 3pt 7pt;
+      color: #4d4a43;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .analysis-note > summary::-webkit-details-marker,
+    .analysis-branch > summary::-webkit-details-marker { display: none; }
+
+    .analysis-note > summary::before {
+      content: "+";
+      flex: 0 0 auto;
+      width: 13pt;
+      height: 13pt;
+      color: #676257;
+      border: 1px solid #a8a297;
+      border-radius: 50%;
+      font-size: 9pt;
+      line-height: 11.5pt;
+      text-align: center;
+    }
+
+    .analysis-note[open] > summary::before { content: "−"; }
+
+    .note-kicker {
+      flex: 0 0 auto;
+      color: #796b50;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .note-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .analysis-content {
+      padding: 0 7pt 7pt;
+      border-top: 1px solid #e5e1d8;
+    }
+
+    .analysis-branch {
+      margin-top: 6pt;
+      background: #fff;
+      border: 1px solid #e5e2da;
+      border-radius: 4px;
+    }
+
+    .analysis-branch > summary {
+      position: relative;
+      padding: 5pt 22pt 5pt 7pt;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 650;
+    }
+
+    .analysis-branch > summary::after {
+      content: "＋";
+      position: absolute;
+      top: 5pt;
+      right: 7pt;
+      color: #8b857b;
+      font-weight: 400;
+    }
+
+    .analysis-branch[open] > summary::after { content: "−"; }
+
+    .branch-body {
+      padding: 0 8pt 7pt;
+      color: #34332f;
+    }
+
+    .branch-body p {
+      margin: 5pt 0 0;
+      text-indent: 0;
+      font-size: inherit;
+      line-height: inherit;
+      text-align: left;
+    }
+
+    .branch-body p:first-child { margin-top: 0; }
+
+    .layer {
+      margin-top: 6pt;
+      padding-top: 6pt;
+      border-top: 1px solid #ece9e2;
+    }
+
+    .layer:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .layer-label {
+      display: inline-block;
+      margin-right: 5pt;
+      padding: 1pt 4pt;
+      color: #5e5545;
+      background: #efede7;
+      border-radius: 3px;
+      font-size: 7.5pt;
+      font-weight: 700;
+      vertical-align: .5pt;
+    }
+
+    .evidence {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 9.3pt;
+    }
+
+    .status-good { color: #356146; }
+    .status-watch { color: #8a542c; }
+
+    body.review-mode .paper {
+      overflow: visible;
+    }
+
+    body.review-mode .focus-sentence {
+      text-decoration-line: underline;
+      text-decoration-color: #c6a968;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
     @media (max-width: 760px) {
       .toolbar-note { display: none; }
+
+      .toolbar {
+        align-items: flex-start;
+        padding-inline: 12px;
+      }
+
+      .toolbar-actions { flex-wrap: wrap; justify-content: flex-end; }
 
       main {
         display: block;
@@ -187,6 +371,8 @@
 
       body { background: #fff; }
       .toolbar { display: none; }
+
+      .analysis-note { display: none !important; }
 
       main {
         display: block;
@@ -210,9 +396,15 @@
   <header class="toolbar">
     <div class="toolbar-title">
       2020 英语（二）· Text 1
-      <span class="toolbar-note">原题版式校准稿</span>
+      <span class="toolbar-note">原题与原位复盘</span>
     </div>
-    <button type="button" onclick="window.print()">打印原题</button>
+    <div class="toolbar-actions">
+      <div class="mode-switch" role="group" aria-label="阅读模式">
+        <button class="mode-button" type="button" data-mode="exam" aria-pressed="true">原题</button>
+        <button class="mode-button" type="button" data-mode="review" aria-pressed="false">复盘</button>
+      </div>
+      <button type="button" onclick="window.print()">打印原题</button>
+    </div>
   </header>
 
   <main aria-label="2020年考研英语二阅读理解Text 1原题">
@@ -220,17 +412,90 @@
       <h1 class="paper-title">Text 1</h1>
 
       <section class="passage">
-        <p id="p1">Rats and other animals need to be highly attuned to social signals from others so they can identify friends to cooperate with and enemies to avoid. To find out if this extends to non-living beings, Laleh Quinn at the University of California, San Diego, and her colleagues tested whether rats can detect social signals from robotic rats.</p>
+        <p id="p1">Rats and other animals need to be highly attuned to social signals from others so they can identify friends to cooperate with and enemies to avoid. <span class="focus-sentence">To find out if this extends to non-living beings, Laleh Quinn at the University of California, San Diego, and her colleagues tested whether rats can detect social signals from robotic rats.</span></p>
+
+        <details class="analysis-note" id="note-p1">
+          <summary><span class="note-kicker">P1</span><span class="note-title">目的句中的 if / this / whether 三个等待位</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch">
+              <summary>唐迟讲解复现</summary>
+              <div class="branch-body">
+                <p>第21题问实验目的，定位到 <span class="evidence">To find out ... tested whether ...</span>。题干的 <span class="evidence">conducted a test to see if</span> 与原文形成同义改写，答案由目的内容直接决定。</p>
+              </div>
+            </details>
+            <details class="analysis-branch">
+              <summary>AI 互补</summary>
+              <div class="branch-body">
+                <div class="layer"><span class="layer-label">Daily迁移</span>读到 <span class="evidence">To find out if</span> 时先留下“要查明什么”的位置；读到 <span class="evidence">tested whether</span> 时再留下“测试什么命题”的位置。不要看见熟词就提前封口。</div>
+                <div class="layer"><span class="layer-label">命题混淆</span><span class="evidence">friends / enemies</span> 是实验背景，不是本次实验要验证的对象；第21题的 B 正是把背景偷换成目的。</div>
+                <div class="layer"><span class="layer-label">英语底层</span><span class="evidence">this</span> 承接前句“能否识别社会信号”这件事；<span class="evidence">if / whether</span> 都装入尚未确定的命题，但分别服务于 <span class="evidence">find out</span> 和 <span class="evidence">tested</span>。</div>
+              </div>
+            </details>
+          </div>
+        </details>
 
         <p id="p2">They housed eight adult rats with two types of robotic rat — one social and one asocial — for four days. The robot rats were quite minimalist, resembling a chunkier version of a computer mouse with wheels to move around and colourful markings.</p>
 
         <p id="p3">During the experiment, the social robot rat followed the living rats around, played with the same toys, and opened cage doors to let trapped rats escape. Meanwhile, the asocial robot simply moved forwards and backwards and side to side.</p>
 
-        <p id="p4">Next, the researchers trapped the robots in cages and gave the rats the opportunity to release them by pressing a lever. Across 18 trials each, the living rats were 52 per cent more likely on average to set the social robot free than the asocial one. This suggests that the rats perceived the social robot as a genuine social being. They may have bonded more with the social robot because it displayed behaviors like communal exploring and playing. This could lead to the rats better remembering having freed it earlier, and wanting the robot to return the favour when they get trapped, says Quinn.</p>
+        <p id="p4">Next, the researchers trapped the robots in cages and gave the rats the opportunity to release them by pressing a lever. Across 18 trials each, the living rats were 52 per cent more likely on average to set the social robot free than the asocial one. This suggests that the rats perceived the social robot as a genuine social being. They may have bonded more with the social robot because it displayed behaviors like communal exploring and playing. <span class="focus-sentence">This could lead to the rats better remembering having freed it earlier, and wanting the robot to return the favour when they get trapped, says Quinn.</span></p>
 
-        <p id="p5">“Rats have been shown to engage in multiple forms of reciprocal help and cooperation, including what is referred to as direct reciprocity — where a rat will help another rat that has previously helped them,” says Quinn.</p>
+        <details class="analysis-note" id="note-p4">
+          <summary><span class="note-kicker">P4</span><span class="note-title">lead to 后面并列的两种心理结果</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch">
+              <summary>唐迟讲解复现</summary>
+              <div class="branch-body">
+                <p>第23题抓住 <span class="evidence">wanting the robot to return the favour</span>，对应 B 的 <span class="evidence">expected it to do the same in return</span>。这里考的是回报行为的同义改写。</p>
+              </div>
+            </details>
+            <details class="analysis-branch">
+              <summary>AI 互补</summary>
+              <div class="branch-body">
+                <div class="layer"><span class="layer-label">Daily迁移</span>先固定骨架 <span class="evidence">This could lead to A and B</span>，再分别装入 <span class="evidence">better remembering ...</span> 与 <span class="evidence">wanting ...</span>，避免只留下“老鼠想让机器人帮忙”的中文结果。</div>
+                <div class="layer"><span class="layer-label">命题混淆</span>正确项保留了“先帮助—期待回报”的方向；其余选项虽像合理动机，却没有原文中的互动链条。</div>
+                <div class="layer"><span class="layer-label">英语底层</span><span class="evidence">having freed it earlier</span> 是 remembering 的内容；<span class="evidence">want the robot to return</span> 是 want + 宾语 + to do。两个结构都不能只凭名词猜关系。</div>
+              </div>
+            </details>
+          </div>
+        </details>
 
-        <p id="p6">The readiness of the rats to befriend the social robot was surprising given its minimal design. The robot was the same size as a regular rat but resembled a simple plastic box on wheels. “We’d assumed we’d have to give it a moving head and tail, facial features, and put a scent on it to make it smell like a real rat, but that wasn’t necessary,” says Janet Wiles at the University of Queensland in Australia, who helped with the research.</p>
+        <p id="p5"><span class="focus-sentence">“Rats have been shown to engage in multiple forms of reciprocal help and cooperation, including what is referred to as direct reciprocity — where a rat will help another rat that has previously helped them,” says Quinn.</span></p>
+
+        <details class="analysis-note" id="note-p5">
+          <summary><span class="note-kicker">P5</span><span class="note-title">what 给概念命名，where 给概念补定义</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch">
+              <summary>AI 互补</summary>
+              <div class="branch-body">
+                <div class="layer"><span class="layer-label">Daily迁移</span>先读成“包括一种被称为直接互惠的东西”，再让破折号后的 <span class="evidence">where ...</span> 填入这种互惠具体怎样发生。</div>
+                <div class="layer"><span class="layer-label">英语底层</span><span class="evidence">what is referred to as X</span> 整体相当于“被称作 X 的事物”；这里的 <span class="evidence">where</span> 不是地点，而是把抽象情形展开为规则。</div>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <p id="p6"><span class="focus-sentence">The readiness of the rats to befriend the social robot was surprising given its minimal design.</span> The robot was the same size as a regular rat but resembled a simple plastic box on wheels. <span class="focus-sentence">“We’d assumed we’d have to give it a moving head and tail, facial features, and put a scent on it to make it smell like a real rat, but that wasn’t necessary,”</span> says Janet Wiles at the University of Queensland in Australia, who helped with the research.</p>
+
+        <details class="analysis-note" id="note-p6">
+          <summary><span class="note-kicker">P6 · Q24</span><span class="note-title">出现过的词，不等于实验支持的结论</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch">
+              <summary>唐迟讲解复现</summary>
+              <div class="branch-body">
+                <p>研究者原先以为机器人需要头尾、面部和气味，<span class="evidence">but that wasn’t necessary</span> 推翻了这组预设。老鼠面对简陋外形仍作出社会性回应，因此第24题选 C。</p>
+              </div>
+            </details>
+            <details class="analysis-branch">
+              <summary>AI 互补</summary>
+              <div class="branch-body">
+                <div class="layer"><span class="layer-label">Daily迁移</span><span class="evidence">The readiness ... was surprising</span> 的谓语要等到 <span class="evidence">was</span>；中间的 <span class="evidence">of the rats / to befriend ...</span> 都在扩展主语。后一句再固定 <span class="evidence">assumed A, but A wasn’t necessary</span>。</div>
+                <div class="layer"><span class="layer-label">命题混淆</span>A 项复用了醒目的 <span class="evidence">facial features</span>，但原文只说研究者曾把它当作必要条件，并没有说老鼠能记住面部。当前更像是“词找对了、证据身份判错了”，仍需以后用新题验证，不能凭一题定性。</div>
+                <div class="layer"><span class="layer-label">英语底层</span><span class="evidence">assume</span> 标记先验设想，<span class="evidence">but</span> 引出实际结果，<span class="evidence">that</span> 回指整套外形与气味设计。做题时要记录命题的证据状态：设想、结果、推测不能互换。</div>
+              </div>
+            </details>
+          </div>
+        </details>
 
         <p id="p7">The finding shows how sensitive rats are to social cues, even when they come from basic robots. Similarly, children tend to treat robots as if they are fellow beings, even when they display only simple social signals. “We humans seem to be fascinated by robots, and it turns out other animals are too,” says Wiles.</p>
       </section>
@@ -245,6 +510,16 @@
         <p class="option">[B] distinguish a friendly rat from a hostile one</p>
         <p class="option">[C] attain sociable traits through special training</p>
         <p class="option">[D] send out warning messages to their fellows</p>
+        <details class="analysis-note">
+          <summary><span class="note-kicker status-good">Q21 · 选A</span><span class="note-title">目的定位与同义替换成立</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch"><summary>唐迟讲解复现</summary><div class="branch-body"><p><span class="evidence">to find out / tested whether</span> 明示实验目的；<span class="evidence">detect</span> 对应 <span class="evidence">pick up</span>，<span class="evidence">non-living beings</span> 对应 <span class="evidence">non-living rats</span>。</p></div></details>
+            <details class="analysis-branch"><summary>AI 互补</summary><div class="branch-body">
+              <div class="layer"><span class="layer-label">能力证据</span>你没有被第一句的 <span class="evidence">friends / enemies</span> 带去 B，说明这一次能区分“研究背景”和“实验目的”。</div>
+              <div class="layer"><span class="layer-label">以后照做</span>题干问 <span class="evidence">conducted a test to see</span>，先找原文的目的框架，再比较目的内部的信息，不按重复实词投票。</div>
+            </div></details>
+          </div>
+        </details>
       </div>
 
       <div class="question" id="q22">
@@ -253,6 +528,16 @@
         <p class="option">[B] It played with some toys.</p>
         <p class="option">[C] It set the trapped rats free.</p>
         <p class="option">[D] It moved around alone.</p>
+        <details class="analysis-note">
+          <summary><span class="note-kicker status-good">Q22 · 选D</span><span class="note-title">对象与动作没有串位</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch"><summary>唐迟讲解复现</summary><div class="branch-body"><p><span class="evidence">Meanwhile</span> 把 social 与 asocial 两类机器人分开；asocial robot 只是在不同方向移动，对应 D。</p></div></details>
+            <details class="analysis-branch"><summary>AI 互补</summary><div class="branch-body">
+              <div class="layer"><span class="layer-label">命题混淆</span>A、B、C 都拿前一句 social robot 的真实动作来干扰，错不在动作不存在，而在动作挂到了错误对象上。</div>
+              <div class="layer"><span class="layer-label">能力证据</span>本题做对说明这一次保住了“谁做什么”，没有因选项复现原文而丢失主语。</div>
+            </div></details>
+          </div>
+        </details>
       </div>
 
       <div class="question" id="q23">
@@ -261,6 +546,16 @@
         <p class="option">[B] expected it to do the same in return</p>
         <p class="option">[C] wanted to display their intelligence</p>
         <p class="option">[D] considered that an interesting game</p>
+        <details class="analysis-note">
+          <summary><span class="note-kicker status-good">Q23 · 选B</span><span class="note-title">因果链被正确压缩成选项</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch"><summary>唐迟讲解复现</summary><div class="branch-body"><p><span class="evidence">wanting the robot to return the favour</span> 对应 <span class="evidence">expected it to do the same in return</span>，核心是直接互惠。</p></div></details>
+            <details class="analysis-branch"><summary>AI 互补</summary><div class="branch-body">
+              <div class="layer"><span class="layer-label">能力证据</span>你能越过原文较长的记忆—期待结构，抓住出题人保留的核心关系，而不是只找逐词相同。</div>
+              <div class="layer"><span class="layer-label">英语底层</span><span class="evidence">return the favour</span> 不是普通的“返回”，而是“回报先前得到的帮助”；选项用 <span class="evidence">do the same in return</span> 重写这一关系。</div>
+            </div></details>
+          </div>
+        </details>
       </div>
 
       <div class="question" id="q24">
@@ -269,6 +564,18 @@
         <p class="option">[B] differentiate smells better than sizes</p>
         <p class="option">[C] respond more to actions than to looks</p>
         <p class="option">[D] can be scared by a plastic box on wheels</p>
+        <details class="analysis-note">
+          <summary><span class="note-kicker status-watch">Q24 · 选A / 答案C</span><span class="note-title">同词命中，但命中了被推翻的设想</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch"><summary>唐迟讲解复现</summary><div class="branch-body"><p>外形和气味原先被认为必要，实验却表明并不必要；真正起作用的是机器人的社会性行为。因此 C 概括“动作比外观更能引发回应”。</p></div></details>
+            <details class="analysis-branch"><summary>AI 互补</summary><div class="branch-body">
+              <div class="layer"><span class="layer-label">你的现场</span>你划出了 <span class="evidence">facial features</span> 并选 A。定位并没有偏离原段，偏差发生在“这个词在句中被肯定还是被否定”。</div>
+              <div class="layer"><span class="layer-label">干扰生成</span>A 把“研究者以为需要面部特征”改写成“老鼠能记住面部特征”：既改变证据状态，又凭空加入 <span class="evidence">remember</span>。</div>
+              <div class="layer"><span class="layer-label">考场动作</span>选项复现醒目名词时，补问一句：原文是在陈述结果、转述设想，还是随后把它推翻？先判身份，再判同义。</div>
+              <div class="layer"><span class="layer-label">诊断边界</span>目前只登记为“疑似证据身份混淆”。以后遇到 <span class="evidence">assume / expect / claim + but / however</span> 的新题，再看是否复发。</div>
+            </div></details>
+          </div>
+        </details>
       </div>
 
       <div class="question" id="q25">
@@ -277,10 +584,43 @@
         <p class="option">[B] are more socially active than other animals</p>
         <p class="option">[C] behave differently from children in socializing</p>
         <p class="option">[D] are more sensitive to social cues than expected</p>
+        <details class="analysis-note">
+          <summary><span class="note-kicker status-good">Q25 · 选D</span><span class="note-title">跨句结论没有被比较项带偏</span></summary>
+          <div class="analysis-content">
+            <details class="analysis-branch"><summary>唐迟讲解复现</summary><div class="branch-body"><p>全文反复落在老鼠对简陋机器人的社会信号仍然敏感，末段又用 <span class="evidence">The finding shows ...</span> 收束，D 是结论改写。</p></div></details>
+            <details class="analysis-branch"><summary>AI 互补</summary><div class="branch-body">
+              <div class="layer"><span class="layer-label">命题混淆</span>B 添加“比其他动物更活跃”的无依据比较；C 把原文中 rats 与 children 的相似反应改成不同。</div>
+              <div class="layer"><span class="layer-label">能力证据</span>你正确处理了末段类比，没有把被比较对象误读成高低比较，也保住了全文结论。</div>
+            </div></details>
+          </div>
+        </details>
       </div>
 
-      <footer class="page-number">4 页</footer>
+      <footer class="page-number">第 4 页</footer>
     </section>
   </main>
+
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll("[data-mode]")];
+
+      function setMode(mode) {
+        const review = mode === "review";
+        document.body.classList.toggle("review-mode", review);
+        buttons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.mode === mode));
+        });
+        try { localStorage.setItem("e2-reading-mode", mode); } catch (_) {}
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setMode(button.dataset.mode));
+      });
+
+      let savedMode = "exam";
+      try { savedMode = localStorage.getItem("e2-reading-mode") || "exam"; } catch (_) {}
+      setMode(savedMode === "review" ? "review" : "exam");
+    })();
+  </script>
 </body>
 </html>
