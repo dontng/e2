@@ -1,0 +1,80 @@
+// Page 0 is the unnumbered cover. Original printed pages 1–14 follow in order.
+// The images are lossless renderings of archive-e2/2020年考研英语二真题.pdf.
+window.E2_PAPER = {
+  year: 2020,
+  widthPt: 535.748,
+  heightPt: 748.347,
+  source: "../archive-e2/2020年考研英语二真题.pdf",
+  sourceSha256: "5a73d22c80feaccd1318280f11ff1875f750e7e59dd33662b9691e9c0ac7ac2c",
+  pages: Array.from({ length: 15 }, (_, index) => ({
+    index,
+    printed: index || null,
+    image: `papers/2020/assets/page-${String(index).padStart(2, "0")}.webp`,
+  })),
+  questionSpreads: [
+    { from: 1, to: 20, spread: 1 },
+    { from: 21, to: 25, spread: 2 },
+    { from: 26, to: 30, spread: 3 },
+    { from: 31, to: 35, spread: 4 },
+    { from: 36, to: 40, spread: 5 },
+    { from: 41, to: 45, spread: 6 },
+  ],
+  spreads: [
+    {
+      label: "封面",
+      pages: [0],
+      title: "拿到试卷",
+      exam: "确认试卷页数与作答区域，再开始计时。先决定自己的作答顺序，过程中用答题卡保存首次选择和犹豫题。",
+      review: "回看各部分实际用时和未完成处，再判断时间是花在读文章、比较选项，还是反复改答案上。",
+    },
+    {
+      label: "第 1—2 页",
+      pages: [1, 2],
+      title: "完形 · 1—20",
+      exam: "先读出文章在讲什么，再按每处前后关系比较四项；遇到犹豫题标记，不因一个空停住整篇。",
+      review: "核对时把失分归到词义、搭配、句间逻辑或选项排除；优先处理改变整句意思的断点。",
+    },
+    {
+      label: "第 3—4 页",
+      pages: [3, 4],
+      title: "阅读 Text 1 · 21—25",
+      exam: "先看右页五道题的题干，把对象和所问关系记在心里；读左页时按目的、动作、原因、观点、结论寻找证据，再比较选项。",
+      review: "原位解析能逐段展开。先对照自己的首次选择和证据，再看哪一处词义、挂靠或证据身份改变了判断。",
+    },
+    {
+      label: "第 5—6 页",
+      pages: [5, 6],
+      title: "阅读 Text 2 · 26—30",
+      exam: "先读题干，确认各题问的是原因、人物观点还是全文主旨；回到原文时核对对象和限定范围。",
+      review: "保留首次选项；对犹豫题写下原文依据，以及干扰项具体换掉了谁、何种程度或哪条因果。",
+    },
+    {
+      label: "第 7—8 页",
+      pages: [7, 8],
+      title: "阅读 Text 3 · 31—35",
+      exam: "先扫题干再读文章；遇到政策、效果和评价时，分开记录事实与发言者的判断。",
+      review: "定位正确仍可能选错：核对证据属于事实、担忧、预测还是反对意见。",
+    },
+    {
+      label: "第 9—10 页",
+      pages: [9, 10],
+      title: "阅读 Text 4 · 36—40",
+      exam: "读题干建立寻找目标；涉及不同代际和观点时，保持比较对象与说话者不串位。",
+      review: "为改过答案的题保留第一次判断与后来改变的依据，分清新证据和阅读时的直觉。",
+    },
+    {
+      label: "第 11—12 页",
+      pages: [11, 12],
+      title: "阅读 Part B · 41—45",
+      exam: "先浏览 A—G 的标题，再读每段的中心动作；选定标题时回到整段核对，留意两项多余标题。",
+      review: "若两段用了同一个标题，检查是否只抓住了重复词；记录每段真正支持标题的那一句。",
+    },
+    {
+      label: "第 13—14 页",
+      pages: [13, 14],
+      title: "翻译与写作 · 46—48",
+      exam: "翻译先恢复事实和关系再落成中文；写作先核对邮件的两项任务，以及图表的主要数据和评论。",
+      review: "检查脑中读到的信息是否都写到了纸面，特别核对漏译、任务遗漏、图表比较和字数。",
+    },
+  ],
+};
