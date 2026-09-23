@@ -65,23 +65,21 @@
     save();
   }
 
-  function renderBand(page, start, end) {
-    const band = document.createElement("div");
-    band.className = "sheet-band";
-    band.style.height = `${end - start}pt`;
-    band.style.backgroundImage = `url("${page.image}")`;
-    band.style.backgroundPosition = `0 -${start}pt`;
-    band.setAttribute("aria-hidden", "true");
-    return band;
-  }
-
-  function renderNote(data) {
+  function renderNote(data, semantic = false) {
     const details = document.createElement("details");
-    details.className = "note";
+    details.className = semantic ? "note analysis-note" : "note";
     details.dataset.noteId = data.id;
     details.open = openedNotes.has(data.id);
     const summary = document.createElement("summary");
-    summary.textContent = data.label;
+    if (semantic) {
+      const kicker = document.createElement("span");
+      kicker.className = "note-kicker";
+      kicker.textContent = data.label;
+      const caption = document.createElement("span");
+      caption.className = "note-title";
+      caption.textContent = data.title;
+      summary.append(kicker, caption);
+    } else summary.textContent = data.label;
     summary.title = data.title;
     summary.setAttribute("aria-label", `${data.label}：${data.title}`);
     summary.addEventListener("focus", () => { selectedNote = details; });
@@ -95,10 +93,10 @@
     });
 
     const content = document.createElement("div");
-    content.className = "note-content";
+    content.className = semantic ? "analysis-content" : "note-content";
     const title = document.createElement("h3");
     title.textContent = data.title;
-    content.append(title);
+    if (!semantic) content.append(title);
     const body = document.createElement("div");
     body.innerHTML = data.content; // The checked-in, local review notes are trusted content.
     content.append(body);
@@ -115,18 +113,34 @@
     sheet.setAttribute("aria-label", page.printed ? `原卷第 ${page.printed} 页` : "原卷封面");
     const anchors = notes.filter((note) => note.page === page.printed).sort((a, b) => a.at - b.at);
     sheet.dataset.annotated = String(anchors.length > 0);
-    const full = document.createElement("img");
-    full.className = "full-page";
-    full.src = page.image;
-    full.alt = page.printed ? `${paper.year} 英语（二）原卷第 ${page.printed} 页` : `${paper.year} 英语（二）原卷封面`;
-    sheet.append(full);
-    if (!anchors.length) return sheet;
-    let start = 0;
-    for (const anchor of anchors) {
-      sheet.append(renderBand(page, start, anchor.at), renderNote(anchor));
-      start = anchor.at;
+    const semanticPage = window.E2_SEMANTIC_PAGES?.[page.printed];
+    if (semanticPage) {
+      sheet.classList.add("paper", semanticPage.className);
+      sheet.innerHTML = semanticPage.html;
+      sheet.querySelectorAll(".note-slot").forEach((slot) => {
+        const data = anchors.find((note) => note.id === slot.dataset.noteId);
+        if (data) slot.replaceWith(renderNote(data, true));
+      });
+      return sheet;
     }
-    sheet.append(renderBand(page, start, paper.heightPt));
+    const textPage = window.E2_TEXT_PAGES?.[page.index];
+    if (textPage) {
+      sheet.classList.add("paper", "native-page");
+      sheet.innerHTML = textPage;
+      return sheet;
+    }
+    // The last source page is a scan containing the chart. Its OCR layer is selectable.
+    const scan = document.createElement("img");
+    scan.className = "full-page";
+    scan.src = page.image;
+    scan.alt = `${paper.year} 英语（二）第 ${page.printed} 页扫描图表`;
+    sheet.append(scan);
+    if (window.E2_SCAN_TEXT) {
+      const layer = document.createElement("div");
+      layer.className = "scan-layer";
+      layer.innerHTML = window.E2_SCAN_TEXT;
+      sheet.append(layer);
+    }
     return sheet;
   }
 

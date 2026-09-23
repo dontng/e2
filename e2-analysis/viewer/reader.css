@@ -96,15 +96,11 @@ body.review-mode #modeToggle { background: #514935; color: #fff; border-color: #
   font-family: "Times New Roman", serif;
 }
 .full-page { display: block; width: var(--paper-width); height: var(--paper-height); }
-.sheet-band { display: none; }
-body.review-mode .sheet[data-annotated="true"] .full-page { display: none; }
-body.review-mode .sheet[data-annotated="true"] .sheet-band { display: block; }
-.sheet-band {
-  width: var(--paper-width);
-  flex: 0 0 auto;
-  background-repeat: no-repeat;
-  background-size: var(--paper-width) var(--paper-height);
-}
+/* The paper's text is real HTML. The scanned chart page keeps its source image. */
+.native-page { overflow: hidden; }
+.pdf-text { position: absolute; display: inline; white-space: pre; line-height: normal; user-select: text; }
+.scan-layer { position: absolute; inset: 0; pointer-events: none; }
+.scan-text { position: absolute; color: transparent; white-space: pre; user-select: text; pointer-events: auto; }
 .loading { margin: 25px; color: #666; }
 
 .note { display: none; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; }
@@ -234,5 +230,4 @@ body.review-mode .note[open] > summary {
   .sheet { width: var(--paper-width); min-height: 0; height: var(--paper-height); box-shadow: none; break-after: page; }
   .sheet:last-child { break-after: auto; }
   .sheet .full-page { display: block !important; }
-  .sheet .sheet-band { display: none !important; }
 }
