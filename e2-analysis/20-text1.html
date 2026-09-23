@@ -77,6 +77,15 @@
       font-weight: 400;
     }
 
+    .shortcut-hint {
+      display: none;
+      color: #666;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    body.review-mode .shortcut-hint { display: inline; }
+
     button {
       appearance: none;
       padding: 7px 13px;
@@ -275,7 +284,38 @@
     .analysis-note[open] > summary::before { content: "−"; }
 
     .analysis-note[open] {
+      position: relative;
       margin: 3pt 0 7pt;
+    }
+
+    body.review-mode .analysis-note[open] > summary {
+      position: sticky;
+      top: 62px;
+      z-index: 3;
+      width: max-content;
+      min-width: 38pt;
+      min-height: 15pt;
+      margin: -17pt -51pt 0 auto;
+      padding: 1.5pt 4pt;
+      gap: 4pt;
+      background: #faf9f5;
+      border: 1px solid #d5d1c7;
+      border-radius: 9pt;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+    }
+
+    body.review-mode .analysis-note[open] > summary::before {
+      width: 10pt;
+      height: 10pt;
+      font-size: 7.5pt;
+      line-height: 8.5pt;
+    }
+
+    body.review-mode .analysis-note[open] .note-title { display: none; }
+
+    body.review-mode .analysis-note > summary:focus-visible {
+      outline: 2px solid #7d6535;
+      outline-offset: 2px;
     }
 
     .note-kicker {
@@ -353,6 +393,7 @@
 
     @media (max-width: 1180px) {
       .toolbar-note { display: none; }
+      .shortcut-hint { display: none !important; }
 
       .toolbar {
         align-items: flex-start;
@@ -407,6 +448,7 @@
       <span class="toolbar-note">原题与原位复盘</span>
     </div>
     <div class="toolbar-actions">
+      <span class="shortcut-hint">J/K 选解析 · Enter 展开/折叠 · Esc 收起</span>
       <div class="mode-switch" role="group" aria-label="阅读模式">
         <button class="mode-button" type="button" data-mode="exam" aria-pressed="true">原题</button>
         <button class="mode-button" type="button" data-mode="review" aria-pressed="false">复盘</button>
@@ -623,6 +665,49 @@
 
       buttons.forEach((button) => {
         button.addEventListener("click", () => setMode(button.dataset.mode));
+      });
+
+      const notes = [
+        document.querySelector("#stem-preview"),
+        ...document.querySelectorAll(".passage .analysis-note"),
+        ...document.querySelectorAll(".question .analysis-note"),
+      ];
+      const opened = [];
+      let selected = null;
+
+      notes.forEach((note) => {
+        note.addEventListener("toggle", () => {
+          const index = opened.indexOf(note);
+          if (index !== -1) opened.splice(index, 1);
+          if (note.open) opened.push(note);
+        });
+        note.querySelector("summary").addEventListener("focus", () => { selected = note; });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (!document.body.classList.contains("review-mode") || event.isComposing || event.ctrlKey || event.altKey || event.metaKey) return;
+        if (event.target.closest("input, textarea, select, [contenteditable]")) return;
+
+        if (event.key === "Escape") {
+          const note = selected?.open ? selected : opened.at(-1);
+          if (!note) return;
+          event.preventDefault();
+          note.open = false;
+          note.querySelector("summary").focus({ preventScroll: true });
+          return;
+        }
+
+        if (event.key.toLowerCase() !== "j" && event.key.toLowerCase() !== "k") return;
+        event.preventDefault();
+        const direction = event.key.toLowerCase() === "j" ? 1 : -1;
+        let index = notes.indexOf(selected);
+        if (index === -1) {
+          const visible = notes.findIndex((note) => note.getBoundingClientRect().top >= 62);
+          index = visible === -1 ? notes.length - 1 : visible - direction;
+        }
+        const next = notes[Math.max(0, Math.min(notes.length - 1, index + direction))];
+        next.querySelector("summary").focus({ preventScroll: true });
+        next.scrollIntoView({ block: "center", behavior: "smooth" });
       });
 
       let savedMode = "exam";
