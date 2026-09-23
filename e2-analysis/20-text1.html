@@ -448,7 +448,7 @@
       <span class="toolbar-note">原题与原位复盘</span>
     </div>
     <div class="toolbar-actions">
-      <span class="shortcut-hint">K ↑上一处 · L ↓下一处 · Enter 展开/折叠</span>
+      <span class="shortcut-hint">X ↑上一处 · C ↓下一处 · Enter 展开/折叠</span>
       <div class="mode-switch" role="group" aria-label="阅读模式">
         <button class="mode-button" type="button" data-mode="exam" aria-pressed="true">原题</button>
         <button class="mode-button" type="button" data-mode="review" aria-pressed="false">复盘</button>
@@ -712,9 +712,9 @@
         }
 
         const key = event.key.toLowerCase();
-        if (key !== "k" && key !== "l") return;
+        if (key !== "x" && key !== "c") return;
         event.preventDefault();
-        const direction = key === "l" ? 1 : -1;
+        const direction = key === "c" ? 1 : -1;
         let index = notes.indexOf(selected);
         if (index === -1) {
           const visible = notes.findIndex((note) => note.getBoundingClientRect().top >= 62);
