@@ -26,13 +26,14 @@ body.review-mode .shortcut-hint { display: inline; }
 .paper.reading-page .passage p { font-size: 11.33pt; line-height: var(--reading-line, 19pt); margin-bottom: 3pt; }
 .paper.reading-page-7 .passage p { margin-bottom: 3.4pt; }
 .paper.reading-page-9 .passage p { margin-bottom: 3.3pt; }
-.paper.questions-page:not(.legacy-text1) { padding-top: 50pt; }
+.paper.questions-page:not([aria-label="题目页"]) { padding-top: 50pt; }
 .paper.question-page-10 { padding-left: 69.6pt; padding-top: 60pt; }
-.paper.questions-page:not(.legacy-text1) .question-list { margin-top: 0; }
-.paper.questions-page:not(.legacy-text1) .question { margin-bottom: 20pt; line-height: 20.2pt; }
-.paper.questions-page:not(.legacy-text1) .stem { margin: 0; }
-.paper.questions-page:not(.legacy-text1) .option { margin: 0 0 0 var(--question-indent, 22pt); line-height: 20.2pt; }
-.paper.questions-page:not(.legacy-text1) .question:last-child { margin-bottom: 0; }
+.paper.questions-page:not([aria-label="题目页"]) .question-list { margin-top: 0; }
+.paper.questions-page:not([aria-label="题目页"]) .question { margin-bottom: 20pt; line-height: 20.2pt; }
+.paper.questions-page.question-page-8 .question { margin-bottom: 23.5pt; }
+.paper.questions-page:not([aria-label="题目页"]) .stem { margin: 0; }
+.paper.questions-page:not([aria-label="题目页"]) .option { margin: 0 0 0 var(--question-indent, 22pt); line-height: 20.2pt; }
+.paper.questions-page:not([aria-label="题目页"]) .question:last-child { margin-bottom: 0; }
 .paper.cloze-page { padding: 72pt 64.5pt 48pt; }
 .section-title { margin: 0; text-align: center; font-size: 12.7pt; font-weight: 400; line-height: 17pt; }
 .directions { margin-top: 18pt; font-size: 11pt; line-height: 17.5pt; }
@@ -49,32 +50,47 @@ body.review-mode .shortcut-hint { display: inline; }
 .section-transition h3 { margin: 0 0 5pt; font-size: 11pt; }
 .section-transition p { margin: 0; }
 .paper.part-b-page { padding: 45pt 64.5pt 48pt; font-size: 11pt; line-height: 19.7pt; }
-.part-b-page h1 { margin: 0 0 7pt; font-size: 11pt; }
+.part-b-page h1 { margin: 0; font-size: 11pt; }
 .part-b-page .directions { margin: 0; font-size: inherit; line-height: 16.5pt; }
-.part-b-page .heading-options { margin: 19pt 0 20pt 12pt; }
+.part-b-page .heading-options { margin: 15pt 0 14pt 12pt; }
 .heading-option { margin: 0; line-height: 23.6pt; }
-.part-b-page h2 { text-align: center; margin: 0 0 11pt; font-size: 11pt; font-weight: 700; }
+.part-b-page h2 { text-align: center; margin: 0 0 9pt; font-size: 11pt; font-weight: 700; }
 .part-b-page .reading-paragraph { margin: 0 0 14pt; text-indent: 2em; text-align: justify; line-height: 19.7pt; }
 .part-b-page .part-b-number { margin: 14pt 0 0; text-indent: 0; }
 .paper.part-b-page-12 { padding-top: 46pt; }
 .part-b-page-12 .reading-paragraph.continuation { text-indent: 0; }
+.part-b-page-12 .reading-paragraph { margin-bottom: 6pt; }
+.part-b-page-12 .reading-paragraph.continuation { margin-bottom: 10pt; }
+.part-b-page-12 .part-b-number { margin-top: 6pt; }
 .paper.translation-page { padding: 46pt 64.5pt 48pt; font-size: 11pt; line-height: 19.7pt; }
 .translation-page .translation-task { margin-top: 34pt; }
-.translation-task > p { margin: 0 0 32pt; padding-left: 23pt; }
+.translation-task > p { margin: 0 0 22pt; padding-left: 23pt; }
 .translation-task .passage p { margin-bottom: 3pt; }
-.translation-page .writing-task { margin-top: 62pt; }
-.writing-task h2 { text-align: center; font-size: 12pt; font-weight: 400; margin: 0; }
+.translation-page .writing-task { margin-top: 57pt; }
+.writing-task h2 { text-align: center; font-size: 12pt; font-weight: 400; margin: 0; line-height: 16pt; }
 .writing-task h3 { margin: 0; font-size: 11pt; }
 .writing-task p { margin: 0 0 2pt; padding-left: 23pt; }
 .paper.chart-page { padding: 46pt 64.5pt 48pt; font-size: 11pt; line-height: 20pt; }
-.chart-task h1 { margin: 0 0 2pt; font-size: 11pt; }
+.chart-task h1 { margin: 0; font-size: 11pt; }
 .chart-task p { margin: 0; padding-left: 23pt; }
 .chart-task img { display: block; width: 173pt; height: auto; margin: 22pt auto 0; }
-.paper.cover-page { padding: 72pt 64.5pt; font-family: "SimSun", serif; font-size: 10.5pt; line-height: 1.8; }
-.cover-content h1 { margin: 43pt 0 16pt; text-align: center; font-size: 18pt; }
-.cover-content h2 { margin: 35pt 0 25pt; text-align: center; font-size: 12pt; }
-.cover-content p { margin: 11pt 0; }
-.cover-content h1 + p { text-align: center; }
+.paper.cover-page { padding: 0; font-family: "SimSun", "Songti SC", serif; font-size: 10.5pt; line-height: 1.8; }
+.cover-content { position: relative; height: var(--paper-height); }
+.cover-content > * { position: absolute; margin: 0; }
+.cover-content .cover-secret { top: 73pt; left: 94pt; }
+.cover-content h1 { top: 123pt; width: 100%; text-align: center; font-size: 14pt; font-weight: 400; line-height: 1.1; }
+.cover-content .cover-subject { top: 154pt; width: 100%; text-align: center; font-family: "SimHei", sans-serif; font-size: 22pt; line-height: 1.1; }
+.cover-content .cover-code { top: 198pt; width: 100%; text-align: center; font-size: 14pt; letter-spacing: .06em; }
+.cover-content .cover-barcode { top: 230pt; left: 39pt; width: 128pt; height: 64pt; border: 1.2pt dotted #111; }
+.cover-content .cover-notice { top: 258pt; left: 242pt; font-size: 12pt; font-weight: 400; white-space: nowrap; }
+.cover-content .cover-rules { top: 315pt; left: 93pt; width: 389pt; padding-left: 18pt; font-size: 10.5pt; line-height: 23.4pt; text-align: justify; }
+.cover-rules li { padding: 0; margin: 0; }
+.cover-content .cover-fill-note { top: 589pt; width: 100%; text-align: center; font-size: 10.5pt; }
+.cover-content .cover-identity { top: 610pt; left: 153pt; display: grid; grid-template-columns: 67pt 210pt; grid-template-rows: 30pt 30pt; border: 1pt solid #111; font-size: 10.5pt; }
+.cover-id-label { padding: 3pt 5pt; text-align: center; border-right: 1pt solid #111; }
+.cover-id-label:nth-of-type(3) { border-top: 1pt solid #111; }
+.cover-id-cells { background: repeating-linear-gradient(to right, transparent 0, transparent calc(15pt - 1px), #111 calc(15pt - 1px), #111 15pt); }
+.cover-name-cell { border-top: 1pt solid #111; }
 
 @media (max-width: 1180px) {
   .toolbar { flex-wrap: wrap; padding: 8px 12px; }
