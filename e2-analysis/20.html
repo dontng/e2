@@ -3,65 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2020 考研英语（二）· 完整试卷</title>
+  <title>2020 考研英语（二）· 原题与原位复盘</title>
   <link rel="stylesheet" href="viewer/reader.css">
   <link rel="stylesheet" href="viewer/text1-layout.css">
 </head>
 <body>
   <header class="toolbar">
-    <div class="brand">2020 英语（二）<small>原卷与训练</small></div>
+    <strong class="toolbar-title">2020 英语（二）<span class="toolbar-note">原题与原位复盘</span></strong>
     <nav class="page-controls" aria-label="翻页">
-      <button id="prevPage" type="button" title="上一组试卷页（←）">←</button>
-      <span id="spreadLabel" aria-live="polite"></span>
-      <button id="nextPage" type="button" title="下一组试卷页（→）">→</button>
+      <button id="prevPage" type="button" aria-label="上一组双页">←</button>
+      <span id="spreadLabel"></span>
+      <button id="nextPage" type="button" aria-label="下一组双页">→</button>
     </nav>
     <div class="toolbar-actions">
-      <small id="noteHint" class="note-hint" hidden>X 上一处 · C 下一处 · Enter 展开/折叠</small>
-      <span id="clock">00:00</span>
-      <button id="clockToggle" type="button">开始计时</button>
-      <button id="guideToggle" type="button" aria-expanded="false">这一页怎么看</button>
-      <button id="recordToggle" type="button" aria-expanded="false">答题与复盘</button>
-      <button id="modeToggle" type="button" aria-pressed="false">交卷复盘</button>
-      <a href="20-text1.html" title="直接打开第 3—4 页已有的 13 处复盘">Text 1 解析（13处）</a>
-      <a id="sourcePdf" target="_blank" rel="noopener">原卷 PDF</a>
+      <span class="shortcut-hint">X 上一处 · C 下一处 · Enter 展开/折叠</span>
+      <div class="mode-switch" role="group" aria-label="阅读模式">
+        <button type="button" class="mode-button" data-mode="exam" aria-pressed="true">原题</button>
+        <button type="button" class="mode-button" data-mode="review" aria-pressed="false">复盘</button>
+      </div>
     </div>
   </header>
-
-  <section id="guidePanel" class="guide-panel" hidden aria-label="当前页面的训练提示">
-    <h2 id="guideTitle"></h2>
-    <p><strong>当下：</strong><span id="guideExam"></span></p>
-    <p><strong>复盘：</strong><span id="guideReview"></span></p>
-    <small>试卷保持原样。方法提示可以随时收起；复盘先保留首次作答，再对照英文证据。</small>
-  </section>
-
-  <main id="spread" class="spread" aria-label="2020 年英语二试卷双页">
-    <p class="loading">正在装入试卷……</p>
-  </main>
-
-  <div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
-  <aside id="recordDrawer" class="record-drawer" aria-label="答题卡和复盘记录" hidden>
-    <header class="drawer-head">
-      <div><h2>答题与复盘</h2><p id="progress">首次答案 0/45</p></div>
-      <button id="drawerClose" type="button" aria-label="关闭答题与复盘">×</button>
-    </header>
-    <p class="drawer-intro">首次选择会保留；改答案也不会覆盖它。犹豫题先标记，复盘时再核对证据。</p>
-    <div id="questionGrid" class="question-grid" aria-label="题号"></div>
-    <section id="questionEditor" class="question-editor"></section>
-    <section class="writing-record">
-      <h3>46—48 · 纸面输出</h3>
-      <p>可在这里保存译文或作文草稿；若在纸上作答，记录漏译和任务遗漏即可。</p>
-      <label>46 翻译 <textarea data-writing="46" rows="3"></textarea></label>
-      <label>47 邮件 <textarea data-writing="47" rows="3"></textarea></label>
-      <label>48 图表作文 <textarea data-writing="48" rows="3"></textarea></label>
-    </section>
-    <button id="exportRecord" type="button" class="export-button">导出本次与历次记录</button>
-    <button id="newAttempt" type="button" class="export-button">新一轮作答（旧记录归档）</button>
-  </aside>
-
+  <main id="spread" class="spread" aria-label="2020 年英语（二）原卷双页"></main>
   <script src="papers/2020/pages.js"></script>
   <script src="papers/2020/notes.js"></script>
-  <script src="papers/2020/text-pages.js"></script>
   <script src="papers/2020/text1-layout.js"></script>
+  <script src="papers/2020/full-paper.js"></script>
   <script src="viewer/reader.js"></script>
 </body>
 </html>
