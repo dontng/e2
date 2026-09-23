@@ -50,10 +50,11 @@
     updateClock();
   }
 
-  function setMode(mode) {
+  function setMode(mode, { submit = false } = {}) {
     const reviewing = mode === "review";
     if (reviewing) pauseClock();
-    if (reviewing && !attempt.submittedAt) attempt.submittedAt = new Date().toISOString();
+    if (reviewing && !attempt.seenAnalysisAt) attempt.seenAnalysisAt = new Date().toISOString();
+    if (submit && !attempt.submittedAt) attempt.submittedAt = new Date().toISOString();
     attempt.mode = reviewing ? "review" : "exam";
     document.body.classList.toggle("review-mode", reviewing);
     $("noteHint").hidden = !(reviewing && currentNotes.length);
@@ -220,7 +221,7 @@
       button.setAttribute("aria-pressed", String(attempt.answers[q] === choice));
       button.addEventListener("click", () => {
         if (!attempt.first[q]) {
-          if (attempt.submittedAt) attempt.late[q] = true;
+          if (attempt.submittedAt || attempt.seenAnalysisAt) attempt.late[q] = true;
           else attempt.first[q] = { choice, elapsedMs: elapsedMs() };
         }
         if (attempt.answers[q] && attempt.answers[q] !== choice) attempt.changed[q] = (attempt.changed[q] || 0) + 1;
@@ -237,7 +238,7 @@
     first.className = "first-answer";
     first.textContent = attempt.first[q]
       ? `首次选 ${attempt.first[q].choice} · 当前选 ${attempt.answers[q]}${attempt.changed[q] ? ` · 改过 ${attempt.changed[q]} 次` : ""}`
-      : attempt.late[q] ? `复盘后补选 ${attempt.answers[q]}，不计入首次答案。` : "选项记录第一次判断；以后修改仍会保留首次选择。";
+      : attempt.late[q] ? `看过解析后补选 ${attempt.answers[q]}，不计入首次答案。` : "选项记录第一次判断；以后修改仍会保留首次选择。";
     root.append(first);
 
     const uncertain = document.createElement("button");
@@ -315,7 +316,7 @@
     if (attempt.timer.startedAt) pauseClock();
     else { attempt.timer.startedAt = Date.now(); save(); updateClock(); }
   });
-  $("modeToggle").addEventListener("click", () => setMode(attempt.mode === "exam" ? "review" : "exam"));
+  $("modeToggle").addEventListener("click", () => setMode(attempt.mode === "exam" ? "review" : "exam", { submit: attempt.mode === "exam" }));
   $("guideToggle").addEventListener("click", () => {
     $("guidePanel").hidden = !$("guidePanel").hidden;
     $("guideToggle").setAttribute("aria-expanded", String(!$("guidePanel").hidden));
@@ -381,8 +382,11 @@
     renderSpread();
   });
   spreadIndex = hashSpread();
+  const text1DeepLink = new URLSearchParams(location.search).get("review") === "text1";
+  if (text1DeepLink) openedNotes.add("stem-preview");
   renderSpread();
-  setMode(attempt.mode);
+  setMode(text1DeepLink ? "review" : attempt.mode);
+  if (text1DeepLink) history.replaceState(null, "", `${location.pathname}#spread=${spreadIndex}`);
   renderQuestionGrid();
   updateClock();
   setInterval(updateClock, 1000);
