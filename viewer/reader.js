@@ -3,6 +3,34 @@
   const paper = window.E2_PAPER;
   const full = window.E2_FULL_PAGES || {};
   const spread = document.getElementById("spread");
+  let statusTimer;
+  function fullscreenError() {
+    let status = document.getElementById("fullscreenStatus");
+    if (!status) {
+      status = document.createElement("div");
+      status.id = "fullscreenStatus";
+      status.setAttribute("role", "status");
+      document.body.append(status);
+    }
+    status.textContent = "当前预览环境不允许网页全屏。请在 Chrome 标签页打开试卷后按 F，或使用 F11。";
+    status.classList.add("visible");
+    window.clearTimeout(statusTimer);
+    statusTimer = window.setTimeout(() => status.classList.remove("visible"), 5000);
+  }
+
+  // Register before loading the paper: F remains usable even if a page asset fails.
+  window.addEventListener("keydown", event => {
+    if (event.key?.toLowerCase() !== "f" || event.repeat || event.isComposing ||
+        event.ctrlKey || event.altKey || event.metaKey ||
+        event.target?.closest?.("input, textarea, select, [contenteditable]")) return;
+    event.preventDefault();
+    try {
+      const action = document.fullscreenElement
+        ? document.exitFullscreen()
+        : document.documentElement.requestFullscreen();
+      Promise.resolve(action).catch(fullscreenError);
+    } catch (_) { fullscreenError(); }
+  }, true);
   // These two nodes are the unmodified passage and question pages from the
   // hand-set Text 1 HTML. Keep the nodes themselves, not a reconstruction.
   const text1 = [...spread.children];
@@ -19,6 +47,7 @@
   let spreadIndex = 0;
   let selected = null;
   let modeValue = "exam";
+  let turning = false;
 
   function updateFullscreenLayout() {
     // F11 is a browser command, so it does not set document.fullscreenElement.
@@ -79,10 +108,34 @@
   }
 
   function go(index) {
-    spreadIndex = Math.max(0, Math.min(paper.spreads.length - 1, index));
-    history.replaceState(null, "", "#spread=" + spreadIndex);
-    render();
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    const next = Math.max(0, Math.min(paper.spreads.length - 1, index));
+    if (next === spreadIndex || turning) return;
+    const direction = next > spreadIndex ? "next" : "prev";
+    const commit = () => {
+      spreadIndex = next;
+      history.replaceState(null, "", "#spread=" + spreadIndex);
+      render();
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      commit();
+      return;
+    }
+    if (!document.startViewTransition) {
+      commit();
+      spread.animate([
+        { opacity: .45, transform: `translateX(${direction === "next" ? 30 : -30}px)` },
+        { opacity: 1, transform: "translateX(0)" },
+      ], { duration: 400, easing: "ease-out" });
+      return;
+    }
+    turning = true;
+    document.documentElement.dataset.turn = direction;
+    const transition = document.startViewTransition(commit);
+    transition.finished.catch(() => {}).finally(() => {
+      turning = false;
+      delete document.documentElement.dataset.turn;
+    });
   }
 
   buttons.forEach(button => button.addEventListener("click", event => {
@@ -94,15 +147,6 @@
   document.addEventListener("keydown", event => {
     if (event.isComposing || event.ctrlKey || event.altKey || event.metaKey) return;
     if (event.target.closest("input, textarea, select, [contenteditable]")) return;
-    if (event.key.toLowerCase() === "f") {
-      event.preventDefault();
-      if (event.repeat) return;
-      const action = document.fullscreenElement
-        ? document.exitFullscreen()
-        : document.documentElement.requestFullscreen();
-      action.catch(() => {});
-      return;
-    }
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       event.preventDefault();
       go(spreadIndex + (event.key === "ArrowRight" ? 1 : -1));
