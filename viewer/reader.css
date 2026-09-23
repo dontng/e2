@@ -110,17 +110,20 @@ body.review-mode .shortcut-hint { display: inline; }
 @media screen {
   .page-edge {
     position: fixed;
-    top: 16vh;
+    top: 0;
+    bottom: 0;
     z-index: 20;
-    width: clamp(40px, 4vw, 64px);
-    height: 68vh;
+    display: grid;
+    place-items: center;
+    width: clamp(48px, 5vw, 96px);
+    height: auto;
     padding: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    color: #3d3d3d;
-    font: 36px/1 Georgia, serif;
+    color: #fff;
+    font: 52px/1 Georgia, serif;
     opacity: 1;
   }
   .page-edge-prev { left: 0; }
@@ -129,26 +132,37 @@ body.review-mode .shortcut-hint { display: inline; }
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(50,50,50,.16), rgba(50,50,50,0));
+    background: linear-gradient(to right, rgba(29,31,34,.32), rgba(29,31,34,0));
     opacity: 0;
     transition: opacity .16s ease;
+    pointer-events: none;
   }
   .page-edge-next::before { transform: scaleX(-1); }
-  .page-edge span { position: relative; opacity: 0; transition: opacity .16s ease; }
+  .page-edge span {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 58px;
+    padding-bottom: 5px;
+    border-radius: 22px;
+    background: rgba(29,31,34,.55);
+    opacity: 0;
+    transition: opacity .16s ease;
+    pointer-events: none;
+  }
   .page-edge:hover, .page-edge:focus-visible { background: transparent; }
   .page-edge:not(:disabled):is(:hover, :focus-visible)::before,
   .page-edge:not(:disabled):is(:hover, :focus-visible) span { opacity: 1; }
   .page-edge:disabled { opacity: 0; pointer-events: none; }
-  .top-edge-trigger { display: none; }
-
-  html.browser-fullscreen .top-edge-trigger {
+  .top-edge-trigger {
     display: block;
     position: fixed;
     inset: 0 0 auto;
     height: 20px;
     z-index: 39;
   }
-  html.browser-fullscreen .toolbar {
+  html .toolbar {
     position: fixed;
     inset: 0 0 auto;
     z-index: 40;
@@ -156,8 +170,8 @@ body.review-mode .shortcut-hint { display: inline; }
     transition: transform .2s ease;
     pointer-events: none;
   }
-  html.browser-fullscreen .top-edge-trigger:hover + .toolbar,
-  html.browser-fullscreen .toolbar:is(:hover, :focus-within) {
+  html .top-edge-trigger:hover + .toolbar,
+  html .toolbar:is(:hover, :focus-within) {
     transform: translateY(0);
     pointer-events: auto;
   }
@@ -166,6 +180,8 @@ body.review-mode .shortcut-hint { display: inline; }
     margin-inline: auto;
     zoom: var(--fullscreen-paper-zoom, 1);
   }
+  html body.review-mode .analysis-note[open] > summary { top: 8px; }
+  html:fullscreen { overflow-y: auto; }
 }
 @media print {
   .edge-navigation, .top-edge-trigger { display: none !important; }

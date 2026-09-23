@@ -85,12 +85,24 @@
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }
 
-  buttons.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+  buttons.forEach(button => button.addEventListener("click", event => {
+    setMode(button.dataset.mode);
+    if (event.detail > 0) button.blur();
+  }));
   document.getElementById("prevPage").addEventListener("click", () => go(spreadIndex - 1));
   document.getElementById("nextPage").addEventListener("click", () => go(spreadIndex + 1));
   document.addEventListener("keydown", event => {
     if (event.isComposing || event.ctrlKey || event.altKey || event.metaKey) return;
     if (event.target.closest("input, textarea, select, [contenteditable]")) return;
+    if (event.key.toLowerCase() === "f") {
+      event.preventDefault();
+      if (event.repeat) return;
+      const action = document.fullscreenElement
+        ? document.exitFullscreen()
+        : document.documentElement.requestFullscreen();
+      action.catch(() => {});
+      return;
+    }
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       event.preventDefault();
       go(spreadIndex + (event.key === "ArrowRight" ? 1 : -1));
@@ -127,9 +139,6 @@
   });
   window.addEventListener("resize", updateFullscreenLayout);
   document.addEventListener("fullscreenchange", updateFullscreenLayout);
-  document.addEventListener("keydown", event => {
-    if (event.key === "F11") window.setTimeout(updateFullscreenLayout, 250);
-  });
   spreadIndex = hashSpread();
   const directReview = new URLSearchParams(location.search).get("review") === "text1";
   if (directReview) notes[0].open = true;
