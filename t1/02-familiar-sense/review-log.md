@@ -12,6 +12,7 @@
 | 抽象动作迁移：`alone/precede/hold/outgrow` | Day 58/78/85/90 | 旧 T1 已训练，未有长期退出证据 | Round B |
 | 短语链：`blame on/bring to bear/turn on/come for` | Day 79/92/139 等 | 高损失关系 | Round B |
 | `social`：社会属性/社交活动 | Day 136 | 新暴露，需换论元验证 | 后续 D1 新语境 |
+| `made-up stories / factual mistakes in reporting` | Day 140 | 新暴露；词义边界与并列层级需一起复现 | 后续 D1 新语境 |
 
 ## 作答日志
 
