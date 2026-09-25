@@ -13,6 +13,7 @@
 | 短语链：`blame on/bring to bear/turn on/come for` | Day 79/92/139 等 | 高损失关系 | Round B |
 | `social`：社会属性/社交活动 | Day 136 | 新暴露，需换论元验证 | 后续 D1 新语境 |
 | `made-up stories / factual mistakes in reporting` | Day 140 | 新暴露；词义边界与并列层级需一起复现 | 后续 D1 新语境 |
+| `against + 背景/评断对象`、`verdict`、`hospital trust`、`take account of` | Day 50→141 | 已见过 verdict 的裁决义，本次换非司法语境未迁移；其余本句新暴露 | Day 141 后续 D1 换机构与场景 |
 
 ## 作答日志
 

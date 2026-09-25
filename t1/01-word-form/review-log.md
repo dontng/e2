@@ -12,6 +12,7 @@
 | F | `intellectual/intelligence`、`conventional/congressional`、`institution/construction` | Day 34/37 | 历史高风险，待抽查 | Round B |
 | G | `gratification/gratitude`、`misery/mercy`、`nature/nation` | Day 56/57/90 | 历史中风险，待抽查 | 新句抽样三项 |
 | H | `unmentioned/unintentional`、`presidential campaign/champion` | Day 139 | 新暴露，未复测 | 后续 D1 新语境 |
+| I | `patients/parents` | Day 141 | 新暴露，未复测 | 后续 D1 医疗与非医疗语境 |
 
 ## 作答日志
 

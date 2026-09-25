@@ -70,6 +70,7 @@
 | 138 | `During..., I realised [S was not enough to compete...], so I decided [that...]` | 时间块后等 `realised` 内容，`enough` 后等能力门槛，`decided` 后等判断内容 | 课程、竞争和未来错误串接，因果主线被打散 | [0922](../../src/26-09/0922-day138.md) |
 | 139 | `Among [challenges...] is one [that...]` | `Among` 先开范围，读完其中的复数名词后仍等 `is` 后被引出的成员 | `challenges` 被提前当成主语落点，`one` 与冒号后的具体问题无法归位 | [0923](../../src/26-09/0923-day139.md) |
 | 140 | `survey by Barna found [reason given by Americans for X is Y], more so than A or B` | `found` 后的内容里仍有 `reason ... is ...`；两个 `by` 分别找调查实施者与给出理由的人，比较项回到同层原因 | 调查主体错接，两个关系都变成“对”；句尾只剩“更多如此，多于” | [0924](../../src/26-09/0924-day140.md) |
+| 141 | `It is against that background that S has issued... trust, which handed over to DeepMind [records] ... agreement which took...` | 强调外壳后等 `has issued`；第一个 `which` 回医院机构，`handed over` 的宾语后置；第二个 `which` 回协议 | 在 `against` 处错定方向，`to DeepMind` 处提前收句，协议的批评整块丢失 | [0925](../../src/26-09/0925-day141.md) |
 
 ## 当前最高风险槽位
 

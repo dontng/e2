@@ -86,6 +86,7 @@
 | 138 | `creative personalities` | “创造性的个性” | `compete with other...` 需要人的竞争对象，复数 `personalities` 在此指富有创造力的人 | [0922](../../src/26-09/0922-day138.md) |
 | 139 | `come for their jobs` | “竞争他们的工作” | `come for + 对象` 表示冲着目标而来；真正的“与人竞争工作”需要 `compete with people for jobs` | [0923](../../src/26-09/0923-day139.md) |
 | 140 | `made-up stories / factual mistakes in reporting` | “粉饰的事件 / 报道中意外的错误” | `made-up` 在故事前表编造；`factual` 来自 `fact`，是事实方面的，`reporting` 是新闻报道 | [0924](../../src/26-09/0924-day140.md) |
+| 141 | `against that background / damning verdict against the hospital trust / take account of` | “反对的背景 / 糟糕的策略 / 信条”；未交出协议忽略权益 | 第一个 against 限定背景，第二个标不利于谁；verdict 从旧 Day 50 法庭场景迁移到信息专员的严厉评价；trust 在医院和 NHS 语境为机构；take account of 顾及 | [0925](../../src/26-09/0925-day141.md) |
 
 ## 高优先迁移族
 

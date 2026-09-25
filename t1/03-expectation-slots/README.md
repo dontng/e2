@@ -24,6 +24,7 @@
 | [Day 138](../../src/26-09/0922-day138.md) | `During..., I realised [S was not enough to do], so I decided [that...]`：时间背景后等待主句，两个内容槽依次闭合 |
 | [Day 139](../../src/26-09/0923-day139.md) | `Among [一组事物] is one...`：前置范围结束后继续等待 `is` 后真正被引出的成员 |
 | [Day 140](../../src/26-09/0924-day140.md) | `A survey by X found [the top reason given by Y for Z is W], more so than A or B`：`found` 后仍等完整判断，句尾比较须回到同层候选原因 |
+| [Day 141](../../src/26-09/0925-day141.md) | `It is X that S has issued... Y, which handed over to Z [records] ... agreement which took account of...`：先等外层 `has issued`，后置宾语要等 `records`，两个 `which` 各找能够完成动作的主体 |
 
 ## 不翻译，先记账
 

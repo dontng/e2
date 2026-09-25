@@ -46,6 +46,7 @@
 | 130 | `assessment` | `access`/“入口” | `assess + -ment`，不是 `access` | [0912](../../src/26-09/0912-day130.md) |
 | 130 | `sets` | `seats`/“席位” | `set + s` 只有一个 `e` | [0912](../../src/26-09/0912-day130.md) |
 | 139 | `unmentioned / presidential campaign` | “无意 / 预定的冠军” | `un-mentioned` 保留 `mention`；`president + -ial` 与 `campaign` 要分别读完整，不能由词头和模糊外形另造词 | [0923](../../src/26-09/0923-day139.md) |
+| 141 | `patients / parents` | “父母” | `pati-` 与 `pare-` 要读完整；医院交出的是患者记录 | [0925](../../src/26-09/0925-day141.md) |
 
 ## 观察项
 

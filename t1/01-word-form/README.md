@@ -23,6 +23,7 @@
 | [Day 128](../../src/26-09/0910-day128.md) | `astronomy` | 航空 | `astro-` 是星体；航空是 `aviation` |
 | [Day 130](../../src/26-09/0912-day130.md) | `assessment / sets` | `access / seat` | `assess + ment`；`set` 的复数只有一个 `e` |
 | [Day 139](../../src/26-09/0923-day139.md) | `unmentioned / presidential campaign` | “无意 / 预定的冠军” | `mention` 仍在 `un-mentioned` 中；`president + -ial` 是“总统的”，`campaign` 不是 `champion` |
+| [Day 141](../../src/26-09/0925-day141.md) | `patients / parents` | “父母” | 看全 `pati-` 与 `pare-`；紧邻 `hospital / records` 要求患者资料 |
 
 活动词不是把左右两栏都背一遍。优先主动掌握纸面词；右栏只作为一次“排除旧反应”的对照。`criteria` 等在句中迟疑过但未发生稳定替换的词，先留作观察项，不挤进活动队列。
 

@@ -19,6 +19,7 @@
 | [Day 138](../../src/26-09/0922-day138.md) | `creative personalities` | `personality` = 个性 | `compete with other + 复数可数名词` 要求竞争对象，即其他创意人才 |
 | [Day 139](../../src/26-09/0923-day139.md) | `come for their jobs` | 泛化成“竞争工作” | `come for + 对象` 把对象设成前来夺取或控制的目标；此处是机器人威胁、取代工作岗位 |
 | [Day 140](../../src/26-09/0924-day140.md) | `made-up stories / factual mistakes in reporting` | “粉饰的事件 / 报道中意外的错误” | `made-up + stories` 是编造的故事；`factual` 锁定事实层面，`reporting` 指新闻报道 |
+| [Day 141](../../src/26-09/0925-day141.md) | `against that background / verdict against / hospital trust / take account of` | 两个 against 都成“反对”；verdict 成“策略”，trust 成“信条”；协议的顾及关系丢失 | 背景框架、评断对象、机构主体分别核对；`take account of` 由动词 `take` 决定为“顾及” |
 | [Day 72](../../src/26-07/0706-day72.md)、[Day 82](../../src/26-07/0717-day82.md) | `access to` | 接受/做某事 | 核心是“进入或使用……的机会/权利” |
 | [Day 109](../../src/26-08/0819-day109.md) | `relate to / figure out` | 逐词拼中文 | 搭配整体规定事件关系 |
 
