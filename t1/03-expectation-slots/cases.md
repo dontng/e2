@@ -68,6 +68,7 @@
 | 136 | `pressure [to go to college] in conjunction with expectations... causes...` | `pressure` 后的两层修饰结束前仍等外层谓语 | 在 `pressure` 处提前调用 `causes`，第二股因素被甩到句尾 | [0919](../../src/26-09/0919-day136.md) |
 | 137 | `Though [S is] viewed..., S is..., says Professor...` | 省略的让步块完成后等核心 `is`，完整判断后再接报告语 | 原因块和专家身份悬空，主句内部关系不稳 | [0921](../../src/26-09/0921-day137.md) |
 | 138 | `During..., I realised [S was not enough to compete...], so I decided [that...]` | 时间块后等 `realised` 内容，`enough` 后等能力门槛，`decided` 后等判断内容 | 课程、竞争和未来错误串接，因果主线被打散 | [0922](../../src/26-09/0922-day138.md) |
+| 139 | `Among [challenges...] is one [that...]` | `Among` 先开范围，读完其中的复数名词后仍等 `is` 后被引出的成员 | `challenges` 被提前当成主语落点，`one` 与冒号后的具体问题无法归位 | [0923](../../src/26-09/0923-day139.md) |
 
 ## 当前最高风险槽位
 

@@ -10,7 +10,7 @@
 | `access to` | Day 72→82 | 已解释两次，缺延时新语境证据 | Round A 7 |
 | `suggest that` | Day 73→123 | 研究“表明”仍可能被人类“建议”封口 | Round A 8–9 |
 | 抽象动作迁移：`alone/precede/hold/outgrow` | Day 58/78/85/90 | 旧 T1 已训练，未有长期退出证据 | Round B |
-| 短语链：`blame on/bring to bear/turn on` | Day 79/92 等 | 高损失关系 | Round B |
+| 短语链：`blame on/bring to bear/turn on/come for` | Day 79/92/139 等 | 高损失关系 | Round B |
 | `social`：社会属性/社交活动 | Day 136 | 新暴露，需换论元验证 | 后续 D1 新语境 |
 
 ## 作答日志

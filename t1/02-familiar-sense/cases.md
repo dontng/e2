@@ -84,6 +84,7 @@
 | 136 | `social pressure` | `social` 封成“社交的” | `pressure to do` 描述社会规范推动的行为，要求“社会压力” | [0919](../../src/26-09/0919-day136.md) |
 | 137 | `western states / federal tax dollars` | “西方局势 / 州税金额” | `western + states` 是地域中的多个州；`federal` 与州级相对，`tax dollars` 指用于公共支出的税款 | [0921](../../src/26-09/0921-day137.md) |
 | 138 | `creative personalities` | “创造性的个性” | `compete with other...` 需要人的竞争对象，复数 `personalities` 在此指富有创造力的人 | [0922](../../src/26-09/0922-day138.md) |
+| 139 | `come for their jobs` | “竞争他们的工作” | `come for + 对象` 表示冲着目标而来；真正的“与人竞争工作”需要 `compete with people for jobs` | [0923](../../src/26-09/0923-day139.md) |
 
 ## 高优先迁移族
 

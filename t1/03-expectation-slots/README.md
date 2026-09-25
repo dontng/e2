@@ -22,6 +22,7 @@
 | [Day 136](../../src/26-09/0919-day136.md) | `pressure [to do] in conjunction with expectations... causes...`：长主语展开期间继续等待外层谓语 |
 | [Day 137](../../src/26-09/0921-day137.md) | `Though [S is] viewed..., S is..., says Professor...`：省略让步、核心判断和句尾报告语分层完成 |
 | [Day 138](../../src/26-09/0922-day138.md) | `During..., I realised [S was not enough to do], so I decided [that...]`：时间背景后等待主句，两个内容槽依次闭合 |
+| [Day 139](../../src/26-09/0923-day139.md) | `Among [一组事物] is one...`：前置范围结束后继续等待 `is` 后真正被引出的成员 |
 
 ## 不翻译，先记账
 

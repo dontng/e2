@@ -17,6 +17,7 @@
 | [Day 130](../../src/26-09/0912-day130.md) | `rather than` | 一律“而不是” | 先找两边同层成分，再判断排除、偏好或校正 |
 | [Day 137](../../src/26-09/0921-day137.md) | `western states / federal tax dollars` | `state` = 状态；`tax dollars` = 税额数字 | 地域形容词和复数裁决“西部各州”；公共支出语境指联邦税款 |
 | [Day 138](../../src/26-09/0922-day138.md) | `creative personalities` | `personality` = 个性 | `compete with other + 复数可数名词` 要求竞争对象，即其他创意人才 |
+| [Day 139](../../src/26-09/0923-day139.md) | `come for their jobs` | 泛化成“竞争工作” | `come for + 对象` 把对象设成前来夺取或控制的目标；此处是机器人威胁、取代工作岗位 |
 | [Day 72](../../src/26-07/0706-day72.md)、[Day 82](../../src/26-07/0717-day82.md) | `access to` | 接受/做某事 | 核心是“进入或使用……的机会/权利” |
 | [Day 109](../../src/26-08/0819-day109.md) | `relate to / figure out` | 逐词拼中文 | 搭配整体规定事件关系 |
 
