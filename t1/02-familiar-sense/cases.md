@@ -89,6 +89,8 @@
 | 141 | `information commissioner` | 从 `commission`＝任务推出“承接者”；自述 `come` 与 `commission` 容易串 | `commission` 可含被委派的职责，但 `commissioner` 在 `information commissioner` 中是正式职务；字母 `com-` 不是自由词 `come`。现有证据不能证明把纸面词形看错 | [0925](../../src/26-09/0925-day141.md) |
 | 141 | `issue a damning verdict` | “提出糟糕的策略”；“提出”具体从哪个词调出尚不确定 | `issue` 给发布动作，`verdict` 给经过审视的评断，`damning` 表对评价对象严厉不利；词源 `ver-`（真）＋`-dict`（说）只作回忆线索，不能代替整词与搭配 | [0925](../../src/26-09/0925-day141.md) |
 | 141 | `against that background / hospital trust / take account of` | “反对的背景 / 信条”；未交出协议如何对待权益 | 首个 `against` 给背景；`trust` 在医院和 NHS 语境是机构；`take account of` 为顾及，程度由 `far too little` 改变 | [0925](../../src/26-09/0925-day141.md) |
+| 142 | `historic squeeze / bread-and-butter product` | “历史的 squeeze / 最好的产品” | `in a squeeze between A and B` 为遭两面挤压；`bread-and-butter` 指赖以维持的支柱业务，不给产品质量排名 | [0926](../../src/26-09/0926-day142.md) |
+| 142 | `permanently / regulatory structure / adjust its operations` | “短暂 / 常规的结构 / 调解……选择” | `permanently` 保持持久性；`regulate → regulatory` 指监管；`adjust operations to X` 是调整运营以适应 X。首译不能判定具体哪一步认形或联想先失误 | [0926](../../src/26-09/0926-day142.md) |
 
 ## 高优先迁移族
 
