@@ -91,6 +91,7 @@
 | 141 | `against that background / hospital trust / take account of` | “反对的背景 / 信条”；未交出协议如何对待权益 | 首个 `against` 给背景；`trust` 在医院和 NHS 语境是机构；`take account of` 为顾及，程度由 `far too little` 改变 | [0925](../../src/26-09/0925-day141.md) |
 | 142 | `historic squeeze / bread-and-butter product` | “历史的 squeeze / 最好的产品” | `in a squeeze between A and B` 为遭两面挤压；`bread-and-butter` 指赖以维持的支柱业务，不给产品质量排名 | [0926](../../src/26-09/0926-day142.md) |
 | 142 | `permanently / regulatory structure / adjust its operations` | “短暂 / 常规的结构 / 调解……选择” | `permanently` 保持持久性；`regulate → regulatory` 指监管；`adjust operations to X` 是调整运营以适应 X。首译不能判定具体哪一步认形或联想先失误 | [0926](../../src/26-09/0926-day142.md) |
+| 143 | `postal unions / greeting-card makers / status quo` | “后面的联盟 / 友好卡制造商 / 法规” | `postal` 回邮政语境、`union` 在劳动者语境收为工会；`greet → greeting card` 是贺卡；`status quo` 是现状或既有安排，句中未限定为法规。首译不足以确定具体误认过程 | [0928](../../src/26-09/0928-day143.md) |
 
 ## 高优先迁移族
 
