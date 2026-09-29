@@ -73,6 +73,7 @@
 | 141 | `It is against that background that S has issued... trust, which handed over to DeepMind [records] ... agreement which took...` | 强调外壳后等 `has issued`；第一个 `which` 回医院机构，`handed over` 的宾语后置；第二个 `which` 回协议 | 在 `against` 处错定方向，`to DeepMind` 处提前收句，协议的批评整块丢失 | [0925](../../src/26-09/0925-day141.md) |
 | 142 | `USPS is in a squeeze between [technological change that has decreased demand for X] and [regulatory structure that denies management flexibility to adjust Y]` | `between` 开两边，两个 `that` 各回自己的来源；`deny management the flexibility` 等管理层和被剥夺的空间 | 首译把下降的需求与制度一侧并接成“结构上的需求”，管理层的调整对象也丢失 | [0926](../../src/26-09/0926-day142.md) |
 | 143 | `groups [ranging from A to B] exert pressure on Congress, insisting that [whatever else happens to USPS], [aspects of the status quo they depend on] get protected` | `exert` 仍等利益团体为施事；`insisting` 开诉求，`whatever else` 先让其他变化悬置；`aspects of the status quo` 先按 A of B 读，`aspects` 最终接 `get protected`，`depend on` 的挂靠有不影响主判断的局部歧义 | 首译把团体范围读成时间与人名，把 `insisting` 读成“包括”，把诉求写成已获保护的法规 | [0928](../../src/26-09/0928-day143.md) |
+| 144 | `To realize [how great was the dramatic activity], we must remember further that [hosts of plays have been lost], and that [probably no author of note whose entire work has survived]` | `remember` 后两处 `that` 并列给证据；`whose` 将全部作品接回作者，`no` 否定的是作品完整留存这一类作者，`probably` 限定把握 | 首译只保留“意识到／必须记得”，第一项没交代失传对象，第二项把作者、作品及留存程度压成词串 | [0929](../../src/26-09/0929-day144.md) |
 
 ## 当前最高风险槽位
 

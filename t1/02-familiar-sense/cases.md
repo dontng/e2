@@ -92,6 +92,8 @@
 | 142 | `historic squeeze / bread-and-butter product` | “历史的 squeeze / 最好的产品” | `in a squeeze between A and B` 为遭两面挤压；`bread-and-butter` 指赖以维持的支柱业务，不给产品质量排名 | [0926](../../src/26-09/0926-day142.md) |
 | 142 | `permanently / regulatory structure / adjust its operations` | “短暂 / 常规的结构 / 调解……选择” | `permanently` 保持持久性；`regulate → regulatory` 指监管；`adjust operations to X` 是调整运营以适应 X。首译不能判定具体哪一步认形或联想先失误 | [0926](../../src/26-09/0926-day142.md) |
 | 143 | `postal unions / greeting-card makers / status quo` | “后面的联盟 / 友好卡制造商 / 法规” | `postal` 回邮政语境、`union` 在劳动者语境收为工会；`greet → greeting card` 是贺卡；`status quo` 是现状或既有安排，句中未限定为法规。首译不足以确定具体误认过程 | [0928](../../src/26-09/0928-day143.md) |
+| 144 | `dramatic activity / hosts of plays` | “戏剧性的事件 / 被丢失”但丢失对象未落纸 | 后文 `plays / author / work` 把 `dramatic` 限定为戏剧艺术；`hosts of + 复数名词` 给大量，`have been lost` 的主语是剧本。首译无法判定具体猜词路径 | [0929](../../src/26-09/0929-day144.md) |
+| 144 | `author of note / entire work has survived` | “作者记录整个工作已经如何严重” | `of note` 说明作者重要；`work` 是作品总和，`survive` 用于作品为留存至今；`entire` 决定是否完整，不能写成职业工作或“严重” | [0929](../../src/26-09/0929-day144.md) |
 
 ## 高优先迁移族
 
