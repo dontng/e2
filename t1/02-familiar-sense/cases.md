@@ -95,6 +95,9 @@
 | 144 | `dramatic activity / hosts of plays` | “戏剧性的事件 / 被丢失”但丢失对象未落纸；随后自述 `host` 熟悉为计算机主机 | 后文 `plays / author / work` 把 `dramatic` 限定为戏剧艺术；`a host of / hosts of + 复数名词` 表示数量多，用 `many problems / a great many plays` 直接理解，不借主机架桥，`have been lost` 的对象是剧本 | [0929](../../src/26-09/0929-day144.md) |
 | 144 | `further / author of note / entire work has survived` | 自述 `further` 记不牢，`work` 明白“产出”但落笔只写“工作”；首译“作者记录整个工作已经如何严重” | `further` 再推进一项并修饰 `remember`；`of note` 说明作者重要；`work` 从劳动到成果，由 `author / plays / survive` 调出作品总和，`entire` 决定完整范围 | [0929](../../src/26-09/0929-day144.md) |
 
+| 145 | `in other words / working class / turn ... on its political head / stare us in the face` | “另方面 / 工作等级 / 政治的头调起 / 调动我们到前面” | 开头是换言重述；社会群体是工人阶级；两个整体表达分别指颠覆政治格局、办法显然摆在眼前，不按 head / face 的字面逐词拼接 | [0930](../../src/26-09/0930-day145.md) |
+| 145 | `frustrated / once defined America / is vanishing` | “浮躁 / 一旦定义美国 / 美国正在变差” | `frustrated that` 接出失望的原因；`once` 修饰过去动作，`define` 指构成鲜明特征；正在消失的是机会，不是美国。首译不足以确定具体检索过程 | [0930](../../src/26-09/0930-day145.md) |
+
 ## 高优先迁移族
 
 当前优先级最高的不是最长的词，而是已经证明会跨天复发的词族：`call`（Day 92→128）、`measure`（Day 37→105→130→131）、`while`（Day 30→64→113→125→131）、`access to`（Day 72→82）、`suggest that`（Day 73→123）。这些词每次复测必须换词性、框架或论元，不能重复原句。

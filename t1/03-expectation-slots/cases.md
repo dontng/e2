@@ -75,6 +75,8 @@
 | 143 | `groups [ranging from A to B] exert pressure on Congress, insisting that [whatever else happens to USPS], [aspects of the status quo they depend on] get protected` | `exert` 仍等利益团体为施事；`insisting` 开诉求，`whatever else` 先让其他变化悬置；`aspects of the status quo` 先按 A of B 读，`aspects` 最终接 `get protected`，`depend on` 的挂靠有不影响主判断的局部歧义 | 首译把团体范围读成时间与人名，把 `insisting` 读成“包括”，把诉求写成已获保护的法规 | [0928](../../src/26-09/0928-day143.md) |
 | 144 | `To realize [how great was the dramatic activity], we must remember further that [hosts of plays have been lost], and that [probably there is no author of note whose entire work has survived]` | `remember` 后两处 `that` 并列给证据；`whose` 将全部作品接回作者，`no` 否定的是作品完整留存这一类作者，`probably` 限定把握 | 首译只保留“意识到／必须记得”，第一项没交代失传对象，第二项把作者、作品及留存程度压成词串 | [0929](../../src/26-09/0929-day144.md) |
 
+| 145 | `at a time when [working class has turned ... , frustrated that [opportunity [that once defined America] is vanishing]], one obvious solution is staring us in the face` | 时间背景结束后仍等 solution 的主判断；frustrated 回工人阶级，第一个 that 给原因，第二个 that 限定 opportunity，is vanishing 回机会 | 首译把背景改成“一旦当”，内外层动作串位，主句只剩“显然的答案”及错误动作；以删去背景、取出机会限定层、原位接回恢复关系 | [0930](../../src/26-09/0930-day145.md) |
+
 ## 当前最高风险槽位
 
 按跨月复发次数，优先处理：长名词主语后的外层谓语、`what/how/whether` 从句作主语、抽象名词后的内容从句、前置背景后的主句、并列项共同回挂、关系代词的语义回指。训练时按控制点计分，不使用“整句对/整句错”二元标签。
