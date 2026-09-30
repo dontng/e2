@@ -78,3 +78,7 @@
 ## 当前最高风险槽位
 
 按跨月复发次数，优先处理：长名词主语后的外层谓语、`what/how/whether` 从句作主语、抽象名词后的内容从句、前置背景后的主句、并列项共同回挂、关系代词的语义回指。训练时按控制点计分，不使用“整句对/整句错”二元标签。
+| 132 | `decision said [the judge failed to tell a jury [that it must look only at ...]]` | `said`、`failed to tell` 和 `must look` 分属三层；`or` 解释公务行为 | 将审判背景、未作说明和考量范围混在一起；原位逐层装回 | [0915](../../src/26-09/0915-day132.md) |
+| 133 | `a basis ..., a basis for planning to meet ...` | 第二个 `a basis` 复指同一依据；`for` 接用途，`to meet` 接计划的目的 | 后半句压成“计划符合成为”；用组织、依据、规划、可能环境依次接回 | [0916](../../src/26-09/0916-day133.md) |
+| 134 | `making sure [there is space ... and the money ...], and encouraging ...` | 两个行动并列，确保内容内又有场地和钱并列 | 将 `making sure` 接到 `goods` 上，末尾活动与学校关系散开 | [0917](../../src/26-09/0917-day134.md) |
+| 135 | `worries are born out of an ideology ... that says if ... you are neglecting them` | `out of` 指来源；内层条件判断属于被批评的观念 | 因果译成担忧产生观念；须保住来源方向和说话人立场 | [0918](../../src/26-09/0918-day135.md) |

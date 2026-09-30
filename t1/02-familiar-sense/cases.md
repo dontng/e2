@@ -98,3 +98,7 @@
 ## 高优先迁移族
 
 当前优先级最高的不是最长的词，而是已经证明会跨天复发的词族：`call`（Day 92→128）、`measure`（Day 37→105→130→131）、`while`（Day 30→64→113→125→131）、`access to`（Day 72→82）、`suggest that`（Day 73→123）。这些词每次复测必须换词性、框架或论元，不能重复原句。
+| 132 | `failed to tell / former governor / issues` | “最终失败的判决说明 / 形式市长 / 案件” | `failed to` 连着动作读未能说明；`former` 是前任，`governor` 是州长，`issues` 在此是职责涉及的事项 | [0915](../../src/26-09/0915-day132.md) |
+| 133 | `seek to promote / meet the possibilities / operating environment` | “寻求提升 / 计划符合成为 / 操作环境” | 用 `try to improve` 理解努力推动；`meet` 按对象读应对，组织的 `operating environment` 是运作条件 | [0916](../../src/26-09/0916-day133.md) |
+| 134 | `common goods / make sure / provision` | “一般好的制作的肯定 / 支持的场所” | 公共物品；`make sure` 确保，不能接成制造；`provide activities → provision of activities` 保持提供活动的关系 | [0917](../../src/26-09/0917-day134.md) |
+| 135 | `interacting / expose ... to ... / neglect` | “感兴趣 / 发现……很失败 / 拒绝” | `interact` 有来有往；`expose a child to words` 让孩子接触词语；`neglect` 疏于照顾，`them` 仍指孩子 | [0918](../../src/26-09/0918-day135.md) |
