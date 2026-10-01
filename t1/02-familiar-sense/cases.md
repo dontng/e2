@@ -100,6 +100,8 @@
 
 | 146 | `did not play well with many / dot the fields / tech giants / availability` | “没有起到什么作用 / 风力发电机驱动的地方 / 科学巨头 / 可用的清洁能源” | `message` 面对人群时说反响，`many` 指人；`dot` 给田野中的分布；`tech` 指科技，`availability` 把可获得这一条件名词化。首译保住了被吸引方向和数据中心用途，不把局部错词扩大成整段失控 | [1001](../../src/26-10/1001-day146.md) |
 
+| 147 | `ambition / astonishing / upmarket grocery chain Whole Foods / even more / messaging service` | “目标 / astonishing / 市场上游供应商链 全部食物 / 远超 / 信息服务” | `ambition` 是雄心，`astonishing` 为令人吃惊；`upmarket` 给高端定位，`grocery chain` 是连锁食品超市，Whole Foods 是商号；`even more` 强调竟然更多，不明说差距巨大；`messaging` 给收发消息的服务类型。首译不能确定具体误认过程 | [1002](../../src/26-10/1002-day147.md) |
+
 ## 高优先迁移族
 
 当前优先级最高的不是最长的词，而是已经证明会跨天复发的词族：`call`（Day 92→128）、`measure`（Day 37→105→130→131）、`while`（Day 30→64→113→125→131）、`access to`（Day 72→82）、`suggest that`（Day 73→123）。这些词每次复测必须换词性、框架或论元，不能重复原句。

@@ -79,6 +79,8 @@
 
 | 146 | `message did not play well with many in Iowa, where [turbines dot ... and provide ...]—and where [tech giants are being attracted by availability of energy to power their data centers]` | 主句接人群；两个 where 同回 Iowa，第一个 and 并列风机动作，第二个 and 并列当地情况；by 给吸引来源，of 指可获得的能源，to power 给用途 | 首译漏掉 many 人群、把 dot 译成驱动；后段保住公司被吸引及数据中心用途，供电统计需精确为该州发电量的占比；用自然结构对比而非穷举介词修复 | [1001](../../src/26-10/1001-day146.md) |
 
+| 147 | `announced the purchase of [chain Whole Foods] for $13.5bn, but Facebook paid even more than that to acquire [service], which doesn’t have any physical product at all` | `of` 接购买对象，商号补明 chain；`for` 接金额，`than that` 回前述数额，`to acquire` 给目的，`which` 回服务 | 首译保住宣布收购、两年前 Facebook 付钱收购及句尾零实体产品；对象词块误读，美元漏交，比较基准未明确交出且“远超”增大程度。按对象、金额、比较与目的原位修复，不把已读对的指代和否定记成错误 | [1002](../../src/26-10/1002-day147.md) |
+
 ## 当前最高风险槽位
 
 按跨月复发次数，优先处理：长名词主语后的外层谓语、`what/how/whether` 从句作主语、抽象名词后的内容从句、前置背景后的主句、并列项共同回挂、关系代词的语义回指。训练时按控制点计分，不使用“整句对/整句错”二元标签。
