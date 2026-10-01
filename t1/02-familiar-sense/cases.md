@@ -98,6 +98,8 @@
 | 145 | `in other words / working class / turn ... on its political head / stare us in the face` | “另方面 / 工作等级 / 政治的头调起 / 调动我们到前面” | 开头是换言重述；社会群体是工人阶级；两个整体表达分别指颠覆政治格局、办法显然摆在眼前，不按 head / face 的字面逐词拼接 | [0930](../../src/26-09/0930-day145.md) |
 | 145 | `frustrated / once defined America / is vanishing` | “浮躁 / 一旦定义美国 / 美国正在变差” | `frustrated that` 接出失望的原因；`once` 修饰过去动作，`define` 指构成鲜明特征；正在消失的是机会，不是美国。首译不足以确定具体检索过程 | [0930](../../src/26-09/0930-day145.md) |
 
+| 146 | `did not play well with many / dot the fields / tech giants / availability` | “没有起到什么作用 / 风力发电机驱动的地方 / 科学巨头 / 可用的清洁能源” | `message` 面对人群时说反响，`many` 指人；`dot` 给田野中的分布；`tech` 指科技，`availability` 把可获得这一条件名词化。首译保住了被吸引方向和数据中心用途，不把局部错词扩大成整段失控 | [1001](../../src/26-10/1001-day146.md) |
+
 ## 高优先迁移族
 
 当前优先级最高的不是最长的词，而是已经证明会跨天复发的词族：`call`（Day 92→128）、`measure`（Day 37→105→130→131）、`while`（Day 30→64→113→125→131）、`access to`（Day 72→82）、`suggest that`（Day 73→123）。这些词每次复测必须换词性、框架或论元，不能重复原句。
