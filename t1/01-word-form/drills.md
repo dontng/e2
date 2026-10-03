@@ -15,7 +15,7 @@
 9. The proposal offered a `(novel / noble)` way to reduce waste.
 10. Several `(sets / seats)` of criteria were tested.
 
-<details>
+<details open>
 <summary>Round A 答案</summary>
 
 `competing—compet`；`somewhat—what`；`reaching—无 res`；`combined—bin`；`rise—无 k`；`due—完整 due`；`assessment—assess`；`astronomy—astro`；`novel—v`；`sets—set+s`。
@@ -35,7 +35,7 @@
 7. The dance **troupe** will perform in six cities.
 8. The policy was introduced **unintentionally** through a drafting error.
 
-<details>
+<details open>
 <summary>Round B 最小答案</summary>
 
 1. `institutions`，名词复数，制度/机构；2. `intellectual`，形容词，思想/智识方面的；3. `conventional`，形容词，传统/常规的；4. `demoralization`，名词，士气低落/精神受挫；5. `jurors`，陪审员；6. `reputations`，声誉；7. `troupe`，演出团；8. `unintentionally`，非故意地。
@@ -48,7 +48,7 @@
 
 > A **conventional** review found that two **sets** of safety criteria, when **combined**, produced a more reliable **assessment** of the **risk** faced by regional hospitals.
 
-<details>
+<details open>
 <summary>Round C 校验</summary>
 
 `conventional` 不是 congressional；`sets` 不是 seats；`combined` 不是 compared；`assessment` 不是 access；本题这里实际是 `risk`，不是 `rise`——因为医院“面临”的是风险。最后一项故意要求句义推翻机械记忆：训练目标是读对纸面，不是永远选左栏。

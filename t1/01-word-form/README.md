@@ -50,7 +50,7 @@
 9. The course introduces modern **(astronomy / aviation)** through telescope images.
 10. The two **(sets / seats)** of criteria produced different rankings.
 
-<details>
+<details open>
 <summary>答案与最小校验</summary>
 
 1. `competing`：`compet-`；且 `for` 与竞争相接。

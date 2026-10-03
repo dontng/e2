@@ -60,7 +60,7 @@
 9. The scheme rewards attendance **rather than** improvement.
 10. Rural students still lack **access to** specialist courses.
 
-<details>
+<details open>
 <summary>答案：让哪条结构证据裁决</summary>
 
 1. “实际上近乎必需”；`virtual + necessity`。

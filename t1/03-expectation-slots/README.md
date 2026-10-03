@@ -56,7 +56,7 @@
 9. The report argues that prices will stabilize and that wages will recover.
 10. What the author was pointing to **was** that convenience can hide long-term costs.
 
-<details>
+<details open>
 <summary>骨架与应保留的期待位</summary>
 
 1. `S = expansion`，`V = has changed`；`of...in...` 中的复数名词不填主句谓语。

@@ -15,7 +15,7 @@
 9. The adviser **suggested that** the committee delay the vote.
 10. We have reached the **point at which** small delays become costly.
 
-<details>
+<details open>
 <summary>Round A 裁决</summary>
 
 1–2 都保留“公开要求”，分别由谓语和名词承载；3 是测量动作，4 是衡量尺度；5 是让步，6 是同时；7 是获得资源的机会；8 在证据主语下为“表明”，9 在人作主语且提出做法时为“建议”；10 是过程节点。
@@ -35,7 +35,7 @@
 
 要求：先写一条不过度正式的“过桥句”，再写考试中文。例如第 6 题先说“新规模已经长得超过旧规则能装下的范围”，再收成“旧规则已不适用”。
 
-<details>
+<details open>
 <summary>Round B 最终落点</summary>
 
 1. 仅凭证据；2. 优先于；3. 成立；4. 取决于/关键在于；5. 退出协议；6. 已无法容纳新情况/已过时；7. 把延误归因于协调不力；8. 把专业知识用于公共问题。
@@ -55,7 +55,7 @@
 7. The case was **heard** by twelve judges.
 8. Her warning was finally **heard** by the public.
 
-<details>
+<details open>
 <summary>Round C 边界</summary>
 
 `curb` 分别是限制、路缘；`open` 分别是开放/开业与首演；`issue` 都保留“正式发出”，对象决定是发布声明还是发行卡；`hear` 在法院框架是审理，在公众框架是被听见/得到重视。

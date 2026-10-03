@@ -57,7 +57,7 @@
 7. Managers often **attribute** the improvement to training.
 8. The findings do not **warrant** such a broad conclusion.
 
-<details>
+<details open>
 <summary>答案：哪些信息可以落地</summary>
 
 1. `curb` = 抑制：改革可能抑制投机，但不减少合理需求。没有英文允许补成“取消需求”。

@@ -13,7 +13,7 @@
 7. Calls to reduce fees or to extend payment periods **ignore** the underlying shortage.
 8. The first of the two sets of criteria **was designed** for younger applicants.
 
-<details>
+<details open>
 <summary>Round A 骨架</summary>
 
 1. `S=claim[that...] V=remains C=difficult`；2. `S=Why... V=remains`；3. 前置块是背景，`S=minister V=said`；4. 条件后等倒装主句；5. with 块后等主句；6. 一个主语带两个谓语；7. `Calls[to...or to...]` 作主语，`ignore` 才落地；8. 头名词 `first` 决定单数谓语。
@@ -31,7 +31,7 @@
 
 每题按控制点分别记分。例如第 1 题至少有：`that` 内容、`which` 回指、头名词 `belief`、外层谓语 `can hide` 四点。
 
-<details>
+<details open>
 <summary>Round B 骨架</summary>
 
 1. `S=belief[that...][which...] V=can hide`；2. `S=What...to V=was C=that...`；3. `argues` 后两个同层内容从句；4. `Whether...` 整体主语，内部 `on which` 回挂 funding，外层 `remains`；5. `evidence` 带内容和分词修饰，外层 `forced`；6. `Looking beyond...` 整体作主语，`means` 落地，之后接两个并列动作。
@@ -49,7 +49,7 @@
 3. A. The review identifies **the benchmark against which** performance was assessed.
    B. The review explains **against what benchmark** performance was assessed.
 
-<details>
+<details open>
 <summary>Round C 边界</summary>
 
 A 句都先端出中心名词，后面的介词加 `which` 回头限定它；B 句没有等待限定的左侧名词，`what/which + 名词` 提出一个未知内容，整块作外层动词的宾语。两句可以指同一事实，但期待位方向不同。
