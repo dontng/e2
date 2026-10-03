@@ -64,7 +64,7 @@ the prospect of
 departure
 ```
 
-`departure` 是名词，意思是“离开 / 外流”。它前面有所有格和主语感：
+`departure` 是名词，意思是“离开 / 外流”。以下是旧答卷讲解留下的等式，不能当作规范拼写规则；所见原句缺少把人才与离开相接的形式标记。当前日正文用 `the departure of their best and brightest` 与 `their best and brightest will leave` 显出真实关系，保留原输入不擅自补字。旧写法如下：
 
 ```text
 their best and brightest departure
