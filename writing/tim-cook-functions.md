@@ -31,7 +31,7 @@
 | “Loved spending time with the team at Apple Highland Village while I was in Houston, Texas. Thanks for a fantastic visit!” | `spend time with` 比空泛的 `visit` 更有人际温度。 | [原文](https://x.com/tim_cook/status/2087953141736071443) |
 | “April 1st marks 50 years of Apple. Thank you to everyone who's been a part of our journey.” | 先说明纪念节点，再感谢共同参与者。 | [原文](https://x.com/tim_cook/status/2032079194923155547) |
 
-这一组最直接对应 2010 年感谢接待、2016 年感谢帮助、2017 年接受邀请、2021—2022 年会议与活动邀请。值得背的是“感谢什么—留下什么印象—下一步是什么”的关系，而不是某个公司或城市名。
+这一组最直接对应 2010 年感谢接待、2016 年感谢朋友的祝贺、2017 年接受邀请、2021—2022 年会议与活动邀请。2016 年还要求提供翻译建议，感谢不能替代该项任务。值得背的是“感谢什么—留下什么印象—下一步是什么”的关系，而不是某个公司或城市名。
 
 ## 3. 祝贺、肯定与鼓励
 
