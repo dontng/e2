@@ -1,0 +1,121 @@
+{
+  "2010": {
+    "type": "正误判断（历史补充）",
+    "answers": "FTFTF",
+    "source": "https://www.tup.tsinghua.edu.cn/upload/books/yz/080615-01.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2011": {
+    "type": "多项对应",
+    "answers": "EDCBG",
+    "source": "https://www.xhd.cn/news/91001203.html",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2012": {
+    "type": "多项对应",
+    "answers": "AFGCE",
+    "source": "https://cs.xhd.cn/m/info/kyztk/890754.html",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2013": {
+    "type": "小标题匹配",
+    "answers": "FEGCD",
+    "source": "https://www.xhd.cn/news/91001205.html",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2014": {
+    "type": "多项对应",
+    "answers": "DEGCA",
+    "source": "https://www.educity.cn/kyyy/1987131.html",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2015": {
+    "type": "小标题匹配",
+    "answers": "DEGAC",
+    "source": "https://kaoyan.eol.cn/shiti/yingyu/201605/t20160512_1397233_5.shtml",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2016": {
+    "type": "小标题匹配",
+    "answers": "DFABE",
+    "source": "../archive-e2/2016年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2017": {
+    "type": "多项对应",
+    "answers": "EAGBF",
+    "source": "../archive-e2/2017年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2018": {
+    "type": "小标题匹配",
+    "answers": "AFEBD",
+    "source": "../archive-e2/2018年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2019": {
+    "type": "多项对应",
+    "answers": "ADCGF",
+    "source": "../archive-e2/2019年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2020": {
+    "type": "小标题匹配",
+    "answers": "EFDAC",
+    "source": "../archive-e2/2020年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2021": {
+    "type": "小标题匹配",
+    "answers": "CFGAB",
+    "source": "../archive-e2/2021年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2022": {
+    "type": "小标题匹配",
+    "answers": "CEAFB",
+    "source": "../archive-e2/2022年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2023": {
+    "type": "多项对应",
+    "answers": "DFBAG",
+    "source": "../archive-e2/2023年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2024": {
+    "type": "多项对应",
+    "answers": "CEAGB",
+    "source": "../archive-e2/2024年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2025": {
+    "type": "小标题匹配",
+    "answers": "FCGBA",
+    "source": "../archive-e2/2025年考研英语二真题.pdf",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  },
+  "2026": {
+    "type": "多项对应（考后整理版）",
+    "answers": "EAGCD",
+    "source": "https://kaoyan.xdf.cn/202512/15055231.html",
+    "question_count": 5,
+    "status": "解答及教师自审完成；学习者未验收"
+  }
+}
