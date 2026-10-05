@@ -1,0 +1,121 @@
+[
+  {
+    "year": 2010,
+    "url": "https://www.tup.tsinghua.edu.cn/upload/books/yz/080615-01.pdf",
+    "sha256": "a1b79c38b9a06a181b87f880e1114cd18aaed73836e2458752edaca260e5d948",
+    "bytes": 1198147,
+    "role": "题面"
+  },
+  {
+    "year": 2011,
+    "url": "https://www.doxue.com/download/doc/2011%E5%B9%B4%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E4%BA%8C%E7%9C%9F%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+    "sha256": "ad72d9ec5fa0dc84ad622b018dbaec52f9384ffbeaafa30b929ab14aa47601f9",
+    "bytes": 651061,
+    "role": "题面"
+  },
+  {
+    "year": 2012,
+    "url": "https://www.doxue.com/download/doc/2012%E5%B9%B4%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E4%BA%8C%E7%9C%9F%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+    "sha256": "23424333961f20c7c56561d38adb1dfeac10c3d918b2e4b7a46d2397231de7be",
+    "bytes": 496861,
+    "role": "题面"
+  },
+  {
+    "year": 2013,
+    "url": "https://www.doxue.com/download/doc/2013%E5%B9%B4%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E4%BA%8C%E7%9C%9F%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+    "sha256": "2419cd513e3b6a9600db36a3bc142b801cacad3ab36810db1b8b8f8a971a13e2",
+    "bytes": 567157,
+    "role": "题面"
+  },
+  {
+    "year": 2014,
+    "url": "https://www.doxue.com/download/doc/2014%E5%B9%B4%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E4%BA%8C%E7%9C%9F%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+    "sha256": "a81456338d6d4e3b01a85f656f3b06aee7e2bfaa06e27b2381ef6cae230ce986",
+    "bytes": 544212,
+    "role": "题面"
+  },
+  {
+    "year": 2015,
+    "url": "https://www.doxue.com/download/doc/2015%E5%B9%B4%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E4%BA%8C%E7%9C%9F%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+    "sha256": "d5c67b4f406c01f80d463dbb6b4bf061f10b65ac9844d05a278ce1fae0c9b323",
+    "bytes": 645689,
+    "role": "题面"
+  },
+  {
+    "year": 2016,
+    "url": "../archive-e2/2016年考研英语二真题.pdf",
+    "sha256": "c94c7b78e597c98d3618d930f009d8d2fd494adc94421fc90e6cdd86eebfce8f",
+    "bytes": 1696236,
+    "role": "题面"
+  },
+  {
+    "year": 2017,
+    "url": "../archive-e2/2017年考研英语二真题.pdf",
+    "sha256": "88dc4ff8e9faa7bfca02a6361968200aec269c705a39bb66b7791fea95403aa4",
+    "bytes": 1442550,
+    "role": "题面"
+  },
+  {
+    "year": 2018,
+    "url": "../archive-e2/2018年考研英语二真题.pdf",
+    "sha256": "99f76a627175cece57eb1fc033f1b9112fafc9b3ab9d64dec2adb0350bd2dda5",
+    "bytes": 1755599,
+    "role": "题面"
+  },
+  {
+    "year": 2019,
+    "url": "../archive-e2/2019年考研英语二真题.pdf",
+    "sha256": "e1fbf6bc49f23efd1c80d27e34300ba9739041d0afb6aa16364a55e76770f224",
+    "bytes": 1695450,
+    "role": "题面"
+  },
+  {
+    "year": 2020,
+    "url": "../archive-e2/2020年考研英语二真题.pdf",
+    "sha256": "5a73d22c80feaccd1318280f11ff1875f750e7e59dd33662b9691e9c0ac7ac2c",
+    "bytes": 6879344,
+    "role": "题面"
+  },
+  {
+    "year": 2021,
+    "url": "../archive-e2/2021年考研英语二真题.pdf",
+    "sha256": "29c892f624009597378b660ae9691c8baea89a6c1ad7826b44cef21af2c728c0",
+    "bytes": 3902182,
+    "role": "题面"
+  },
+  {
+    "year": 2022,
+    "url": "../archive-e2/2022年考研英语二真题.pdf",
+    "sha256": "6905f827ee76eb3d4165c7aaeb09af9387c60addbd5af8e959d5e8a9ddcfa7f8",
+    "bytes": 7315943,
+    "role": "题面"
+  },
+  {
+    "year": 2023,
+    "url": "../archive-e2/2023年考研英语二真题.pdf",
+    "sha256": "6a2ef807bd9376b07374ea4ce02dd0c78103d4393e79c995e8f60f348f75f202",
+    "bytes": 7622965,
+    "role": "题面"
+  },
+  {
+    "year": 2024,
+    "url": "../archive-e2/2024年考研英语二真题.pdf",
+    "sha256": "3ac5cf7e82bc5912ee53bfc592a26b68146c08a7163066639f41fb88a2a379a0",
+    "bytes": 14920337,
+    "role": "题面"
+  },
+  {
+    "year": 2025,
+    "url": "../archive-e2/2025年考研英语二真题.pdf",
+    "sha256": "64c7b673eb973dce226c17841c37b9baff0d3506b8be8c9bc316897e011d09a0",
+    "bytes": 16650389,
+    "role": "题面"
+  },
+  {
+    "year": 2026,
+    "url": "https://static.kaoyan.cn/file/question/2025/12/27/73ddc93ef0849e1c5809476a040e9eec.pdf",
+    "sha256": "83dac3f9b46efb8b0bdfb6f91c22c32bfa08ca81db6da17cef6253294cd58aa3",
+    "bytes": 968937,
+    "role": "题面"
+  }
+]
