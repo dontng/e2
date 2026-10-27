@@ -1,3 +1,5 @@
+[« Word_List_10](Word_List_10.md)　　[Word_List_12 »](Word_List_12.md)
+
 # 考研英语二核心词汇手册 · Word List 11（全 88 词）
 
 ---
@@ -482,3 +484,5 @@
 * **常用义**：n. 名誉、声望、名气[cite: 11]
 * **底层骨架**：*re-* + *put*（思考/核算） $\rightarrow$ 大众一遍又一遍给某人作出的综合算账评价。
 * **考研高频搭配**：damage/enhance one's reputation（损害/提升某人的名誉）[cite: 10, 11]。
+
+[« Word_List_10](Word_List_10.md)　　[Word_List_12 »](Word_List_12.md)

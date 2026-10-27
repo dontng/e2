@@ -1,4 +1,4 @@
-[« Word_List_05](Word_List_05.md)
+[« Word_List_05](Word_List_05.md)　　[Word_List_07 »](Word_List_07.md)
 
 # 考研英语二核心词汇手册 · Word List 6（全 84 词）
 
@@ -452,4 +452,4 @@
   * **assure**：消除对方疑虑（必须接人，如 assure you）
   * **insure**：商业上买保险
 
-[« Word_List_05](Word_List_05.md)
+[« Word_List_05](Word_List_05.md)　　[Word_List_07 »](Word_List_07.md)

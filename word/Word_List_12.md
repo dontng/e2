@@ -1,3 +1,5 @@
+[« Word_List_11](Word_List_11.md)　　[Word_List_13 »](Word_List_13.md)
+
 # 考研英语二核心词汇手册 · Word List 12（全 89 词）
 
 ---
@@ -478,3 +480,5 @@
   * 土地结出庄稼或投资产生现金回报（yield crops / a high dividend yield） $\rightarrow$ **出产、产出；收益率**[cite: 12]
   * 面对压力低头认输（yield to pressure） $\rightarrow$ **屈服、退让**[cite: 12]
   * 交通指示牌（Yield） $\rightarrow$ 拱手交出先行路权 $\rightarrow$ **让行、让路**[cite: 12]
+
+[« Word_List_11](Word_List_11.md)　　[Word_List_13 »](Word_List_13.md)

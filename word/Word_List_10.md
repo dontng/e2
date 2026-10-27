@@ -1,3 +1,5 @@
+[« Word_List_09](Word_List_09.md)　　[Word_List_11 »](Word_List_11.md)
+
 # 考研英语二核心词汇手册 · Word List 10（全 88 词）
 
 ---
@@ -455,3 +457,5 @@
 * **语法点**：
   * 坚决要求做某事时从句用虚拟语气（insist that sb do sth）[cite: 10]
   * 坚称某客观事实属实时从句用真实时态（insisted that he was innocent）[cite: 10]。
+
+[« Word_List_09](Word_List_09.md)　　[Word_List_11 »](Word_List_11.md)

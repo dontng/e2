@@ -1,3 +1,5 @@
+[« Word_List_07](Word_List_07.md)　　[Word_List_09 »](Word_List_09.md)
+
 # 考研英语二核心词汇手册 · Word List 8（全 32 词）
 
 ---
@@ -184,3 +186,5 @@
 * **常用义**：adj. 值得做的、有价值的[cite: 8]
 * **底层骨架**：*worth*（配得上）+ *while*（花费的这一段时间） $\rightarrow$ 花在这上面的功夫是划算的、值当的[cite: 8]。
 * **考研高频句型**：It is worthwhile doing / to do sth（做某事是值得的）[cite: 8]。
+
+[« Word_List_07](Word_List_07.md)　　[Word_List_09 »](Word_List_09.md)

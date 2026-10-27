@@ -1,3 +1,5 @@
+[« Word_List_06](Word_List_06.md)　　[Word_List_08 »](Word_List_08.md)
+
 # 考研英语二核心词汇手册 · Word List 7（全 78 词）
 
 ---
@@ -423,3 +425,5 @@
 ### 78. aware
 * **常用义**：adj. 意识到的、察觉到的（aware of）[cite: 7]
 * **考研高频搭配**：environmental awareness（环保意识）、raise public awareness（提高公众意识）[cite: 7]。
+
+[« Word_List_06](Word_List_06.md)　　[Word_List_08 »](Word_List_08.md)

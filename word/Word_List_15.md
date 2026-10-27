@@ -1,3 +1,5 @@
+[« Word_List_14](Word_List_14.md)　　[Word_List_16 »](Word_List_16.md)
+
 # 考研英语二核心词汇手册 · Word List 15（全 78 词）
 
 ---
@@ -414,3 +416,5 @@
   * 物理挂在大桥或天花板上（suspension bridge 吊桥） $\rightarrow$ **悬挂**[cite: 15]
   * 官方把正在推进的法案或航班临时叫停挂起（suspend the service/talks） $\rightarrow$ **暂停、推迟、中止**[cite: 15]
   * 员工或学生违纪被勒令不准上班上课（suspended from school/work） $\rightarrow$ **停职、停课处分**[cite: 15]
+
+[« Word_List_14](Word_List_14.md)　　[Word_List_16 »](Word_List_16.md)

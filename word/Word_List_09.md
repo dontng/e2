@@ -1,3 +1,5 @@
+[« Word_List_08](Word_List_08.md)　　[Word_List_10 »](Word_List_10.md)
+
 # 考研英语二核心词汇手册 · Word List 9（全 92 词）
 
 ---
@@ -492,3 +494,5 @@
   * 双方拍板把买卖定死（reach a deal） $\rightarrow$ **交易、协议**[cite: 9]
   * 动词短语应对事务（deal with） $\rightarrow$ **处理、应付**
   * 程度短语数量庞大（a great deal of + 不可数名词） $\rightarrow$ **大量的**
+
+[« Word_List_08](Word_List_08.md)　　[Word_List_10 »](Word_List_10.md)

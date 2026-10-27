@@ -1,3 +1,5 @@
+[« Word_List_12](Word_List_12.md)　　[Word_List_14 »](Word_List_14.md)
+
 # 考研英语二核心词汇手册 · Word List 13（全 72 词）
 
 ---
@@ -386,3 +388,5 @@
 * **辨析**：
   * **deduce**：演绎推理（从普遍真理往个别现象推）[cite: 13]
   * **induce**：归纳推理（从一堆个别琐碎现象往普遍真理总结）
+
+[« Word_List_12](Word_List_12.md)　　[Word_List_14 »](Word_List_14.md)

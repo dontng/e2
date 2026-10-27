@@ -1,3 +1,5 @@
+[« Word_List_13](Word_List_13.md)　　[Word_List_15 »](Word_List_15.md)
+
 # 考研英语二核心词汇手册 · Word List 14（全 74 词）
 
 ---
@@ -387,3 +389,5 @@
 * **常用义**：n. 司法权、管辖权；管辖范围[cite: 14]
 * **构词**：*juris-*（法律）+ *dict*（说/宣告） $\rightarrow$ 在特定区域内由本官开口宣布法度裁决的权力范围[cite: 13, 14]。
 * **考研法学常客**：under the jurisdiction of...（归……司法管辖）[cite: 14]。
+
+[« Word_List_13](Word_List_13.md)　　[Word_List_15 »](Word_List_15.md)
