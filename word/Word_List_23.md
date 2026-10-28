@@ -1,3 +1,5 @@
+[« Word_List_22](Word_List_22.md)　　[Word_List_24 »](Word_List_24.md)
+
 # 考研英语二核心词汇手册 · Word List 23（全 80 词）
 
 ---
@@ -431,3 +433,5 @@
   * **emigrate**：从本国**迁出**[cite: 23]
   * **immigrate**：进入外国**迁入**[cite: 3]
   * **migrate**：随季节**迁徙**（候鸟/打工族）。
+
+[« Word_List_22](Word_List_22.md)　　[Word_List_24 »](Word_List_24.md)

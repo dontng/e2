@@ -1,3 +1,5 @@
+[« Word_List_28](Word_List_28.md)　　[Word_List_30 »](Word_List_30.md)
+
 # 考研英语二核心词汇手册 · Word List 29（全 84 词）
 
 ---
@@ -452,3 +454,5 @@
 ### 84. semester
 * **常用义**：n. （大学的）学期（尤指一学年分为两个学期的制式）[cite: 23]
 * **词源**：*sex*（六）+ *mensis*（月） $\rightarrow$ 半年六个月为一个教学周期的制度[cite: 23]。
+
+[« Word_List_28](Word_List_28.md)　　[Word_List_30 »](Word_List_30.md)

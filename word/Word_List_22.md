@@ -1,3 +1,5 @@
+[« Word_List_21](Word_List_21.md)　　[Word_List_23 »](Word_List_23.md)
+
 # 考研英语二核心词汇手册 · Word List 22（全 78 词）
 
 ---
@@ -407,3 +409,5 @@
 * **常用义**：v. 供认、坦白承认；（向神父）忏悔[cite: 22]
 * **底层骨架**：*con-*（全）+ *fess*（开口说） $\rightarrow$ 心理防线崩溃，把肚里捂着的罪过全盘从嘴里吐出来[cite: 22]。
 * **派生**：confession（n. 供词、招供、忏悔）[cite: 17, 22]。
+
+[« Word_List_21](Word_List_21.md)　　[Word_List_23 »](Word_List_23.md)

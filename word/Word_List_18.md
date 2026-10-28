@@ -1,3 +1,5 @@
+[« Word_List_17](Word_List_17.md)　　[Word_List_19 »](Word_List_19.md)
+
 # 考研英语二核心词汇手册 · Word List 18（全 31 词）
 
 ---
@@ -182,3 +184,5 @@
   * 从银行账户把存款拉出来（withdraw money/cash） $\rightarrow$ **提取（现金）**[cite: 18]
   * 撤军或撤回已发出的言论申请（withdraw troops / an application / support） $\rightarrow$ **撤退、收回、撤销**[cite: 18]
   * 人缩回自己的壳里拒绝与外部社交（withdraw into oneself） $\rightarrow$ **孤僻、自我封闭**[cite: 18]
+
+[« Word_List_17](Word_List_17.md)　　[Word_List_19 »](Word_List_19.md)

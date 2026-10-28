@@ -1,3 +1,5 @@
+[« Word_List_18](Word_List_18.md)　　[Word_List_20 »](Word_List_20.md)
+
 # 考研英语二核心词汇手册 · Word List 19（全 70 词）
 
 ---
@@ -388,3 +390,5 @@
   * 资本家压榨雇员血汗（exploit workers） $\rightarrow$ **剥削、压榨**[cite: 1, 19]
   * 科学产业充分发掘利用矿脉或技术红利（exploit natural resources / opportunities） $\rightarrow$ **开发、充分利用（褒义/中性）**[cite: 11, 12, 19]
   * 名词指英雄在沙场立下的战功（military exploits） $\rightarrow$ **英勇战绩、壮举**[cite: 3, 19]
+
+[« Word_List_18](Word_List_18.md)　　[Word_List_20 »](Word_List_20.md)

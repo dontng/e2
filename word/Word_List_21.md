@@ -1,3 +1,5 @@
+[« Word_List_20](Word_List_20.md)　　[Word_List_22 »](Word_List_22.md)
+
 # 考研英语二核心词汇手册 · Word List 21（全 78 词）
 
 ---
@@ -481,3 +483,5 @@
 ### 78. youth
 * **常用义**：n. 青年时期；青春；青年男女总称[cite: 21]
 * **考研高频搭配**：youth unemployment（青年失业问题）[cite: 12, 21]。
+
+[« Word_List_20](Word_List_20.md)　　[Word_List_22 »](Word_List_22.md)

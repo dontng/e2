@@ -1,3 +1,5 @@
+[« Word_List_29](Word_List_29.md)
+
 # 考研英语二核心词汇手册 · Word List 30（全 85 词）
 
 ---
@@ -465,3 +467,5 @@
 ### 85. youngster
 * **常用义**：n. 年轻人、少年；儿童[cite: 24]
 * **构词**：*young*（年轻）+ *-ster*（表示具体人）[cite: 24]。
+
+[« Word_List_29](Word_List_29.md)

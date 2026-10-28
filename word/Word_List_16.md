@@ -1,4 +1,4 @@
-[« Word_List_15](Word_List_15.md)
+[« Word_List_15](Word_List_15.md)　　[Word_List_17 »](Word_List_17.md)
 
 # 考研英语二核心词汇手册 · Word List 16（全 85 词）
 
@@ -457,4 +457,4 @@
   * 双方供词完全吻合（the facts correspond with his story） $\rightarrow$ **符合、相符、一致**[cite: 16]
   * 在另一个体系中对标相等的位子（the British equivalent corresponds to...） $\rightarrow$ **相当于、相对应**[cite: 16]
 
-[« Word_List_15](Word_List_15.md)
+[« Word_List_15](Word_List_15.md)　　[Word_List_17 »](Word_List_17.md)

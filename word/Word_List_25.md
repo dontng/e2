@@ -1,3 +1,5 @@
+[« Word_List_24](Word_List_24.md)　　[Word_List_26 »](Word_List_26.md)
+
 # 考研英语二核心词汇手册 · Word List 25（全 72 词）
 
 ---
@@ -408,3 +410,5 @@
 * **常用义**：n./v. 航海、航空；长途旅行、太空远航[cite: 25]
 * **底层骨架**：源自拉丁语 *viaticum*（远行盘缠道路） $\rightarrow$ 跨越万里汪洋或星河的远途史诗航行[cite: 7, 25]。
 * **考研典故大词**：**maiden voyage** $\rightarrow$ 远洋巨轮的**处女航、首次航行**[cite: 25]。
+
+[« Word_List_24](Word_List_24.md)　　[Word_List_26 »](Word_List_26.md)

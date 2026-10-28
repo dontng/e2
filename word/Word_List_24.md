@@ -1,3 +1,5 @@
+[« Word_List_23](Word_List_23.md)　　[Word_List_25 »](Word_List_25.md)
+
 # 考研英语二核心词汇手册 · Word List 24（全 77 词）
 
 ---
@@ -428,3 +430,5 @@
 * **考场推导**：
   * 医生处方（prescription drugs 处方药）[cite: 24]
   * 经济学家给衰退经济开出的治疗解药（a prescription for economic recovery） $\rightarrow$ **应对之策、解决对策**[cite: 1, 24]
+
+[« Word_List_23](Word_List_23.md)　　[Word_List_25 »](Word_List_25.md)

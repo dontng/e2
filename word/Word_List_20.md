@@ -1,3 +1,5 @@
+[« Word_List_19](Word_List_19.md)　　[Word_List_21 »](Word_List_21.md)
+
 # 考研英语二核心词汇手册 · Word List 20（全 65 词）
 
 ---
@@ -329,3 +331,5 @@
 * **常用义**：n. 朝圣者、清教徒移民[cite: 20]
 * **底层骨架**：*per-*（穿过）+ *ager*（田野） $\rightarrow$ 跨过千山万水走向圣地的信徒。
 * **考研历史考点**：**the Pilgrim Fathers** $\rightarrow$ 乘“五月花号”抵达北美的清教徒先驱 $\rightarrow$ **朝圣先辈**。
+
+[« Word_List_19](Word_List_19.md)　　[Word_List_21 »](Word_List_21.md)

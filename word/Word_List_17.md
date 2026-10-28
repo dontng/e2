@@ -1,3 +1,5 @@
+[« Word_List_16](Word_List_16.md)　　[Word_List_18 »](Word_List_18.md)
+
 # 考研英语二核心词汇手册 · Word List 17（全 82 词）
 
 ---
@@ -455,3 +457,5 @@
 * **常用义**：v. 把……奉献给、致力于（devote... to...）[cite: 17]
 * **底层骨架**：*de-*（全心）+ *vot*（发誓/祈愿） $\rightarrow$ 在神坛前立下誓约，全身心押在使命上[cite: 17]。
 * **语法关键点**：短语中 **to 为介词**，后接名词或动名词（devote oneself to scientific research / helping others）[cite: 17]。
+
+[« Word_List_16](Word_List_16.md)　　[Word_List_18 »](Word_List_18.md)

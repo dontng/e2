@@ -1,3 +1,5 @@
+[« Word_List_27](Word_List_27.md)　　[Word_List_29 »](Word_List_29.md)
+
 # 考研英语二核心词汇手册 · Word List 28（全 86 词）
 
 ---
@@ -481,3 +483,5 @@
 * **考场推导**：
   * 游子在故乡游荡不舍得走 $\rightarrow$ **流连、逗留**[cite: 22]
   * 传统观念或危机阴影常年在全社会挥之不去（doubts linger on） $\rightarrow$ **持续留存、久久不退**[cite: 10, 22]
+
+[« Word_List_27](Word_List_27.md)　　[Word_List_29 »](Word_List_29.md)

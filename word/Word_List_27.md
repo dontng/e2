@@ -1,3 +1,5 @@
+[« Word_List_26](Word_List_26.md)　　[Word_List_28 »](Word_List_28.md)
+
 # 考研英语二核心词汇手册 · Word List 27（全 82 词）
 
 ---
@@ -452,3 +454,5 @@
 * **常用义**：v. 鄙视、蔑视、极度看不起
 * **底层骨架**：*de-*（向下）+ *spis/spec*（看） $\rightarrow$ 居高临下斜着眼向下看，视对方为烂泥。
 * **考研同义替换**：look down upon, scorn, disdain, contempt。
+
+[« Word_List_26](Word_List_26.md)　　[Word_List_28 »](Word_List_28.md)

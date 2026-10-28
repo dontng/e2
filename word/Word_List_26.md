@@ -1,3 +1,5 @@
+[« Word_List_25](Word_List_25.md)　　[Word_List_27 »](Word_List_27.md)
+
 # 考研英语二核心词汇手册 · Word List 26（全 28 词）
 
 ---
@@ -151,3 +153,5 @@
 * **常用义**：n. 仓库、货栈；批发商行[cite: 20]
 * **拆分**：*ware*（货物/器具）+ *house*（房屋） $\rightarrow$ 专供大批量堆放货物的仓房[cite: 20]。
 * **考研高频搭配**：warehouse management（仓储管理）[cite: 20]。
+
+[« Word_List_25](Word_List_25.md)　　[Word_List_27 »](Word_List_27.md)
