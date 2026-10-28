@@ -18,9 +18,9 @@
 * **常用义**：adj. 批评的、批判的
 * **底层骨架**：**“处于生死抉择的关键关口”**（与 crisis 危机同源，本义为下断言）
 * **考场推导**：
-  * 修饰事态与决定性因素（a critical factor/stage） $\rightarrow$ 关乎成败的关口 $\rightarrow$ **极其关键的、至关重要的**
-  * 医学与社会危机（in a critical condition） $\rightarrow$ 徘徊在危急边缘 $\rightarrow$ **危重的、危机重重的**
-  * 学术思维方法（critical thinking） $\rightarrow$ 不盲信、审慎研判的 $\rightarrow$ **批判性思维、审辩式思维**
+  * 修饰事态与决定性因素（a critical factor/stage） → 关乎成败的关口 → **极其关键的、至关重要的**
+  * 医学与社会危机（in a critical condition） → 徘徊在危急边缘 → **危重的、危机重重的**
+  * 学术思维方法（critical thinking） → 不盲信、审慎研判的 → **批判性思维、审辩式思维**
 
 ### 04. criticism
 * **常用义**：n. 批评、指责；评论文章
@@ -34,29 +34,29 @@
 * **常用义**：adj. 粗糙的、简陋的
 * **底层骨架**：**“刚从大自然或地下捞出来，未经过精细加工”**
 * **考场推导**：
-  * 修饰地下开采的原生油（crude oil） $\rightarrow$ **原油**
-  * 修饰数据计算（a crude calculation/estimate） $\rightarrow$ 未做精细核算的大致毛估 $\rightarrow$ **粗略的、概括性的**
-  * 修饰言行态度 $\rightarrow$ 未经文明礼貌规训的 $\rightarrow$ **粗俗的、没修养的**
+  * 修饰地下开采的原生油（crude oil） → **原油**
+  * 修饰数据计算（a crude calculation/estimate） → 未做精细核算的大致毛估 → **粗略的、概括性的**
+  * 修饰言行态度 → 未经文明礼貌规训的 → **粗俗的、没修养的**
 
 ### 07. cultivate
 * **常用义**：v. 耕作、种植
 * **底层骨架**：**“长期翻土灌溉，耐心地培育使其成形”**
 * **考场推导**：
-  * 对人才、习惯或品性（cultivate skills/talents） $\rightarrow$ **培养、养成**
-  * 商业社科中维护人际与客情（cultivate relationships/clients） $\rightarrow$ **建立并发展（关系）、结交**
+  * 对人才、习惯或品性（cultivate skills/talents） → **培养、养成**
+  * 商业社科中维护人际与客情（cultivate relationships/clients） → **建立并发展（关系）、结交**
 
 ### 08. cure
 * **常用义**：v./n. 治愈、疗法
 * **底层骨架**：**“使用专用手段工艺处理，消除隐患并让其长期稳定”**
 * **考场推导**：
-  * 对肉类、烟草或皮革（cure meat/leather） $\rightarrow$ 经腌制、风干使其不易变质 $\rightarrow$ **腌制、熟化、加工保存**
+  * 对肉类、烟草或皮革（cure meat/leather） → 经腌制、风干使其不易变质 → **腌制、熟化、加工保存**
 
 ### 09. security
 * **常用义**：n. 安全、安保
-* **底层骨架**：*se-*（免除、无）+ 拉丁词根 *cura*（挂念、担忧、关照） $\rightarrow$ 毫无后顾之忧、给你托底的保障凭证。
+* **底层骨架**：*se-*（免除、无）+ 拉丁词根 *cura*（挂念、担忧、关照） → 毫无后顾之忧、给你托底的保障凭证。
 * **考场推导**：
-  * 资产金融领域（复数 securities） $\rightarrow$ 具有法律信用的托底票据 $\rightarrow$ **证券、债券**
-  * 借贷抵押（security for a loan） $\rightarrow$ **抵押物、抵押品**
+  * 资产金融领域（复数 securities） → 具有法律信用的托底票据 → **证券、债券**
+  * 借贷抵押（security for a loan） → **抵押物、抵押品**
 
 ### 10. accuracy
 * **常用义**：n. 精确度、准确性
@@ -70,8 +70,8 @@
 * **常用义**：adj. 当前的、现行的；n. 水流、电流、气流；思潮、暗流
 * **底层骨架**：**“奔涌向前的水流大势”**（词根 *cur-* 跑/流）
 * **考场推导**：
-  * 自然物理世界 $\rightarrow$ **水流、气流、电流**
-  * 社会情绪与思潮（an undercurrent of discontent） $\rightarrow$ 暗中涌动的**思潮、暗流**
+  * 自然物理世界 → **水流、气流、电流**
+  * 社会情绪与思潮（an undercurrent of discontent） → 暗中涌动的**思潮、暗流**
 
 ### 13. core
 * **常用义**：n. 核心、要点；果核；adj. 最核心的
@@ -85,9 +85,9 @@
 * **常用义**：n. 习俗、风俗
 * **底层骨架**：**“长期反复养成的习惯性做法”**
 * **考场推导**：
-  * 习惯性到特定店铺消费 $\rightarrow$ **惠顾、光顾**
-  * 进出国门处依法查验征税（复数 customs） $\rightarrow$ **海关、关税**
-  * 复合词（custom-made / custom-built） $\rightarrow$ 契合个性习惯的 $\rightarrow$ **量身定做的、定制的**
+  * 习惯性到特定店铺消费 → **惠顾、光顾**
+  * 进出国门处依法查验征税（复数 customs） → **海关、关税**
+  * 复合词（custom-made / custom-built） → 契合个性习惯的 → **量身定做的、定制的**
 
 ### 16. cycle
 * **常用义**：n./v. 循环、周期；骑自行车
@@ -129,13 +129,13 @@
 * **常用义**：n. 纪律、自制力
 * **底层骨架**：**“一套严苛的规范法度与操练规矩”**
 * **考场推导**：
-  * 高校学术分类（an academic discipline / across disciplines） $\rightarrow$ 有专属研究范式与规矩的知识门类 $\rightarrow$ **学科、专业领域**
+  * 高校学术分类（an academic discipline / across disciplines） → 有专属研究范式与规矩的知识门类 → **学科、专业领域**
 
 ### 25. condition
 * **常用义**：n. 条件、状况
 * **底层骨架**：**“事先划定好的外部边界框架”**
 * **考场推导**：
-  * 动词修饰人或心理（society conditions us to think...） $\rightarrow$ 外部框架长久熏陶塑造 $\rightarrow$ **训练、熏陶、使适应（某种反应）**
+  * 动词修饰人或心理（society conditions us to think...） → 外部框架长久熏陶塑造 → **训练、熏陶、使适应（某种反应）**
 
 ### 26. diverse
 * **常用义**：adj. 多种多样的、形形色色的
@@ -149,8 +149,8 @@
 * **常用义**：adj. 国内的（domestic market）
 * **底层骨架**：**“深宅大院围墙以内的自家范围”**（词根 *dom-* 房舍）
 * **考场推导**：
-  * 相比公众外部社交（domestic chores / violence） $\rightarrow$ 自家屋檐下的 $\rightarrow$ **家庭的、家务的**
-  * 相比荒野野生动物（domestic animals） $\rightarrow$ 养在院里的 $\rightarrow$ **驯养的、家养的**
+  * 相比公众外部社交（domestic chores / violence） → 自家屋檐下的 → **家庭的、家务的**
+  * 相比荒野野生动物（domestic animals） → 养在院里的 → **驯养的、家养的**
 
 ### 29. dominate
 * **常用义**：v. 支配、控制；在……中占首要地位
@@ -172,9 +172,9 @@
 * **常用义**：v. 实施、组织（conduct research/surveys）
 * **底层骨架**：**“在前面带路引航，让事物顺着轨道走”**（*con-* + *duct* 引导）
 * **考场推导**：
-  * 物理中引导电流或热量畅通穿行（conduct electricity/heat） $\rightarrow$ **导电、传热**
-  * 站在乐队前面引导声部合流 $\rightarrow$ **指挥**
-  * 名词指一生为人处世的行为路线（code of conduct） $\rightarrow$ **行为举止、品行**
+  * 物理中引导电流或热量畅通穿行（conduct electricity/heat） → **导电、传热**
+  * 站在乐队前面引导声部合流 → **指挥**
+  * 名词指一生为人处世的行为路线（code of conduct） → **行为举止、品行**
 
 ### 34. productive
 * **常用义**：adj. 多产的、富有成效的
@@ -192,13 +192,13 @@
 * **常用义**：v. 忍受、忍耐
 * **底层骨架**：**“如岩石般硬扛住漫长时间的风化侵蚀”**（与 durable 耐用同源）
 * **考场推导**：
-  * 艺术经典、价值观历经岁月考验（an enduring classic / fame that endures） $\rightarrow$ **持久存在、历久弥新**
+  * 艺术经典、价值观历经岁月考验（an enduring classic / fame that endures） → **持久存在、历久弥新**
 
 ### 38. dynamic
 * **常用义**：adj. 充满活力的、动态的
 * **底层骨架**：**“多重力量交织对抗产生的运转机制”**
 * **考场推导**：
-  * 作名词修饰人际、团队或市场内部博弈（常用复数形式 dynamics，如 group dynamics / market dynamics） $\rightarrow$ **相互作用机制、动态博弈关系**
+  * 作名词修饰人际、团队或市场内部博弈（常用复数形式 dynamics，如 group dynamics / market dynamics） → **相互作用机制、动态博弈关系**
 
 ### 39. economics
 * **常用义**：n. 经济学；经济状况
@@ -249,7 +249,7 @@
 * **常用义**：n. 表面；v. 浮出水面、显露
 * **底层骨架**：**“从水底浮破水面冒出头”**
 * **考场推导**：
-  * 动词修饰潜藏的矛盾、线索或内情（unresolved problems surfaced） $\rightarrow$ 隐藏的事物浮现 $\rightarrow$ **显露、浮出水面**
+  * 动词修饰潜藏的矛盾、线索或内情（unresolved problems surfaced） → 隐藏的事物浮现 → **显露、浮出水面**
 
 ### 50. defence
 * **常用义**：n. 防御、防卫；辩护
@@ -259,7 +259,7 @@
 * **常用义**：v. 不同、相异（differ from）
 * **底层骨架**：**“各自往不同方向岔开走”**
 * **考场推导**：
-  * 人与人的意见主张岔开（differ with sb on sth） $\rightarrow$ **产生分歧、持不同看法**
+  * 人与人的意见主张岔开（differ with sb on sth） → **产生分歧、持不同看法**
 
 ### 52. difference
 * **常用义**：n. 差异、区别
@@ -269,18 +269,18 @@
 * **常用义**：n. 大型正式研讨会、发布会
 * **底层骨架**：**“聚在一起共同商量材料”**（*con-* + *fer* 带来）
 * **考场推导**：
-  * 短语表达闭门密谈（be in conference with sb） $\rightarrow$ **碰头商量、私下协商**
+  * 短语表达闭门密谈（be in conference with sb） → **碰头商量、私下协商**
 
 ### 54. reference
 * **常用义**：n. 参考文献、查阅
 * **底层骨架**：**“把视线引回到特定源头”**
 * **考场推导**：
-  * 讲话中话锋带到某人（make reference to...） $\rightarrow$ **提及、涉及**
-  * 求职背调中前雇主证明材料 $\rightarrow$ **推荐信、证明人**
+  * 讲话中话锋带到某人（make reference to...） → **提及、涉及**
+  * 求职背调中前雇主证明材料 → **推荐信、证明人**
 
 ### 55. transfer
 * **常用义**：v./n. 转移、调动、转账
-* **构词**：*trans-*（跨越）+ *fer*（携带） $\rightarrow$ 带到另一处。
+* **构词**：*trans-*（跨越）+ *fer*（携带） → 带到另一处。
 
 ### 56. infer
 * **常用义**：v. 推断、推论
@@ -292,14 +292,14 @@
 
 ### 58. interfere
 * **常用义**：v. 干涉、干扰（interfere in/with）
-* **构词**：*inter-*（中间）+ *fere*（击打） $\rightarrow$ 插在中间作梗。
+* **构词**：*inter-*（中间）+ *fere*（击打） → 插在中间作梗。
 
 ### 59. suffer
 * **常用义**：v. 遭受痛苦、患病（suffer from）
 * **底层骨架**：**“在重担底下硬生生受着”**（*suf-* 下面 + *fer* 承受）
 * **考场推导**：
-  * 商业或军事蒙受创伤（suffer heavy losses） $\rightarrow$ **遭受、蒙受（损失）**
-  * 学业或事业受外部不利影响（academic performance suffered） $\rightarrow$ 受到拖累而**受损、变差**
+  * 商业或军事蒙受创伤（suffer heavy losses） → **遭受、蒙受（损失）**
+  * 学业或事业受外部不利影响（academic performance suffered） → 受到拖累而**受损、变差**
 
 ### 60. professional
 * **常用义**：adj. 专业的、职业的；n. 专业人士
@@ -317,8 +317,8 @@
 * **常用义**：n. 档案、文件夹；v. 归档、提起（诉讼/申请）；排成单行行进
 * **底层骨架**：**“用一条线拉得笔直、整齐排成一列”**（源自 *filum* 线）
 * **考场推导**：
-  * 将法律文书或申请归档递交（file a lawsuit / file for bankruptcy） $\rightarrow$ **正式提起（诉讼）、申请（破产/专利）**
-  * 人群一前一后鱼贯而行（people filed into the hall） $\rightarrow$ **排成单行行进**
+  * 将法律文书或申请归档递交（file a lawsuit / file for bankruptcy） → **正式提起（诉讼）、申请（破产/专利）**
+  * 人群一前一后鱼贯而行（people filed into the hall） → **排成单行行进**
 
 ### 64. financial
 * **常用义**：adj. 金融的、财政的
@@ -328,13 +328,13 @@
 * **常用义**：v. 限制、局限（confine... to...）
 * **底层骨架**：**“四周立上铁丝网，把人或物圈在里面”**（*fin* 边界）
 * **考场推导**：
-  * 因病痛或刑罚离不开狭窄空间（be confined to bed / wheelchair / prison） $\rightarrow$ **卧床不起、监禁、限制活动**
+  * 因病痛或刑罚离不开狭窄空间（be confined to bed / wheelchair / prison） → **卧床不起、监禁、限制活动**
 
 ### 66. define
 * **常用义**：v. 给……下定义；界定
 * **底层骨架**：**“画出一圈分明锐利的边界轮廓”**
 * **考场推导**：
-  * 分词修饰极具标志性意义的事件（a defining moment in history） $\rightarrow$ **起决定性作用的、具有标志性意义的**
+  * 分词修饰极具标志性意义的事件（a defining moment in history） → **起决定性作用的、具有标志性意义的**
 
 ### 67. definition
 * **常用义**：n. 定义；清晰度
@@ -348,7 +348,7 @@
 * **常用义**：n. （大学的）全体教职员工；学院/院系
 * **底层骨架**：**“身体或组织架构天生具备的成事机能”**（词根 *fac-* 做）
 * **考场推导**：
-  * 生理与心理学中身体天然拥有的机能（mental faculties / faculty of vision） $\rightarrow$ **心智机能、官能、天赋才能**
+  * 生理与心理学中身体天然拥有的机能（mental faculties / faculty of vision） → **心智机能、官能、天赋才能**
 
 ---
 
@@ -387,8 +387,8 @@
 * **常用义**：v. 影响
 * **底层骨架**：**“在心灵深处或外在表现上施加作用与装扮”**
 * **考场推导**：
-  * 心灵深受惨剧震动（deeply affected by the news） $\rightarrow$ **使感动、使悲伤震动**
-  * 刻意装出一副假姿态（affect an accent/ignorance） $\rightarrow$ **假装、佯装**
+  * 心灵深受惨剧震动（deeply affected by the news） → **使感动、使悲伤震动**
+  * 刻意装出一副假姿态（affect an accent/ignorance） → **假装、佯装**
 
 ### 78. effective
 * **常用义**：adj. 有效的、起作用的
@@ -398,7 +398,7 @@
 * **常用义**：n. 虚构小说（与 non-fiction 纪实文学相对）
 * **底层骨架**：**“凭空凭脑子捏造出来的假想物”**
 * **考场推导**：
-  * 社科议论文中揭露谎言（separate fact from fiction） $\rightarrow$ **凭空捏造之事、假话、虚构之物**
+  * 社科议论文中揭露谎言（separate fact from fiction） → **凭空捏造之事、假话、虚构之物**
 
 ### 80. inflation
 * **常用义**：n. 通货膨胀；膨胀
@@ -412,8 +412,8 @@
 * **常用义**：v. 告知、通知（inform sb of sth）
 * **底层骨架**：**“把一种特质或形状注入认知深处”**
 * **考场推导**：
-  * 某种核心理念给制度注入灵魂（beliefs that inform their actions） $\rightarrow$ **对……产生根本影响、贯穿赋予特征**
-  * 形容词修饰决策（make an informed decision） $\rightarrow$ 全面掌握内情后做出的 $\rightarrow$ **明智知情的**
+  * 某种核心理念给制度注入灵魂（beliefs that inform their actions） → **对……产生根本影响、贯穿赋予特征**
+  * 形容词修饰决策（make an informed decision） → 全面掌握内情后做出的 → **明智知情的**
 
 ### 83. formation
 * **常用义**：n. 形成、构型、结构
@@ -421,13 +421,13 @@
 
 ### 84. transform
 * **常用义**：v. 彻底改变、使改头换面
-* **构词**：*trans-*（转变）+ *form*（形态） $\rightarrow$ 状态发生质变。
+* **构词**：*trans-*（转变）+ *form*（形态） → 状态发生质变。
 
 ### 85. comfort
 * **常用义**：n./v. 安慰；舒适
 * **底层骨架**：**“注入免受外界磨损的强劲依靠”**
 * **考场推导**：
-  * 物质财富极其丰裕安逸（live in comfort） $\rightarrow$ **富足安逸的生活条件**
+  * 物质财富极其丰裕安逸（live in comfort） → **富足安逸的生活条件**
 
 ### 86. reinforce
 * **常用义**：v. 加强、强化、巩固
@@ -437,7 +437,7 @@
 * **常用义**：n. 运气、命运
 * **底层骨架**：**“命运发给你的巨额筹码”**
 * **考场推导**：
-  * 商业社科中指大笔家当（make a fortune / cost a small fortune） $\rightarrow$ **巨款、大笔财富**
+  * 商业社科中指大笔家当（make a fortune / cost a small fortune） → **巨款、大笔财富**
 
 ### 88. unfortunately
 * **常用义**：adv. 不幸地、遗憾地
@@ -451,7 +451,7 @@
 * **常用义**：v. 直面、面对（困难/挑战）
 * **底层骨架**：**“前额顶着前额，正面对视”**（*con-* + *front* 前额）
 * **考场推导**：
-  * 拿铁证当面与嫌疑人对峙（confront the suspect with evidence） $\rightarrow$ **使当面对质、面对证供**
+  * 拿铁证当面与嫌疑人对峙（confront the suspect with evidence） → **使当面对质、面对证供**
 
 ### 91. fundamental
 * **常用义**：adj. 根本的、基础的；n. 基本原则、基础
