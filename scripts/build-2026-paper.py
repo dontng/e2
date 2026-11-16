@@ -27,13 +27,13 @@ pages = []
 
 def page(kind, title, body):
     number = len(pages)
-    footer = f'<footer class="exam-footer">2026年考研英语（二）试题　 第 {number} 页 共 14 页</footer>' if number else ''
+    footer = f'<footer class="exam-footer">2026\u2013{number}</footer>' if number else ''
     pages.append(f'<article class="paper {kind}" data-page="{number}" aria-label="{esc(title)}">{body}{footer}</article>')
 
 
-# Reuse the project's cover arrangement, explicitly labelling it as a reprint.
+# Reuse the project's cover arrangement.
 cover = (ROOT / 'e2-analysis/html/2020/full-paper.js').read_text().split('0: ["cover-page", `', 1)[1].split('`],', 1)[0]
-cover = cover.replace('2020', '2026').replace('绝密★启用前', '考后整理 · 题面重排')
+cover = cover.replace('2020', '2026')
 page('cover-page', '2026 英语二封面', cover)
 
 page('cloze-page', '完形填空原文', '''<h1 class="section-title">Section I　Use of English</h1>
@@ -77,16 +77,56 @@ page('chart-page', '写作第47—48题', '''<h1 class="section-title">Section I
 <section class="chart-task" data-question="48"><h2 class="part-label">Part B</h2><p>48. <strong>Directions:</strong></p>
 <p>Write an essay based on the chart below. In your essay, you should</p><p>1) describe and interpret the chart, and</p><p>2) give your comments.</p>
 <p>Write your answer in about 150 words on the ANSWER SHEET. (15 points)</p>
-<img src="html/2026/assets/writing-chart.png" alt="某项关于儿童户外活动看法的调查：满足好奇心54.6%，促进观察力54.5%，强身健体37.2%，增强亲子关系33.2%。"></section>''')
+<svg class="writing-chart-svg" viewBox="0 0 480 280" width="380pt" height="222pt" role="img" aria-label="某项关于儿童户外活动看法的调查：满足好奇心54.6%，促进观察力54.5%，强身健体37.2%，增强亲子关系33.2%。">
+  <text x="255" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#000">某项关于儿童户外活动看法的调查</text>
+  <text x="20" y="142" text-anchor="middle" font-size="13" fill="#000" transform="rotate(-90 20 142)">占比（%）</text>
+  <g stroke="#d0d0d0" stroke-width="0.8">
+    <line x1="68" y1="45" x2="460" y2="45"/>
+    <line x1="68" y1="77" x2="460" y2="77"/>
+    <line x1="68" y1="109" x2="460" y2="109"/>
+    <line x1="68" y1="141" x2="460" y2="141"/>
+    <line x1="68" y1="173" x2="460" y2="173"/>
+    <line x1="68" y1="205" x2="460" y2="205"/>
+  </g>
+  <g stroke="#000" stroke-width="1.2">
+    <line x1="68" y1="45" x2="68" y2="237"/>
+    <line x1="68" y1="237" x2="460" y2="237"/>
+  </g>
+  <g font-size="12" fill="#000" text-anchor="end">
+    <text x="61" y="49">60</text>
+    <text x="61" y="81">50</text>
+    <text x="61" y="113">40</text>
+    <text x="61" y="145">30</text>
+    <text x="61" y="177">20</text>
+    <text x="61" y="209">10</text>
+    <text x="61" y="241">0</text>
+  </g>
+  <rect x="92" y="62.3" width="52" height="174.7" fill="#3b3b3b" stroke="#000" stroke-width="1"/>
+  <rect x="190" y="62.6" width="52" height="174.4" fill="#6e6e6e" stroke="#000" stroke-width="1"/>
+  <rect x="288" y="118.0" width="52" height="119.0" fill="#9a9a9a" stroke="#000" stroke-width="1"/>
+  <rect x="386" y="130.8" width="52" height="106.2" fill="#c2c2c2" stroke="#000" stroke-width="1"/>
+  <g font-size="13" font-weight="700" fill="#000" text-anchor="middle">
+    <text x="118" y="56">54.6%</text>
+    <text x="216" y="56">54.5%</text>
+    <text x="314" y="112">37.2%</text>
+    <text x="412" y="125">33.2%</text>
+  </g>
+  <g font-size="13.5" fill="#000" text-anchor="middle">
+    <text x="118" y="260">满足好奇心</text>
+    <text x="216" y="260">促进观察力</text>
+    <text x="314" y="260">强身健体</text>
+    <text x="412" y="260">增强亲子关系</text>
+  </g>
+</svg></section>''')
 
 assert len(pages) == 15
 document = '''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>2026 考研英语（二）· 新东方题面重排</title>
+<title>2026年全国硕士研究生招生考试 · 英语（二）</title>
 <link rel="stylesheet" href="html/reader.css"><link rel="stylesheet" href="html/2026/paper.css">
 </head><body>
 <div class="top-edge-trigger" aria-hidden="true"></div>
-<header class="toolbar"><div class="toolbar-title">2026 英语（二）<span class="toolbar-note">新东方题面重排</span><span id="spreadLabel">封面</span></div>
+<header class="toolbar"><div class="toolbar-title">2026 英语（二）<span class="toolbar-note">完整试题</span><span id="spreadLabel">封面</span></div>
 <div class="toolbar-actions"><a href="html/2026/SOURCE.md">来源与校对记录</a></div></header>
 <nav class="edge-navigation" aria-label="翻页"><button id="prevPage" class="page-edge page-edge-prev" type="button" aria-label="上一组双页"><span aria-hidden="true">‹</span></button><button id="nextPage" class="page-edge page-edge-next" type="button" aria-label="下一组双页"><span aria-hidden="true">›</span></button></nav>
 <main id="spread" aria-label="2026年考研英语二试题">''' + '\n'.join(pages) + '''</main>

@@ -9,17 +9,17 @@
 | 2023 | [PDF](papers/2023.pdf) | [文字稿](papers/2023.md) | 已归位；AI 整卷解答尚未开始 |
 | 2024 | [PDF](papers/2024.pdf) | [文字稿](papers/2024.md) | 已归位；AI 整卷解答尚未开始 |
 | 2025 | [PDF](papers/2025.pdf) | [文字稿](papers/2025.md) | 已归位；AI 整卷解答尚未开始 |
-| 2026 | [PDF](papers/2026.pdf) · [HTML](26.html) | [转录数据](html/2026/transcription.json) | 整卷题面已归位；[来源与校对记录](html/2026/SOURCE.md)；AI 整卷解答尚未开始 |
+| 2026 | [PDF](papers/2026.pdf) · [HTML](26.html) | 待归位 | 整卷 PDF 与 HTML 已归位；AI 整卷解答尚未开始 |
 
 ## 年度内容放在哪里
 
-每年原卷与文字稿直接平铺在 `papers/年份.pdf` 与 `papers/年份.md`（不按年份建子目录）；后续按实际产出在同一级或对应命名增加 `年份-solution.md`、`年份-teaching.md`、`年份-record.md`。HTML 共享样式/脚本及各年份资源统一放在 `html/`（如 `html/reader.css`、`html/2020/`）；没有内容不预建空文件。
+每年原卷与文字稿直接平铺在 `papers/年份.pdf` 与 `papers/年份.md`（不按年份建子目录）；后续按实际产出在同一级或对应命名增加 `年份-solution.md`、`年份-teaching.md`、`年份-record.md`；没有内容不预建空文件。
 
 跨年度共同经验形成后写在本目录的 `experience.md`，每条链接回具体年份和题号。`reading/`、`writing/`、`new-type/` 保留跨多年题型资料，按需互链，不复制整套教学。
 
 ## 网页与工具
 
-[2020 网页](20.html)仅保留为已有交互与排版的技术样例，不列入当前六套训练。`html/` 保存共享阅读器脚本/样式（`reader.css`、`reader.js`）及各年份数据资源（`html/2020/`），[根目录 scripts/](../scripts/README.md) 保存生成与维护脚本。旧入口 `20-text1.html` 仍可跳转。
+[2020 网页](20.html)仅保留为已有交互与排版的技术样例，不列入当前六套训练；`html/` 资源目录已下线至 Git 历史，[根目录 scripts/](../scripts/README.md) 保存生成与维护脚本。
 
 用 Live Server 从本目录打开 `20.html` 或 `26.html`。Python 构建工具从仓库内定位输入，2020 源 PDF 为 `papers/2020.pdf`；原卷的 SHA 校验保持不变。
 
