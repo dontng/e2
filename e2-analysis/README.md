@@ -9,7 +9,7 @@
 | 2023 | [PDF](papers/2023/source.pdf) | [文字稿](papers/2023/source.md) | 已归位；AI 整卷解答尚未开始 |
 | 2024 | [PDF](papers/2024/source.pdf) | [文字稿](papers/2024/source.md) | 已归位；AI 整卷解答尚未开始 |
 | 2025 | [PDF](papers/2025/source.pdf) | [文字稿](papers/2025/source.md) | 已归位；AI 整卷解答尚未开始 |
-| 2026 | 待归位 | 待归位 | 当前主分支未找到今天新增的整卷 HTML/PDF；已有分题型教学不等于原卷齐全 |
+| 2026 | [PDF](papers/2026/source.pdf) · [HTML](26.html) | [转录数据](papers/2026/transcription.json) | 整卷题面已归位；[来源与校对记录](papers/2026/SOURCE.md)；AI 整卷解答尚未开始 |
 
 ## 年度内容放在哪里
 
@@ -22,3 +22,5 @@
 [2020 网页](20.html)仅保留为已有交互与排版的技术样例，不列入当前六套训练。`papers/2020/` 保存其构建输入和资源，`viewer/` 保存阅读器，[根目录 scripts/](../scripts/README.md) 保存生成与维护脚本。根目录的最新版网页和阅读器已收进这里；旧入口 `20-text1.html` 仍可跳转。
 
 用 Live Server 从本目录打开 `20.html`。Python 构建工具从仓库内定位输入，2020 源 PDF 为 `papers/2020/source.pdf`；原卷的 SHA 校验保持不变。
+
+`26.html` 与 `20.html` 并排，沿用双页纸面、可选中文字和方向键翻页。2026 的 `source.pdf` 为已预览确认的 HTML 导出版，共15页（封面加14页题面），不含答案解析；新东方考后原始文件另存为 `papers/2026/source-xdf.pdf`。阅读 Text2 按新东方后续完整文字版校订，具体差异见年度来源记录。

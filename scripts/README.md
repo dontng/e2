@@ -7,6 +7,7 @@
 | `render-pages.py` | 将源 PDF 渲染成无损 WebP 页面 | 保留，显式传入输入和输出路径 |
 | `build-semantic-paper.py` | 从 2020 源 PDF 构建已有网页的语义数据 | 保留为技术样例工具 |
 | `build-text-pages.py` | 从 2020 源 PDF 提取文字层和图表 OCR | 保留为技术样例工具 |
+| `build-2026-paper.py` | 根据2026转录数据重建 `e2-analysis/26.html` | 仅使用Python标准库，不改动归档PDF |
 | `src-nav.sh` | 维护旧 Daily 前后篇导航 | 保留原代码；当前没有 `src/`，不作为活动任务运行 |
 | `strip_files.py` | 删减旧 Daily 栏目 | 保留原代码；写死旧电脑路径，不作为当前维护命令运行 |
 
