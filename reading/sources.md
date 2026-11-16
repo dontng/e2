@@ -58,7 +58,7 @@
 
 ## 2016
 
-[题面文件](../archive-e2/2016年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/16.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/archive-e2/2016年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/e2-ocr/16.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`c94c7b78e597c98d3618d930f009d8d2fd494adc94421fc90e6cdd86eebfce8f`。
 
@@ -66,7 +66,7 @@
 
 ## 2017
 
-[题面文件](../archive-e2/2017年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/17.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/archive-e2/2017年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/e2-ocr/17.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`88dc4ff8e9faa7bfca02a6361968200aec269c705a39bb66b7791fea95403aa4`。
 
@@ -74,7 +74,7 @@
 
 ## 2018
 
-[题面文件](../archive-e2/2018年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/18.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/archive-e2/2018年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/e2-ocr/18.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`99f76a627175cece57eb1fc033f1b9112fafc9b3ab9d64dec2adb0350bd2dda5`。
 
@@ -82,7 +82,7 @@
 
 ## 2019
 
-[题面文件](../archive-e2/2019年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/19.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/archive-e2/2019年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/e2-ocr/19.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`e1fbf6bc49f23efd1c80d27e34300ba9739041d0afb6aa16364a55e76770f224`。
 
@@ -90,7 +90,7 @@
 
 ## 2020
 
-[题面文件](../archive-e2/2020年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/20.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](../e2-analysis/papers/2020/source.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-analysis/papers/2020/source.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`5a73d22c80feaccd1318280f11ff1875f750e7e59dd33662b9691e9c0ac7ac2c`。
 
@@ -98,7 +98,7 @@
 
 ## 2021
 
-[题面文件](../archive-e2/2021年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/21.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](../e2-analysis/papers/2021/source.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-analysis/papers/2021/source.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`29c892f624009597378b660ae9691c8baea89a6c1ad7826b44cef21af2c728c0`。
 
@@ -106,7 +106,7 @@
 
 ## 2022
 
-[题面文件](../archive-e2/2022年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/22.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](../e2-analysis/papers/2022/source.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-analysis/papers/2022/source.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`6905f827ee76eb3d4165c7aaeb09af9387c60addbd5af8e959d5e8a9ddcfa7f8`。
 
@@ -114,7 +114,7 @@
 
 ## 2023
 
-[题面文件](../archive-e2/2023年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/23.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](../e2-analysis/papers/2023/source.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-analysis/papers/2023/source.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`6a2ef807bd9376b07374ea4ce02dd0c78103d4393e79c995e8f60f348f75f202`。
 
@@ -122,7 +122,7 @@
 
 ## 2024
 
-[题面文件](../archive-e2/2024年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/24.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](../e2-analysis/papers/2024/source.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-analysis/papers/2024/source.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`3ac5cf7e82bc5912ee53bfc592a26b68146c08a7163066639f41fb88a2a379a0`。
 
@@ -130,7 +130,7 @@
 
 ## 2025
 
-[题面文件](../archive-e2/2025年考研英语二真题.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-ocr/25.md)。字母按仓库OCR所列选项，必要处与原卷核对。
+[题面文件](../e2-analysis/papers/2025/source.pdf)。仓库归档原卷；阅读工作入口：[OCR](../e2-analysis/papers/2025/source.md)。字母按仓库OCR所列选项，必要处与原卷核对。
 
 本次读取文件SHA-256：`64c7b673eb973dce226c17841c37b9baff0d3506b8be8c9bc316897e011d09a0`。
 

@@ -443,17 +443,14 @@
   </style>
 </head>
 <body>
+  <div class="top-edge-trigger" aria-hidden="true"></div>
   <header class="toolbar">
     <div class="toolbar-title">
       2020 英语（二）
       <span class="toolbar-note">原题与原位复盘</span>
+      <span id="spreadLabel">第 3—4 页</span>
     </div>
     <div class="toolbar-actions">
-      <nav class="page-controls" aria-label="翻页">
-        <button id="prevPage" type="button" aria-label="上一组双页">←</button>
-        <span id="spreadLabel">第 3—4 页</span>
-        <button id="nextPage" type="button" aria-label="下一组双页">→</button>
-      </nav>
       <span class="shortcut-hint">X ↑上一处 · C ↓下一处 · Enter 展开/折叠</span>
       <div class="mode-switch" role="group" aria-label="阅读模式">
         <button class="mode-button" type="button" data-mode="exam" aria-pressed="true">原题</button>
@@ -461,6 +458,10 @@
       </div>
     </div>
   </header>
+  <nav class="edge-navigation" aria-label="翻页">
+    <button id="prevPage" class="page-edge page-edge-prev" type="button" aria-label="上一组双页"><span aria-hidden="true">‹</span></button>
+    <button id="nextPage" class="page-edge page-edge-next" type="button" aria-label="下一组双页"><span aria-hidden="true">›</span></button>
+  </nav>
 
   <main id="spread" aria-label="2020年考研英语（二）完整原卷">
     <article class="paper passage-page" aria-label="原文页">
