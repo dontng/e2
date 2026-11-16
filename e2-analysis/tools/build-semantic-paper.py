@@ -13,7 +13,7 @@ import re
 import fitz
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "archive-e2/2020年考研英语二真题.pdf"
+SOURCE = ROOT / "e2-analysis/papers/2020/source.pdf"
 if not SOURCE.exists():
     SOURCE = ROOT / "2020.pdf"
 OUTPUT = ROOT / "e2-analysis/papers/2020/full-paper.js"

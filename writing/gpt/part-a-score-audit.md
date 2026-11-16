@@ -50,7 +50,7 @@ First, shops could remind customers to bring their own bags by putting up signs 
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**观点＋商店、居民、报纸三条建议齐全；so that 接可执行动作的结果，caused by 修饰 harm。旧统考补充，不计作英二年份。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -70,7 +70,7 @@ I would be delighted to welcome you to China whenever you have time. We could vi
 Yours sincerely,  
 Zhang Wei
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**感谢有经历和作用支撑；欢迎包含来华活动与安排。定语从句 you arranged、时间从句 whenever 和宾语从句 when 自然承担信息。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -90,7 +90,7 @@ You could also practise managing your own time by making a simple daily schedule
 Yours sincerely,  
 Zhang Wei
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**祝贺明确；建议定位入学前，删去原稿容易滑向入学后活动的内容。being admitted、what 宾语从句、who 定语从句丰富而不堆叠。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -110,7 +110,7 @@ As I need the dictionary for my daily studies, I would appreciate a prompt solut
 Yours sincerely,  
 Zhang Wei
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**具体故障＋已有尝试＋及时解决要求；更换为首选，退款为备选，态度坚定礼貌。When、As、If 与间接疑问句均有实际用途。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -130,7 +130,7 @@ You can help by donating items or volunteering to sort and sell them. Even a lit
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**活动内容、时间地点、款项用途和鼓励参与均落实；that 定语从句、the money raised 和 what/which 信息请求提供变化。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -150,7 +150,7 @@ I enjoy cooking simple meals and always clean the kitchen afterwards. Perhaps we
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**作息、安静、厨房习惯可观察；当地生活建议以购物和交通两个问题落实。When studying、avoid making、how to get 使表达不只靠简单并列。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -169,7 +169,7 @@ We are recruiting volunteers to welcome participants, guide campus tours and hel
 
 Students’ Union
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**营员活动与志愿者工作分清，要求和报名入口完整；通知无书信称呼、无个人姓名及学校名。被动句、as 原因从句、If 条件句服务招募。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -189,7 +189,7 @@ Then compare the two versions, paying attention to meanings you misunderstood an
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**感谢的是祝贺，不是 Jack 曾帮助参赛；建议给出练习、对照、复译流程。before、paying attention、instead of 和定语从句表达方法关系。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -209,7 +209,7 @@ First, I will introduce the reunion dinner and the custom of exchanging good wis
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**明确接受＋春节主题＋团圆与祝福、传统活动两个实质要点；补出家庭意义，图片讨论只辅助。how/why 从句、showing 和比较使文化介绍有内容。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -229,7 +229,7 @@ If it is convenient for you, could we meet on the first Friday of next month ins
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**取消、原因、道歉、后续安排无遗漏；给明确新日期又留协商余地。that 定语从句、两处 If 和礼貌疑问有功能，非装饰性复杂句。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -249,7 +249,7 @@ The debate could take place in the campus meeting room next Friday afternoon. St
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**具体可辩命题＋为何合适＋时间地点及辩论流程；could/would 标记提案未定，whether 征求反馈。congestion 是话题实词，不靠罕见词装饰。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -269,7 +269,7 @@ Please wear comfortable walking shoes and bring some drinking water. We will mee
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**景点特征和能了解的内容已写，提示与步行参观直接关联；what 从句含被动句，so 和 If 衔接安排与行动。景点为合理自选，不编精确史实。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -289,7 +289,7 @@ We will share ways of organising our study time and discuss difficulties we face
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**邀请＋主题时间＋链接＋交流任务完整，线上条件准确；wherever、when starting、whether 和 organising 提供适当结构变化。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -309,7 +309,7 @@ If you wish, you could also introduce a dish from your home country and share yo
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**介绍＋邀请明确；内容是品尝、演示、分享而非空泛意义。preparing it、how it is made 和 If 连接具体参与方式。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -329,7 +329,7 @@ Another advantage is the chance to connect what you see with practical questions
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**明确二选一，理由围绕看演示、问用途、可能体验；删去查开放时间的偏次要内容。than 比较、what/how 从句与条件被动句提供变化；未捏造 David 喜好。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -349,7 +349,7 @@ Next, we could interview local residents about maintenance difficulties and the 
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**对象→观察→访谈→证据对照→报告构成真正保护调查，实质征意见；By comparing、rather than、that 从句及被动表达有任务作用。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -369,7 +369,7 @@ Could you play a villager who asks for help? The role has only a few lines but i
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**原稿“同伴面对困难”过空，修成角色、冲突、结局；明确 our adaptation，不冒充原著某回情节。based on、whose、who、before 均自然，邀请落到角色。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -389,7 +389,7 @@ I would love to hear more about experiences that were not included in the video.
 Yours sincerely,  
 Li Ming
 
-**中文对应与内容训练。**见 [十八题中文稿](./part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
+**中文对应与内容训练。**见 [十八题中文稿](part-a-cn-papers.md) 同年份。中文已同步修改，不要求把旧稿所有细节塞进这篇英文。
 
 **为何可争取 8 分、哪里支持冲 9。**观看感受与了解更多两项齐全，追问承接视频里的景色食物；Seeing...made、that 被动从句和实际问句有变化。画面细节是合理示范补充。 正文在约 100 词范围内，信息按交际顺序展开，未发现影响理解的语法或搭配错误；结构变化各自承担信息关系。这是依据档次描述作出的自审判断，不是正式阅卷分数。
 
@@ -400,7 +400,7 @@ Li Ming
 
 下一轮一次只练一句：看到题目，先决定“必须取消”“原因是考试冲突”“提出新日期”中的一个具体回答，再用自己会的英语写出来。我只纠正影响要点、准确性和自然表达的地方；一次只新增一个未会的内容动作或关系表达。短篇闭卷输出后再整体按上述档次审核，记录实际用时、遗漏和错误。若需要先想整篇中文再翻译，说明当前检索还未练成，不能用这套纸面稿的质量替代你的训练结果。
 
-题目证据沿用 [中文稿的核对来源](./part-a-cn-papers.md#核对来源)。看过这些示范的作文记为已接触，后续同题写作只算复测，不算陌生题盲测。
+题目证据沿用 [中文稿的核对来源](part-a-cn-papers.md#核对来源)。看过这些示范的作文记为已接触，后续同题写作只算复测，不算陌生题盲测。
 
 ## 三份主稿的完成度复核
 

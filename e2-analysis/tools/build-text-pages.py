@@ -12,7 +12,7 @@ from pathlib import Path
 import fitz
 
 ROOT = Path(__file__).resolve().parents[2]
-PDF = ROOT / "archive-e2/2020年考研英语二真题.pdf"
+PDF = ROOT / "e2-analysis/papers/2020/source.pdf"
 if not PDF.exists():
     PDF = ROOT / "2020.pdf"  # Scratch copy of the same source while working here.
 OUTPUT = ROOT / "e2-analysis/papers/2020/text-pages.js"
