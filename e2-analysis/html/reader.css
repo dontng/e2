@@ -25,13 +25,13 @@ body.review-mode .shortcut-hint { display: inline; }
   color: #000;
   font-family: "Times New Roman", "Liberation Serif", Times, "STZhongsong", "Noto Serif SC", "SimSun", serif;
   font-weight: 500;
-  -webkit-text-stroke: 0.18px #000;
+  -webkit-text-stroke: 0.24px #000;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 }
 .paper strong, .paper b, .paper h1, .paper h2, .paper h3, .paper .paper-title {
   font-weight: 700;
-  -webkit-text-stroke: 0.28px #000;
+  -webkit-text-stroke: 0.34px #000;
 }
 .paper .exam-footer, .paper .page-number {
   font-family: "STZhongsong", "Noto Serif SC", "Songti SC", "SimSun", serif;
@@ -114,7 +114,7 @@ body.review-mode .shortcut-hint { display: inline; }
 .cover-content .cover-identity { top: 610pt; left: 153pt; display: grid; grid-template-columns: 67pt 210pt; grid-template-rows: 30pt 30pt; border: 1pt solid #111; font-size: 10.5pt; }
 .cover-id-label { padding: 3pt 5pt; text-align: center; border-right: 1pt solid #111; }
 .cover-id-label:nth-of-type(3) { border-top: 1pt solid #111; }
-.cover-id-cells { background: repeating-linear-gradient(to right, transparent 0, transparent calc(15pt - 1px), #111 calc(15pt - 1px), #111 15pt); }
+.cover-id-cells { background: repeating-linear-gradient(to right, transparent 0, transparent calc(100% / 14 - 1px), #000 calc(100% / 14 - 1px), #000 calc(100% / 14)); }
 .cover-name-cell { border-top: 1pt solid #111; }
 
 @media (max-width: 1180px) {

@@ -52,7 +52,8 @@ for t, reading in enumerate(DATA['readings'], 1):
     questions = ''
     for j, question in enumerate(reading['questions']):
         n = 21 + (t - 1) * 5 + j
-        questions += f'<section class="question" id="q{n}" data-question="{n}"><p class="stem">{n}. {esc(question["stem"])}</p>'
+        stem_html = esc(question["stem"]).replace("______", '<span class="blank"></span>')
+        questions += f'<section class="question" id="q{n}" data-question="{n}"><p class="stem">{n}. {stem_html}</p>'
         questions += ''.join(f'<p class="option">[{letter}] {esc(option)}</p>' for letter, option in zip('ABCD', question['options'])) + '</section>'
     page('questions-page', f'Text {t} 题目 {21+(t-1)*5}—{25+(t-1)*5}', questions)
 
