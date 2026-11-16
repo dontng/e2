@@ -13,10 +13,10 @@
 
 `tools/deepseek_audit.py` 和依赖它的 `audit.sh` 已下线，历史代码可从 Git 找回。保留旧维护脚本不意味着恢复 Daily、T1 或其排期。
 
-2020 构建输入现位于 `e2-analysis/papers/2020.pdf`；脚本从自身位置定位仓库。示例：
+2020 构建输入现位于 `papers/2020.pdf`；脚本从自身位置定位仓库。示例：
 
 ```bash
-python scripts/render-pages.py e2-analysis/papers/2020.pdf /tmp/e2-page-preview
+python scripts/render-pages.py papers/2020.pdf /tmp/e2-page-preview
 ```
 
 构建脚本依各自用途需要 PyMuPDF、Pillow 或 Tesseract；不将环境准备变成学习任务。

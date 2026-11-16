@@ -2,7 +2,7 @@
 
 当前主线是 **2021—2026 六套完整真题**：AI 先完成解答、核对和教学提炼；用户作答后，再根据真实答案、用时和首次理解复盘。不再安排独立 Daily、T1 或娱乐英语任务。
 
-- [六套真题工作区](e2-analysis/README.md)：原卷、文字稿，以及后续 AI 解答、刷题记录、词汇、句子和逻辑教学统一放在这里。
+- [六套真题工作区](papers)：原卷（`2020.pdf`–`2026.pdf`）与文字稿（`2020.md`–`2026.md`）统一平铺在这里。
 - [65+ 战略与实操计划](plan/1103-target-65-strategy-and-plan.md)：得分容错账本、考场防踏空动作与人机分工流水线。
 - [阅读](reading/README.md)：考场打靶动作、[11 年真题风洞词库](reading/vocab/README.md)、[18 种判断规则](reading/methods.md)与[既往断点](reading/diagnosis.md)。
 - [新题型](new-type/README.md)：保留历年题目与教学，不要求从最早年份重新刷起。
