@@ -462,7 +462,7 @@ window.E2_FULL_PAGES = {
     
     <p>You should write about 150 words on the ANSWER SHEET. (15 points)</p>
     
-    <img src="2020-html/assets/2020-writing-chart.webp" alt="某高校学生手机阅读目的的调查：学习知识59.5%，消磨时间21.3%，获取信息17.0%，其他2.2%"></section>
+    <img src="html/2020/assets/2020-writing-chart.webp" alt="某高校学生手机阅读目的的调查：学习知识59.5%，消磨时间21.3%，获取信息17.0%，其他2.2%"></section>
     
     <footer class="exam-footer">2020年考研英语（二）试题　 第 14 页 共 14 页</footer>
   `],

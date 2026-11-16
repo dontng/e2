@@ -9,7 +9,7 @@ window.E2_PAPER = {
   pages: Array.from({ length: 15 }, (_, index) => ({
     index,
     printed: index || null,
-    image: `2020-html/assets/page-${String(index).padStart(2, "0")}.webp`,
+    image: `html/2020/assets/page-${String(index).padStart(2, "0")}.webp`,
   })),
   questionSpreads: [
     { from: 1, to: 20, spread: 1 },

@@ -20,6 +20,30 @@ body.review-mode .shortcut-hint { display: inline; }
 .spread { display: grid; grid-template-columns: repeat(2, var(--paper-width)); align-items: start; justify-content: center; gap: 24px; width: max-content; min-width: 100%; padding: 30px 16px 60px; }
 .spread.cover { grid-template-columns: var(--paper-width); }
 
+/* Shared exam-paper ink & typography (2024.pdf heavy-ink print look) */
+.paper {
+  color: #000;
+  font-family: "Times New Roman", "Liberation Serif", Times, "STZhongsong", "Noto Serif SC", "SimSun", serif;
+  font-weight: 500;
+  -webkit-text-stroke: 0.18px #000;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+.paper strong, .paper b, .paper h1, .paper h2, .paper h3, .paper .paper-title {
+  font-weight: 700;
+  -webkit-text-stroke: 0.28px #000;
+}
+.paper .exam-footer, .paper .page-number {
+  font-family: "STZhongsong", "Noto Serif SC", "Songti SC", "SimSun", serif;
+}
+.paper .analysis-note, .paper .analysis-note * {
+  -webkit-text-stroke: 0;
+  font-weight: normal;
+}
+.paper .analysis-note strong {
+  font-weight: 700;
+}
+
 /* Additional pages share the same paper, paragraph and question system as Text 1. */
 .paper.reading-page { padding: 50pt 64.5pt 48pt; }
 .paper.reading-page-5 { padding-top: 65pt; }
@@ -75,7 +99,7 @@ body.review-mode .shortcut-hint { display: inline; }
 .chart-task h1 { margin: 0; font-size: 11pt; }
 .chart-task p { margin: 0; padding-left: 23pt; }
 .chart-task img { display: block; width: 173pt; height: auto; margin: 22pt auto 0; }
-.paper.cover-page { padding: 0; font-family: "SimSun", "Songti SC", serif; font-size: 10.5pt; line-height: 1.8; }
+.paper.cover-page { padding: 0; font-family: "STZhongsong", "Noto Serif SC", "Songti SC", "SimSun", serif; font-size: 10.5pt; line-height: 1.8; }
 .cover-content { position: relative; height: var(--paper-height); }
 .cover-content > * { position: absolute; margin: 0; }
 .cover-content .cover-secret { top: 73pt; left: 94pt; }

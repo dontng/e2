@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "e2-analysis/papers/2020.pdf"
 if not SOURCE.exists():
     SOURCE = ROOT / "2020.pdf"
-OUTPUT = ROOT / "e2-analysis/2020-html/full-paper.js"
+OUTPUT = ROOT / "e2-analysis/html/2020/full-paper.js"
 doc = fitz.open(SOURCE)
 
 CORRECTIONS = {
@@ -153,7 +153,7 @@ def writing_chart():
             '<p>Write an essay based on the following chart. In your writing, you should</p>'
             '<p>1) interpret the chart, and</p><p>2) give your comments.</p>'
             '<p>You should write about 150 words on the ANSWER SHEET. (15 points)</p>'
-            '<img src="2020-html/assets/2020-writing-chart.webp" alt="某高校学生手机阅读目的的调查：学习知识59.5%，消磨时间21.3%，获取信息17.0%，其他2.2%">'
+            '<img src="html/2020/assets/2020-writing-chart.webp" alt="某高校学生手机阅读目的的调查：学习知识59.5%，消磨时间21.3%，获取信息17.0%，其他2.2%">'
             '</section>' + footer(14))
 
 

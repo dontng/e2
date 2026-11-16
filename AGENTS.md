@@ -3,7 +3,7 @@
 ## 当前范围
 
 - 当前唯一整卷主线是 2021—2026，入口为 `e2-analysis/README.md`。AI 先做题、核对答案并形成教学，用户记录到手后再作个人诊断；不以用户先做完作为 AI 备课前提。
-- 原卷与文字稿统一平铺在 `e2-analysis/papers/年份.pdf`、`年份.md`，HTML 专属脚本与资源独立放在 `e2-analysis/` 内（如 `2020-html/`、`viewer/`），生成与维护脚本统一放在根目录 `scripts/`。
+- 原卷与文字稿统一平铺在 `e2-analysis/papers/年份.pdf`、`年份.md`，HTML 共享样式/脚本及各年份数据统一放在 `e2-analysis/html/`，生成与维护脚本统一放在根目录 `scripts/`。
 - 保留 `reading/`、`writing/`、`new-type/` 跨年份资料与 `word/` 全部词表。参考目录不自动产生另一套学习任务。
 - `src/`、`t1/`、`reddit/`、`suggest/` 和根目录 `tools/` 已经下线，不重新创建；需要旧首译证据时按固定提交追溯 Git 历史。
 - 根目录 `scripts/` 保留，后续新增脚本统一放在这里；旧导航和清理脚本保留代码但不构成恢复 Daily 的要求。`tools/deepseek_audit.py` 与依赖它的 `scripts/audit.sh` 一起下线。
