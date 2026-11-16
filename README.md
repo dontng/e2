@@ -10,6 +10,8 @@
 
 题型目录是参考资料，不自动生成额外任务。六套卷优先完成可用的解答与教学，材料制作状态和用户学习状态分开记录；答案核对后也不覆盖 AI 原判断，不把真题熟悉度包装成严格盲测。
 
+[脚本目录](scripts/README.md)保留，后续生成与维护脚本统一放在根目录 `scripts/`。
+
 ## 项目规则与旧资料
 
-[AGENTS.md](AGENTS.md) 规定执行与提交，[STANDARD.md](STANDARD.md) 保留适用于真题的教学要求。旧 Daily、T1、Reddit、历史计划及其专用脚本已退出当前版本；需要追溯时查看 [清理前版本](https://github.com/dontng/e2/tree/866e55dee27364977d3ea0dde9e4b6dd3522b8c8)，不再另建归档目录。
+[AGENTS.md](AGENTS.md) 规定执行与提交，[STANDARD.md](STANDARD.md) 保留适用于真题的教学要求。旧 Daily、T1、Reddit、历史计划及根目录 `tools/` 已退出当前版本；需要追溯时查看 [清理前版本](https://github.com/dontng/e2/tree/866e55dee27364977d3ea0dde9e4b6dd3522b8c8)，不再另建归档目录。

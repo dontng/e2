@@ -11,7 +11,7 @@ from pathlib import Path
 
 import fitz
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 PDF = ROOT / "e2-analysis/papers/2020/source.pdf"
 if not PDF.exists():
     PDF = ROOT / "2020.pdf"  # Scratch copy of the same source while working here.

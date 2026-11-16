@@ -12,7 +12,7 @@ import re
 
 import fitz
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "e2-analysis/papers/2020/source.pdf"
 if not SOURCE.exists():
     SOURCE = ROOT / "2020.pdf"
