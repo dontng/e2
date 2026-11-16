@@ -1,15 +1,15 @@
 // Page 0 is the unnumbered cover. Original printed pages 1–14 follow in order.
-// The images are lossless renderings of e2-analysis/papers/2020/source.pdf.
+// The images are lossless renderings of e2-analysis/papers/2020.pdf.
 window.E2_PAPER = {
   year: 2020,
   widthPt: 535.748,
   heightPt: 748.347,
-  source: "papers/2020/source.pdf",
+  source: "papers/2020.pdf",
   sourceSha256: "5a73d22c80feaccd1318280f11ff1875f750e7e59dd33662b9691e9c0ac7ac2c",
   pages: Array.from({ length: 15 }, (_, index) => ({
     index,
     printed: index || null,
-    image: `papers/2020/assets/page-${String(index).padStart(2, "0")}.webp`,
+    image: `2020-html/assets/page-${String(index).padStart(2, "0")}.webp`,
   })),
   questionSpreads: [
     { from: 1, to: 20, spread: 1 },

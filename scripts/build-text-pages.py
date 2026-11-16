@@ -12,10 +12,10 @@ from pathlib import Path
 import fitz
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF = ROOT / "e2-analysis/papers/2020/source.pdf"
+PDF = ROOT / "e2-analysis/papers/2020.pdf"
 if not PDF.exists():
     PDF = ROOT / "2020.pdf"  # Scratch copy of the same source while working here.
-OUTPUT = ROOT / "e2-analysis/papers/2020/text-pages.js"
+OUTPUT = ROOT / "e2-analysis/2020-html/text-pages.js"
 assert hashlib.sha256(PDF.read_bytes()).hexdigest() == "5a73d22c80feaccd1318280f11ff1875f750e7e59dd33662b9691e9c0ac7ac2c"
 
 
@@ -41,7 +41,7 @@ def page_html(page):
 doc = fitz.open(PDF)
 assert len(doc) == 15
 pages = {str(i): page_html(doc[i]) for i in range(14) if i not in (3, 4)}
-scan = ROOT / "e2-analysis/papers/2020/assets/page-14.webp"
+scan = ROOT / "e2-analysis/2020-html/assets/page-14.webp"
 rows = subprocess.check_output(["tesseract", str(scan), "stdout", "-l", "eng", "tsv"], stderr=subprocess.DEVNULL, text=True).splitlines()
 head = rows.pop(0).split("\t")
 ocr = []
