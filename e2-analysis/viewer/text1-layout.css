@@ -1,0 +1,280 @@
+/* Restored two-page selectable Text 1 layout. */
+    .paper {
+      position: relative;
+      width: var(--paper-width);
+      min-height: var(--paper-height);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, .12);
+      font-family: "Times New Roman", Times, "Nimbus Roman No9 L", serif;
+      font-size: 11.7pt;
+      line-height: 1.69;
+    }
+
+    .passage-page {
+      padding: 50pt 64.5pt 48pt;
+    }
+
+    .paper-title {
+      margin: 0 0 12.5pt;
+      text-align: center;
+      font-size: 10.67pt;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .passage p {
+      margin: 0 0 3pt;
+      text-align: justify;
+      text-indent: 2em;
+      letter-spacing: .002em;
+      word-spacing: 0;
+      font-size: 11.33pt;
+      line-height: 19pt;
+    }
+
+    .passage p:last-child { margin-bottom: 0; }
+
+    .exam-footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18pt;
+      text-align: center;
+      font-family: "Songti SC", SimSun, serif;
+      font-size: 8.5pt;
+      letter-spacing: .22em;
+    }
+
+    .questions-page {
+      padding: 50pt 81.5pt 28pt;
+      font-size: 10.67pt;
+      line-height: 20pt;
+    }
+
+    .question {
+      margin: 0 0 14pt;
+      break-inside: avoid;
+    }
+
+    .question:nth-of-type(2) { margin-bottom: 13.3pt; }
+    .question:nth-of-type(3) { margin-bottom: 20.7pt; }
+    .question:nth-of-type(4) { margin-bottom: 20.7pt; }
+    .question:nth-of-type(5) { margin-bottom: 0; }
+
+    .stem {
+      margin: 0 0 .7pt;
+      white-space: nowrap;
+    }
+
+    .option {
+      margin: 0 0 0 17.3pt;
+      white-space: nowrap;
+    }
+
+    .blank {
+      display: inline-block;
+      width: 42pt;
+      height: .8em;
+      margin: 0 2pt;
+      vertical-align: baseline;
+      border-bottom: .65pt solid #111;
+    }
+
+    .page-number {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 17pt;
+      text-align: center;
+      font-family: "Songti SC", SimSun, serif;
+      font-size: 8.5pt;
+      letter-spacing: .35em;
+    }
+
+    .analysis-note {
+      display: none;
+      margin: 3pt 0 7pt;
+      color: #222;
+      background: #faf9f5;
+      border: 1px solid #dedbd2;
+      border-radius: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      font-size: 8.7pt;
+      line-height: 1.55;
+      text-align: left;
+      text-indent: 0;
+      word-spacing: 0;
+    }
+
+    body.review-mode .analysis-note { display: block; }
+
+    body.review-mode .analysis-note:not([open]) {
+      position: relative;
+      height: 0;
+      margin: 0;
+      overflow: visible;
+      background: transparent;
+      border: 0;
+    }
+
+    body.review-mode .analysis-note:not([open]) > summary {
+      position: absolute;
+      top: -17pt;
+      right: -51pt;
+      z-index: 2;
+      min-width: 38pt;
+      min-height: 15pt;
+      padding: 1.5pt 4pt;
+      gap: 4pt;
+      background: #faf9f5;
+      border: 1px solid #d5d1c7;
+      border-radius: 9pt;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+    }
+
+    body.review-mode .analysis-note:not([open]) > summary::before {
+      width: 10pt;
+      height: 10pt;
+      font-size: 7.5pt;
+      line-height: 8.5pt;
+    }
+
+    body.review-mode .analysis-note:not([open]) .note-title { display: none; }
+
+    .analysis-note > summary {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 20pt;
+      padding: 3pt 7pt;
+      color: #4d4a43;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .analysis-note > summary::-webkit-details-marker { display: none; }
+
+    .analysis-note > summary::before {
+      content: "+";
+      flex: 0 0 auto;
+      width: 13pt;
+      height: 13pt;
+      color: #676257;
+      border: 1px solid #a8a297;
+      border-radius: 50%;
+      font-size: 9pt;
+      line-height: 11.5pt;
+      text-align: center;
+    }
+
+    .analysis-note[open] > summary::before { content: "−"; }
+
+    .analysis-note[open] {
+      position: relative;
+      margin: 3pt 0 7pt;
+    }
+
+    body.review-mode .analysis-note[open] > summary {
+      position: sticky;
+      top: 62px;
+      z-index: 3;
+      width: max-content;
+      min-width: 38pt;
+      min-height: 15pt;
+      margin: -17pt -51pt 0 auto;
+      padding: 1.5pt 4pt;
+      gap: 4pt;
+      background: #faf9f5;
+      border: 1px solid #d5d1c7;
+      border-radius: 9pt;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+    }
+
+    body.review-mode .analysis-note[open] > summary::before {
+      width: 10pt;
+      height: 10pt;
+      font-size: 7.5pt;
+      line-height: 8.5pt;
+    }
+
+    body.review-mode .analysis-note[open] .note-title { display: none; }
+
+    body.review-mode .analysis-note > summary:focus-visible {
+      outline: 2px solid #7d6535;
+      outline-offset: 2px;
+    }
+
+    .note-kicker {
+      flex: 0 0 auto;
+      color: #796b50;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .note-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .analysis-content {
+      padding: 6pt 8pt 7pt;
+      border-top: 1px solid #e5e1d8;
+    }
+
+    .analysis-content p {
+      margin: 5pt 0 0;
+      color: #34332f;
+      text-indent: 0;
+      font-size: inherit;
+      line-height: inherit;
+      text-align: left;
+    }
+
+    .analysis-content p:first-child { margin-top: 0; }
+
+    .analysis-content strong { color: #514832; }
+
+    .terms {
+      padding-top: 5pt;
+      border-top: 1px solid #e9e5dc;
+    }
+
+    .exam-point {
+      padding: 5pt 6pt;
+      background: #f1efe9;
+      border-radius: 3px;
+    }
+
+    .carry {
+      padding: 5pt 6pt;
+      color: #292823 !important;
+      background: #f1efe9;
+      border-radius: 3px;
+    }
+
+    .carry strong + span { margin-left: 8pt; }
+
+    .strategy-note[open] { margin-bottom: 12pt; }
+
+    .evidence {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 9.3pt;
+    }
+
+    .status-good { color: #356146; }
+    .status-watch { color: #8a542c; }
+
+    body.review-mode .paper {
+      overflow: visible;
+    }
+
+    body.review-mode .focus-sentence {
+      text-decoration-line: underline;
+      text-decoration-color: #c6a968;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }

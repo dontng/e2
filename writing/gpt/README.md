@@ -4,18 +4,18 @@
 
 ## 中文阶段从这里进入
 
-[writing/cn/README.md](./cn/README.md)管理两条逐课教学。`10a—26a`表示Part A，`10b—26b`表示Part B；后课以此前的判断和内容关系为基础，明确新增处。要写出的中文句子用独立引用块显示，完整回答、练习参考同样可直接辨认；解释保留自然段，不把关键句埋在引号里。
+[writing/cn/README.md](cn/README.md)管理两条逐课教学。`10a—26a`表示Part A，`10b—26b`表示Part B；后课以此前的判断和内容关系为基础，明确新增处。要写出的中文句子用独立引用块显示，完整回答、练习参考同样可直接辨认；解释保留自然段，不把关键句埋在引号里。
 
-- [10a.md：小作文从2010开始](./cn/10a.md)
-- [10b.md：大作文从2010开始](./cn/10b.md)
+- [10a.md：小作文从2010开始](cn/10a.md)
+- [10b.md：大作文从2010开始](cn/10b.md)
 
 ## Part A：小作文
 
-[part-a-cn-papers.md](./part-a-cn-papers.md)保存2009统考补充及2010—2026英二任务与中文内容，[part-a-score-audit.md](./part-a-score-audit.md)保存十八篇约100词的英文与逐题审核。2009只作旧统考补充，不称作英二年份；2016—2025以仓库原卷核对。原[part-a-playbook.md](./part-a-playbook.md)按此前要求保留未改，当前学习从cn中的逐课材料进入。
+[part-a-cn-papers.md](part-a-cn-papers.md)保存2009统考补充及2010—2026英二任务与中文内容，[part-a-score-audit.md](part-a-score-audit.md)保存十八篇约100词的英文与逐题审核。2009只作旧统考补充，不称作英二年份；2016—2025以仓库原卷核对。原[part-a-playbook.md](part-a-playbook.md)按此前要求保留未改，当前学习从cn中的逐课材料进入。
 
 ## Part B：大作文
 
-[part-b-score-audit.md](./part-b-score-audit.md)先保存十七篇英文定稿、实算词数、评分依据与逐题审查，正文154—171词；内容与语言不达标先返工，再进入中文阶段。[part-b-cn-papers.md](./part-b-cn-papers.md)按定稿形成三段、逐句对应的中文，[part-b-playbook.md](./part-b-playbook.md)说明三段职责、句子层级的内容关系与累积训练；具体手把手生成过程保存在cn/10b—26b。
+[part-b-score-audit.md](part-b-score-audit.md)先保存十七篇英文定稿、实算词数、评分依据与逐题审查，正文154—171词；内容与语言不达标先返工，再进入中文阶段。[part-b-cn-papers.md](part-b-cn-papers.md)按定稿形成三段、逐句对应的中文，[part-b-playbook.md](part-b-playbook.md)说明三段职责、句子层级的内容关系与累积训练；具体手把手生成过程保存在cn/10b—26b。
 
 各课直接显示图表并保留文字数据及来源，2016—2025使用仓库原卷，2010—2015为公开题面整理，2026为中国教育在线试题整理。图表事实与本项目原创的原因、例子、建议区分；订阅量单位、百分比含义、部分与总体、看法与实测等按题核验。英文目标按15分制解释，不能将中文稿直接评成大作文高分。
 
@@ -27,4 +27,4 @@
 
 ## 保留的表达语料
 
-[Tim Cook的小作文表达材料](./tim-cook-functions.md)和[MKBHD的大作文表达材料](./mkbhd-change-comparison.md)继续保留。它们在内容已经确定而表达有缺口时调用，不作为逐课训练的前置任务，也不替代真题内容和英文成文质量审查。
+[Tim Cook的小作文表达材料](tim-cook-functions.md)和[MKBHD的大作文表达材料](mkbhd-change-comparison.md)继续保留。它们在内容已经确定而表达有缺口时调用，不作为逐课训练的前置任务，也不替代真题内容和英文成文质量审查。

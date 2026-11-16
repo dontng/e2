@@ -4,13 +4,13 @@
 
 ## 已有真实输出支持的机制
 
-**认识一个词的部分外形，可能过早取得错误义项。**[Day 123](../src/26-09/0904-day123.md) 的首译把 priorities 接成“前者”；[Day 147](../src/26-10/1002-day147.md) 把 upmarket grocery chain 接成“市场上游供应商链”，Whole Foods 接成“全部食物”。这些是纸面结果，不足以证明每次脑内具体经历哪一步。训练要分开核对完整词、词类和本句角色，不能一概说是单词没背。
+**认识一个词的部分外形，可能过早取得错误义项。**[Day 123](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/src/26-09/0904-day123.md) 的首译把 priorities 接成“前者”；[Day 147](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/src/26-10/1002-day147.md) 把 upmarket grocery chain 接成“市场上游供应商链”，Whole Foods 接成“全部食物”。这些是纸面结果，不足以证明每次脑内具体经历哪一步。训练要分开核对完整词、词类和本句角色，不能一概说是单词没背。
 
-**主线大致成立，修饰和共同作用仍可能错接。**[Day 136](../src/26-09/0919-day136.md) 保住压力造成忽视，但 pressure to go 与 in college 的关系、期待的高度与世界的速度仍需修复。因此“懂大意”不等于可以把整句信息接回。
+**主线大致成立，修饰和共同作用仍可能错接。**[Day 136](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/src/26-09/0919-day136.md) 保住压力造成忽视，但 pressure to go 与 in college 的关系、期待的高度与世界的速度仍需修复。因此“懂大意”不等于可以把整句信息接回。
 
 **并列、主动被动与后接关系可能同时改变。**Day 123 的首译改变 are defining 的方向，并拆散 priorities and expectations 及后接 that。修一个词不能替代修句法；修主干后还须核对第二个动作属于谁。
 
-**形近词和熟义问题已有较多旧例。**[词形证据](../t1/01-word-form/cases.md)、[熟义证据](../t1/02-familiar-sense/cases.md)、[期待位证据](../t1/03-expectation-slots/cases.md)用于本轮选取可信模拟分支。旧例不是每天必须重讲的词表；也不能因重复失败评价学习态度。
+**形近词和熟义问题已有较多旧例。**[词形证据](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/t1/01-word-form/cases.md)、[熟义证据](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/t1/02-familiar-sense/cases.md)、[期待位证据](https://github.com/dontng/e2/blob/866e55dee27364977d3ea0dde9e4b6dd3522b8c8/t1/03-expectation-slots/cases.md)用于本轮选取可信模拟分支。旧例不是每天必须重讲的词表；也不能因重复失败评价学习态度。
 
 ## 本人自述支持、尚未量化的过程
 
