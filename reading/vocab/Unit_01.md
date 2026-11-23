@@ -1,184 +1,220 @@
 [总目录 (README)](README.md) | [Unit_02 »](Unit_02.md)
 
-# 考研英语二阅读风洞词库 · Unit 01
-> **定位**：核心主推 · 因果与促进动词（全 35 词）
+# 考研英语二阅读真题核心词库 · Unit 01
+> **定位**：核心主推 · 因果、驱动与增减动词（全 35 词）
+> **口径**：11 年英语二阅读高频主干动词（全部实测跨 3–10 年）
 
 ---
 
-### 01. address
-* **常用考场义**：v. 着手处理、应对解决；向……演说
-* **底层骨架**：**“走到问题正对面，正视它”**
-* **考场风控/题眼**：address the crisis 应对危机；考研最常考的解决问题同义替换（11年考7年）
+### 01. improve
+* **考场义与框架**：v. 改善、提升（`improve + 质量/效率/状况`）
+* **11 年实测**：10/11 年（2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2020]` Mayor Jose Luis Martinez-Almeida made opposition to the zone a centrepiece of his election campaign, despite its success in improving air quality.
+* **题眼/避坑**：高频正极动词，选项常与 `enhance / boost` 同义互换。
 
-### 02. attribute
-* **常用考场义**：v. 把……归因于 (attribute A to B)；认为……具有
-* **底层骨架**：**“在账本上把条目归到某人名下”**
-* **考场风控/题眼**：attributed to rising costs 归因于成本上升；题干因果考点
+### 02. encourage
+* **考场义与框架**：v. 鼓励、促使（`encourage sb to do`）
+* **11 年实测**：9/11 年（2016, 2017, 2018, 2019, 2021, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2019]` And guilt, by prompting us to think more deeply about our goodness, can encourage humans to make up for errors and fix relationships.
+* **题眼/避坑**：主语常为政策、制度或环境，表示正向推动。
 
-### 03. accelerate
-* **常用考场义**：v. 加速、促进、提前
-* **底层骨架**：**“踩油门向前冲”**
-* **考场风控/题眼**：accelerate the transition 加速转型
+### 03. produce
+* **考场义与框架**：v. 生产、产生、带来（结果/影响）
+* **11 年实测**：9/11 年（2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2026）
+* **真题原句**：`[2021]` The country produces only about 60 per cent of the food it eats, down from almost three-quarters in the late 1980s.
+* **题眼/避坑**：除“制造产品”外，常接抽象宾语（`produce results / benefits`）。
 
-### 04. acknowledge
-* **常用考场义**：v. 承认、认可（事实、功绩）；告知收到
-* **底层骨架**：**“点头示意“我看到了，确实如此””**
-* **考场风控/题眼**：acknowledge the difficulty 承认困难；常用于让步段落
+### 04. raise
+* **考场义与框架**：v. 提高、筹集、提出（`raise concerns / questions / funds`）
+* **11 年实测**：9/11 年（2016, 2017, 2020, 2021, 2022, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2023]` The RHS's decision comes as campaigners try to raise awareness of the problems fake grass causes.
+* **题眼/避坑**：及物动词必须带宾语；注意与不及物 `rise`（自行上升）区分。
 
-### 05. advocate
-* **常用考场义**：v. 提倡、主张；n. 倡导者
-* **底层骨架**：**“拿起大喇叭为某人/某事呼喊”**
-* **考场风控/题眼**：advocate for reforms 倡导改革
+### 05. boost
+* **考场义与框架**：v./n. 推动、大幅提振（`boost growth / efficiency / sales`）
+* **11 年实测**：8/11 年（2017, 2018, 2020, 2021, 2022, 2023, 2024, 2025）
+* **真题原句**：`[2021]` A move back to self-sufficiency, the argument goes, would boost the farming industry, political sovereignty and even the nation's health.
+* **题眼/避坑**：考研高频正极加速词，常出现在选项同义改写中。
 
-### 06. alter
-* **常用考场义**：v. 改变、更改
-* **底层骨架**：**“把衣服改宽或改窄，结构微调”**
-* **考场风控/题眼**：alter consumer behavior 改变消费习惯
+### 06. cause
+* **考场义与框架**：v. 导致、引起；n. 原因、事业
+* **11 年实测**：8/11 年（2017, 2018, 2019, 2020, 2022, 2023, 2024, 2026）
+* **真题原句**：`[2023]` The RHS's decision comes as campaigners try to raise awareness of the problems fake grass causes.
+* **题眼/避坑**：直接建立因果方向：`A causes B` = A 是因、B 是果。
 
-### 07. boost
-* **常用考场义**：v./n. 推动、大幅提升、增强
-* **底层骨架**：**“在背后猛推一把”**
-* **考场风控/题眼**：boost economic recovery 推动经济复苏
+### 07. create
+* **考场义与框架**：v. 创造、造成（`create jobs / problems / pressure`）
+* **11 年实测**：8/11 年（2016, 2017, 2018, 2019, 2021, 2022, 2025, 2026）
+* **真题原句**：`[2021]` Other companies including Amazon and Disney had also pledged to create their own plans.
+* **题眼/避坑**：中性偏结果动词，既可接好事也可接麻烦。
 
-### 08. challenge
-* **常用考场义**：v. 质疑、向……发起挑战；考验
-* **底层骨架**：**“把白手套扔到对方面前叫板”**
-* **考场风控/题眼**：challenge conventional wisdom 质疑传统常识（11年考10年常驻之王！）
+### 08. ensure
+* **考场义与框架**：v. 确保、保证（`ensure that... / ensure + n.`）
+* **11 年实测**：7/11 年（2017, 2019, 2020, 2022, 2023, 2024, 2025）
+* **真题原句**：`[2024]` Confor is now calling for much greater impetus behind those aspirations to ensure we have enough wood to meet increasing demand.
+* **题眼/避坑**：强肯定承诺动词；选项出现时需核对原文是否真有“确保”语气。
 
-### 09. confirm
-* **常用考场义**：v. 证实、确认、使坚定
-* **底层骨架**：**“盖上红印章，板上钉钉”**
-* **考场风控/题眼**：confirm the hypothesis 证实假说
+### 09. limit
+* **考场义与框架**：v. 限制、限定；n. 限度（`limit A to B`）
+* **11 年实测**：7/11 年（2016, 2017, 2019, 2020, 2021, 2024, 2026）
+* **真题原句**：`[2020]` Wales has introduced special low speed limits to minimise pollution.
+* **题眼/避坑**：高频限制动词，常与 `restrict / curb` 对应。
 
-### 10. cultivate
-* **常用考场义**：v. 培养、树立（技能、声誉、习惯）
-* **底层骨架**：**“耕作土地，让庄稼长出来”**
-* **考场风控/题眼**：cultivate critical thinking 培养批判性思维
+### 10. reduce
+* **考场义与框架**：v. 减少、降低（`reduce costs / emissions / risk`）
+* **11 年实测**：7/11 年（2017, 2019, 2021, 2022, 2024, 2025, 2026）
+* **真题原句**：`[2025]` Much more needs to be invested in communities and primary care to reduce our reliance on hospitals.
+* **题眼/避坑**：核心减量动词，常与 `cut / lower / decrease` 同义替换。
 
-### 11. curb
-* **常用考场义**：v. 抑制、控制、勒住（通胀、排放）
-* **底层骨架**：**“拉紧马嘴里的缰绳”**
-* **考场风控/题眼**：curb carbon emissions 遏制碳排放
+### 11. require
+* **考场义与框架**：v. 需要、要求（`require sb to do / require + 条件`）
+* **11 年实测**：7/11 年（2016, 2017, 2019, 2020, 2023, 2024, 2026）
+* **真题原句**：`[2024]` One thing that does seem to work is requiring drivers to report in person for license renewal.
+* **题眼/避坑**：常引出必要条件或硬性规定。
 
-### 12. diminish
-* **常用考场义**：v. 变小、减弱、贬低
-* **底层骨架**：**“水库水位逐渐下降”**
-* **考场风控/题眼**：diminish the importance 降低重要性
+### 12. support
+* **考场义与框架**：v./n. 支持、支撑、供养
+* **11 年实测**：7/11 年（2016, 2019, 2021, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2025]` And capacity in social care needs to be greater, to support the growing number of people living with long-term conditions.
+* **题眼/避坑**：既表立场赞同，也表经济/数据上的支撑。
 
-### 13. disrupt
-* **常用考场义**：v. 扰乱、打破、使中断
-* **底层骨架**：**“把咬合的齿轮砸断”**
-* **考场风控/题眼**：disrupt traditional markets 颠覆传统市场
+### 13. affect
+* **考场义与框架**：v. 影响（多为动词）；注意与名词 `effect` 区分
+* **11 年实测**：6/11 年（2017, 2020, 2021, 2023, 2024, 2026）
+* **真题原句**：`[2023]` Still other experts say it's too soon to understand how the Internet affects our brains.
+* **题眼/避坑**：词形易混：`affect` 作动词“影响”，`effect` 作名词“效果/影响”。
 
-### 14. dominate
-* **常用考场义**：v. 主导、占统治地位、支配
-* **底层骨架**：**“站在高处居高临下俯视全场”**
-* **考场风控/题眼**：dominate the industry 主导整个行业
+### 14. allow
+* **考场义与框架**：v. 允许、使……成为可能（`allow A to do`）
+* **11 年实测**：6/11 年（2021, 2022, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2024]` "Some states require physicians to report, others allow but do not mandate reports, while a few consider a report a breach of confidentiality.
+* **题眼/避坑**：在阅读里常表“使某事得以实现”，不只是“口头许可”。
 
-### 15. eliminate
-* **常用考场义**：v. 彻底消除、排除、淘汰
-* **底层骨架**：**“把东西推出门外并关上大门”**
-* **考场风控/题眼**：eliminate trade barriers 消除贸易壁垒
+### 15. attract
+* **考场义与框架**：v. 吸引（`attract workers / talent / investment`）
+* **11 年实测**：6/11 年（2017, 2018, 2019, 2021, 2022, 2026）
+* **真题原句**：`[2019]` [A] To attract younger laborers to farm work.
+* **题眼/避坑**：常用于商业、就业与公共设施题材。
 
-### 16. enhance
-* **常用考场义**：v. 提高、增加（价值、吸引力、质量）
-* **底层骨架**：**“在原有台阶上再垫高一层”**
-* **考场风控/题眼**：enhance public safety 提升公共安全
+### 16. decline
+* **考场义与框架**：v./n. 下降、衰退；婉拒（`in decline` 处于衰退中）
+* **11 年实测**：6/11 年（2017, 2019, 2021, 2023, 2024, 2026）
+* **真题原句**：`[2026]` There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.
+* **题眼/避坑**：高频负极趋势词，注意兼作“礼貌拒绝”。
 
-### 17. erode
-* **常用考场义**：v. 侵蚀、逐渐损耗（信任、利润）
-* **底层骨架**：**“海浪反复冲刷海岸岩石”**
-* **考场风控/题眼**：erode competitive advantage 侵蚀竞争优势
+### 17. force
+* **考场义与框架**：v. 迫使（`force sb to do`）；n. 力量、推动力
+* **11 年实测**：6/11 年（2018, 2020, 2021, 2022, 2024, 2026）
+* **真题原句**：`[2022]` The percentage of retirement-age people in the labor force has doubled over the past three decades.
+* **题眼/避坑**：被动 `be forced to do` 表“被迫”，常体现外部压力。
 
-### 18. exceed
-* **常用考场义**：v. 超过、胜过、超越边界
-* **底层骨架**：**“脚步迈过了警戒线”**
-* **考场风控/题眼**：exceed expectations 超过预期
+### 18. harm
+* **考场义与框架**：v./n. 损害、危害（`harm + 健康/环境/利益`）
+* **11 年实测**：6/11 年（2016, 2019, 2021, 2022, 2024, 2025）
+* **真题原句**：`[2021]` Thinking too much can also harm our ability to form preferences.
+* **题眼/避坑**：直接定性负极后果，对应 `damage / hurt / impair`。
 
-### 19. facilitate
-* **常用考场义**：v. 推动、促进、使……变得容易
-* **底层骨架**：**“把路上的石头搬开让其滑行”**
-* **考场风控/题眼**：facilitate communication 促进沟通
+### 19. promote
+* **考场义与框架**：v. 促进、推动、推广；晋升（`promote growth / health`）
+* **11 年实测**：6/11 年（2016, 2017, 2018, 2024, 2025, 2026）
+* **真题原句**：`[2026]` There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim.
+* **题眼/避坑**：高频正向动词，常考“推动/宣传”而非仅指“升职”。
 
-### 20. foster
-* **常用考场义**：v. 促进、培养（良好关系、创新）
-* **底层骨架**：**“给小树苗施肥浇水让其长大”**
-* **考场风控/题眼**：foster innovation 培养创新
+### 20. replace
+* **考场义与框架**：v. 取代、替代（`replace A with B` 用 B 取代 A）
+* **11 年实测**：6/11 年（2016, 2018, 2021, 2023, 2024, 2026）
+* **真题原句**：`[2021]` For individual companies, the temptation is always to let go of workers whose skills are no longer in demand and replace them with those whose skills are.
+* **题眼/避坑**：注意方向：`A be replaced by B` 表示 B 留下、A 退出。
 
-### 21. generate
-* **常用考场义**：v. 产生、引起、发（电）
-* **底层骨架**：**“机器轰鸣产出新能量”**
-* **考场风控/题眼**：generate revenue 产生营收
+### 21. avoid
+* **考场义与框架**：v. 避免、避开（`avoid doing / avoid + 风险`）
+* **11 年实测**：5/11 年（2017, 2020, 2022, 2023, 2024）
+* **真题原句**：`[2024]` Avoiding dangers posed by all those human drivers would require too many algorithms, she said.
+* **题眼/避坑**：否定性动作词，表“刻意绕开”。
 
-### 22. hinder
-* **常用考场义**：v. 阻碍、妨碍、拖后腿
-* **底层骨架**：**“在别人身后死死拉扯拽着”**
-* **考场风控/题眼**：hinder economic recovery 阻碍经济复苏
+### 22. enhance
+* **考场义与框架**：v. 提高、增强（价值、质量、体验）
+* **11 年实测**：5/11 年（2017, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2017]` But despite common misconceptions, a gap year does not hinder the success of academic pursuits - in fact, it probably enhances it.
+* **题眼/避坑**：偏书面正极动词，常作 `improve` 的选项改写。
 
-### 23. impair
-* **常用考场义**：v. 损害、削弱（功能、认知、视力）
-* **底层骨架**：**“身体零件发生故障受损”**
-* **考场风控/题眼**：impair cognitive ability 损害认知能力
+### 23. maintain
+* **考场义与框架**：v. 维持、保持；主张、坚称（`maintain that...`）
+* **11 年实测**：5/11 年（2016, 2019, 2023, 2025, 2026）
+* **真题原句**：`[2019]` To maintain forests as valuable "carbon sinks," we may need to ___
+* **题眼/避坑**：一词双用：接名词常为“维持”，接 `that` 从句为“坚称”。
 
-### 24. justify
-* **常用考场义**：v. 证明……是正当合理的
-* **底层骨架**：**“把天平调平，让法理站得住脚”**
-* **考场风控/题眼**：justify the investment 证明投资合理
+### 24. protect
+* **考场义与框架**：v. 保护、防护（`protect A from B`）
+* **11 年实测**：5/11 年（2017, 2018, 2022, 2023, 2026）
+* **真题原句**：`[2026]` So if we are to protect our libraries for future generations, we must raise awareness of them and the work they do.
+* **题眼/避坑**：常用于隐私、环境、消费者权益等语境。
 
-### 25. mitigate
-* **常用考场义**：v. 缓解、减轻（灾难、损失、风险）
-* **底层骨架**：**“在烈火上浇温水降温”**
-* **考场风控/题眼**：mitigate the impact 减轻冲击
+### 25. shift
+* **考场义与框架**：v./n. 转移、转变（`shift from A to B`）
+* **11 年实测**：5/11 年（2017, 2018, 2019, 2021, 2026）
+* **真题原句**：`[2026]` To positively shift the AI landscape, businesses should ______.
+* **题眼/避坑**：标志方向或重心切换，读到时要找清“从哪转到哪”。
 
-### 26. obscure
-* **常用考场义**：v. 遮掩、使模糊不清；adj. 昏暗的
-* **底层骨架**：**“一片乌云挡住了太阳”**
-* **考场风控/题眼**：obscure the true motive 掩盖真实动机
+### 26. accelerate
+* **考场义与框架**：v. 加速、加快（`accelerate the pace / transition`）
+* **11 年实测**：4/11 年（2017, 2018, 2019, 2022）
+* **真题原句**：`[2017]` Worse, the numbers are now falling at an accelerating rate.
+* **题眼/避坑**：高频增速动词，常与 `speed up` 互换。
 
-### 27. overlook
-* **常用考场义**：v. 忽略、漏看、宽恕
-* **底层骨架**：**“视线看远方，把脚下的东西漏掉了”**
-* **考场风控/题眼**：overlook the potential risk 忽略潜在风险
+### 27. eliminate
+* **考场义与框架**：v. 消除、排除、淘汰（程度强于 `reduce`）
+* **11 年实测**：4/11 年（2018, 2019, 2021, 2026）
+* **真题原句**：`[2021]` [B] eliminate their potential competitors
+* **题眼/避坑**：选项若把原文 `reduce` 改成 `eliminate`，属于程度偷换。
 
-### 28. prompt
-* **常用考场义**：v. 促使、推动（某人做某事）；adj. 迅速的
-* **底层骨架**：**“在台后给演员提词催其开口”**
-* **考场风控/题眼**：prompt action 促使立即行动
+### 28. enable
+* **考场义与框架**：v. 使能够、使成为可能（`enable sb to do`）
+* **11 年实测**：4/11 年（2016, 2023, 2025, 2026）
+* **真题原句**：`[2016]` [D] enable students to make big quick money
+* **题眼/避坑**：逻辑上等同于“提供能力/条件让某事发生”。
 
-### 29. reinforce
-* **常用考场义**：v. 加强、巩固（观念、结构、趋势）
-* **底层骨架**：**“在旧墙后面加一道钢筋水泥支撑”**
-* **考场风控/题眼**：reinforce existing stereotypes 加强既有偏见
+### 29. foster
+* **考场义与框架**：v. 促进、培养（创新、合作、关系）
+* **11 年实测**：4/11 年（2019, 2020, 2024, 2026）
+* **真题原句**：`[2026]` Street festivals drive foot traffic to local businesses and foster the kind of cultural vibrancy that makes our city special.
+* **题眼/避坑**：高频正极动词，几乎总是正面语义。
 
-### 30. sustain
-* **常用考场义**：v. 维持、支撑、经受住
-* **底层骨架**：**“从底下往上托住不让掉落”**
-* **考场风控/题眼**：sustain long-term growth 维持长期增长
+### 30. generate
+* **考场义与框架**：v. 产生、引发、发电（`generate revenue / energy / debate`）
+* **11 年实测**：4/11 年（2018, 2021, 2024, 2026）
+* **真题原句**：`[2024]` States have begun implementing their own solutions to shore up protections for consumer-generated health data.
+* **题眼/避坑**：抽象因果动词，主语常为技术、政策或商业模式。
 
-### 31. tackle
-* **常用考场义**：v. 解决、对付（难题）
-* **底层骨架**：**“橄榄球比赛中扑倒带球队员”**
-* **考场风控/题眼**：tackle global poverty 解决全球贫困
+### 31. preserve
+* **考场义与框架**：v. 保护、维护、保存（传统、生态、优势）
+* **11 年实测**：4/11 年（2019, 2022, 2023, 2025）
+* **真题原句**：`[2019]` [A] preserve the diversity of species in them
+* **题眼/避坑**：强调“保住原有状态不被破坏”。
 
-### 32. trigger
-* **常用考场义**：v. 扳动扳机、引发、导致
-* **底层骨架**：**“碰一下机关，连环爆发”**
-* **考场风控/题眼**：trigger a furious debate 引发激烈争论
+### 32. strengthen
+* **考场义与框架**：v. 加强、巩固（反义 `weaken`）
+* **11 年实测**：4/11 年（2017, 2019, 2023, 2024）
+* **真题原句**：`[2019]` [D] To strengthen financial support for farmers.
+* **题眼/避坑**：与 `weaken` 成对记忆，直接判定增减方向。
 
-### 33. undermine
-* **常用考场义**：v. 暗中削弱、逐渐破坏
-* **底层骨架**：**“在建筑物地基底下挖土使其塌陷”**
-* **考场风控/题眼**：undermine confidence 动摇信心（高频题眼！）
+### 33. threaten
+* **考场义与框架**：v. 威胁、危及（`threaten to do / threaten + 生存/行业`）
+* **11 年实测**：4/11 年（2016, 2019, 2021, 2022）
+* **真题原句**：`[2022]` More Americans are opting to work well into retirement, a growing trend that threatens to upend the old workforce model.
+* **题眼/避坑**：强负极预警词，常引出危机与反对理由。
 
-### 34. compromise
-* **常用考场义**：v. 危及损害（安全/原则）；妥协
-* **底层骨架**：**“让出底线防线，让危险渗透进来”**
-* **考场风控/题眼**：compromise data security 危及数据安全
+### 34. restrict
+* **考场义与框架**：v. 限制、约束（`restrict A to B`）
+* **11 年实测**：3/11 年（2021, 2022, 2023）
+* **真题原句**：`[2021]` Crop-growing in the UK is restricted due to _ __
+* **题眼/避坑**：与 `limit / ban` 同属约束类动词。
 
-### 35. stem
-* **常用考场义**：v. 源自 (stem from)；遏制阻挡
-* **底层骨架**：**“从主茎干上分叉长出来”**
-* **考场风控/题眼**：stem from inequality 源于不平等
+### 35. retain
+* **考场义与框架**：v. 保留、留住（人才、客户、控制权）
+* **11 年实测**：3/11 年（2021, 2025, 2026）
+* **真题原句**：`[2025]` [C] can barely retain its current employees
+* **题眼/避坑**：与 `lose / give up` 相对，职场与商业高频词。
 
 ---
 

@@ -1,144 +1,178 @@
 [« Unit_07](Unit_07.md) | [总目录 (README)](README.md) | [Unit_09 »](Unit_09.md)
 
-# 考研英语二阅读风洞词库 · Unit 08
-> **定位**：高轨巡航 · 经济、产业与市场秩序（全 27 词）
+# 考研英语二阅读真题核心词库 · Unit 08
+> **定位**：高频底色 · 经济、职场与商业运作（全 28 词）
+> **口径**：11 年英语二商科与职场真题实测高频词（全部跨 3–9 年）
 
 ---
 
-### 01. revenue
-* **常用考场义**：n. 财政收入、商业总营业额
-* **底层骨架**：**“收银机里一天倒出来的总进账”**
-* **考场风控/题眼**：annual revenue 年总营收
+### 01. demand
+* **考场义与框架**：n./v. 需求、强烈要求（`in demand` 抢手、`meet demand`）
+* **11 年实测**：8/11 年（2016, 2017, 2019, 2021, 2022, 2023, 2024, 2025）
+* **真题原句**：`[2025]` We need to be much better at reducing and diverting demand on health services, rather than simply managing it.
+* **题眼/避坑**：与 `supply`（供给）成对出现。
 
-### 02. subsidy
-* **常用考场义**：n. 政府财政补贴、津贴
-* **底层骨架**：**“国库拨下来救济贫瘠农田的水流”**
-* **考场风控/题眼**：government agricultural subsidies 政府农业补贴
+### 02. financial
+* **考场义与框架**：adj. 金融的、财政的、财务的
+* **11 年实测**：8/11 年（2017, 2018, 2019, 2020, 2021, 2022, 2024, 2026）
+* **真题原句**：`[2022]` He suggested that preretirees should speak with a financial adviser to set long-term financial goals.
+* **题眼/避坑**：常修饰压力、成本、激励或回报。
 
-### 03. inflation
-* **常用考场义**：n. 通货膨胀、物价飞涨
-* **底层骨架**：**“皮球被不断吹大，气压剧增”**
-* **考场风控/题眼**：curb rampant inflation 遏制恶性通货膨胀
+### 03. growth
+* **考场义与框架**：n. 增长、成长（`economic / wage growth`）
+* **11 年实测**：8/11 年（2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025）
+* **真题原句**：`[2024]` Coyle argues in her new book that economic growth should
+* **题眼/避坑**：经济类文章核心指标。
 
-### 04. recession
-* **常用考场义**：n. 经济衰退、萧条期
-* **底层骨架**：**“大潮退去，沿岸一片狼藉”**
-* **考场风控/题眼**：weather the economic recession 熬过经济衰退寒冬
+### 04. economy
+* **考场义与框架**：n. 经济、经济体；节约（形容词 `economic` 经济的）
+* **11 年实测**：7/11 年（2016, 2018, 2020, 2021, 2022, 2024, 2026）
+* **真题原句**：`[2020]` "Generation Zs are looking for more certainty and stability, because of the rise of the gig economy.
+* **题眼/避坑**：区分 `economic`（经济上的）与 `economical`（省钱划算的）。
 
-### 05. monopoly
-* **常用考场义**：n. 垄断、独占经营权
-* **底层骨架**：**“整个棋盘上只剩下一家插旗”**
-* **考场风控/题眼**：break up tech monopolies 拆分科技巨头垄断
+### 05. fund
+* **考场义与框架**：n. 资金、基金；v. 为……提供资金（`funding` 拨款/资助）
+* **11 年实测**：7/11 年（2016, 2017, 2018, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2024]` That will likely take increased federal funding for research independent of the tech giants.
+* **题眼/避坑**：作动词 `fund + 项目` = 出钱资助。
 
-### 06. commodity
-* **常用考场义**：n. 大宗商品、实物原材料
-* **底层骨架**：**“仓库里堆积成山的粮食原油钢铁”**
-* **考场风控/题眼**：raw commodities 原料大宗商品
+### 06. industry
+* **考场义与框架**：n. 行业、产业、工业
+* **11 年实测**：7/11 年（2016, 2019, 2021, 2022, 2023, 2024, 2026）
+* **真题原句**：`[2021]` A move back to self-sufficiency, the argument goes, would boost the farming industry, political sovereignty and even the nation's health.
+* **题眼/避坑**：英语二里多译“行业/业界”。
 
-### 07. surplus
-* **常用考场义**：n. 过剩、盈余；adj. 多余的
-* **底层骨架**：**“粮仓装不下了，溢出到马路上”**
-* **考场风控/题眼**：trade surplus 贸易顺差 / surplus labor 剩余劳力
+### 07. invest
+* **考场义与框架**：v. 投资、投入（`invest in`，名词 `investment`）
+* **11 年实测**：7/11 年（2017, 2018, 2021, 2022, 2024, 2025, 2026）
+* **真题原句**：`[2025]` Much more needs to be invested in communities and primary care to reduce our reliance on hospitals.
+* **题眼/避坑**：既指投钱，也指投入时间与精力。
 
-### 08. deficit
-* **常用考场义**：n. 亏空、财政赤字
-* **底层骨架**：**“水池漏底，入不敷出”**
-* **考场风控/题眼**：trade deficit 贸易逆差
+### 08. worker
+* **考场义与框架**：n. 劳动者、员工、从业者（集合词 `workforce` 劳动力）
+* **11 年实测**：7/11 年（2018, 2019, 2020, 2021, 2024, 2025, 2026）
+* **真题原句**：`[2025]` Tip creep and tipflation are now further supplementing the income of many low-wage service workers.
+* **题眼/避坑**：职场、自动化、退休类文章常驻主角。
 
-### 09. tariff
-* **常用考场义**：n. 关税、进口关税
-* **底层骨架**：**“进国境大门时收取的通行过路费”**
-* **考场风控/题眼**：impose steep tariffs 加征高额关税
+### 09. career
+* **考场义与框架**：n. 职业生涯、事业（`career path / change`）
+* **11 年实测**：6/11 年（2016, 2017, 2018, 2020, 2024, 2026）
+* **真题原句**：`[2020]` According to the career counselors and experts who study them, Generation Zs are clear-eyed, economic pragmatists.
+* **题眼/避坑**：常见于就业选择与代际职场观文章。
 
-### 10. liability
-* **常用考场义**：n. 债务负债；法律责任
-* **底层骨架**：**“绑在脚踝上的沉重铁链”**
-* **考场风控/题眼**：current liabilities 流动负债
+### 10. product
+* **考场义与框架**：n. 产品、产物（`production` 生产、`productivity` 生产率）
+* **11 年实测**：6/11 年（2017, 2018, 2021, 2022, 2023, 2026）
+* **真题原句**：`[2021]` Both apps, however, were later scrapped, after Microsoft said it had used their best features in its own products.
+* **题眼/避坑**：注意区分 `production`（产量/生产）与 `productivity`（生产率）。
 
-### 11. shareholder
-* **常用考场义**：n. 股东、股权持有人
-* **底层骨架**：**“拿着公司一张股份凭证的人”**
-* **考场风控/题眼**：shareholder value 股东利益
+### 11. supply
+* **考场义与框架**：n./v. 供给、供应（`supply chain` 供应链）
+* **11 年实测**：6/11 年（2018, 2020, 2021, 2022, 2023, 2024）
+* **真题原句**：`[2024]` Which of the following causes the shortage of wood supply in the UK?
+* **题眼/避坑**：与 `demand` 联动。
 
-### 12. stakeholder
-* **常用考场义**：n. 利益相关方（员工、社区、客户）
-* **底层骨架**：**“跟这个摊子生死攸关绑在一起的所有人”**
-* **考场风控/题眼**：all key stakeholders 所有核心利益攸关方
+### 12. consumer
+* **考场义与框架**：n. 消费者、用户（动词 `consume` 消耗/消费）
+* **11 年实测**：5/11 年（2016, 2018, 2019, 2022, 2024）
+* **真题原句**：`[2024]` Virginia, Colorado and Utah have also recently passed state consumer data privacy legislation.
+* **题眼/避坑**：市场与消费行为文章核心主体。
 
-### 13. entrepreneur
-* **常用考场义**：n. 创业家、敢于冒险的企业家
-* **底层骨架**：**“赤手空拳开辟荒地办厂的企业领头人”**
-* **考场风控/题眼**：budding entrepreneurs 初出茅庐的创业者
+### 13. fee
+* **考场义与框架**：n. 费用、服务费、学费（`tuition / user fees`）
+* **11 年实测**：5/11 年（2018, 2020, 2021, 2022, 2026）
+* **真题原句**：`[2018]` Ants keep predatory insects away from where their aphids feed; Gmail keeps the spammers out of our inboxes.
+* **题眼/避坑**：常与 `cost / charge / fine` 并见。
 
-### 14. corporation
-* **常用考场义**：n. 大型跨国企业、法人团体
-* **底层骨架**：**“拥有千军万马的商业巨无霸”**
-* **考场风控/题眼**：multinational corporation 跨国公司
+### 14. management
+* **考场义与框架**：n. 管理、管理层（`manager` 管理者）
+* **11 年实测**：5/11 年（2016, 2017, 2021, 2025, 2026）
+* **真题原句**：`[2016]` What makes the problem thornier is that the usual time-management techniques don't seem sufficient.
+* **题眼/避坑**：既指管理动作，也指公司高管层。
 
-### 15. acquisition
-* **常用考场义**：n. 收购兼并；获得的事物
-* **底层骨架**：**“把别家公司的门匾摘下来挂在自己门下”**
-* **考场风控/题眼**：mergers and acquisitions 兼并与收购 (M&A)
+### 15. competition
+* **考场义与框架**：n. 竞争、竞赛（`competitive` 有竞争力的）
+* **11 年实测**：4/11 年（2017, 2018, 2021, 2024）
+* **真题原句**：`[2018]` Competition law as presently interpreted can hardly protect Facebook users because --
+* **题眼/避坑**：常出现在反垄断与市场活力语境。
 
-### 16. venture
-* **常用考场义**：n. 风险商业投资；冒险行动
-* **底层骨架**：**“驾船驶入未知远洋寻宝”**
-* **考场风控/题眼**：venture capital 风险投资 (VC)
+### 16. income
+* **考场义与框架**：n. 收入、所得（`low-income / disposable income`）
+* **11 年实测**：4/11 年（2022, 2023, 2024, 2025）
+* **真题原句**：`[2025]` Tip creep and tipflation are now further supplementing the income of many low-wage service workers.
+* **题眼/避坑**：常与 `wage / salary / revenue` 区分主体。
 
-### 17. collateral
-* **常用考场义**：n. 抵押品、担保物
-* **底层骨架**：**“向当铺借钱时押下的金表”**
-* **考场风控/题眼**：put up property as collateral 把房产作为抵押品
+### 17. profit
+* **考场义与框架**：n. 利润、盈利；v. 获益（`profitable` 有利可图的）
+* **11 年实测**：4/11 年（2021, 2022, 2023, 2024）
+* **真题原句**：`[2024]` [D] wood producers9 motive to maximise profits
+* **题眼/避坑**：商业动机核心词。
 
-### 18. dividend
-* **常用考场义**：n. 红利、股息；额外回报
-* **底层骨架**：**“秋天果园里分给投资客的果子”**
-* **考场风控/题眼**：pay handsome dividends 带来丰厚红利
+### 18. staff
+* **考场义与框架**：n. 全体员工、职员（集合名词，不加 `-s`）；v. 配备人员
+* **11 年实测**：4/11 年（2017, 2021, 2023, 2026）
+* **真题原句**：`[2026]` Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive.
+* **题眼/避坑**：注意集合名词单复数用法。
 
-### 19. fluctuation
-* **常用考场义**：n. 波动、起伏不定
-* **底层骨架**：**“心电图剧烈上下跳动的折线”**
-* **考场风控/题眼**：price fluctuations 价格剧烈震荡
+### 19. trade
+* **考场义与框架**：n. 贸易、行业、手艺；v. 交易（`trade-off` 权衡取舍）
+* **11 年实测**：4/11 年（2020, 2021, 2024, 2025）
+* **真题原句**：`[2021]` The US Federal Trade Commission says it wants to find the answer to that question.
+* **题眼/避坑**：商业与政策文章常见。
 
-### 20. stagnant
-* **常用考场义**：adj. 停滞不前的、不景气的；死水一潭
-* **底层骨架**：**“盛夏里一潭发臭不再流动的池塘水”**
-* **考场风控/题眼**：stagnant wages 停滞不前的薪资
+### 20. workforce
+* **考场义与框架**：n. 全体劳动力、在职员工总数
+* **11 年实测**：4/11 年（2018, 2019, 2022, 2025）
+* **真题原句**：`[2022]` Older Americans are also the fastest-growing segment of the U.S. workforce.
+* **题眼/避坑**：人口老龄化与技能重塑题材核心词。
 
-### 21. booming
-* **常用考场义**：adj. 繁荣兴旺的、蓬勃发展的
-* **底层骨架**：**“礼炮轰鸣，四海宾客络绎不绝”**
-* **考场风控/题眼**：a booming tech sector 蓬勃繁荣的科技产业
+### 21. brand
+* **考场义与框架**：n. 品牌、商标；v. 打上烙印
+* **11 年实测**：3/11 年（2017, 2020, 2026）
+* **真题原句**：`[2017]` Gap year experiences can lessen the blow when it comes to adjusting to college and being thrown into a brand new environment, making it easier to focus on...
+* **题眼/避坑**：消费与营销文章常见。
 
-### 22. deregulation
-* **常用考场义**：n. 放宽行政管制、打破行业限制
-* **底层骨架**：**“解开原本套在牛脖子上的缰绳绳索”**
-* **考场风控/题眼**：financial deregulation 金融管制松绑
+### 22. budget
+* **考场义与框架**：n. 预算、经费；v. 编预算
+* **11 年实测**：3/11 年（2017, 2023, 2026）
+* **真题原句**：`[2026]` There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim.
+* **题眼/避坑**：公共财政与家庭开支高频词。
 
-### 23. compliance
-* **常用考场义**：n. 顺从遵守、合规监管审查
-* **底层骨架**：**“尺子量过去，分毫不差符合标准”**
-* **考场风控/题眼**：regulatory compliance 监管合规
+### 23. customer
+* **考场义与框架**：n. 顾客、客户
+* **11 年实测**：3/11 年（2018, 2022, 2025）
+* **真题原句**：`[2025]` These systems often prompted customers to tip for services that were not previously tipped.
+* **题眼/避坑**：零售与服务业语境常驻词。
 
-### 24. incentivize
-* **常用考场义**：v. 激励、刺激、设立奖励机制
-* **底层骨架**：**“在赛跑终点摆上黄金奖杯催人快跑”**
-* **考场风控/题眼**：incentivize green investments 激励绿色环保投资
+### 24. employment
+* **考场义与框架**：n. 就业、受雇（反义 `unemployment` 失业）
+* **11 年实测**：3/11 年（2020, 2021, 2026）
+* **真题原句**：`[2021]` [A] an increase in full-time employment
+* **题眼/避坑**：常与 `job / labor` 互换。
 
-### 25. restructure
-* **常用考场义**：v. 彻底重组调整（机构结构）
-* **底层骨架**：**“把旧积木推倒，换个新架构重新搭”**
-* **考场风控/题眼**：restructure debt 重组债务
+### 25. insurance
+* **考场义与框架**：n. 保险、保障（`health / home insurance`）
+* **11 年实测**：3/11 年（2022, 2024, 2026）
+* **真题原句**：`[2026]` Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive.
+* **题眼/避坑**：民生与气候灾害赔偿文章常考。
 
-### 26. lucrative
-* **常用考场义**：adj. 极其赚钱的、利润丰厚的
-* **底层骨架**：**“挖到金矿，挖出来的全是真金白银”**
-* **考场风控/题眼**：a lucrative business model 暴利的商业模式
+### 26. labor
+* **考场义与框架**：n. 劳动力、劳工、劳动（英式 `labour`）
+* **11 年实测**：3/11 年（2019, 2020, 2022）
+* **真题原句**：`[2022]` The percentage of retirement-age people in the labor force has doubled over the past three decades.
+* **题眼/避坑**：`labor shortage / labor market` 为常考搭配。
 
-### 27. solvent
-* **常用考场义**：adj. 有偿债能力的；n. 溶剂
-* **底层骨架**：**“兜里的现金足够支付到期债单”**
-* **考场风控/题眼**：remain financially solvent 维持财务清偿能力
+### 27. manufacture
+* **考场义与框架**：v./n. 制造、生产（`manufacturer` 制造商）
+* **11 年实测**：3/11 年（2018, 2020, 2024）
+* **真题原句**：`[2018]` But even now, 54 percent of the jobs in the country are middle-skill jobs, such as construction and high-skill manufacturing.
+* **题眼/避坑**：实体产业与供应链常用词。
+
+### 28. tax
+* **考场义与框架**：n. 税款、税收；v. 对……征税；使负重担
+* **11 年实测**：3/11 年（2017, 2019, 2023）
+* **真题原句**：`[2023]` Some 81% of respondents said they would be willing to pay additional taxes for the next 10 years to avoid any cuts to the national parks.
+* **题眼/避坑**：公共政策与财政文章常驻词。
 
 ---
 

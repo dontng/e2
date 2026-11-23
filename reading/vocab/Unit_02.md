@@ -1,179 +1,214 @@
 [« Unit_01](Unit_01.md) | [总目录 (README)](README.md) | [Unit_03 »](Unit_03.md)
 
-# 考研英语二阅读风洞词库 · Unit 02
-> **定位**：核心主推 · 陈述评价与判定动词（全 34 词）
+# 考研英语二阅读真题核心词库 · Unit 02
+> **定位**：核心主推 · 态度、评估与论证动词（全 34 词）
+> **口径**：11 年英语二阅读作者立场、引述与题眼动词（全部实测跨 3–10 年）
 
 ---
 
-### 01. allege
-* **常用考场义**：v. （无充分证据地）断言、声称
-* **底层骨架**：**“指着对方说‘就是你干的’”**
-* **考场风控/题眼**：alleged crimes 指控的罪行；未坐实的声称
+### 01. challenge
+* **考场义与框架**：v. 质疑、挑战；n. 难题、挑战
+* **11 年实测**：10/11 年（2016, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2025]` Nearly 75 years on, with the UK facing very different health challenges, it is clear that model is out of date.
+* **题眼/避坑**：英语二头号高频态度词；作动词常表“质疑某观点/做法”。
 
-### 02. assert
-* **常用考场义**：v. 断言、坚定主张、维护权利
-* **底层骨架**：**“把拳头砸在桌子上宣布观点”**
-* **考场风控/题眼**：assert independence 宣告独立
+### 02. suggest
+* **考场义与框架**：v. 表明、暗示；建议（`suggest that...`）
+* **11 年实测**：10/11 年（2016, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2022]` He suggested that preretirees should speak with a financial adviser to set long-term financial goals.
+* **题眼/避坑**：研究/数据作主语时译“表明”，人/报告提对策时译“建议”。
 
-### 03. claim
-* **常用考场义**：v./n. 声称、断言；索取、索赔
-* **底层骨架**：**“举手大声主张‘这是我的’”**
-* **考场风控/题眼**：critics claim that... 批评人士声称（常为反驳靶子）
+### 03. consider
+* **考场义与框架**：v. 认为、把……看作（`consider A (as/to be) B`）；考虑
+* **11 年实测**：9/11 年（2016, 2017, 2019, 2020, 2022, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2020]` Which is considered a weakness of the city-level measures to tackle dirty air?
+* **题眼/避坑**：注意期待位：后面常接宾补，不只译“思考”。
 
-### 04. conclude
-* **常用考场义**：v. 得出结论、推断；结束
-* **底层骨架**：**“给绳子最后打个结收尾”**
-* **考场风控/题眼**：conclude that the policy failed 得出政策失败的结论
+### 04. believe
+* **考场义与框架**：v. 认为、相信（常引出主流看法或待反驳的旧观点）
+* **11 年实测**：8/11 年（2016, 2017, 2018, 2020, 2021, 2022, 2024, 2025）
+* **真题原句**：`[2025]` According to the last paragraph, researchers believe that HAPs should
+* **题眼/避坑**：读到 `Many people believe...` 时，后文常接 `But / Yet` 反转。
 
-### 05. contend
-* **常用考场义**：v. 坚决主张；竞争角逐 (contend with)
-* **底层骨架**：**“在法庭或赛场上拼力争辩”**
-* **考场风控/题眼**：contend that markets are efficient 主张市场有效
+### 05. expect
+* **考场义与框架**：v. 预期、指望、要求（`be expected to do`）
+* **11 年实测**：8/11 年（2016, 2017, 2018, 2019, 2020, 2021, 2024, 2026）
+* **真题原句**：`[2021]` Use of their gut hurt their performance on the first four tasks, as expected, and helped them on the rest.
+* **题眼/避坑**：不要与 `inspect`（检查）、`suspect`（猜想/怀疑）混淆。
 
-### 06. counter
-* **常用考场义**：v. 反驳、抵消、反击；adv. 相反地
-* **底层骨架**：**“对方出拳，你挥拳迎击格挡”**
-* **考场风控/题眼**：counter the argument 反驳该论点
+### 06. cite
+* **考场义与框架**：v. 引用、举出（理由/例子/研究）
+* **11 年实测**：6/11 年（2017, 2018, 2021, 2024, 2025, 2026）
+* **真题原句**：`[2026]` Microsoft Copilot is cited to show that the use of AI may ______.
+* **题眼/避坑**：题干常问某人为何被引用（`is cited to show...`）。
 
-### 07. criticize
-* **常用考场义**：v. 批评、指责、评论
-* **底层骨架**：**“拿着红笔挑出作业里的毛病”**
-* **考场风控/题眼**：sharply criticize 严厉批评
+### 07. aim
+* **考场义与框架**：v. 旨在、以……为目标（`aim to do / be aimed at`）；n. 目的
+* **11 年实测**：5/11 年（2017, 2018, 2019, 2022, 2025）
+* **真题原句**：`[2025]` Yet despite two decades of strategies and a number of major health reforms, we have failed to make meaningful progress on any of these aims.
+* **题眼/避坑**：常直接对应主旨题或目的题选项。
 
-### 08. defend
-* **常用考场义**：v. 为……辩护、保卫、防守
-* **底层骨架**：**“举起盾牌挡在前面”**
-* **考场风控/题眼**：defend the status quo 为现状辩护
+### 08. argue
+* **考场义与框架**：v. 主张、论证（`argue that...`）；争论
+* **11 年实测**：5/11 年（2016, 2018, 2019, 2021, 2024）
+* **真题原句**：`[2021]` Some people argue that food self-sufficiency in the UK would _ __
+* **题眼/避坑**：英语二里绝大多数情况译“主张/认为”，不是“吵架”。
 
-### 09. demonstrate
-* **常用考场义**：v. 证明、证实；演示；示威游行
-* **底层骨架**：**“把证据摊在桌上指给人看”**
-* **考场风控/题眼**：demonstrate a clear link 证实存在明确联系
+### 09. define
+* **考场义与框架**：v. 界定、定义、决定……的性质
+* **11 年实测**：5/11 年（2016, 2018, 2020, 2022, 2024）
+* **真题原句**：`[2024]` Part of the solution could lie in somehow loosening the stranglehold that Big Tech has on defining the AI agenda.
+* **题眼/避坑**：常用于概念界定或评价某因素对整体的决定作用。
 
-### 10. depict
-* **常用考场义**：v. 描绘、描写真实情况
-* **底层骨架**：**“用画笔把细节画出来”**
-* **考场风控/题眼**：depict a grim picture 描摹出一幅严峻图景
+### 10. note
+* **考场义与框架**：v. 指出、注意到（`note that...`）；n. 笔记、注释
+* **11 年实测**：5/11 年（2016, 2017, 2020, 2022, 2026）
+* **真题原句**：`[2022]` And if real, she notes, it might be reversible by another nudge: "Easy come, easy go.”
+* **题眼/避坑**：引述学者或作者本人观点的高频中性动词。
 
-### 11. derive
-* **常用考场义**：v. 获得、取得；源自 (derive from)
-* **底层骨架**：**“顺着水管把水引出来”**
-* **考场风控/题眼**：derive benefit from... 从……中获益
+### 11. compare
+* **考场义与框架**：v. 比较、对比（`compare A with/to B`）
+* **11 年实测**：4/11 年（2018, 2020, 2021, 2025）
+* **真题原句**：`[2020]` Michelsen thinks that compared with millennials, Generation Zs are_ _ __
+* **题眼/避坑**：提示两方对照，做题时要看清谁高于谁、谁优于谁。
 
-### 12. differentiate
-* **常用考场义**：v. 区分、区别、使不同
-* **底层骨架**：**“把红豆和绿豆挑开分成两堆”**
-* **考场风控/题眼**：differentiate between fact and opinion 区分事实与观点
+### 12. determine
+* **考场义与框架**：v. 决定、确定、查明（`determine whether / how...`）
+* **11 年实测**：4/11 年（2016, 2018, 2022, 2025）
+* **真题原句**：`[2025]` Today's tip requests are often not connected to the salary and service norms that used to determine when and how people tip.
+* **题眼/避坑**：既可表“因果决定”，也可表“研究查明”。
 
-### 13. dismiss
-* **常用考场义**：v. 不予理会、轻视、解雇
-* **底层骨架**：**“摆摆手让人走开，不听不看”**
-* **考场风控/题眼**：dismiss the proposal as impractical 认为方案不切实际而不予考虑
+### 13. favor
+* **考场义与框架**：v. 赞成、偏爱、有利于（`in favor of` 支持）
+* **11 年实测**：4/11 年（2016, 2017, 2019, 2020）
+* **真题原句**：`[2019]` [B] Biased laws in favor of some American businesses.
+* **题眼/避坑**：直接标示正极立场，反义为 `oppose / object to`。
 
-### 14. dispute
-* **常用考场义**：v./n. 质疑、对……表示异议；争端
-* **底层骨架**：**“两人指着同一个地界吵架”**
-* **考场风控/题眼**：dispute the official figures 质疑官方数据
+### 14. ignore
+* **考场义与框架**：v. 忽视、不理睬（常带批评语气）
+* **11 年实测**：4/11 年（2019, 2021, 2022, 2024）
+* **真题原句**：`[2019]` While the conversation around our environment and our responsibility toward it remains centered on shopping bags and straws, we're ignoring the balance of...
+* **题眼/避坑**：与 `overlook` 近义，常出现在作者批评他人盲点时。
 
-### 15. emphasize
-* **常用考场义**：v. 强调、着重说明
-* **底层骨架**：**“在关键词底下画粗黑双下划线”**
-* **考场风控/题眼**：emphasize the urgency 强调紧迫性
+### 15. imply
+* **考场义与框架**：v. 暗示、意味着（题干推理题高频词 `can be implied`）
+* **11 年实测**：4/11 年（2017, 2019, 2024, 2026）
+* **真题原句**：`[2026]` It is implied that the organizers of Wicker Park Fest have to ______.
+* **题眼/避坑**：主语是作者/文章/事实；与 `infer`（读者推断）方向相反。
 
-### 16. evaluate
-* **常用考场义**：v. 评估、评价、估值
-* **底层骨架**：**“把东西放天平上衡量价值”**
-* **考场风控/题眼**：evaluate policy outcomes 评估政策成效
+### 16. indicate
+* **考场义与框架**：v. 表明、显示（`indicate that...`）
+* **11 年实测**：4/11 年（2018, 2019, 2022, 2023）
+* **真题原句**：`[2023]` It is indicated in Paragraph 3 that how the Internet affects our brains
+* **题眼/避坑**：数据、调查、趋势作主语时的客观结论动词。
 
-### 17. highlight
-* **常用考场义**：v. 突出、强调；n. 亮点
-* **底层骨架**：**“拿荧光笔涂出最显眼的一行”**
-* **考场风控/题眼**：highlight the discrepancy 凸显差异
+### 17. intend
+* **考场义与框架**：v. 打算、旨在（`be intended to do / for`）
+* **11 年实测**：4/11 年（2020, 2021, 2022, 2025）
+* **真题原句**：`[2022]` The additional regulations under the CCPA are intended to
+* **题眼/避坑**：常用于对比“原本意图（intended）”与“实际结果”。
 
-### 18. illustrate
-* **常用考场义**：v. （用例子）说明、阐释；加插图
-* **底层骨架**：**“拿一张图或具体故事展示给人看”**
-* **考场风控/题眼**：illustrate this principle 说明这一原则
+### 18. overlook
+* **考场义与框架**：v. 忽略、漏看（多指无意漏掉重要因素）
+* **11 年实测**：4/11 年（2017, 2018, 2022, 2026）
+* **真题原句**：`[2026]` Yet still our libraries are often overlooked and underappreciated.
+* **题眼/避坑**：高频题眼，常与 `ignore / fail to notice` 对应。
 
-### 19. imply
-* **常用考场义**：v. 暗示、暗指、意味着
-* **底层骨架**：**“把话包在话音底下，不直接说破”**
-* **考场风控/题眼**：findings imply that... 调查结果暗示……
+### 19. prove
+* **考场义与框架**：v. 证明、证实；结果是（`prove (to be) + adj.`）
+* **11 年实测**：4/11 年（2018, 2020, 2021, 2025）
+* **真题原句**：`[2020]` [B] They prove impractical for city councils.
+* **题眼/避坑**：后接形容词时为系动词“结果证明是……”，不译“证明了”。
 
-### 20. indicate
-* **常用考场义**：v. 表明、显示、象征
-* **底层骨架**：**“路标上的箭头指向某个方向”**
-* **考场风控/题眼**：evidence indicates that... 证据表明……
+### 20. recommend
+* **考场义与框架**：v. 推荐、建议（`recommend doing / that...`）
+* **11 年实测**：4/11 年（2018, 2023, 2025, 2026）
+* **真题原句**：`[2023]` We recommend using real grass because of its environmental benefits, which include supporting wildlife, alleviating flooding and cooling the environment.,,
+* **题眼/避坑**：明确标示专家或作者的行动建议。
 
-### 21. infer
-* **常用考场义**：v. 推断、推知
-* **底层骨架**：**“根据地上的脚印推出有人走过”**
-* **考场风控/题眼**：infer from the text 从文中推断
+### 21. struggle
+* **考场义与框架**：v./n. 艰难应对、苦苦挣扎（`struggle to do / with`）
+* **11 年实测**：4/11 年（2016, 2017, 2025, 2026）
+* **真题原句**：`[2026]` There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.
+* **题眼/避坑**：隐性否定信号：`struggle to afford` = 很难负担得起。
 
-### 22. interpret
-* **常用考场义**：v. 解释、诠释；口译
-* **底层骨架**：**“把看不懂的密码译成白话”**
-* **考场风控/题眼**：interpret the data differently 对数据有不同解读
+### 22. worry
+* **考场义与框架**：v./n. 担忧、担心（`worry about / that...`）
+* **11 年实测**：4/11 年（2017, 2022, 2023, 2026）
+* **真题原句**：`[2023]` Some worry that this is having a destructive effect on society, but Sparrow sees an upside.
+* **题眼/避坑**：标示负面关切，常与 `concern / fear` 互换。
 
-### 23. maintain
-* **常用考场义**：v. 坚持认为；维持保持；赡养
-* **底层骨架**：**“咬定牙关手不松开”**
-* **考场风控/题眼**：maintain that quality matters 坚称质量最重要
+### 23. assume
+* **考场义与框架**：v. 假定、想当然地认为（常隐含“未必成立”）
+* **11 年实测**：3/11 年（2018, 2020, 2025）
+* **真题原句**：`[2025]` U.S. customers historically tipped people they assumed were earning most of their income via tips, such as restaurant servers earning less than the...
+* **题眼/避坑**：读到 `assume` 要警惕：作者后文经常推翻这个假设。
 
-### 24. manifest
-* **常用考场义**：v. 表明、显现；adj. 明显的
-* **底层骨架**：**“内心的想法在脸上显露出来”**
-* **考场风控/题眼**：manifest symptoms 显现症状
+### 24. claim
+* **考场义与框架**：v./n. 声称、宣称（常带保留或质疑语气）；索赔
+* **11 年实测**：3/11 年（2017, 2023, 2024）
+* **真题原句**：`[2023]` A Twitter account, which claims to “ cut through the greenwash,, of artificial grass, already has more than 20,000 followers.
+* **题眼/避坑**：比 `state / show` 更带“只是对方声称”的距离感。
 
-### 25. neglect
-* **常用考场义**：v./n. 忽视、疏忽、不予照管
-* **底层骨架**：**“花草长时间不浇水任其枯萎”**
-* **考场风控/题眼**：neglect basic maintenance 忽视日常维护
+### 25. highlight
+* **考场义与框架**：v. 强调、凸显、突出显示
+* **11 年实测**：3/11 年（2023, 2025, 2026）
+* **真题原句**：`[2025]` Mumbai9s April heatstroke deaths highlighted the need for more nuanced and localized warnings, researchers say.
+* **题眼/避坑**：引出核心发现或作者想让读者注意的重点。
 
-### 26. portray
-* **常用考场义**：v. 描绘、展现、扮演
-* **底层骨架**：**“把某人塑造成某种特定角色”**
-* **考场风控/题眼**：portray him as a hero 将其塑造成英雄
+### 26. identify
+* **考场义与框架**：v. 识别、找出、确认（`identify A as B`）
+* **11 年实测**：3/11 年（2020, 2022, 2023）
+* **真题原句**：`[2020]` Rats and other animals need to be highly attuned to social signals from others so they can identify friends to cooperate with and enemies to avoid.
+* **题眼/避坑**：科研与分析语境高频词，常表“查明原因/对象”。
 
-### 27. postulate
-* **常用考场义**：v. 假定、提出假设前提
-* **底层骨架**：**“先立一根柱子作为建房假定”**
-* **考场风控/题眼**：postulate a new theory 提出新理论假设
+### 27. infer
+* **考场义与框架**：v. 推断、推论（题干 `can be inferred from`）
+* **11 年实测**：3/11 年（2018, 2022, 2025）
+* **真题原句**：`[2022]` It can be inferred from Paragraph 3 that Americans tend to think that
+* **题眼/避坑**：英语二推理题固定题干词，要求基于原文合理推出。
 
-### 28. presume
-* **常用考场义**：v. 假定、推定；擅作主张
-* **底层骨架**：**“没见全貌就先入为主认定”**
-* **考场风控/题眼**：presume innocent until proven guilty 假定无罪
+### 28. judge
+* **考场义与框架**：v. 判断、评价；n. 法官
+* **11 年实测**：3/11 年（2016, 2020, 2021）
+* **真题原句**：`[2020]` A judge has now overruled the city's decision to stop levying fines, ordering them restored.
+* **题眼/避坑**：作动词常表“依据某标准评判”。
 
-### 29. question
-* **常用考场义**：v. 质疑、对……表示怀疑；询问
-* **底层骨架**：**“在陈述句末尾打一个大问号”**
-* **考场风控/题眼**：question the legitimacy 质疑其合法性
+### 29. justify
+* **考场义与框架**：v. 证明……正当合理、为……辩护
+* **11 年实测**：3/11 年（2018, 2020, 2026）
+* **真题原句**：`[2020]` High CEO pay can be justified by the fact that it helps _ __
+* **题眼/避坑**：常用于政策或行为合理性争论。
 
-### 30. reconcile
-* **常用考场义**：v. 调和、使一致；顺从接受
-* **底层骨架**：**“让吵架的两个人握手言和”**
-* **考场风控/题眼**：reconcile growth with environment 调和发展与环境矛盾
+### 30. propose
+* **考场义与框架**：v. 提议、提出（方案/法规/观点）
+* **11 年实测**：3/11 年（2019, 2023, 2025）
+* **真题原句**：`[2025]` According to Paragraph 1, Nagpur^ plan proposes measures to
+* **题眼/避坑**：常引出尚未落地的建议或改革方案。
 
-### 31. refute
-* **常用考场义**：v. 驳斥、反驳、证明……荒谬
-* **底层骨架**：**“拿出铁证把对方论点砸得粉碎”**
-* **考场风控/题眼**：refute the accusation 驳斥指控
+### 31. question
+* **考场义与框架**：v. 质疑、对……表示怀疑（`question whether...`）；n. 问题
+* **11 年实测**：3/11 年（2018, 2021, 2025）
+* **真题原句**：`[2025]` This must begin with the question of how we maximise the health of the nation, rather than “fix” the NHS.
+* **题眼/避坑**：作动词时是强态度词，等于 `doubt / challenge`。
 
-### 32. reveal
-* **常用考场义**：v. 揭示、透露、展现
-* **底层骨架**：**“掀开盖在宝物上的红布”**
-* **考场风控/题眼**：reveal the hidden costs 揭示隐藏成本
+### 32. reflect
+* **考场义与框架**：v. 反映、体现；反思（`reflect on`）
+* **11 年实测**：3/11 年（2023, 2025, 2026）
+* **真题原句**：`[2025]` The images on the Reddit webpage reflect
+* **题眼/避坑**：接名词为“反映某现实”，接 `on` 为“深入反思”。
 
-### 33. scrutinize
-* **常用考场义**：v. 仔细审查、细细端详
-* **底层骨架**：**“拿着放大镜一毫米一毫米看”**
-* **考场风控/题眼**：scrutinize the contract 严审合同
+### 33. represent
+* **考场义与框架**：v. 代表、体现、相当于（占多大比例）
+* **11 年实测**：3/11 年（2019, 2021, 2025）
+* **真题原句**：`[2019]` In a number of studies, Malti and others have shown that guilt and sympathy may represent different pathways to cooperation and sharing.
+* **题眼/避坑**：数据语境中常译“占……、构成……”。
 
-### 34. speculate
-* **常用考场义**：v. 推测、揣测；投机
-* **底层骨架**：**“站在眺望台上猜测远方有什么”**
-* **考场风控/题眼**：speculate on motives 推测动机
+### 34. reveal
+* **考场义与框架**：v. 揭示、显示、暴露（原本隐蔽的事实）
+* **11 年实测**：3/11 年（2018, 2023, 2025）
+* **真题原句**：`[2023]` The petitions mentioned in Paragraph 3 reveal the campaigners9
+* **题眼/避坑**：研究结论高频词，常与 `show / uncover` 对应。
 
 ---
 

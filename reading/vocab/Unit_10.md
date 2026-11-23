@@ -1,139 +1,166 @@
 [« Unit_09](Unit_09.md) | [总目录 (README)](README.md)
 
-# 考研英语二阅读风洞词库 · Unit 10
-> **定位**：高轨巡航 · 心理、行为与社会伦理（全 26 词）
+# 考研英语二阅读真题核心词库 · Unit 10
+> **定位**：高频底色 · 教育、心理与公共治理（全 26 词）
+> **口径**：11 年英语二教育、心理行为与法治治理真题实测高频词（全部跨 3–10 年）
 
 ---
 
-### 01. cognitive
-* **常用考场义**：adj. 认知的、大脑思维感知力的
-* **底层骨架**：**“脑袋里的CPU运算逻辑回路”**
-* **考场风控/题眼**：cognitive impairment 认知能力损伤
+### 01. government
+* **考场义与框架**：n. 政府、政体（`federal / local government`）
+* **11 年实测**：10/11 年（2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2020]` They are acting because national governments - Britain's and others across Europe -have failed to do so.
+* **题眼/避坑**：公共政策与监管类文章第一主体词。
 
-### 02. subconscious
-* **常用考场义**：adj./n. 潜意识的、下意识的隐秘心理
-* **底层骨架**：**“浮在海面冰山底下看不见的巨大底座”**
-* **考场风控/题眼**：subconscious desires 潜意识愿望
+### 02. federal
+* **考场义与框架**：adj. 联邦的、中央政府的（相对 `state / local`）
+* **11 年实测**：7/11 年（2016, 2017, 2019, 2020, 2021, 2023, 2024）
+* **真题原句**：`[2024]` That will likely take increased federal funding for research independent of the tech giants.
+* **题眼/避坑**：美国题材中专指联邦层面机构与法规。
 
-### 03. psychological
-* **常用考场义**：adj. 心理学上的、精神层面的
-* **底层骨架**：**“心头缠绕的情绪心结与心理机制”**
-* **考场风控/题眼**：psychological pressure 心理重压
+### 03. generation
+* **考场义与框架**：n. 一代人、代际（`Generation Z / younger generations`）
+* **11 年实测**：7/11 年（2016, 2017, 2018, 2020, 2022, 2024, 2026）
+* **真题原句**：`[2020]` "Generation Zs are looking for more certainty and stability, because of the rise of the gig economy.
+* **题眼/避坑**：代际消费、就业与价值观文章主角。
 
-### 04. behavioral
-* **常用考场义**：adj. 行为上的、外在举动反应的
-* **底层骨架**：**“身体做出来的每一个具体动作举止”**
-* **考场风控/题眼**：behavioral patterns 行为模式
+### 04. community
+* **考场义与框架**：n. 社区、群体、界（`local / scientific community`）
+* **11 年实测**：6/11 年（2016, 2017, 2019, 2022, 2025, 2026）
+* **真题原句**：`[2025]` Much more needs to be invested in communities and primary care to reduce our reliance on hospitals.
+* **题眼/避坑**：既指地理社区，也指某专业共同体。
 
-### 05. empathy
-* **常用考场义**：n. 同理心、感同身受的共情能力
-* **底层骨架**：**“穿上别人的破鞋走两里路体会其痛苦”**
-* **考场风控/题眼**：lack of empathy 缺乏同理心
+### 05. education
+* **考场义与框架**：n. 教育、培养（`higher education` 高等教育）
+* **11 年实测**：6/11 年（2016, 2017, 2018, 2021, 2023, 2024）
+* **真题原句**：`[2018]` When education becomes one-size-fits-all, it risks overlooking a nation's diversity of gifts.
+* **题眼/避坑**：大学学费、技能培养题材常驻词。
 
-### 06. altruism
-* **常用考场义**：n. 利他主义、无私奉献品格
-* **底层骨架**：**“掏出自己唯一的面包喂饱路边的饥民”**
-* **考场风控/题眼**：pure altruism 纯粹的利他主义
+### 06. official
+* **考场义与框架**：n. 官员、公职人员；adj. 官方的、正式的
+* **11 年实测**：6/11 年（2016, 2017, 2020, 2024, 2025, 2026）
+* **真题原句**：`[2025]` In general, an HAP spells out when and how officials should issue heat warnings and alert hospitals and other institutions.
+* **题眼/避坑**：注意既可作名词指人，也可作形容词。
 
-### 07. cynicism
-* **常用考场义**：n. 愤世嫉俗、犬儒主义冷漠怀疑
-* **底层骨架**：**“撇撇嘴冷笑‘这帮人无非全是为了钱’”**
-* **考场风控/题眼**：widespread cynicism 普遍存在的犬儒冷漠心态
+### 07. attention
+* **考场义与框架**：n. 注意力、关注（`pay attention to / draw attention`）
+* **11 年实测**：5/11 年（2017, 2020, 2024, 2025, 2026）
+* **真题原句**：`[2017]` Parents would be looking at their emails while the children would be making excited bids for their attention.
+* **题眼/避坑**：心理专注力与社会关注度双线高频。
 
-### 08. skepticism
-* **常用考场义**：n. 怀疑态度、质疑批判精神
-* **底层骨架**：**“拿起放大镜仔细查验所有证据破绽”**
-* **考场风控/题眼**：scientific skepticism 科学怀疑精神
+### 08. ban
+* **考场义与框架**：v./n. 禁止、禁令（`ban A from doing / impose a ban on`）
+* **11 年实测**：5/11 年（2019, 2022, 2023, 2025, 2026）
+* **真题原句**：`[2023]` The Chelsea Flower Show has banned fake grass from this year's event, declaring it to be not part of its ethos.
+* **题眼/避坑**：强硬监管动词。
 
-### 09. narcissism
-* **常用考场义**：n. 自恋、自负膨胀、自我沉迷
-* **底层骨架**：**“整天对着水面镜子看自己陶醉不已”**
-* **考场风控/题眼**：digital narcissism 社交媒体上的数字自恋
+### 09. emotional
+* **考场义与框架**：adj. 情绪的、情感的（名词 `emotion`）
+* **11 年实测**：5/11 年（2017, 2019, 2022, 2023, 2026）
+* **真题原句**：`[2022]` "It's not just a financial decision, but an emotional one.
+* **题眼/避坑**：心理学与人际关系题材核心词。
 
-### 10. alienation
-* **常用考场义**：n. 疏远冷漠、社会阶层异化脱节
-* **底层骨架**：**“站在热闹繁华的街头却觉得谁也不认得自己”**
-* **考场风控/题眼**：social alienation 社交疏离感
+### 10. habit
+* **考场义与框架**：n. 习惯、习性（`develop / break a habit`）
+* **11 年实测**：5/11 年（2016, 2018, 2022, 2023, 2024）
+* **真题原句**：`[2022]` Now the researchers are probing the specific effects of teaching style, teaching assistants9 eating habits and students' video exposure.
+* **题眼/避坑**：行为改变类文章高频词。
 
-### 11. conformity
-* **常用考场义**：n. 从众盲从、随大流顺从常规
-* **底层骨架**：**“别人举手自己也跟着无脑举手”**
-* **考场风控/题眼**：conformity to social expectations 顺从社会规训
+### 11. legal
+* **考场义与框架**：adj. 法律的、合法的（反义 `illegal`）
+* **11 年实测**：5/11 年（2018, 2020, 2022, 2023, 2024）
+* **真题原句**：`[2020]` But with legal battles ahead, the zone's future looks uncertain at best.
+* **题眼/避坑**：法治、维权与行业监管常见。
 
-### 12. devotion
-* **常用考场义**：n. 奉献忠诚、倾注全身心热爱
-* **底层骨架**：**“把一辈子心血毫无保留铺在这一件事上”**
-* **考场风控/题眼**：devotion to duty 恪尽职守
+### 12. mental
+* **考场义与框架**：adj. 心理的、精神的（`mental health` 心理健康）
+* **11 年实测**：5/11 年（2018, 2022, 2024, 2025, 2026）
+* **真题原句**：`[2022]` [C] the mental health of retirees is overlooked.
+* **题眼/避坑**：常与 `physical`（身体的）并列出现。
 
-### 13. delusion
-* **常用考场义**：n. 妄想、被蒙蔽的错误观念
-* **底层骨架**：**“以为自己披上斗篷就能真的飞上天空”**
-* **考场风控/题眼**：suffer from delusions 患有妄想症
+### 13. academic
+* **考场义与框架**：adj. 学术的、学业的；n. 学者
+* **11 年实测**：4/11 年（2016, 2017, 2018, 2023）
+* **真题原句**：`[2017]` And after going to school for 12 years, it doesn't feel natural to spend a year doing something that isn't academic.
+* **题眼/避坑**：高校与科研类文章常驻词。
 
-### 14. instinct
-* **常用考场义**：n. 原始天性直觉、本能反应
-* **底层骨架**：**“手碰到滚烫开水瞬间缩回的神经冲动”**
-* **考场风控/题眼**：human instinct 人类生存本能
+### 14. authority
+* **考场义与框架**：n. 权威、当局（常用复数 `authorities`）、职权
+* **11 年实测**：4/11 年（2017, 2023, 2025, 2026）
+* **真题原句**：`[2026]` There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.
+* **题眼/避坑**：`local authorities` 指地方当局/主管部门。
 
-### 15. intuition
-* **常用考场义**：n. 直觉感知、灵光一现的顿悟
-* **底层骨架**：**“脑子里没算算式却突然跳出答案的第六感”**
-* **考场风控/题眼**：rely on gut intuition 依赖直觉本能
+### 15. behavior
+* **考场义与框架**：n. 行为、举止（英式 `behaviour`，形容词 `behavioral`）
+* **11 年实测**：4/11 年（2019, 2020, 2022, 2023）
+* **真题原句**：`[2023]` But the new study shows that, interestingly, the same pattern holds for prosocial behavior.
+* **题眼/避坑**：心理实验与消费决策核心研究对象。
 
-### 16. morality
-* **常用考场义**：n. 道德伦理标准、是非准则
-* **底层骨架**：**“心头挂着的一盏良知明灯”**
-* **考场风控/题眼**：standards of morality 道德标准准则
+### 16. graduate
+* **考场义与框架**：v. 毕业；n. 毕业生（`undergraduate` 本科生）
+* **11 年实测**：4/11 年（2016, 2017, 2018, 2020）
+* **真题原句**：`[2020]` Despite graduating into the best economy in the past 50 years, Gen Zs know what an economic train wreck looks like.
+* **题眼/避坑**：高校就业与起薪题材常见。
 
-### 17. virtue
-* **常用考场义**：n. 美德操守、优秀品质；优点长处
-* **底层骨架**：**“胸口佩戴的一块温润无暇的美玉”**
-* **考场风控/题眼**：patience is a virtue 忍耐是一种美德
+### 17. law
+* **考场义与框架**：n. 法律、法规、规律（`competition law` 竞争法）
+* **11 年实测**：4/11 年（2017, 2018, 2019, 2024）
+* **真题原句**：`[2024]` What does the author imply about existing health privacy law?
+* **题眼/避坑**：法治、隐私与反垄断文章核心词。
 
-### 18. integrity
-* **常用考场义**：n. 正直诚实；完整统一无缺
-* **底层骨架**：**“哪怕狂风暴雨也绝不弯腰的笔直脊梁”**
-* **考场风控/题眼**：compromise journalistic integrity 牺牲新闻操守
+### 18. skill
+* **考场义与框架**：n. 技能、本领（`reskilling` 技能重塑）
+* **11 年实测**：4/11 年（2016, 2018, 2020, 2021）
+* **真题原句**：`[2021]` When the skills mismatch is in the broader economy though, the focus usually turns to government to handle.
+* **题眼/避坑**：职业培训与教育回报核心词。
 
-### 19. stigma
-* **常用考场义**：n. 耻辱烙印、负面不良社会标签
-* **底层骨架**：**“额头上被古人烫上去的难堪印记”**
-* **考场风控/题眼**：mental health stigma 心理疾病耻辱感
+### 19. agency
+* **考场义与框架**：n. 机构、代理处（多指政府专门署/局）
+* **11 年实测**：3/11 年（2016, 2017, 2022）
+* **真题原句**：`[2017]` Another nationwide concern is whether public funds from other agencies are going into construction in fire-prone districts.
+* **题眼/避坑**：英语二里多指联邦或地方职能机构。
 
-### 20. prejudice
-* **常用考场义**：n./v. 先入为主的成见、偏见歧视
-* **底层骨架**：**“门缝里看人，把人彻底看扁”**
-* **考场风控/题眼**：deep-rooted racial prejudice 根深蒂固的种族成见
+### 20. congress
+* **考场义与框架**：n. 国会、议会（美国立法机构）
+* **11 年实测**：3/11 年（2016, 2019, 2023）
+* **真题原句**：`[2016]` Some Congress members are trying to block the plan, and at least a dozen industry groups, four states, and three environmental groups are challenging it...
+* **题眼/避坑**：美国立法与预算文章常见。
 
-### 21. tolerance
-* **常用考场义**：n. 宽容包容心；忍受耐受度
-* **底层骨架**：**“屋里吵吵闹闹自己依然能心平气和”**
-* **考场风控/题眼**：tolerance for ambiguity 对模糊不确定性的容忍度
+### 21. cultural
+* **考场义与框架**：adj. 文化的、教养的（名词 `culture`）
+* **11 年实测**：3/11 年（2017, 2023, 2026）
+* **真题原句**：`[2026]` Street festivals drive foot traffic to local businesses and foster the kind of cultural vibrancy that makes our city special.
+* **题眼/避坑**：社会规范与公共场馆题材常见。
 
-### 22. hostility
-* **常用考场义**：n. 敌意敌对、仇恨攻击心理
-* **底层骨架**：**“两头野兽相互龇牙露出锋利獠牙”**
-* **考场风控/题眼**：open hostility 公开的敌意对立
+### 22. degree
+* **考场义与框架**：n. 学位；程度（`to some degree` 在某种程度上）
+* **11 年实测**：3/11 年（2016, 2018, 2021）
+* **真题原句**：`[2021]` Then they rated the degree to which they had used intuition (" gut feelings," "hunches," "my heart").
+* **题眼/避坑**：双义词：教育文章指“学位”，论证里指“程度”。
 
-### 23. solidarity
-* **常用考场义**：n. 团结一致、群体齐心协力同盟
-* **底层骨架**：**“工人们手挽手肩并肩组成的人墙”**
-* **考场风控/题眼**：international solidarity 国际团结互助
+### 23. infrastructure
+* **考场义与框架**：n. 基础设施（交通、电网、公共场馆等底座）
+* **11 年实测**：3/11 年（2017, 2023, 2026）
+* **真题原句**：`[2026]` The huge improvements in Italy’s obsolete infrastructure partly explained the disruption, said Ferrovie.
+* **题眼/避坑**：公共投资与城市治理核心词。
 
-### 24. isolation
-* **常用考场义**：n. 孤立隔绝、孤独无援
-* **底层骨架**：**“被放逐到汪洋大海上的一座荒凉小岛”**
-* **考场风控/题眼**：social isolation 社交孤立无援
+### 24. legislation
+* **考场义与框架**：n. 立法、法规（不可数；`lawmaker` 立法者）
+* **11 年实测**：3/11 年（2019, 2023, 2024）
+* **真题原句**：`[2024]` Virginia, Colorado and Utah have also recently passed state consumer data privacy legislation.
+* **题眼/避坑**：政策落地类文章常见。
 
-### 25. exhaustion
-* **常用考场义**：n. 精疲力竭、耗尽枯竭
-* **底层骨架**：**“跑完四十公里马拉松瞬间瘫倒在跑道上”**
-* **考场风控/题眼**：emotional exhaustion 情绪彻底衰竭崩溃
+### 25. memory
+* **考场义与框架**：n. 记忆、记忆力、回忆
+* **11 年实测**：3/11 年（2021, 2023, 2024）
+* **真题原句**：`[2023]` "It seems pretty clear that memory is changing, but is it changing for the better?
+* **题眼/避坑**：认知心理学与老龄化题材常见。
 
-### 26. dignity
-* **常用考场义**：n. 尊严体面、不可侵犯的高贵
-* **底层骨架**：**“哪怕身穿破烂衣服依然昂首挺胸的气节”**
-* **考场风控/题眼**：human dignity 人类不可剥夺的尊严
+### 26. right
+* **考场义与框架**：n. 权利（常用复数 `rights`，如 `civil rights`）；adj. 正确的
+* **11 年实测**：6/11 年（2017, 2019, 2021, 2022, 2023, 2026）
+* **真题原句**：`[2019]` [C] we have been actively exercising our civil rights
+* **题眼/避坑**：复数形式 `rights` 几乎专指公民/法律权利。
 
 ---
 

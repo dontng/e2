@@ -1,149 +1,172 @@
 [« Unit_05](Unit_05.md) | [总目录 (README)](README.md) | [Unit_07 »](Unit_07.md)
 
-# 考研英语二阅读风洞词库 · Unit 06
-> **定位**：风控防线 · 条件约束与程度一票否决（全 28 词）
+# 考研英语二阅读真题核心词库 · Unit 06
+> **定位**：风控防线 · 否定、让步、范围与程度一票否决（全 27 词）
+> **口径**：11 年真题实测方向翻转与选项排雷信号（每条均附匹配语境的真题原句）
 
 ---
 
-### 01. ostensible
-* **常用考场义**：adj. 表面上的、声称的（实际可能相反）
-* **底层骨架**：**“假面具戴在脸上给外人看”**
-* **考场风控/题眼**：极高风控词！后文必有反转（ostensible purpose 表面借口）
+### 01. while
+* **考场义与框架**：conj. **句首表让步“虽然、尽管”**（后半句才是作者真立场）；表对比“而”
+* **11 年实测**：7/11 年（2016, 2017, 2018, 2019, 2023, 2024, 2026）
+* **真题原句**：`[2023]` Half of the participants were told the information would be erased, while the other half were told it would be saved.
+* **题眼/避坑**：千万别一律当“当……时候”，主句往往在逗号后面翻转。
 
-### 02. unwarranted
-* **常用考场义**：adj. 毫无根据的、站不住脚的、过分的
-* **底层骨架**：**“拿不出官方授权书就胡作非为”**
-* **考场风控/题眼**：驳斥对方谬论的杀手词（unwarranted optimism 盲目乐观）
+### 02. although / though
+* **考场义与框架**：conj. 虽然、尽管（后半句定调；`though` 放句末表“不过/然而”）
+* **11 年实测**：8/11 年（2016, 2017, 2018, 2019, 2021, 2022, 2024, 2026）
+* **真题原句**：`[2024]` Passing vision tests also produced a similar decline in fatal crashes for those drivers, although there appeared to be no benefit from combining the two.
+* **题眼/避坑**：看到让步从句，答案重心通常在主句。
 
-### 03. tentative
-* **常用考场义**：adj. 暂定的、试探性的（绝非最终定论）
-* **底层骨架**：**“脚踩在薄冰上轻轻试探硬度”**
-* **考场风控/题眼**：选项只要写 permanent/settled 立即击毙（tentative conclusion）
+### 03. even if / even though
+* **考场义与框架**：conj. 即使、即便（先退一步承认，再坚持主句结论）
+* **11 年实测**：6/11 年（2016, 2018, 2019, 2021, 2022, 2026）
+* **真题原句**：`[2026]` But, with this newfound connection, many of us share sensitive, sometimes highly confidential information, even though over a third of people don’t...
+* **题眼/避坑**：常用于强化主句观点的成立条件。
 
-### 04. presumed
-* **常用考场义**：adj. 假定的、推定的（未经完全证实）
-* **底层骨架**：**“根据常情大致估计，但无实据”**
-* **考场风控/题眼**：presumed innocence 无罪推定
+### 04. despite / in spite of
+* **考场义与框架**：prep. 尽管、不管（后接名词/动名词，不接完整句子）
+* **11 年实测**：5/11 年（2017, 2020, 2024, 2025, 2026）
+* **真题原句**：`[2025]` Yet despite two decades of strategies and a number of major health reforms, we have failed to make meaningful progress on any of these aims.
+* **题眼/避坑**：功能同 `although`，后半句发生转折。
 
-### 05. plausible
-* **常用考场义**：adj. 貌似有理的、听起来合情合理的
-* **底层骨架**：**“听起来像真的，但可能被伪装”**
-* **考场风控/题眼**：a plausible explanation 貌似合理的解释
+### 05. however / yet
+* **考场义与框架**：adv./conj. 然而、可是（全篇最高优先级刹车信号）
+* **11 年实测**：8/11 年（2016, 2017, 2019, 2020, 2021, 2023, 2025, 2026）
+* **真题原句**：`[2025]` However, many customers are frustrated because they feel they are being asked for too high of a tip, too often.
+* **题眼/避坑**：转折后直接对接作者真实态度或题目答案句。
 
-### 06. ambiguous
-* **常用考场义**：adj. 模棱两可的、含糊不清的
-* **底层骨架**：**“两张脸重叠在一起看不清谁是谁”**
-* **考场风控/题眼**：ambiguous wording 歧义措辞
+### 06. rather than
+* **考场义与框架**：conj./prep. **而不是（肯定前者、否定后者）**
+* **11 年实测**：6/11 年（2017, 2019, 2020, 2021, 2023, 2025）
+* **真题原句**：`[2021]` AT&T is often given as the gold standard of a company who decided to do a massive reskilling program rather than go with a fire-and-hire strategy.
+* **题眼/避坑**：最容易把前后两项看成并列，务必划清“选 A 不选 B”。
 
-### 07. vulnerable
-* **常用考场义**：adj. 脆弱的、极易遭受损害攻击的
-* **底层骨架**：**“没有防护盾的士兵赤裸站在战场”**
-* **考场风控/题眼**：vulnerable to market shocks 极易受市场冲击
+### 07. instead of
+* **考场义与框架**：prep. 而不是、代替（否定其后紧跟的成分）
+* **11 年实测**：2/11 年（2017, 2021）
+* **真题原句**：`[2021]` Other research shows we're better at detecting deception from thin slices when we rely on intuition instead of reflection.
+* **题眼/避坑**：与 `rather than` 同理，紧跟在 `instead of` 后面的是被排除项。
 
-### 08. susceptible
-* **常用考场义**：adj. 易受影响的、敏感脆弱的
-* **底层骨架**：**“抵抗力差，一吹冷风就感冒”**
-* **考场风控/题眼**：susceptible to emotional appeals 易受情绪蛊惑
+### 08. not just / more than just
+* **考场义与框架**：phr. **不仅……而且重在后面**（重心后移）
+* **11 年实测**：8/11 年（2016, 2018, 2020, 2021, 2022, 2024, 2025, 2026）
+* **真题原句**：`[2025]` Urban planners interpret desire paths as more than just convenient shortcuts; they offer valuable insights into the dynamics between planning and...
+* **题眼/避坑**：选项若只说前半截“仅仅是 A”，必错。
 
-### 09. precarious
-* **常用考场义**：adj. 极其危险的、摇摇欲坠的、不稳的
-* **底层骨架**：**“脚踩在悬崖边松动的石块上”**
-* **考场风控/题眼**：precarious financial status 摇摇欲坠的财务状况
+### 09. fail to
+* **考场义与框架**：v. phr. **未能做到、没有做到（= didn't / don't）**
+* **11 年实测**：4/11 年（2017, 2020, 2024, 2025）
+* **真题原句**：`[2025]` Yet despite two decades of strategies and a number of major health reforms, we have failed to make meaningful progress on any of these aims.
+* **题眼/避坑**：高频隐性否定！别只当“考试失败”，直接按“没做到”读。
 
-### 10. detrimental
-* **常用考场义**：adj. 有害的、带来损害不利的
-* **底层骨架**：**“在健康水杯里滴进了一滴毒液”**
-* **考场风控/题眼**：detrimental to public health 对公共健康有害
+### 10. hardly / barely
+* **考场义与框架**：adv. **几乎不、勉强才（准否定词！）**
+* **11 年实测**：4/11 年（2018, 2022, 2024, 2025）
+* **真题原句**：`[2025]` [C] can barely retain its current employees
+* **题眼/避坑**：读到这两个词必须把整句极性翻成否定或极小量。
 
-### 11. contingent
-* **常用考场义**：adj. 取决于……的 (contingent on)；附带的
-* **底层骨架**：**“必须等前面的一张骨牌倒下才触发”**
-* **考场风控/题眼**：contingent on government approval 取决于政府审批
+### 11. little / few
+* **考场义与框架**：det./pron. **几乎没有（不带 `a` 表否定！）**
+* **11 年实测**：7/11 年（2016, 2017, 2019, 2020, 2021, 2024, 2025）
+* **真题原句**：`[2025]` Notably, Broadway stands out as one of the few areas in NYC that defies the grid-based system applied to the rest of the city, cutting a diagonal across...
+* **题眼/避坑**：`very few / little` 直接等同于否定；带 `a` 才表“有一些”。
 
-### 12. exempt
-* **常用考场义**：adj./v. 免除的、豁免管辖的
-* **底层骨架**：**“持有免死金牌，绕过法律管制”**
-* **考场风控/题眼**：exempt from local taxes 免缴地方税
+### 12. too ... to
+* **考场义与框架**：phr. **太……以至于不能……（隐性否定结果）**
+* **11 年实测**：3/11 年（2023, 2024, 2025）
+* **真题原句**：`[2024]` [D] will be too costly to put into practice
+* **题眼/避坑**：极易误读成“非常……所以能……”，必须翻成否定结果。
 
-### 13. indispensable
-* **常用考场义**：adj. 不可或缺的、绝对必需的
-* **底层骨架**：**“空气和水，离了它立刻就死”**
-* **考场风控/题眼**：an indispensable component 必不可少的组件
+### 13. no longer
+* **考场义与框架**：adv. phr. 不再（隐含过去是、现在不是的时间翻转）
+* **11 年实测**：2/11 年（2016, 2021）
+* **真题原句**：`[2021]` For individual companies, the temptation is always to let go of workers whose skills are no longer in demand and replace them with those whose skills are.
+* **题眼/避坑**：定位今昔对比题的关键信号。
 
-### 14. incompatible
-* **常用考场义**：adj. 不相容的、水火不相容的
-* **底层骨架**：**“水和热油倒在同一个锅里炸裂”**
-* **考场风控/题眼**：incompatible with basic principles 与基本原则不相容
+### 14. far from
+* **考场义与框架**：prep. phr. **远非、绝非（强否定）**，不是“距离远”
+* **11 年实测**：1/11 年（2019）
+* **真题原句**：`[2019]` [C] are far from sufficient
+* **题眼/避坑**：`far from + adj./doing` 直接取反义。
 
-### 15. disproportionate
-* **常用考场义**：adj. 不成比例的、过大或过小的
-* **底层骨架**：**“小蚂蚁身上扛着一头大象的重力”**
-* **考场风控/题眼**：bear disproportionate burdens 承担不成比例的重负
+### 15. not necessarily
+* **考场义与框架**：adv. phr. **未必、不一定**（既不肯定也不全盘否定）
+* **11 年实测**：2/11 年（2017, 2022）
+* **真题原句**：`[2022]` [D] are not necessarily ethically better.
+* **题眼/避坑**：典型部分否定/谨慎语气，选项写成“绝对不会”必错。
 
-### 16. unprecedented
-* **常用考场义**：adj. 史无前例的、空前的
-* **底层骨架**：**“史书上翻遍了也没找到第二例”**
-* **考场风控/题眼**：unprecedented challenges 史无前例的挑战
+### 16. not all / not every
+* **考场义与框架**：phr. **并非所有都……（部分否定，绝非“全都不”）**
+* **11 年实测**：1/11 年（2021）
+* **真题原句**：`[2021]` As of May, those rates had spiked up to 13. 3 per cent and 13. 7 per cent, and although many worker shortages had disappeared, not all had done so.
+* **题眼/避坑**：选项若偷换成 `none / no one`，直接排除。
 
-### 17. pervasive
-* **常用考场义**：adj. 无处不在的、弥漫蔓延的
-* **底层骨架**：**“空气里的烟味钻进每个房间角落”**
-* **考场风控/题眼**：pervasive anxiety 普遍弥漫的焦虑感
+### 17. at best
+* **考场义与框架**：adv. phr. **充其量、至多（降调/偏悲观评价）**
+* **11 年实测**：2/11 年（2020, 2021）
+* **真题原句**：`[2021]` Efforts in Canada and elsewhere have been arguably languid at best, and have given us a situation where we frequently hear of employers begging for...
+* **题眼/避坑**：绝非“最好、最棒”！看到 `at best` 立刻把态度往低调。
 
-### 18. negligible
-* **常用考场义**：adj. 微不足道的、可忽略不计的
-* **底层骨架**：**“大象身上掉了一根毫毛”**
-* **考场风控/题眼**：negligible difference 几乎不存在的微小差异
+### 18. at least
+* **考场义与框架**：adv. phr. 至少、起码（守住底线或让步肯定局部价值）
+* **11 年实测**：6/11 年（2016, 2017, 2019, 2020, 2022, 2024）
+* **真题原句**：`[2022]` But a new study published in Cognition found that, in at least one real-world situation, a single ethics lesson may have had lasting effects.
+* **题眼/避坑**：常引出底线数字或局部肯定。
 
-### 19. marginal
-* **常用考场义**：adj. 边缘的、微小的、边际的
-* **底层骨架**：**“站在跑道的最外侧白线边缘”**
-* **考场风控/题眼**：marginal gains 微弱收益
+### 19. if any
+* **考场义与框架**：phr. **即使有也极少（让步削弱）**
+* **11 年实测**：1/11 年（2022）
+* **真题原句**：`[2022]` Such farming also brings minimal, if any, improvement to the food products (though some producers say their eggs have more protein).
+* **题眼/避坑**：插在句子中间，大幅压低前文名词的实际存在度。
 
-### 20. subtle
-* **常用考场义**：adj. 微妙隐蔽的、不易察觉的
-* **底层骨架**：**“香水里极淡的一丝后调香气”**
-* **考场风控/题眼**：subtle manipulation 隐秘的手腕操控
+### 20. merely / solely / simply
+* **考场义与框架**：adv. 仅仅、只不过、唯一地（范围收窄/选项一票否决常客）
+* **11 年实测**：8/11 年（2016, 2017, 2020, 2021, 2023, 2024, 2025, 2026）
+* **真题原句**：`[2024]` A more immediate response is to broaden our digital imaginations to conceive of AI technologies that don't simply replace jobs but expand opportunities in...
+* **题眼/避坑**：原文有它们时表“轻描淡写/单一归因”；选项擅自加它们常为干扰项。
 
-### 21. profound
-* **常用考场义**：adj. 意义深远的、巨大的、深刻的
-* **底层骨架**：**“探入深海海底的幽深力量”**
-* **考场风控/题眼**：profound implications 影响深远
+### 21. virtually / nearly / almost
+* **考场义与框架**：adv. **几乎、实质上（接近但非 100%）**
+* **11 年实测**：9/11 年（2016, 2017, 2018, 2019, 2020, 2021, 2022, 2025, 2026）
+* **真题原句**：`[2020]` Plus, virtually all major American companies are becoming tech companies, often with their own research and development.
+* **题眼/避坑**：`virtually` 在阅读里常考“几乎”，别只背“虚拟地”。
 
-### 22. virtually
-* **常用考场义**：adv. 几乎、实质上（绝非虚拟地！）
-* **底层骨架**：**“距离终点线只差最后半毫米”**
-* **考场风控/题眼**：virtually impossible 几乎绝无可能（= almost）
+### 22. largely / partly
+* **考场义与框架**：adv. 在很大程度上 / 部分地（非全部、留有余地）
+* **11 年实测**：7/11 年（2016, 2018, 2019, 2021, 2022, 2025, 2026）
+* **真题原句**：`[2022]` Retirement patterns are changing partly due to
+* **题眼/避坑**：高频温和程度词，常对应正确选项的谨慎表述。
 
-### 23. barely
-* **常用考场义**：adv. 几乎不、勉强才能（准否定词！）
-* **底层骨架**：**“刚刚擦着头发丝险险掠过”**
-* **考场风控/题眼**：barely enough 勉勉强强才够用
+### 23. given (that)
+* **考场义与框架**：prep./conj. **考虑到、鉴于（引出已知前提，绝非“给与”）**
+* **11 年实测**：1/11 年（2021）
+* **真题原句**：`[2021]` Given their combined market value of more than $ 5 .5 trillion, rifling through such small deals-many of them much less prominent than Wunderlist and...
+* **题眼/避坑**：句首 `Given + 名词/that从句` = 因为存在这个前提。
 
-### 24. hardly
-* **常用考场义**：adv. 几乎绝不（准否定词！）
-* **底层骨架**：**“用铁筛子筛了一天也没见一粒金子”**
-* **考场风控/题眼**：hardly surprising 意料之中（= not surprising）
+### 24. only if / as long as
+* **考场义与框架**：conj. **只有当……才 / 只要（设下前置门槛）**
+* **11 年实测**：5/11 年（2016, 2021, 2022, 2024, 2026）
+* **真题原句**：`[2024]` As long as there are other cars on the roads, self-driving cars won't solve the problems of crashes, said Dugan.
+* **题眼/避坑**：注意区分 `only if`（只有……才）与 `if only`（要是……就好了）。
 
-### 25. merely
-* **常用考场义**：adv. 仅仅、只不过（选项一票否决常客）
-* **底层骨架**：**“画地为牢，不许多跨半步”**
-* **考场风控/题眼**：merely a tool 不外乎是一种工具
+### 25. otherwise
+* **考场义与框架**：adv. 否则、不然；在其他方面
+* **11 年实测**：2/11 年（2019, 2025）
+* **真题原句**：`[2025]` Often appearing as trodden dirt tracks through otherwise neat green spaces, these routes of collective disobedience cut comers, bisect lawns and cross...
+* **题眼/避坑**：提示反面假设结果（若不如此，就会怎样）。
 
-### 26. solely
-* **常用考场义**：adv. 唯一地、完全仅仅
-* **底层骨架**：**“聚光灯只打在一个人头上，其余全黑”**
-* **考场风控/题眼**：solely responsible 负有唯一责任
+### 26. beyond
+* **考场义与框架**：prep. 超出……范围、除……之外（`go beyond` 超越）
+* **11 年实测**：5/11 年（2016, 2020, 2021, 2022, 2025）
+* **真题原句**：`[2025]` Navigating beyond the organised pavements and parks of our urban spaces, desire paths are the unofficial footprints of a community, revealing the unspoken...
+* **题眼/避坑**：常表“不再局限于 A，还延伸到更广领域”。
 
-### 27. predominantly
-* **常用考场义**：adv. 主要地、绝大多数地
-* **底层骨架**：**“人群里十个有九个都是同一种人”**
-* **考场风控/题眼**：predominantly rural 以农村人口为主
-
-### 28. abruptly
-* **常用考场义**：adv. 突然地、唐突无过渡地
-* **底层骨架**：**“开得飞快的车一脚踩死刹车急停”**
-* **考场风控/题眼**：stop abruptly 戛然而止
+### 27. in fact / indeed
+* **考场义与框架**：adv. phr. 事实上、的确（常在转折或递进处引出真相）
+* **11 年实测**：3/11 年（2016, 2017, 2021）
+* **真题原句**：`[2021]` With the pandemic, unemployment is very high indeed.
+* **题眼/避坑**：用来揭穿前文错觉或加重肯定语气。
 
 ---
 
