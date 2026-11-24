@@ -9,7 +9,7 @@
 ### 01. tend to
 * **考场义与框架**：v. phr. 往往会、倾向于（`tend to do`）
 * **11 年实测**：8/11 年（2016, 2018, 2020, 2021, 2022, 2023, 2024, 2026）
-* **真题原句**：`[2024]` Some older drivers have trouble driving because they tend to
+* **真题原句**：`[2023]` The industry also points out that real grass requires considerable amounts of water, weed killer or other treatments and that people who lay fake grass tend to use their garden more.
 * **题眼/避坑**：表普遍倾向而非绝对规律，正确选项常客。
 
 ### 02. be likely to
@@ -27,13 +27,13 @@
 ### 04. focus on
 * **考场义与框架**：v. phr. 集中于、聚焦于（`focus A on B`）
 * **11 年实测**：7/11 年（2016, 2017, 2019, 2021, 2022, 2023, 2024）
-* **真题原句**：`[2024]` Existing health privacy law, such as the Health Insurance Portability and Accountability Act, is primarily focused on the way hospitals, doctors9 offices,...
+* **真题原句**：`[2024]` Existing health privacy law, such as the Health Insurance Portability and Accountability Act, is primarily focused on the way hospitals, doctors' offices,...
 * **题眼/避坑**：直接标示讨论重心或研究对象。
 
 ### 05. rely on / depend on
 * **考场义与框架**：v. phr. 依赖、依靠；取决于（`depend on`）
 * **11 年实测**：6/11 年（2016, 2017, 2021, 2022, 2023, 2026）
-* **真题原句**：`[2026]` The author holds that the future of street festival depends on ______.
+* **真题原句**：`[2026]` The fact is, unlike those large, city-produced music festivals, your neighborhood street festivals receive no city funding and rely on a combination of sponsorships, vendor fees and gate donations to cover their costs.
 * **题眼/避坑**：既可表“过度依赖（偏负）”，也可表“取决于条件”。
 
 ### 06. call for
@@ -51,8 +51,8 @@
 ### 08. treat A as B
 * **考场义与框架**：v. phr. 把 A 当作 B 对待/处理
 * **11 年实测**：5/11 年（2017, 2019, 2020, 2021, 2025）
-* **真题原句**：`[2025]` Worse, when policies like the national obesity strategy are scrapped, taxpayers are left with the heavy price tag of treating the illnesses, like...
-* **题眼/避坑**：别只背“治疗/请客”，注意后接 `as` 的定位角色。
+* **真题原句**：`[2020]` Similarly, children tend to treat robots as if they are fellow beings, even when they display only simple social signals.
+* **题眼/避坑**：别只背“治疗/请客”，注意后接 `as / as if` 的定位角色。
 
 ### 09. contribute to
 * **考场义与框架**：v. phr. 有助于、促成；导致（负面结果也能用！）
